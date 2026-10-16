@@ -38,6 +38,9 @@ T1+T2 by delegated writer, observed 2026-10-16:
 - Screenshots desktop/mobile + PDF checked; tabs wrap on mobile; #magic PDF only Magic (mock catalog).
 - Deviations: image `_400w.jpg`, imageLarge `_in_1000x1000.jpg`; no-image placeholder for presale; trailing " - <number>" stripped from names; manual price validated before fetch.
 - Commits: 13aef94 (T1), d0ce613 (T2).
+- Native review: high, 4 lenses, granted, APPROVED + acknowledged (lineage review-e8613367067e665a).
+- Advisory follow-ups: null set name if group missing from groups list breaks search (WARNING x2); 429 not retried; fetch path untested; dup key ignores group; variant id collision; UA name stale.
+- Reference noted: ~/workspace/digital-binder-tcg uses per-card `seccion` and /coleccion/<name> pages; its cards are no longer owned.
 
 ## Next step
 Review assessment; then user sends Magic and One Piece inventory.
