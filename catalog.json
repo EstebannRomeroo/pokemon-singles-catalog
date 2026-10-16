@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T17:23:16.578Z",
+  "generatedAt": "2026-10-16T19:27:18.941Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -57,6 +57,25 @@
       "priceCop": 6000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/631132/magic-commander-final-fantasy-hellkite-tyrant",
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+    },
+    {
+      "id": "pokemon-610384",
+      "game": "pokemon",
+      "name": "Jolteon",
+      "set": "SV: Prismatic Evolutions",
+      "number": "029/131",
+      "rarity": "Rare",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/610384_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/610384_in_1000x1000.jpg",
+      "variant": "Holofoil",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "qty": 1,
+      "usd": 0.38,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/610384/pokemon-sv-prismatic-evolutions-jolteon",
       "priceUpdatedAt": "2026-10-15T20:06:01+0000"
     }
   ]
