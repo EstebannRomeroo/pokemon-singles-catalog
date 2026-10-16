@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T19:32:02.640Z",
+  "generatedAt": "2026-10-16T19:34:39.739Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -114,6 +114,63 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716514/pokemon-me-30th-celebration-maushold-125-128",
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+    },
+    {
+      "id": "pokemon-713264",
+      "game": "pokemon",
+      "name": "Moltres - 096 (30th Celebration)",
+      "set": "ME: Mega Evolution Promo",
+      "number": "096",
+      "rarity": "Promo",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/713264_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/713264_in_1000x1000.jpg",
+      "variant": "Holofoil",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "qty": 1,
+      "usd": 0.45,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/713264/pokemon-me-mega-evolution-promo-moltres-096-30th-celebration",
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+    },
+    {
+      "id": "pokemon-713265",
+      "game": "pokemon",
+      "name": "Articuno - 097 (30th Celebration)",
+      "set": "ME: Mega Evolution Promo",
+      "number": "097",
+      "rarity": "Promo",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/713265_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/713265_in_1000x1000.jpg",
+      "variant": "Holofoil",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "qty": 1,
+      "usd": 0.38,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/713265/pokemon-me-mega-evolution-promo-articuno-097-30th-celebration",
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+    },
+    {
+      "id": "pokemon-713266",
+      "game": "pokemon",
+      "name": "Zapdos - 098 (30th Celebration)",
+      "set": "ME: Mega Evolution Promo",
+      "number": "098",
+      "rarity": "Promo",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/713266_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/713266_in_1000x1000.jpg",
+      "variant": "Holofoil",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "qty": 1,
+      "usd": 0.43,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/713266/pokemon-me-mega-evolution-promo-zapdos-098-30th-celebration",
       "priceUpdatedAt": "2026-10-15T20:06:01+0000"
     }
   ]
