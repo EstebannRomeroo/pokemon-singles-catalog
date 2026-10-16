@@ -1,15 +1,14 @@
 const PREFERRED_VARIANTS = ['normal', 'holofoil', 'reverseHolofoil'];
 
-// Returns { variant, usd } for the requested variant (or the best available one), or null.
+const usdOf = (p) => p?.market ?? p?.mid ?? null;
+
+// Returns { variant, usd } for the requested variant if it has a price, otherwise the first
+// variant with a price (normal, holofoil, reverseHolofoil, then any other key), or null.
 export function pickPrice(prices, variant) {
   if (!prices) return null;
-  const keys = Object.keys(prices);
-  const chosen = variant && prices[variant]
-    ? variant
-    : PREFERRED_VARIANTS.find((k) => prices[k]) ?? keys[0];
-  if (!chosen) return null;
-  const usd = prices[chosen].market ?? prices[chosen].mid ?? null;
-  return usd == null ? null : { variant: chosen, usd };
+  const order = [variant, ...PREFERRED_VARIANTS, ...Object.keys(prices)];
+  const chosen = order.find((k) => k && usdOf(prices[k]) != null);
+  return chosen ? { variant: chosen, usd: usdOf(prices[chosen]) } : null;
 }
 
 export function toCop(usd, rate, { minPriceCop, margin, roundToCop }) {

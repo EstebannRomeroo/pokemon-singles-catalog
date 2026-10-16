@@ -20,6 +20,8 @@ All free. No backend, no DB, no auth. Node 22 stdlib only, zero npm dependencies
 - [x] T1 — Price logic + update script + test (route: delegated writer; trigger: 2+ non-trivial files)
 - [x] T2 — Static page `index.html` (same writer)
 - [x] T3 — GitHub Actions workflow + README (same writer)
+- [x] T3b — Fixed editable USD→COP rate (inline)
+- [x] T4 — Harden update script: fail on missing cards, reject invalid manual price, variant price fallback, validate config, no-op commit when unchanged (route: delegated writer; trigger: 2+ non-trivial files)
 
 ## Acceptance criteria
 - `node --test` passes.
@@ -44,5 +46,12 @@ Deviations / rationale:
 
 - T3b — Fixed editable rate (user request): `usdToCop: 3200` in config.json, live FX fetch removed, script exits 1 on invalid rate. Commit e78964c. Route inline (one mechanical file). Native review: high, 4 lenses, granted, APPROVED + acknowledged (lineage review-34349cc5ae466fc2). `npm run prices`: 6 items, 1 USD = 3200 COP.
 
+- T4 — Hardening (delegated writer). New `scripts/catalog.mjs` (validateConfig, validateSingles, buildItems, catalogChanged) + `scripts/catalog.test.mjs`; `pickPrice` falls back to the first priced variant; `update-prices.mjs` is thin I/O glue that lists every error, exits 1 and leaves catalog.json untouched; writes only when items/usdToCop change. Observed 2026-10-16:
+  - RED: `node --test "scripts/*.test.mjs"`: 6 tests, 4 pass, 2 fail (catalog.mjs missing; new variant-fallback test).
+  - GREEN: `node --test "scripts/*.test.mjs"`: 12 tests, 12 pass, 0 fail.
+  - `npm run -s prices` (after three 5xx retries): `catalog.json unchanged (6 items, 1 USD = 3200 COP)`, exit 0; second run identical, `cmp` equal.
+  - Bogus `zz-999` in singles.json: `card zz-999 not found on pokemontcg.io`, exit 1, catalog.json byte-identical; singles.json restored (`git diff --quiet`).
+  - README documents error output and no-op behavior.
+
 ## Next step
-T4 (proposed, needs user OK): harden update script against the advisory findings. Then publish on GitHub Pages.
+Publish on GitHub Pages (user decision).

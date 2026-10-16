@@ -11,11 +11,11 @@ Catálogo estático y gratuito con precios en COP. Sin servidor, sin base de dat
 { "id": "sv3pt5-25", "qty": 2, "variant": "reverseHolofoil", "condition": "NM" }
 ```
 
-Solo `id` y `qty` son obligatorios. `variant` es la clave de precio de TCGPlayer (`normal`, `holofoil`, `reverseHolofoil`, `1stEditionHolofoil`, ...); si falta, se usa la primera disponible.
+Solo `id` y `qty` son obligatorios. `variant` es la clave de precio de TCGPlayer (`normal`, `holofoil`, `reverseHolofoil`, `1stEditionHolofoil`, ...); si falta o no tiene precio, se usa la primera con precio en este orden: `normal`, `holofoil`, `reverseHolofoil`, luego cualquier otra.
 
 ## Precio manual
 
-Agrega `"price": 50000` (entero en COP). Ese valor reemplaza el precio calculado.
+Agrega `"price": 50000` (número entero positivo en COP, sin comillas). Ese valor reemplaza el precio calculado. `null` o sin `price` = precio calculado.
 
 ## Actualizar precios
 
@@ -28,7 +28,19 @@ Opcional: exporta `POKEMONTCG_API_KEY` para tener más cuota en la API.
 
 La tasa USD→COP es fija y la editas tú en `config.json` (`usdToCop`). Después de cambiarla, corre `npm run prices`.
 
-GitHub Actions corre esto cada lunes (12:00 UTC) y hace commit de `catalog.json` si cambió. También se puede lanzar a mano desde la pestaña Actions. La clave de API va en Settings → Secrets → `POKEMONTCG_API_KEY` (opcional).
+GitHub Actions corre esto cada lunes (12:00 UTC) y hace commit de `catalog.json` si cambió (si los precios y la tasa son iguales, el archivo no se toca y se imprime `catalog.json unchanged`). También se puede lanzar a mano desde la pestaña Actions. La clave de API va en Settings → Secrets → `POKEMONTCG_API_KEY` (opcional).
+
+### Errores (no se publica nada)
+
+Si hay un problema, el script lista todos los errores, termina con código 1 y no modifica `catalog.json`, así que la tarea semanal no publica datos malos:
+
+```text
+error: 2 problem(s), catalog.json left untouched:
+  - card zz-999 not found on pokemontcg.io
+  - card base1-4: price must be a positive integer in COP (got "50000")
+```
+
+Otros mensajes: `config.json margin must be a positive number (got ...)`, `card sv1-25: qty must be a positive integer`, `card sv1-25: duplicate id in singles.json`, `card X has no TCGPlayer price; set a manual "price"`.
 
 ## Ver la página localmente
 
@@ -47,7 +59,7 @@ Settings → Pages → Deploy from a branch → `main` / `(root)`.
 `precio = max(minPriceCop, redondear_hacia_arriba(usd × tasa × margin, roundToCop))`
 
 - `usd`: precio `market` de TCGPlayer (o `mid` si no hay `market`).
-- Sin precio en TCGPlayer → `minPriceCop`.
+- Sin precio en TCGPlayer en ninguna variante → error; agrega un precio manual.
 - Se cambia en `config.json`: `minPriceCop` (mínimo, 2000), `margin` (1.0 = sin margen; 1.2 = +20 %), `roundToCop` (500).
 
 ## ¿Por qué no Collectr?

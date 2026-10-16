@@ -24,3 +24,10 @@ test('variant fallback and mid fallback', () => {
   assert.deepEqual(pickPrice({ '1stEdition': { market: 9 } }), { variant: '1stEdition', usd: 9 });
   assert.equal(pickPrice(undefined), null);
 });
+
+test('requested variant without a price falls back to a priced variant', () => {
+  const prices = { normal: { market: null, mid: null }, reverseHolofoil: { market: 3 } };
+  assert.deepEqual(pickPrice(prices, 'normal'), { variant: 'reverseHolofoil', usd: 3 });
+  assert.deepEqual(pickPrice({ holofoil: { market: 4 }, normal: {} }, 'normal'), { variant: 'holofoil', usd: 4 });
+  assert.equal(pickPrice({ normal: { market: null } }, 'normal'), null);
+});

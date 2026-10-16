@@ -1,5 +1,5 @@
 import { readFile, writeFile, rename } from 'node:fs/promises';
-import { pickPrice, toCop } from './price.mjs';
+import { validateConfig, validateSingles, buildItems, catalogChanged } from './catalog.mjs';
 
 const BATCH_SIZE = 50;
 const root = new URL('../', import.meta.url);
@@ -28,53 +28,36 @@ async function fetchCards(ids) {
   return cards;
 }
 
-const singles = await readJson('singles.json');
-const config = await readJson('config.json');
-const usdToCop = config.usdToCop;
-if (!(typeof usdToCop === 'number' && usdToCop > 0)) {
-  console.error('error: config.json usdToCop must be a positive number, e.g. 3200');
+function fail(errors) {
+  console.error(`error: ${errors.length} problem(s), catalog.json left untouched:`);
+  for (const e of errors) console.error(`  - ${e}`);
   process.exit(1);
 }
+
+const singles = await readJson('singles.json');
+const config = await readJson('config.json');
+const inputErrors = [...validateConfig(config), ...validateSingles(singles)];
+if (inputErrors.length) fail(inputErrors);
 
 let cards;
 try {
-  cards = await fetchCards([...new Set(singles.map((s) => s.id))]);
+  cards = await fetchCards(singles.map((s) => s.id));
 } catch (err) {
-  console.error(`error: card fetch failed (${err.message}); catalog.json left untouched`);
-  process.exit(1);
+  fail([`card fetch failed (${err.message})`]);
 }
 
-const items = [];
-for (const single of singles) {
-  const card = cards.get(single.id);
-  if (!card) {
-    console.warn(`warning: card ${single.id} not found, skipped`);
-    continue;
-  }
-  const picked = pickPrice(card.tcgplayer?.prices, single.variant);
-  const manual = Number.isInteger(single.price);
-  items.push({
-    id: card.id,
-    name: card.name,
-    set: card.set.name,
-    number: card.number,
-    rarity: card.rarity ?? null,
-    image: card.images.small,
-    imageLarge: card.images.large,
-    variant: picked?.variant ?? single.variant ?? null,
-    condition: single.condition ?? 'NM',
-    qty: single.qty,
-    usd: picked?.usd ?? null,
-    priceCop: manual ? single.price : toCop(picked?.usd ?? null, usdToCop, config),
-    manual,
-    tcgplayerUrl: card.tcgplayer?.url ?? null,
-    priceUpdatedAt: card.tcgplayer?.updatedAt ?? null,
-  });
-}
+const { items, errors } = buildItems(singles, cards, config);
+if (errors.length) fail(errors);
 
 const out = new URL('catalog.json', root);
 const tmp = new URL('catalog.json.tmp', root);
+const { usdToCop } = config;
+const prev = await readFile(out, 'utf8').then(JSON.parse, () => null);
 const catalog = { generatedAt: new Date().toISOString(), usdToCop, items };
-await writeFile(tmp, JSON.stringify(catalog, null, 2) + '\n');
-await rename(tmp, out);
-console.log(`catalog.json: ${items.length} items, 1 USD = ${usdToCop} COP`);
+if (!catalogChanged(prev, catalog)) {
+  console.log(`catalog.json unchanged (${items.length} items, 1 USD = ${usdToCop} COP)`);
+} else {
+  await writeFile(tmp, JSON.stringify(catalog, null, 2) + '\n');
+  await rename(tmp, out);
+  console.log(`catalog.json: ${items.length} items, 1 USD = ${usdToCop} COP`);
+}
