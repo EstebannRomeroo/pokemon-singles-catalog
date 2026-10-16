@@ -6,96 +6,98 @@
 <title>NYX · Cartas Pokémon en venta</title>
 <link rel="icon" href="assets/favicon.png">
 <style>
-  /* Strict palette. Roles: text = names, soft = details, mint = labels/meta, green = price only,
-     lime = interaction (hover/focus). Card fill is a bg/surface mix so every text role stays above 5:1. */
+  /* Strict palette, light catalog. Dark band carries the brand (logo blends into #0E2A23);
+     the catalog body is a light tint of #D5F4E6 so cards and art breathe.
+     Roles: dark = text, deep = secondary text and price, green = buttons, mint = chips/borders,
+     lime = hover. Green, mint and lime are never text on light (all < 2.5:1). */
   :root {
-    color-scheme: dark;
-    --bg: #0E2A23; --surface: #1B4D3E; --text: #D5F4E6; --muted: #1ABC9C;
-    --soft: rgb(213 244 230 / .7); --card: color-mix(in srgb, #1B4D3E 50%, #0E2A23);
-    --border: #1B4D3E; --accent: #2ECC71; --detail: #7CB342;
+    --ink: #0E2A23; --deep: #1B4D3E; --green: #2ECC71; --mint: #1ABC9C; --pale: #D5F4E6; --lime: #7CB342;
+    --page: color-mix(in srgb, #D5F4E6 45%, #FFF); --card: color-mix(in srgb, #D5F4E6 12%, #FFF);
+    --line: color-mix(in srgb, #1ABC9C 30%, #FFF);
     --radius: 14px; --ease: cubic-bezier(.25, 1, .5, 1);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
-  header, main { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-  header { padding-top: 40px; }
-  main { padding-bottom: 64px; }
+  body { margin: 0; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .band { background: var(--ink); color: var(--pale); }
+  .header-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 20px; padding-bottom: 20px; }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  /* Logo has an opaque black background; lighten blends it into the dark band. */
+  .logo { width: 84px; height: auto; mix-blend-mode: lighten; flex: none; }
   h1 { margin: 0; font-size: 1.75rem; line-height: 1.2; letter-spacing: -.01em; }
-  .meta { margin: 6px 0 0; color: var(--muted); font-size: .9rem; }
-  .controls { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 0; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
-  .controls label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 600; color: var(--muted); flex: 1 1 160px; }
+  .meta { margin: 4px 0 0; color: var(--mint); font-size: .9rem; }
+  main.wrap { padding-bottom: 48px; }
+  .controls { display: flex; flex-wrap: wrap; gap: 12px; padding: 24px 0 20px; border-bottom: 1px solid var(--line); }
+  .controls label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 600; color: var(--deep); flex: 1 1 160px; min-width: 0; }
   .controls label:first-child { flex: 2 1 240px; }
-  input, select, button { font: inherit; min-height: 44px; padding: 0 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); transition: border-color .2s var(--ease); }
-  input::placeholder { color: var(--soft); }
-  input:hover, select:hover, button:hover { border-color: var(--detail); }
-  :focus-visible { outline: 2px solid var(--detail); outline-offset: 2px; }
+  input, select, button { font: inherit; min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); transition: border-color .2s var(--ease), background-color .2s var(--ease); }
   input, select { font-weight: 400; width: 100%; min-width: 0; }
-  .controls label { min-width: 0; }
+  input::placeholder { color: var(--deep); opacity: .7; }
+  input:hover, select:hover { border-color: var(--lime); }
+  :focus-visible { outline: 2px solid var(--deep); outline-offset: 2px; }
+  .band :focus-visible { outline-color: var(--lime); }
   button { cursor: pointer; font-weight: 600; }
-  .status { margin: 20px 0 16px; color: var(--muted); font-size: .9rem; }
+  .status { margin: 20px 0 16px; color: var(--deep); font-size: .9rem; }
   .status button { margin-left: 8px; }
+  .status button:hover { border-color: var(--lime); }
   .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; transition: border-color .2s var(--ease), transform .2s var(--ease); }
-  .card:hover { border-color: var(--detail); transform: translateY(-3px); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgb(14 42 35 / .06); transition: border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease); }
+  .card:hover { border-color: var(--lime); transform: translateY(-3px); box-shadow: 0 10px 24px -12px rgb(14 42 35 / .35); }
   .art { display: block; border-radius: 9px; }
-  .art img { display: block; width: 100%; height: auto; aspect-ratio: 245 / 342; border-radius: 9px; background: var(--surface); }
+  .art img { display: block; width: 100%; height: auto; aspect-ratio: 245 / 342; border-radius: 9px; background: var(--pale); }
   .card h2 { font-size: 1.05rem; line-height: 1.3; margin: 14px 0 0; }
-  .set { margin: 2px 0 0; font-size: .85rem; color: var(--soft); }
+  .set { margin: 2px 0 0; font-size: .85rem; color: var(--deep); }
   .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 10px 0 0; }
-  .tags li { font-size: .75rem; line-height: 1; padding: 5px 8px; border-radius: 999px; border: 1px solid var(--surface); color: var(--soft); }
+  .tags li { font-size: .75rem; line-height: 1; padding: 5px 8px; border-radius: 999px; background: color-mix(in srgb, #1ABC9C 14%, #FFF); color: var(--deep); }
   .buy { margin-top: auto; padding-top: 14px; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
-  .price { font-size: 1.3rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
-  .stock { font-size: .8rem; color: var(--soft); white-space: nowrap; }
-  .note { margin: 6px 0 0; font-size: .75rem; color: var(--soft); }
-  footer { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px; font-size: .8rem; color: var(--soft); }
+  .price { font-size: 1.3rem; font-weight: 750; color: var(--deep); font-variant-numeric: tabular-nums; }
+  .stock { font-size: .8rem; color: var(--deep); white-space: nowrap; }
+  .note { margin: 6px 0 0; font-size: .75rem; color: var(--deep); }
+  .pdf, .want { background: var(--green); border: 1px solid var(--green); color: var(--ink); font-weight: 600; }
+  .pdf { padding: 0 18px; }
+  .pdf:hover, .want:hover { background: var(--lime); border-color: var(--lime); }
+  .pdf:disabled { opacity: .6; cursor: progress; }
+  .want { margin-top: 12px; width: 100%; display: flex; align-items: center; justify-content: center; text-decoration: none; min-height: 44px; border-radius: 10px; transition: background-color .2s var(--ease); }
+  .toast { position: fixed; left: 50%; bottom: 24px; translate: -50% 0; max-width: calc(100% - 32px); padding: 12px 16px; border-radius: 10px; background: var(--ink); color: var(--pale); font-size: .9rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .2s var(--ease); }
+  .toast.show { opacity: 1; }
+  footer.wrap { padding-bottom: 40px; font-size: .8rem; color: var(--deep); }
+  .print-only { display: none; }
   @media (max-width: 480px) {
-    header { padding-top: 24px; }
-    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+    .header-row { padding-top: 16px; padding-bottom: 16px; }
+    .logo { width: 56px; }
+    h1 { font-size: 1.3rem; }
+    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-top: 16px; }
     .controls label:first-child { grid-column: 1 / -1; }
-    h1 { font-size: 1.4rem; }
-    .logo { width: 60px; }
     .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .card { padding: 8px; }
     .card h2 { font-size: .95rem; margin-top: 10px; }
     .price { font-size: 1.1rem; }
     .buy { flex-direction: column; align-items: flex-start; gap: 2px; }
   }
-  .brand { display: flex; align-items: center; gap: 16px; }
-  /* Logo has an opaque black background; lighten blends it into --bg. */
-  .logo { width: 84px; height: auto; mix-blend-mode: lighten; flex: none; }
-  .want { margin-top: 12px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; min-height: 44px; border-radius: 10px; border: 1px solid var(--accent); color: var(--accent); font-weight: 600; transition: background-color .2s var(--ease), color .2s var(--ease); }
-  .want:hover { background: var(--accent); color: var(--bg); }
-  .toast { position: fixed; left: 50%; bottom: 24px; translate: -50% 0; max-width: calc(100% - 32px); padding: 12px 16px; border-radius: 10px; background: var(--text); color: var(--bg); font-size: .9rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .2s var(--ease); }
-  .toast.show { opacity: 1; }
-  .header-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .pdf { background: var(--accent); color: var(--bg); border-color: var(--accent); padding: 0 18px; }
-  .pdf:hover { background: var(--detail); border-color: var(--detail); }
-  .print-only { display: none; }
-  .pdf:disabled { opacity: .6; cursor: progress; }
   @media print {
     @page { size: A4; margin: 0; }
     html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
-    body { padding: 12mm 10mm; }
-    header, main, footer { max-width: none; padding: 0; }
+    .wrap { max-width: none; padding: 0 10mm; }
+    .header-row { padding-top: 8mm; padding-bottom: 6mm; }
     .controls, .pdf, .status, .note, .want, .toast { display: none; }
     .logo { width: 64px; }
-    header { padding-bottom: 6mm; margin-bottom: 6mm; border-bottom: 1px solid var(--border); }
+    main.wrap { padding-top: 6mm; padding-bottom: 0; }
     .grid { grid-template-columns: repeat(4, 1fr); gap: 4mm; }
-    .card { break-inside: avoid; transform: none !important; padding: 2.5mm; }
+    .card { break-inside: avoid; transform: none !important; box-shadow: none; padding: 2.5mm; }
     .card h2 { font-size: .85rem; margin-top: 2mm; }
     .set, .stock { font-size: .7rem; }
     .tags li { font-size: .6rem; padding: 3px 6px; }
     .price { font-size: 1rem; }
     .buy { flex-direction: column; align-items: flex-start; gap: 0; padding-top: 2mm; }
-    footer { padding-top: 6mm; }
-    .print-only { display: block; margin-top: 2mm; color: var(--muted); }
+    footer.wrap { padding-top: 6mm; }
+    .print-only { display: block; margin-top: 2mm; font-weight: 600; }
   }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .card:hover { transform: none; } }
 </style>
 </head>
 <body>
-<header>
-  <div class="header-row">
+<header class="band">
+  <div class="header-row wrap">
     <div class="brand">
       <img class="logo" src="assets/logo.webp" alt="NYX" width="320" height="292">
       <div>
@@ -105,6 +107,8 @@
     </div>
     <button class="pdf" id="pdf" type="button">Descargar PDF</button>
   </div>
+</header>
+<main class="wrap">
   <div class="controls">
     <label>Buscar
       <input id="search" type="search" placeholder="Nombre o expansión" autocomplete="off">
@@ -120,12 +124,10 @@
       </select>
     </label>
   </div>
-</header>
-<main>
   <p class="status" id="status" role="status">Cargando catálogo…</p>
   <ul class="grid" id="grid"></ul>
 </main>
-<footer>Precios de referencia basados en el mercado (TCGPlayer), convertidos a COP.<span class="print-only" id="site"></span></footer>
+<footer class="wrap">Precios de referencia basados en el mercado (TCGPlayer), convertidos a COP.<span class="print-only" id="site"></span></footer>
 <p class="toast" id="toast" role="status"></p>
 <script>
   // WhatsApp Business short link (Settings → Business tools → Short link). It hides the number from the page;
