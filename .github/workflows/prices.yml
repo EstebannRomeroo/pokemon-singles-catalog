@@ -18,8 +18,6 @@ jobs:
           node-version: 22
       - run: node --test "scripts/*.test.mjs"
       - run: node scripts/update-prices.mjs
-        env:
-          POKEMONTCG_API_KEY: ${{ secrets.POKEMONTCG_API_KEY }}
       - name: Commit catalog.json if changed
         run: |
           if git diff --quiet -- catalog.json; then

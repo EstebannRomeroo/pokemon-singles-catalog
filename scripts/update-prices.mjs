@@ -1,29 +1,56 @@
 import { readFile, writeFile, rename } from 'node:fs/promises';
-import { validateConfig, validateSingles, buildItems, catalogChanged } from './catalog.mjs';
+import { GAMES, cardKey, validateConfig, validateSingles, buildItems, catalogChanged } from './catalog.mjs';
 
-const BATCH_SIZE = 50;
+const BASE = 'https://tcgcsv.com';
+// tcgcsv.com answers 401 to the default Node fetch User-Agent.
+const HEADERS = { 'User-Agent': 'pokemon-singles-catalog' };
 const root = new URL('../', import.meta.url);
 const readJson = async (name) => JSON.parse(await readFile(new URL(name, root), 'utf8'));
 
-// pokemontcg.io intermittently returns 5xx, so retry a few times with a growing delay.
-async function fetchWithRetry(url, options, attempts = 4) {
+// Retry 5xx and network errors a few times with a growing delay; 4xx is final.
+async function fetchWithRetry(url, attempts = 4) {
   for (let i = 1; ; i++) {
-    const res = await fetch(url, options).catch((err) => ({ ok: false, status: err.message }));
-    if (res.ok || i >= attempts) return res;
-    console.warn(`warning: pokemontcg.io ${res.status}, retry ${i}/${attempts - 1}`);
+    const res = await fetch(url, { headers: HEADERS }).catch((err) => ({ ok: false, status: err.message }));
+    const retryable = !res.ok && !(res.status >= 400 && res.status < 500);
+    if (!retryable || i >= attempts) return res;
+    console.warn(`warning: tcgcsv.com ${res.status}, retry ${i}/${attempts - 1}`);
     await new Promise((r) => setTimeout(r, 2000 * i));
   }
 }
 
-async function fetchCards(ids) {
-  const headers = process.env.POKEMONTCG_API_KEY ? { 'X-Api-Key': process.env.POKEMONTCG_API_KEY } : {};
+// 404 means the category or group does not exist; its cards are then reported as not found.
+async function getResults(path) {
+  const res = await fetchWithRetry(`${BASE}${path}`);
+  if (res.status === 404) return [];
+  if (!res.ok) throw new Error(`tcgcsv.com HTTP ${res.status} for ${path}`);
+  return (await res.json()).results;
+}
+
+async function getText(path) {
+  const res = await fetchWithRetry(`${BASE}${path}`);
+  if (!res.ok) throw new Error(`tcgcsv.com HTTP ${res.status} for ${path}`);
+  return (await res.text()).trim();
+}
+
+// One groups list per game, then products + prices once per (game, group).
+async function fetchCards(singles) {
   const cards = new Map();
-  for (let i = 0; i < ids.length; i += BATCH_SIZE) {
-    const q = ids.slice(i, i + BATCH_SIZE).map((id) => `id:${id}`).join(' OR ');
-    const url = `https://api.pokemontcg.io/v2/cards?q=${encodeURIComponent(q)}&pageSize=250`;
-    const res = await fetchWithRetry(url, { headers });
-    if (!res.ok) throw new Error(`pokemontcg.io HTTP ${res.status}`);
-    for (const card of (await res.json()).data) cards.set(card.id, card);
+  for (const game of new Set(singles.map((s) => s.game))) {
+    const cat = GAMES[game];
+    const groupNames = new Map((await getResults(`/tcgplayer/${cat}/groups`)).map((g) => [g.groupId, g.name]));
+    for (const group of new Set(singles.filter((s) => s.game === game).map((s) => s.group))) {
+      const [products, prices] = await Promise.all([
+        getResults(`/tcgplayer/${cat}/${group}/products`),
+        getResults(`/tcgplayer/${cat}/${group}/prices`),
+      ]);
+      for (const product of products) {
+        cards.set(cardKey({ game, group, product: product.productId }), {
+          product,
+          prices: prices.filter((p) => p.productId === product.productId),
+          set: groupNames.get(group) ?? null,
+        });
+      }
+    }
   }
   return cards;
 }
@@ -39,14 +66,14 @@ const config = await readJson('config.json');
 const inputErrors = [...validateConfig(config), ...validateSingles(singles)];
 if (inputErrors.length) fail(inputErrors);
 
-let cards;
+let cards, updatedAt;
 try {
-  cards = await fetchCards(singles.map((s) => s.id));
+  [cards, updatedAt] = await Promise.all([fetchCards(singles), getText('/last-updated.txt')]);
 } catch (err) {
   fail([`card fetch failed (${err.message})`]);
 }
 
-const { items, errors } = buildItems(singles, cards, config);
+const { items, errors } = buildItems(singles, cards, config, updatedAt);
 if (errors.length) fail(errors);
 
 const out = new URL('catalog.json', root);

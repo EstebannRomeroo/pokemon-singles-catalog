@@ -1,4 +1,4 @@
 [
-  { "id": "sv10-230", "qty": 1 },
-  { "id": "me55c-149", "qty": 1, "price": 400000 }
+  { "game": "pokemon", "group": 24269, "product": 633030, "qty": 1 },
+  { "game": "pokemon", "group": 24837, "product": 714386, "qty": 1, "price": 400000 }
 ]
