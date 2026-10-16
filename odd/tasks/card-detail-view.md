@@ -33,5 +33,8 @@ Delegated writer, observed 2026-10-16:
 - Parent viewed desktop-open and mobile-open screenshots: layout matches binder (image left/top, panel right/below).
 - Follow-up: labels are TCGPlayer English displayNames (Card Type, Rules Text Contains); Spanish label map is a small later task.
 
+- Commits d4a09e7 (T1), c709cf6 (T2). Native review: medium (slice since 1f07359, 1323 lines), 1 lens, granted, APPROVED + acknowledged (lineage review-443849eebbeac676).
+- Advisory: number sort breaks on prefixed numbers (e.g. TG05, SV001) [WARNING]; cleanName replace unanchored [WARNING]; plainText unbalanced '<'; viewer untested.
+
 ## Next step
 Review assessment; optional Spanish label map.
