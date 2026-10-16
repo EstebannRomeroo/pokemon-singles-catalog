@@ -7,5 +7,16 @@
   { "game": "pokemon", "group": 24722, "product": 716514, "qty": 1 },
   { "game": "pokemon", "group": 24451, "product": 713264, "qty": 1, "language": "ES" },
   { "game": "pokemon", "group": 24451, "product": 713265, "qty": 1, "language": "ES" },
-  { "game": "pokemon", "group": 24451, "product": 713266, "qty": 1, "language": "ES" }
+  { "game": "pokemon", "group": 24451, "product": 713266, "qty": 1, "language": "ES" },
+  { "game": "pokemon", "group": 24722, "product": 716435, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 716439, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 716444, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 716445, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 716449, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 716453, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 712934, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 712942, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 712949, "qty": 2 },
+  { "game": "pokemon", "group": 24722, "product": 716317, "qty": 1 },
+  { "game": "pokemon", "group": 24722, "product": 716318, "qty": 1 }
 ]
