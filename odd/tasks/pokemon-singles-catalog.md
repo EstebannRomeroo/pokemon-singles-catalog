@@ -53,5 +53,8 @@ Deviations / rationale:
   - Bogus `zz-999` in singles.json: `card zz-999 not found on pokemontcg.io`, exit 1, catalog.json byte-identical; singles.json restored (`git diff --quiet`).
   - README documents error output and no-op behavior.
 
+- T4 commit a98eb4b. Native review: high, 4 lenses, granted, APPROVED + acknowledged (lineage review-f83f0a6e8c0509ba). Parent spot check: 12/12 tests; changed-rate run rewrote catalog.json (restored).
+- Advisory follow-ups: corrupt catalog.json crashes unformatted; variant substitution shows fallback variant instead of owned one; one unpriced card blocks the whole publish (by design).
+
 ## Next step
 Publish on GitHub Pages (user decision).
