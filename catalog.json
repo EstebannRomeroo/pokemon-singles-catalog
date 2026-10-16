@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T16:01:33.820Z",
+  "generatedAt": "2026-10-16T17:23:16.578Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -38,6 +38,25 @@
       "priceCop": 400000,
       "manual": true,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/714386/pokemon-me-30th-celebration-classic-collection-lugia",
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+    },
+    {
+      "id": "magic-631132",
+      "game": "magic",
+      "name": "Hellkite Tyrant",
+      "set": "Commander: FINAL FANTASY",
+      "number": "295",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631132_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631132_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "qty": 1,
+      "usd": 1.75,
+      "priceCop": 6000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631132/magic-commander-final-fantasy-hellkite-tyrant",
       "priceUpdatedAt": "2026-10-15T20:06:01+0000"
     }
   ]

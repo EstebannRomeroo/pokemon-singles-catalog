@@ -1,4 +1,5 @@
 [
   { "game": "pokemon", "group": 24269, "product": 633030, "qty": 1 },
-  { "game": "pokemon", "group": 24837, "product": 714386, "qty": 1, "price": 400000 }
+  { "game": "pokemon", "group": 24837, "product": 714386, "qty": 1, "price": 400000 },
+  { "game": "magic", "group": 24220, "product": 631132, "qty": 1, "variant": "Normal" }
 ]
