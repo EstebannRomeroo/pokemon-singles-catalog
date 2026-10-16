@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T14:12:19.014Z",
+  "generatedAt": "2026-10-16T15:04:09.368Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -109,6 +109,42 @@
       "manual": true,
       "tcgplayerUrl": "https://prices.pokemontcg.io/tcgplayer/base1-4",
       "priceUpdatedAt": "2026/10/15"
+    },
+    {
+      "id": "sv10-230",
+      "name": "Ethan's Ho-Oh ex",
+      "set": "Destined Rivals",
+      "number": "230",
+      "rarity": "Special Illustration Rare",
+      "image": "https://images.pokemontcg.io/sv10/230.png",
+      "imageLarge": "https://images.pokemontcg.io/sv10/230_hires.png",
+      "variant": "holofoil",
+      "priceVariant": "holofoil",
+      "condition": "NM",
+      "qty": 1,
+      "usd": 140.2,
+      "priceCop": 449000,
+      "manual": false,
+      "tcgplayerUrl": "https://prices.pokemontcg.io/tcgplayer/sv10-230",
+      "priceUpdatedAt": "2026/10/15"
+    },
+    {
+      "id": "me55c-149",
+      "name": "Lugia",
+      "set": "30th Celebration: Classic Collection",
+      "number": "149",
+      "rarity": "Rare Secret",
+      "image": "https://images.scrydex.com/pokemon/me55c-149/small",
+      "imageLarge": "https://images.scrydex.com/pokemon/me55c-149/large",
+      "variant": null,
+      "priceVariant": null,
+      "condition": "NM",
+      "qty": 1,
+      "usd": null,
+      "priceCop": 400000,
+      "manual": true,
+      "tcgplayerUrl": "https://prices.pokemontcg.io/tcgplayer/me55c-149",
+      "priceUpdatedAt": null
     }
   ]
 }
