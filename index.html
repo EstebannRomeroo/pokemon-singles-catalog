@@ -3,7 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Catálogo de cartas Pokémon</title>
+<title>NYX · Cartas Pokémon en venta</title>
+<link rel="icon" href="assets/favicon.png">
 <style>
   /* Strict palette. Roles: text = names, soft = details, mint = labels/meta, green = price only,
      lime = interaction (hover/focus). Card fill is a bg/surface mix so every text role stays above 5:1. */
@@ -52,12 +53,20 @@
     .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
     .controls label:first-child { grid-column: 1 / -1; }
     h1 { font-size: 1.4rem; }
+    .logo { width: 60px; }
     .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .card { padding: 8px; }
     .card h2 { font-size: .95rem; margin-top: 10px; }
     .price { font-size: 1.1rem; }
     .buy { flex-direction: column; align-items: flex-start; gap: 2px; }
   }
+  .brand { display: flex; align-items: center; gap: 16px; }
+  /* Logo has an opaque black background; lighten blends it into --bg. */
+  .logo { width: 84px; height: auto; mix-blend-mode: lighten; flex: none; }
+  .want { margin-top: 12px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; text-decoration: none; min-height: 44px; border-radius: 10px; border: 1px solid var(--accent); color: var(--accent); font-weight: 600; transition: background-color .2s var(--ease), color .2s var(--ease); }
+  .want:hover { background: var(--accent); color: var(--bg); }
+  .toast { position: fixed; left: 50%; bottom: 24px; translate: -50% 0; max-width: calc(100% - 32px); padding: 12px 16px; border-radius: 10px; background: var(--text); color: var(--bg); font-size: .9rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .2s var(--ease); }
+  .toast.show { opacity: 1; }
   .header-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .pdf { background: var(--accent); color: var(--bg); border-color: var(--accent); padding: 0 18px; }
   .pdf:hover { background: var(--detail); border-color: var(--detail); }
@@ -68,7 +77,8 @@
     html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     body { padding: 12mm 10mm; }
     header, main, footer { max-width: none; padding: 0; }
-    .controls, .pdf, .status, .note { display: none; }
+    .controls, .pdf, .status, .note, .want, .toast { display: none; }
+    .logo { width: 64px; }
     header { padding-bottom: 6mm; margin-bottom: 6mm; border-bottom: 1px solid var(--border); }
     .grid { grid-template-columns: repeat(4, 1fr); gap: 4mm; }
     .card { break-inside: avoid; transform: none !important; padding: 2.5mm; }
@@ -86,9 +96,12 @@
 <body>
 <header>
   <div class="header-row">
-    <div>
-      <h1>Cartas Pokémon en venta</h1>
-      <p class="meta" id="updated">Precios en pesos colombianos</p>
+    <div class="brand">
+      <img class="logo" src="assets/logo.webp" alt="NYX" width="320" height="292">
+      <div>
+        <h1>Cartas Pokémon en venta</h1>
+        <p class="meta" id="updated">Precios en pesos colombianos</p>
+      </div>
     </div>
     <button class="pdf" id="pdf" type="button">Descargar PDF</button>
   </div>
@@ -113,7 +126,11 @@
   <ul class="grid" id="grid"></ul>
 </main>
 <footer>Precios de referencia basados en el mercado (TCGPlayer), convertidos a COP.<span class="print-only" id="site"></span></footer>
+<p class="toast" id="toast" role="status"></p>
 <script>
+  // WhatsApp Business short link (Settings → Business tools → Short link). It hides the number from the page;
+  // buyers still see it once they write. Empty = no "Lo quiero" button.
+  const WHATSAPP_LINK = '';
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
   const $ = (id) => document.getElementById(id);
   let items = [];
@@ -144,11 +161,30 @@
       el('p', { className: 'set' }, `${item.set} · #${item.number}`),
       tags,
       buy,
+      WHATSAPP_LINK ? wantButton(item) : '',
       item.priceVariant && item.priceVariant !== item.variant && !item.manual
         ? el('p', { className: 'note' }, `Precio de referencia: ${variantLabel(item.priceVariant)}`)
         : '',
     );
     return li;
+  }
+
+  // Short links can't carry a per-card message, so copy it and let the buyer paste it.
+  function wantButton(item) {
+    const msg = `Hola, me interesa ${item.name} (${item.set} #${item.number}) a ${cop.format(item.priceCop)}`;
+    const a = el('a', { className: 'want', href: WHATSAPP_LINK, target: '_blank', rel: 'noopener' }, 'Lo quiero');
+    a.addEventListener('click', () => {
+      navigator.clipboard?.writeText(msg).then(() => toast('Mensaje copiado. Pégalo en el chat de WhatsApp.'), () => {});
+    });
+    return a;
+  }
+
+  let toastTimer;
+  function toast(text) {
+    $('toast').textContent = text;
+    $('toast').classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => $('toast').classList.remove('show'), 4000);
   }
 
   function render() {
