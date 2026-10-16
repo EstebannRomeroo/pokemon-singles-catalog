@@ -159,6 +159,7 @@
   // TCGPlayer subTypeName -> label.
   const VARIANTS = { Normal: 'Normal', Holofoil: 'Holo', 'Reverse Holofoil': 'Reverse Holo', Foil: 'Foil', '1st Edition Holofoil': '1ra edición Holo', '1st Edition Normal': '1ra edición' };
   const variantLabel = (v) => VARIANTS[v] ?? v;
+  const LANGUAGES = { EN: 'Inglés', ES: 'Español', JP: 'Japonés', PT: 'Portugués', FR: 'Francés', DE: 'Alemán', IT: 'Italiano' };
   const CONDITIONS = { NM: 'Near Mint', LP: 'Lightly Played', MP: 'Moderately Played', HP: 'Heavily Played', DMG: 'Damaged' };
   const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
   // Numbers come as "149/147" or "OP18-021"; show them once with a leading #.
@@ -184,7 +185,7 @@
     art.append(item.image ? img : noImage());
     const tags = el('ul', { className: 'tags' });
     const condition = el('li', { title: CONDITIONS[item.condition] ?? '' }, item.condition);
-    tags.append(...[item.rarity, item.variant && variantLabel(item.variant)].filter(Boolean).map((t) => el('li', {}, t)), condition);
+    tags.append(...[item.rarity, item.variant && variantLabel(item.variant), LANGUAGES[item.language] ?? item.language].filter(Boolean).map((t) => el('li', {}, t)), condition);
     const buy = el('div', { className: 'buy' });
     buy.append(el('span', { className: 'price' }, cop.format(item.priceCop)), el('span', { className: 'stock' }, plural(item.qty, 'disponible', 'disponibles')));
     const li = el('li', { className: 'card' });

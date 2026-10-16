@@ -5,7 +5,7 @@
   { "game": "pokemon", "group": 23821, "product": 610384, "qty": 1, "variant": "Holofoil" },
   { "game": "pokemon", "group": 24722, "product": 716513, "qty": 1 },
   { "game": "pokemon", "group": 24722, "product": 716514, "qty": 1 },
-  { "game": "pokemon", "group": 24451, "product": 713264, "qty": 1 },
-  { "game": "pokemon", "group": 24451, "product": 713265, "qty": 1 },
-  { "game": "pokemon", "group": 24451, "product": 713266, "qty": 1 }
+  { "game": "pokemon", "group": 24451, "product": 713264, "qty": 1, "language": "ES" },
+  { "game": "pokemon", "group": 24451, "product": 713265, "qty": 1, "language": "ES" },
+  { "game": "pokemon", "group": 24451, "product": 713266, "qty": 1, "language": "ES" }
 ]

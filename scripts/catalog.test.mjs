@@ -36,6 +36,7 @@ test('item fields come from the TCGCSV product, prices and group', () => {
     variant: 'Holofoil',
     priceVariant: 'Holofoil',
     condition: 'NM',
+    language: 'EN',
     qty: 1,
     usd: 140.63,
     priceCop: 563000,
@@ -126,4 +127,13 @@ test('buildItems drops the card number from names that also carry a suffix', () 
   const { items, errors } = buildItems([s('pokemon', 20, 9)], promo, config, UPDATED);
   assert.deepEqual(errors, []);
   assert.equal(items[0].name, 'Moltres (30th Celebration)');
+});
+
+test('language defaults to EN, accepts known codes and rejects unknown ones', () => {
+  const p = product(11, '097', 'Articuno');
+  const lang = new Map([entry('pokemon', 21, p, prices(['Holofoil', 0.38]))]);
+  const { items } = buildItems([s('pokemon', 21, 11, { language: 'ES' })], lang, config, UPDATED);
+  assert.equal(items[0].language, 'ES');
+  assert.equal(buildItems([s('pokemon', 21, 11)], lang, config, UPDATED).items[0].language, 'EN');
+  assert.match(validateSingles([s('pokemon', 21, 11, { language: 'xx' })])[0], /language must be one of/);
 });

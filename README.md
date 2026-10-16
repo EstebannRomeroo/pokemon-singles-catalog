@@ -26,7 +26,7 @@ Cada carta se identifica por el juego, el id del grupo (expansión) y el id del 
 
 Ejemplos reales: Ethan's Ho-Oh ex (SV10: Destined Rivals), Brad Boimler, Eager Ensign (Magic: Star Trek) en foil y Enel (SP) EB02-052 (One Piece: Adventure on Kami's Island) con precio manual.
 
-Obligatorios: `game`, `group`, `product` y `qty` (enteros positivos). `variant` es el `subTypeName` de TCGPlayer (`Normal`, `Holofoil`, `Reverse Holofoil`, `Foil`, `1st Edition Holofoil`, ...); si falta o no tiene precio, se usa la primera con precio en este orden: `Normal`, `Holofoil`, `Reverse Holofoil`, `Foil`, luego cualquier otra. `condition` es `NM` por defecto. No se puede repetir la misma combinación de `game`, `product` y `variant`.
+Obligatorios: `game`, `group`, `product` y `qty` (enteros positivos). `variant` es el `subTypeName` de TCGPlayer (`Normal`, `Holofoil`, `Reverse Holofoil`, `Foil`, `1st Edition Holofoil`, ...); si falta o no tiene precio, se usa la primera con precio en este orden: `Normal`, `Holofoil`, `Reverse Holofoil`, `Foil`, luego cualquier otra. `condition` es `NM` por defecto. `language` es el idioma impreso de la carta (`EN` por defecto; también `ES`, `JP`, `PT`, `FR`, `DE`, `IT`) y se muestra como etiqueta; el precio de referencia de TCGPlayer siempre es el de la versión en inglés. No se puede repetir la misma combinación de `game`, `product` y `variant`.
 
 ## Precio manual
 

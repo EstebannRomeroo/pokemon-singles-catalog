@@ -16,6 +16,9 @@ export function validateConfig(config) {
     .map((key) => `config.json ${key} must be a positive number (got ${JSON.stringify(config?.[key])})`);
 }
 
+// Card language as printed; TCGPlayer prices are for English cards.
+export const LANGUAGES = ['EN', 'ES', 'JP', 'PT', 'FR', 'DE', 'IT'];
+
 export function validateSingles(singles) {
   if (!Array.isArray(singles)) return ['singles.json must be an array'];
   const errors = [];
@@ -34,6 +37,9 @@ export function validateSingles(singles) {
     if (!isPositiveInteger(s.qty)) errors.push(`${label(s)}: qty must be a positive integer (got ${JSON.stringify(s.qty)})`);
     if (s.variant != null && (typeof s.variant !== 'string' || s.variant === '')) {
       errors.push(`${label(s)}: variant must be a non-empty string (got ${JSON.stringify(s.variant)})`);
+    }
+    if (s.language != null && !LANGUAGES.includes(s.language)) {
+      errors.push(`${label(s)}: language must be one of ${LANGUAGES.join(', ')} (got ${JSON.stringify(s.language)})`);
     }
     if (s.price != null && !isPositiveInteger(s.price)) {
       errors.push(`${label(s)}: price must be a positive integer in COP (got ${JSON.stringify(s.price)})`);
@@ -87,6 +93,7 @@ export function buildItems(singles, cards, config, updatedAt) {
       // Variant whose TCGPlayer price was used; differs from variant when it had no price.
       priceVariant: picked?.variant ?? null,
       condition: single.condition ?? 'NM',
+      language: single.language ?? 'EN',
       qty: single.qty,
       usd: picked?.usd ?? null,
       priceCop: manual ? single.price : toCop(picked.usd, config.usdToCop, config),
