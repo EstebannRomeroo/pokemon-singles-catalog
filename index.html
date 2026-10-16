@@ -60,6 +60,8 @@
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
   const $ = (id) => document.getElementById(id);
   let items = [];
+  const VARIANTS = { normal: 'Normal', holofoil: 'Holo', reverseHolofoil: 'Reverse Holo', '1stEditionHolofoil': '1ra edición Holo', '1stEditionNormal': '1ra edición' };
+  const variantLabel = (v) => VARIANTS[v] ?? v;
 
   function el(tag, props = {}, text) {
     const node = Object.assign(document.createElement(tag), props);
@@ -73,9 +75,12 @@
       el('img', { src: item.image, alt: `Carta ${item.name}`, loading: 'lazy', width: 245, height: 342 }),
       el('h2', {}, item.name),
       el('p', {}, `${item.set} · #${item.number}`),
-      el('p', {}, [item.rarity, item.variant].filter(Boolean).join(' · ')),
+      el('p', {}, [item.rarity, item.variant && variantLabel(item.variant)].filter(Boolean).join(' · ')),
       el('p', {}, `Estado: ${item.condition} · Disponibles: ${item.qty}`),
       el('p', { className: 'price' }, cop.format(item.priceCop)),
+      item.priceVariant && item.priceVariant !== item.variant && !item.manual
+        ? el('p', { className: 'note' }, `Precio de referencia: ${variantLabel(item.priceVariant)}`)
+        : '',
     );
     return li;
   }

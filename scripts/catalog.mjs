@@ -54,7 +54,9 @@ export function buildItems(singles, cards, config) {
       rarity: card.rarity ?? null,
       image: card.images.small,
       imageLarge: card.images.large,
-      variant: picked?.variant ?? single.variant ?? null,
+      variant: single.variant ?? picked?.variant ?? null,
+      // Variant whose TCGPlayer price was used; differs from variant when it had no price.
+      priceVariant: picked?.variant ?? null,
       condition: single.condition ?? 'NM',
       qty: single.qty,
       usd: picked?.usd ?? null,

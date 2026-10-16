@@ -65,3 +65,10 @@ test('catalogChanged ignores generatedAt', () => {
   assert.equal(catalogChanged(prev, { ...prev, items: [] }), true);
   assert.equal(catalogChanged(null, prev), true);
 });
+
+test('owned variant is kept when price comes from another variant', () => {
+  const cs = new Map([['c-3', card('c-3', { reverseHolofoil: { market: null }, normal: { market: 1 } })]]);
+  const [item] = buildItems([{ id: 'c-3', qty: 1, variant: 'reverseHolofoil' }], cs, config).items;
+  assert.equal(item.variant, 'reverseHolofoil');
+  assert.equal(item.priceVariant, 'normal');
+});
