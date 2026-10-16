@@ -5,10 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Catálogo de cartas Pokémon</title>
 <style>
-  /* Strict palette. Cards sit on --bg (not --surface) so mint text keeps WCAG AA contrast (6.3:1). */
+  /* Strict palette. Roles: text = names, soft = card details, mint = labels/meta, green = price only,
+     lime = interaction (hover/focus). Card fill is a bg/surface mix so every text role stays above 5:1. */
   :root {
     color-scheme: dark;
     --bg: #0E2A23; --surface: #1B4D3E; --text: #D5F4E6; --muted: #1ABC9C;
+    --soft: rgb(213 244 230 / .7); --card: color-mix(in srgb, #1B4D3E 50%, #0E2A23);
     --border: #1B4D3E; --accent: #2ECC71; --detail: #7CB342; --radius: 12px;
   }
   * { box-sizing: border-box; }
@@ -21,12 +23,14 @@
   input, select { font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); }
   input:focus-visible, select:focus-visible { outline: 2px solid var(--detail); outline-offset: 1px; }
   .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
-  .card { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; display: flex; flex-direction: column; gap: 4px; }
-  .card:hover { border-color: var(--detail); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; display: flex; flex-direction: column; gap: 4px; }
+  .card { transition: border-color .15s, transform .15s; }
+  .card:hover { border-color: var(--detail); transform: translateY(-2px); }
+  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
   .card img { width: 100%; height: auto; aspect-ratio: 245 / 342; border-radius: 8px; background: var(--border); }
   .card h2 { font-size: 1rem; margin: 6px 0 0; }
-  .card p { margin: 0; font-size: .82rem; color: var(--muted); }
-  .price { margin-top: auto; padding-top: 6px; font-size: 1.15rem; font-weight: 700; color: var(--accent); }
+  .card p { margin: 0; font-size: .82rem; color: var(--soft); }
+  .card .price { margin-top: auto; padding-top: 6px; font-size: 1.15rem; font-weight: 700; color: var(--accent); }
   .status { color: var(--muted); }
   @media (max-width: 420px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
 </style>
