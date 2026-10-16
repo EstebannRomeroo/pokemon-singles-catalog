@@ -4,9 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NYX · Cartas Pokémon en venta</title>
-<link rel="icon" href="assets/favicon.png">
 <style>
-  /* Strict palette, light catalog. Dark band carries the brand (logo blends into #0E2A23);
+  /* Strict palette, light catalog. Dark band carries the brand;
      the catalog body is a light tint of #D5F4E6 so cards and art breathe.
      Roles: dark = text, deep = secondary text and price, green = buttons, mint = chips/borders,
      lime = hover. Green, mint and lime are never text on light (all < 2.5:1). */
@@ -22,8 +21,6 @@
   .band { background: var(--ink); color: var(--pale); }
   .header-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding-top: 20px; padding-bottom: 20px; }
   .brand { display: flex; align-items: center; gap: 16px; }
-  /* Logo has an opaque black background; lighten blends it into the dark band. */
-  .logo { width: 84px; height: auto; mix-blend-mode: lighten; flex: none; }
   h1 { margin: 0; font-size: 1.75rem; line-height: 1.2; letter-spacing: -.01em; }
   .meta { margin: 4px 0 0; color: var(--mint); font-size: .9rem; }
   main.wrap { padding-bottom: 48px; }
@@ -64,7 +61,6 @@
   .print-only { display: none; }
   @media (max-width: 480px) {
     .header-row { padding-top: 16px; padding-bottom: 16px; }
-    .logo { width: 56px; }
     h1 { font-size: 1.3rem; }
     .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-top: 16px; }
     .controls label:first-child { grid-column: 1 / -1; }
@@ -80,7 +76,6 @@
     .wrap { max-width: none; padding: 0 10mm; }
     .header-row { padding-top: 8mm; padding-bottom: 6mm; }
     .controls, .pdf, .status, .note, .want, .toast { display: none; }
-    .logo { width: 64px; }
     main.wrap { padding-top: 6mm; padding-bottom: 0; }
     .grid { grid-template-columns: repeat(4, 1fr); gap: 4mm; }
     .card { break-inside: avoid; transform: none !important; box-shadow: none; padding: 2.5mm; }
@@ -99,7 +94,6 @@
 <header class="band">
   <div class="header-row wrap">
     <div class="brand">
-      <img class="logo" src="assets/logo.webp" alt="NYX" width="320" height="292">
       <div>
         <h1>Cartas Pokémon en venta</h1>
         <p class="meta" id="updated">Precios en pesos colombianos</p>
