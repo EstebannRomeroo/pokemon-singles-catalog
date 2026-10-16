@@ -58,13 +58,40 @@
     .price { font-size: 1.1rem; }
     .buy { flex-direction: column; align-items: flex-start; gap: 2px; }
   }
+  .header-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .pdf { background: var(--accent); color: var(--bg); border-color: var(--accent); padding: 0 18px; }
+  .pdf:hover { background: var(--detail); border-color: var(--detail); }
+  .print-only { display: none; }
+  .pdf:disabled { opacity: .6; cursor: progress; }
+  @media print {
+    @page { size: A4; margin: 0; }
+    html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
+    body { padding: 12mm 10mm; }
+    header, main, footer { max-width: none; padding: 0; }
+    .controls, .pdf, .status, .note { display: none; }
+    header { padding-bottom: 6mm; margin-bottom: 6mm; border-bottom: 1px solid var(--border); }
+    .grid { grid-template-columns: repeat(4, 1fr); gap: 4mm; }
+    .card { break-inside: avoid; transform: none !important; padding: 2.5mm; }
+    .card h2 { font-size: .85rem; margin-top: 2mm; }
+    .set, .stock { font-size: .7rem; }
+    .tags li { font-size: .6rem; padding: 3px 6px; }
+    .price { font-size: 1rem; }
+    .buy { flex-direction: column; align-items: flex-start; gap: 0; padding-top: 2mm; }
+    footer { padding-top: 6mm; }
+    .print-only { display: block; margin-top: 2mm; color: var(--muted); }
+  }
   @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .card:hover { transform: none; } }
 </style>
 </head>
 <body>
 <header>
-  <h1>Cartas Pokémon en venta</h1>
-  <p class="meta" id="updated">Precios en pesos colombianos</p>
+  <div class="header-row">
+    <div>
+      <h1>Cartas Pokémon en venta</h1>
+      <p class="meta" id="updated">Precios en pesos colombianos</p>
+    </div>
+    <button class="pdf" id="pdf" type="button">Descargar PDF</button>
+  </div>
   <div class="controls">
     <label>Buscar
       <input id="search" type="search" placeholder="Nombre o expansión" autocomplete="off">
@@ -85,7 +112,7 @@
   <p class="status" id="status" role="status">Cargando catálogo…</p>
   <ul class="grid" id="grid"></ul>
 </main>
-<footer>Precios de referencia basados en el mercado (TCGPlayer), convertidos a COP.</footer>
+<footer>Precios de referencia basados en el mercado (TCGPlayer), convertidos a COP.<span class="print-only" id="site"></span></footer>
 <script>
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
   const $ = (id) => document.getElementById(id);
@@ -140,6 +167,17 @@
     clear.addEventListener('click', () => { $('search').value = ''; $('rarity').value = ''; render(); $('search').focus(); });
     status.replaceChildren('Ninguna carta coincide con tu búsqueda.', clear);
   }
+
+  // ponytail: browser "Save as PDF" via print CSS; the PDF shows the current filters and order.
+  $('site').textContent = `Catálogo actualizado: ${location.origin}${location.pathname}`;
+  $('pdf').addEventListener('click', async () => {
+    $('pdf').disabled = true;
+    const imgs = [...document.querySelectorAll('.grid img')];
+    imgs.forEach((img) => { img.loading = 'eager'; });
+    await Promise.all(imgs.map((img) => img.decode().catch(() => {})));
+    $('pdf').disabled = false;
+    print();
+  });
 
   fetch('catalog.json')
     .then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); })
