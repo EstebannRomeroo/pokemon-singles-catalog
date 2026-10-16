@@ -5,44 +5,69 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Catálogo de cartas Pokémon</title>
 <style>
-  /* Strict palette. Roles: text = names, soft = card details, mint = labels/meta, green = price only,
+  /* Strict palette. Roles: text = names, soft = details, mint = labels/meta, green = price only,
      lime = interaction (hover/focus). Card fill is a bg/surface mix so every text role stays above 5:1. */
   :root {
     color-scheme: dark;
     --bg: #0E2A23; --surface: #1B4D3E; --text: #D5F4E6; --muted: #1ABC9C;
     --soft: rgb(213 244 230 / .7); --card: color-mix(in srgb, #1B4D3E 50%, #0E2A23);
-    --border: #1B4D3E; --accent: #2ECC71; --detail: #7CB342; --radius: 12px;
+    --border: #1B4D3E; --accent: #2ECC71; --detail: #7CB342;
+    --radius: 14px; --ease: cubic-bezier(.25, 1, .5, 1);
   }
   * { box-sizing: border-box; }
-  body { margin: 0; font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
-  header, main { max-width: 1200px; margin: 0 auto; padding: 16px; }
-  h1 { margin: 8px 0 4px; font-size: 1.6rem; }
-  .meta { margin: 0; color: var(--muted); font-size: .9rem; }
-  .controls { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
-  .controls label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--muted); flex: 1 1 180px; }
-  input, select { font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); }
-  input:focus-visible, select:focus-visible { outline: 2px solid var(--detail); outline-offset: 1px; }
-  .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; display: flex; flex-direction: column; gap: 4px; }
-  .card { transition: border-color .15s, transform .15s; }
-  .card:hover { border-color: var(--detail); transform: translateY(-2px); }
-  @media (prefers-reduced-motion: reduce) { .card { transition: none; } .card:hover { transform: none; } }
-  .card img { width: 100%; height: auto; aspect-ratio: 245 / 342; border-radius: 8px; background: var(--border); }
-  .card h2 { font-size: 1rem; margin: 6px 0 0; }
-  .card p { margin: 0; font-size: .82rem; color: var(--soft); }
-  .card .price { margin-top: auto; padding-top: 6px; font-size: 1.15rem; font-weight: 700; color: var(--accent); }
-  .status { color: var(--muted); }
-  @media (max-width: 420px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+  body { margin: 0; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); -webkit-font-smoothing: antialiased; }
+  header, main { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  header { padding-top: 40px; }
+  main { padding-bottom: 64px; }
+  h1 { margin: 0; font-size: 1.75rem; line-height: 1.2; letter-spacing: -.01em; }
+  .meta { margin: 6px 0 0; color: var(--muted); font-size: .9rem; }
+  .controls { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 0; padding-bottom: 20px; border-bottom: 1px solid var(--border); }
+  .controls label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 600; color: var(--muted); flex: 1 1 160px; }
+  .controls label:first-child { flex: 2 1 240px; }
+  input, select, button { font: inherit; min-height: 44px; padding: 0 12px; border: 1px solid var(--border); border-radius: 10px; background: var(--surface); color: var(--text); transition: border-color .2s var(--ease); }
+  input::placeholder { color: var(--soft); }
+  input:hover, select:hover, button:hover { border-color: var(--detail); }
+  :focus-visible { outline: 2px solid var(--detail); outline-offset: 2px; }
+  input, select { font-weight: 400; width: 100%; min-width: 0; }
+  .controls label { min-width: 0; }
+  button { cursor: pointer; font-weight: 600; }
+  .status { margin: 20px 0 16px; color: var(--muted); font-size: .9rem; }
+  .status button { margin-left: 8px; }
+  .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; transition: border-color .2s var(--ease), transform .2s var(--ease); }
+  .card:hover { border-color: var(--detail); transform: translateY(-3px); }
+  .art { display: block; border-radius: 9px; }
+  .art img { display: block; width: 100%; height: auto; aspect-ratio: 245 / 342; border-radius: 9px; background: var(--surface); }
+  .card h2 { font-size: 1.05rem; line-height: 1.3; margin: 14px 0 0; }
+  .set { margin: 2px 0 0; font-size: .85rem; color: var(--soft); }
+  .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 10px 0 0; }
+  .tags li { font-size: .75rem; line-height: 1; padding: 5px 8px; border-radius: 999px; border: 1px solid var(--surface); color: var(--soft); }
+  .buy { margin-top: auto; padding-top: 14px; display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+  .price { font-size: 1.3rem; font-weight: 700; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .stock { font-size: .8rem; color: var(--soft); white-space: nowrap; }
+  .note { margin: 6px 0 0; font-size: .75rem; color: var(--soft); }
+  footer { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px; font-size: .8rem; color: var(--soft); }
+  @media (max-width: 480px) {
+    header { padding-top: 24px; }
+    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+    .controls label:first-child { grid-column: 1 / -1; }
+    h1 { font-size: 1.4rem; }
+    .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .card { padding: 8px; }
+    .card h2 { font-size: .95rem; margin-top: 10px; }
+    .price { font-size: 1.1rem; }
+    .buy { flex-direction: column; align-items: flex-start; gap: 2px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { transition: none !important; } .card:hover { transform: none; } }
 </style>
 </head>
 <body>
 <header>
-  <h1>Catálogo de cartas Pokémon</h1>
-  <p class="meta" id="updated"></p>
-  <p class="meta">Precio de referencia TCGPlayer convertido a COP.</p>
+  <h1>Cartas Pokémon en venta</h1>
+  <p class="meta" id="updated">Precios en pesos colombianos</p>
   <div class="controls">
     <label>Buscar
-      <input id="search" type="search" placeholder="Nombre o expansión">
+      <input id="search" type="search" placeholder="Nombre o expansión" autocomplete="off">
     </label>
     <label>Rareza
       <select id="rarity"><option value="">Todas</option></select>
@@ -57,15 +82,18 @@
   </div>
 </header>
 <main>
-  <p class="status" id="status" role="status">Cargando…</p>
+  <p class="status" id="status" role="status">Cargando catálogo…</p>
   <ul class="grid" id="grid"></ul>
 </main>
+<footer>Precios de referencia basados en el mercado (TCGPlayer), convertidos a COP.</footer>
 <script>
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
   const $ = (id) => document.getElementById(id);
   let items = [];
   const VARIANTS = { normal: 'Normal', holofoil: 'Holo', reverseHolofoil: 'Reverse Holo', '1stEditionHolofoil': '1ra edición Holo', '1stEditionNormal': '1ra edición' };
   const variantLabel = (v) => VARIANTS[v] ?? v;
+  const CONDITIONS = { NM: 'Near Mint', LP: 'Lightly Played', MP: 'Moderately Played', HP: 'Heavily Played', DMG: 'Damaged' };
+  const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
 
   function el(tag, props = {}, text) {
     const node = Object.assign(document.createElement(tag), props);
@@ -74,14 +102,21 @@
   }
 
   function renderCard(item) {
+    const art = el('a', { className: 'art', href: item.imageLarge || item.image, target: '_blank', rel: 'noopener' });
+    art.setAttribute('aria-label', `Ver ${item.name} en tamaño grande`);
+    art.append(el('img', { src: item.image, alt: `Carta ${item.name}`, loading: 'lazy', width: 245, height: 342 }));
+    const tags = el('ul', { className: 'tags' });
+    const condition = el('li', { title: CONDITIONS[item.condition] ?? '' }, item.condition);
+    tags.append(...[item.rarity, item.variant && variantLabel(item.variant)].filter(Boolean).map((t) => el('li', {}, t)), condition);
+    const buy = el('div', { className: 'buy' });
+    buy.append(el('span', { className: 'price' }, cop.format(item.priceCop)), el('span', { className: 'stock' }, plural(item.qty, 'disponible', 'disponibles')));
     const li = el('li', { className: 'card' });
     li.append(
-      el('img', { src: item.image, alt: `Carta ${item.name}`, loading: 'lazy', width: 245, height: 342 }),
+      art,
       el('h2', {}, item.name),
-      el('p', {}, `${item.set} · #${item.number}`),
-      el('p', {}, [item.rarity, item.variant && variantLabel(item.variant)].filter(Boolean).join(' · ')),
-      el('p', {}, `Estado: ${item.condition} · Disponibles: ${item.qty}`),
-      el('p', { className: 'price' }, cop.format(item.priceCop)),
+      el('p', { className: 'set' }, `${item.set} · #${item.number}`),
+      tags,
+      buy,
       item.priceVariant && item.priceVariant !== item.variant && !item.manual
         ? el('p', { className: 'note' }, `Precio de referencia: ${variantLabel(item.priceVariant)}`)
         : '',
@@ -99,7 +134,11 @@
       .sort((a, b) => sort === 'name' ? a.name.localeCompare(b.name, 'es')
         : sort === 'price-asc' ? a.priceCop - b.priceCop : b.priceCop - a.priceCop);
     $('grid').replaceChildren(...list.map(renderCard));
-    $('status').textContent = list.length ? `${list.length} cartas` : 'No hay cartas que coincidan.';
+    const status = $('status');
+    if (list.length) { status.textContent = plural(list.length, 'carta', 'cartas'); return; }
+    const clear = el('button', { type: 'button' }, 'Limpiar filtros');
+    clear.addEventListener('click', () => { $('search').value = ''; $('rarity').value = ''; render(); $('search').focus(); });
+    status.replaceChildren('Ninguna carta coincide con tu búsqueda.', clear);
   }
 
   fetch('catalog.json')
@@ -107,13 +146,13 @@
     .then((catalog) => {
       items = catalog.items;
       const date = new Date(catalog.generatedAt).toLocaleDateString('es-CO', { dateStyle: 'long' });
-      $('updated').textContent = `Precios actualizados: ${date}`;
+      $('updated').textContent = `Precios en pesos colombianos · actualizados el ${date}`;
       const rarities = [...new Set(items.map((i) => i.rarity).filter(Boolean))].sort();
       $('rarity').append(...rarities.map((r) => el('option', { value: r }, r)));
       for (const id of ['search', 'rarity', 'sort']) $(id).addEventListener('input', render);
       render();
     })
-    .catch(() => { $('status').textContent = 'No se pudo cargar el catálogo.'; });
+    .catch(() => { $('status').textContent = 'No se pudo cargar el catálogo. Recarga la página en unos minutos.'; });
 </script>
 </body>
 </html>
