@@ -41,6 +41,8 @@ npm test         # pruebas de la regla de precios
 
 Los datos salen de [TCGCSV](https://tcgcsv.com): un volcado diario, gratuito y sin clave de los productos y precios de TCGPlayer. Es un proyecto comunitario no oficial (no es de TCGPlayer), así que puede cambiar o dejar de funcionar. El script descarga una vez la lista de grupos por juego y, por cada grupo usado, sus productos y precios.
 
+Cada carta de `catalog.json` incluye `details`: los datos de TCGPlayer (`extendedData`: HP, ataques, texto de la carta, etc.) como pares `{ label, value }` en texto plano, sin HTML; el visor de la carta los muestra.
+
 La tasa USD→COP es fija y la editas tú en `config.json` (`usdToCop`). Después de cambiarla, corre `npm run prices`.
 
 GitHub Actions corre esto cada lunes (12:00 UTC) y hace commit de `catalog.json` si cambió (si los precios y la tasa son iguales, el archivo no se toca y se imprime `catalog.json unchanged`). También se puede lanzar a mano desde la pestaña Actions.

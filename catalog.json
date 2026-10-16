@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T19:39:28.410Z",
+  "generatedAt": "2026-10-16T19:49:44.634Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -20,7 +20,37 @@
       "priceCop": 450500,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/633030/pokemon-sv10-destined-rivals-ethans-ho-oh-ex-230-182",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "230"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Golden Flame Once during your turn, you may attach up to 2 Basic Fire Energy cards from your hand to 1 of your Benched Ethan's Pokémon."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[RRRR] Shining Feathers (160)\n Heal 50 damage from each of your Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
     },
     {
       "id": "pokemon-714386",
@@ -40,7 +70,41 @@
       "priceCop": 400000,
       "manual": true,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/714386/pokemon-me-30th-celebration-classic-collection-lugia",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Colorless"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Card Text",
+          "value": "Poké-BODY: Crystal Type\nWhenever you attach a Fire, Water, or Psychic basic Energy card from your hand to Lugia, Lugia's type (color) becomes the same as that Energy card type until the end of the turn."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[PR] Psychic (10x)\nThis attack does 10 damage times the number of Energy cards attached to the Defending Pokémon."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[WWRC] Steam Blast (50)\nDiscard an Energy card attached to Lugia."
+        },
+        {
+          "label": "Weakness",
+          "value": "P"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "3"
+        }
+      ]
     },
     {
       "id": "magic-631132",
@@ -60,7 +124,25 @@
       "priceCop": 6000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/631132/magic-commander-final-fantasy-hellkite-tyrant",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Dragon"
+        },
+        {
+          "label": "P",
+          "value": "6"
+        },
+        {
+          "label": "T",
+          "value": "5"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying, trample\nWhenever this creature deals combat damage to a player, gain control of all artifacts that player controls.\nAt the beginning of your upkeep, if you control twenty or more artifacts, you win the game."
+        }
+      ]
     },
     {
       "id": "pokemon-610384",
@@ -80,7 +162,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/610384/pokemon-sv-prismatic-evolutions-jolteon",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Lightning"
+        },
+        {
+          "label": "HP",
+          "value": "110"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[L] Linear Attack\n This attack does 30 damage to 1 of your opponent's Pokemon. (Don't apply Weakness and Resistance for Benched Pokemon.)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[LCC] Fighting Lightning (90+)\n If your opponent's Active Pokemon is a Pokemon ex or Pokemon V, this attack does 90 more damage."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "0"
+        }
+      ]
     },
     {
       "id": "pokemon-716513",
@@ -100,7 +212,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716513/pokemon-me-30th-celebration-minior",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Colorless"
+        },
+        {
+          "label": "HP",
+          "value": "90"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[CCC] Shoot Meteors\n Discard all Energy from this Pokémon, and this attack does 120 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "F-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
     },
     {
       "id": "pokemon-716514",
@@ -120,7 +262,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716514/pokemon-me-30th-celebration-maushold-125-128",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Colorless"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Gnaw Together\n Flip a coin for each Maushold you have in play. For each heads, discard the top 2 cards of your opponent's deck."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[C] Pound (40)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-713264",
@@ -140,7 +312,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/713264/pokemon-me-mega-evolution-promo-moltres-096-30th-celebration",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "120"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Fiery Flapping\nOnce during your turn, if you have Articuno and Zapdos in play, you may use this Ability. Attach a Basic R Energy card from your hand to this Pokémon."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[RRC] Fire Spin (130)\nDiscard 2 Energy from this Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-713265",
@@ -160,7 +362,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/713265/pokemon-me-mega-evolution-promo-articuno-097-30th-celebration",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Water"
+        },
+        {
+          "label": "HP",
+          "value": "120"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Frosty Flapping\nOnce during your turn, if you have Moltres and Zapdos in play, you may use this Ability. Attach a Basic W Energy card from your hand to this Pokémon."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[WWC] Hail\nThis attack does 30 damage to each of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Mx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-713266",
@@ -180,7 +412,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/713266/pokemon-me-mega-evolution-promo-zapdos-098-30th-celebration",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Water"
+        },
+        {
+          "label": "HP",
+          "value": "120"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Flash--Pop Flapping\nOnce during your turn, if you have Moltres and Articuno in play, you may use this Ability. Attach a Basic L Energy card from your hand to this Pokémon."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[LLLC] Thundering Lightning (210)\nThis Pokémon also does 60 damage to itself."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-716435",
@@ -200,7 +462,33 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716435/pokemon-me-30th-celebration-exeggcute",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Grass"
+        },
+        {
+          "label": "HP",
+          "value": "60"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Hypnosis\n Your opponent's Active Pokémon is now Asleep."
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-716439",
@@ -220,7 +508,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716439/pokemon-me-30th-celebration-tropius",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Grass"
+        },
+        {
+          "label": "HP",
+          "value": "120"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[GC] Rally Back (30+)\n If any of your Pokémon were Knocked Out by damage from an attack during your opponent's last turn, this attack does 90 more damage."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[GCC] Cutting Wind (90)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
     },
     {
       "id": "pokemon-716444",
@@ -240,7 +558,33 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716444/pokemon-me-30th-celebration-ninetales",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "110"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[R] Flame Tail (60)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-716445",
@@ -260,7 +604,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716445/pokemon-me-30th-celebration-moltres-011-128",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "120"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Fiery Flapping Once during your turn, if you have Articuno and Zapdos in play, you may use this Ability. Attach a Basic Fire Energy card from your hand to this Pokémon."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[RRC] Fire Spin (130)\n Discard 2 Energy from this Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-716449",
@@ -280,7 +654,37 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716449/pokemon-me-30th-celebration-slowpoke",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Water"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Well-Hidden\n Flip a coin. If heads, during your opponent's next turn, prevent all damage from and effects of attacks done to this Pokémon."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[WC] Water Gun (20)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
     },
     {
       "id": "pokemon-716453",
@@ -300,7 +704,33 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716453/pokemon-me-30th-celebration-palkia",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Water"
+        },
+        {
+          "label": "HP",
+          "value": "130"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[WWC] Wormhole (100)\n Switch this Pokémon with 1 of your Benched Pokémon. If you do, switch out your opponent's Active Pokémon to the Bench. (Your opponent chooses the new Active Pokémon.)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
     },
     {
       "id": "pokemon-712934",
@@ -320,7 +750,33 @@
       "priceCop": 2500,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/712934/pokemon-me-30th-celebration-pikachu-023-128",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Lightning"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[LC] Thundershock (20)\nFlip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-712942",
@@ -340,7 +796,33 @@
       "priceCop": 2500,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/712942/pokemon-me-30th-celebration-pikachu-038-128",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Lightning"
+        },
+        {
+          "label": "HP",
+          "value": "60"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[L] Targeted Spark\nThis attack does 20 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     },
     {
       "id": "pokemon-712949",
@@ -360,7 +842,33 @@
       "priceCop": 2500,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/712949/pokemon-me-30th-celebration-pikachu-049-128",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Lightning"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[LCC] Fighting Lightning (20+)\nIf your opponent's Active Pokémon is a Pokémon ex, this attack does 80 more damage."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "3"
+        }
+      ]
     },
     {
       "id": "pokemon-716317",
@@ -380,7 +888,33 @@
       "priceCop": 2000,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716317/pokemon-me-30th-celebration-pikachu-051-128",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Lightning"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[LLL] Lightning Crash\nDiscard all Lightning Energy from this Pokémon, and this attack does 90 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
     },
     {
       "id": "pokemon-716318",
@@ -400,7 +934,33 @@
       "priceCop": 2500,
       "manual": false,
       "tcgplayerUrl": "https://www.tcgplayer.com/product/716318/pokemon-me-30th-celebration-pikachu-052-128",
-      "priceUpdatedAt": "2026-10-15T20:06:01+0000"
+      "priceUpdatedAt": "2026-10-15T20:06:01+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Lightning"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[L] Angry Bolt (10+)\nThis attack does 10 more damage for each damage counter on this Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
     }
   ]
 }

@@ -53,6 +53,34 @@ export function validateSingles(singles) {
 
 const extended = (product, name) => product.extendedData?.find((d) => d.name === name)?.value ?? null;
 
+// Number and Rarity are item fields of their own.
+const DETAIL_SKIP = new Set(['Number', 'Rarity']);
+const ENTITIES = { amp: '&', lt: '<', gt: '>', quot: '"', '#39': "'", apos: "'", nbsp: ' ' };
+
+// TCGCSV values carry HTML (<strong>, <br>, entities); the catalog stores plain text only.
+const plainText = (html) =>
+  String(html)
+    .replace(/\r\n?/g, '\n')
+    .replace(/[ \t]*\n[ \t]*/g, '\n')
+    .replace(/\n?<br\s*\/?>\n?/gi, '\n')
+    .replace(/<[^>]*>/g, '')
+    .replace(/&(#x[0-9a-f]+|#\d+|[a-z0-9]+);/gi, (m, e) => {
+      if (Object.hasOwn(ENTITIES, e.toLowerCase())) return ENTITIES[e.toLowerCase()];
+      const code = e[0] !== '#' ? NaN : e[1] === 'x' || e[1] === 'X' ? parseInt(e.slice(2), 16) : Number(e.slice(1));
+      return Number.isInteger(code) && code > 0 && code <= 0x10ffff ? String.fromCodePoint(code) : m;
+    })
+    .replace(/\u00a0/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+
+// Card data shown in the detail view, in TCGPlayer order: [{ label, value }] of plain text.
+export function cardDetails(extendedData) {
+  return (extendedData ?? [])
+    .filter((d) => !DETAIL_SKIP.has(d.name) && d.value != null)
+    .map((d) => ({ label: d.displayName || d.name, value: plainText(d.value) }))
+    .filter((d) => d.value !== '');
+}
+
 // TCGPlayer puts the card number in some names ("Ethan's Ho-Oh ex - 230/182", "Moltres - 096 (30th Celebration)").
 const cleanName = (name, number) => (number ? name.replace(` - ${number}`, '') : name);
 
@@ -100,6 +128,7 @@ export function buildItems(singles, cards, config, updatedAt) {
       manual,
       tcgplayerUrl: product.url ?? null,
       priceUpdatedAt: picked ? updatedAt : null,
+      details: cardDetails(product.extendedData),
     });
   }
   return { items, errors };

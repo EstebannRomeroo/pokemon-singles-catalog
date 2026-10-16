@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { validateConfig, validateSingles, buildItems, catalogChanged, cardKey } from './catalog.mjs';
+import { validateConfig, validateSingles, buildItems, catalogChanged, cardKey, cardDetails } from './catalog.mjs';
 
 const config = { usdToCop: 4000, minPriceCop: 2000, margin: 1, roundToCop: 500 };
 const UPDATED = '2026-10-15T20:06:01+0000';
@@ -43,6 +43,7 @@ test('item fields come from the TCGCSV product, prices and group', () => {
     manual: false,
     tcgplayerUrl: 'https://www.tcgplayer.com/product/4',
     priceUpdatedAt: UPDATED,
+    details: [],
   });
 });
 
@@ -136,4 +137,35 @@ test('language defaults to EN, accepts known codes and rejects unknown ones', ()
   assert.equal(items[0].language, 'ES');
   assert.equal(buildItems([s('pokemon', 21, 11)], lang, config, UPDATED).items[0].language, 'EN');
   assert.match(validateSingles([s('pokemon', 21, 11, { language: 'xx' })])[0], /language must be one of/);
+});
+
+test('cardDetails turns TCGCSV extendedData into plain-text label/value pairs', () => {
+  const details = cardDetails([
+    { name: 'Number', displayName: 'Number', value: '096' },
+    { name: 'Rarity', displayName: 'Rarity', value: 'Promo' },
+    { name: 'HP', displayName: 'HP', value: '120' },
+    { name: 'Stage', value: 'Basic' },
+    { name: 'Weakness', displayName: 'Weakness', value: '' },
+    { name: 'Resistance', displayName: 'Resistance', value: null },
+    { name: 'CardText', displayName: 'Card Text', value: '<strong>Poké-BODY: Crystal Type</strong>\r\n<br>\r\nTom &amp; Jerry &lt;3 &quot;x&quot; &#39;y&#39;&nbsp;z &#233;' },
+    { name: 'Attack 1', displayName: 'Attack 1', value: '[PR] Psychic (10x)\r\n<br>\r\n<br/>\r\n<BR />\r\n\r\nThis attack does 10 damage.  ' },
+  ]);
+  assert.deepEqual(details, [
+    { label: 'HP', value: '120' },
+    { label: 'Stage', value: 'Basic' },
+    { label: 'Card Text', value: 'Poké-BODY: Crystal Type\nTom & Jerry <3 "x" \'y\' z \u00e9' },
+    { label: 'Attack 1', value: '[PR] Psychic (10x)\n\nThis attack does 10 damage.' },
+  ]);
+});
+
+test('cardDetails drops values that are empty once tags are stripped and tolerates missing data', () => {
+  assert.deepEqual(cardDetails([{ name: 'Flavor', displayName: 'Flavor', value: '<br>\r\n<i></i>' }]), []);
+  assert.deepEqual(cardDetails(undefined), []);
+});
+
+test('items carry the card details', () => {
+  const p = { ...product(12), extendedData: [...product(12).extendedData, { name: 'HP', displayName: 'HP', value: '60' }] };
+  const cs = new Map([entry('pokemon', 22, p, prices(['Normal', 1]))]);
+  const [item] = buildItems([s('pokemon', 22, 12)], cs, config, UPDATED).items;
+  assert.deepEqual(item.details, [{ label: 'HP', value: '60' }]);
 });
