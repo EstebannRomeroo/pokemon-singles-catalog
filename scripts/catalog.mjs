@@ -47,8 +47,8 @@ export function validateSingles(singles) {
 
 const extended = (product, name) => product.extendedData?.find((d) => d.name === name)?.value ?? null;
 
-// TCGPlayer appends the card number to some names ("Ethan's Ho-Oh ex - 230/182").
-const cleanName = (name, number) => (number && name.endsWith(` - ${number}`) ? name.slice(0, -(number.length + 3)) : name);
+// TCGPlayer puts the card number in some names ("Ethan's Ho-Oh ex - 230/182", "Moltres - 096 (30th Celebration)").
+const cleanName = (name, number) => (number ? name.replace(` - ${number}`, '') : name);
 
 // The CDN serves the same image at other sizes; verified for _400w and _in_1000x1000.
 // Presale products can have imageCount 0, and then the CDN answers 403.

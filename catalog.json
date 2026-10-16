@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T19:34:39.739Z",
+  "generatedAt": "2026-10-16T19:35:03.463Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -119,7 +119,7 @@
     {
       "id": "pokemon-713264",
       "game": "pokemon",
-      "name": "Moltres - 096 (30th Celebration)",
+      "name": "Moltres (30th Celebration)",
       "set": "ME: Mega Evolution Promo",
       "number": "096",
       "rarity": "Promo",
@@ -138,7 +138,7 @@
     {
       "id": "pokemon-713265",
       "game": "pokemon",
-      "name": "Articuno - 097 (30th Celebration)",
+      "name": "Articuno (30th Celebration)",
       "set": "ME: Mega Evolution Promo",
       "number": "097",
       "rarity": "Promo",
@@ -157,7 +157,7 @@
     {
       "id": "pokemon-713266",
       "game": "pokemon",
-      "name": "Zapdos - 098 (30th Celebration)",
+      "name": "Zapdos (30th Celebration)",
       "set": "ME: Mega Evolution Promo",
       "number": "098",
       "rarity": "Promo",

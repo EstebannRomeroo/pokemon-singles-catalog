@@ -119,3 +119,11 @@ test('catalogChanged ignores generatedAt', () => {
   assert.equal(catalogChanged(prev, { ...prev, items: [] }), true);
   assert.equal(catalogChanged(null, prev), true);
 });
+
+test('buildItems drops the card number from names that also carry a suffix', () => {
+  const p = product(9, '096', 'Moltres - 096 (30th Celebration)');
+  const promo = new Map([entry('pokemon', 20, p, prices(['Holofoil', 0.45]))]);
+  const { items, errors } = buildItems([s('pokemon', 20, 9)], promo, config, UPDATED);
+  assert.deepEqual(errors, []);
+  assert.equal(items[0].name, 'Moltres (30th Celebration)');
+});
