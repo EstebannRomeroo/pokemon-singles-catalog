@@ -135,6 +135,7 @@
     </label>
     <label>Ordenar
       <select id="sort">
+        <option value="number">Set y número</option>
         <option value="price-desc">Precio: mayor a menor</option>
         <option value="price-asc">Precio: menor a mayor</option>
         <option value="name">Nombre</option>
@@ -266,7 +267,8 @@
     const list = inScope()
       .filter((i) => !q || i.name.toLowerCase().includes(q) || i.set.toLowerCase().includes(q))
       .filter((i) => !rarity || i.rarity === rarity)
-      .sort((a, b) => sort === 'name' ? a.name.localeCompare(b.name, 'es')
+      .sort((a, b) => sort === 'number' ? (a.set ?? '').localeCompare(b.set ?? '', 'es') || (parseInt(a.number, 10) || 0) - (parseInt(b.number, 10) || 0)
+        : sort === 'name' ? a.name.localeCompare(b.name, 'es')
         : sort === 'price-asc' ? a.priceCop - b.priceCop : b.priceCop - a.priceCop);
     if (game) {
       $('results').replaceChildren(list.length ? grid(list) : '');
