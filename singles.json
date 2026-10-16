@@ -1,0 +1,8 @@
+[
+  { "id": "sv1-25", "qty": 2 },
+  { "id": "sv1-1", "qty": 1, "variant": "reverseHolofoil" },
+  { "id": "sv3pt5-25", "qty": 3, "variant": "normal" },
+  { "id": "swsh12pt5-160", "qty": 1, "condition": "NM" },
+  { "id": "sv4pt5-232", "qty": 1, "condition": "NM" },
+  { "id": "base1-4", "qty": 1, "condition": "LP", "price": 3500000 }
+]

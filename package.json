@@ -1,0 +1,9 @@
+{
+  "name": "pokemon-singles-catalog",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prices": "node scripts/update-prices.mjs",
+    "test": "node --test \"scripts/*.test.mjs\""
+  }
+}

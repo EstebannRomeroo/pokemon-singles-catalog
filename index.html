@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de cartas Pokémon</title>
+<style>
+  :root {
+    --bg: #f6f7f9; --surface: #ffffff; --text: #1b1f24; --muted: #5f6b7a;
+    --border: #e1e5ea; --accent: #d63c3c; --radius: 12px;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #111418; --surface: #1b2027; --text: #e8ecf1; --muted: #9aa6b4; --border: #2b323c; --accent: #ff6b6b; }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.4 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); }
+  header, main { max-width: 1200px; margin: 0 auto; padding: 16px; }
+  h1 { margin: 8px 0 4px; font-size: 1.6rem; }
+  .meta { margin: 0; color: var(--muted); font-size: .9rem; }
+  .controls { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 16px; }
+  .controls label { display: flex; flex-direction: column; gap: 4px; font-size: .85rem; color: var(--muted); flex: 1 1 180px; }
+  input, select { font: inherit; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); color: var(--text); }
+  input:focus-visible, select:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 10px; display: flex; flex-direction: column; gap: 4px; }
+  .card img { width: 100%; height: auto; aspect-ratio: 245 / 342; border-radius: 8px; background: var(--border); }
+  .card h2 { font-size: 1rem; margin: 6px 0 0; }
+  .card p { margin: 0; font-size: .82rem; color: var(--muted); }
+  .price { margin-top: auto; padding-top: 6px; font-size: 1.15rem; font-weight: 700; color: var(--accent); }
+  .status { color: var(--muted); }
+  @media (max-width: 420px) { .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Catálogo de cartas Pokémon</h1>
+  <p class="meta" id="updated"></p>
+  <p class="meta">Precio de referencia TCGPlayer convertido a COP.</p>
+  <div class="controls">
+    <label>Buscar
+      <input id="search" type="search" placeholder="Nombre o expansión">
+    </label>
+    <label>Rareza
+      <select id="rarity"><option value="">Todas</option></select>
+    </label>
+    <label>Ordenar
+      <select id="sort">
+        <option value="price-desc">Precio: mayor a menor</option>
+        <option value="price-asc">Precio: menor a mayor</option>
+        <option value="name">Nombre</option>
+      </select>
+    </label>
+  </div>
+</header>
+<main>
+  <p class="status" id="status" role="status">Cargando…</p>
+  <ul class="grid" id="grid"></ul>
+</main>
+<script>
+  const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+  const $ = (id) => document.getElementById(id);
+  let items = [];
+
+  function el(tag, props = {}, text) {
+    const node = Object.assign(document.createElement(tag), props);
+    if (text != null) node.textContent = text;
+    return node;
+  }
+
+  function renderCard(item) {
+    const li = el('li', { className: 'card' });
+    li.append(
+      el('img', { src: item.image, alt: `Carta ${item.name}`, loading: 'lazy', width: 245, height: 342 }),
+      el('h2', {}, item.name),
+      el('p', {}, `${item.set} · #${item.number}`),
+      el('p', {}, [item.rarity, item.variant].filter(Boolean).join(' · ')),
+      el('p', {}, `Estado: ${item.condition} · Disponibles: ${item.qty}`),
+      el('p', { className: 'price' }, cop.format(item.priceCop)),
+    );
+    return li;
+  }
+
+  function render() {
+    const q = $('search').value.trim().toLowerCase();
+    const rarity = $('rarity').value;
+    const sort = $('sort').value;
+    const list = items
+      .filter((i) => !q || i.name.toLowerCase().includes(q) || i.set.toLowerCase().includes(q))
+      .filter((i) => !rarity || i.rarity === rarity)
+      .sort((a, b) => sort === 'name' ? a.name.localeCompare(b.name, 'es')
+        : sort === 'price-asc' ? a.priceCop - b.priceCop : b.priceCop - a.priceCop);
+    $('grid').replaceChildren(...list.map(renderCard));
+    $('status').textContent = list.length ? `${list.length} cartas` : 'No hay cartas que coincidan.';
+  }
+
+  fetch('catalog.json')
+    .then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); })
+    .then((catalog) => {
+      items = catalog.items;
+      const date = new Date(catalog.generatedAt).toLocaleDateString('es-CO', { dateStyle: 'long' });
+      $('updated').textContent = `Precios actualizados: ${date}`;
+      const rarities = [...new Set(items.map((i) => i.rarity).filter(Boolean))].sort();
+      $('rarity').append(...rarities.map((r) => el('option', { value: r }, r)));
+      for (const id of ['search', 'rarity', 'sort']) $(id).addEventListener('input', render);
+      render();
+    })
+    .catch(() => { $('status').textContent = 'No se pudo cargar el catálogo.'; });
+</script>
+</body>
+</html>
