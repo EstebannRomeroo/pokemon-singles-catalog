@@ -5,19 +5,6 @@ const BATCH_SIZE = 50;
 const root = new URL('../', import.meta.url);
 const readJson = async (name) => JSON.parse(await readFile(new URL(name, root), 'utf8'));
 
-async function getUsdToCop(fallback) {
-  try {
-    const res = await fetch('https://open.er-api.com/v6/latest/USD');
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const rate = (await res.json()).rates?.COP;
-    if (!rate) throw new Error('COP rate missing');
-    return rate;
-  } catch (err) {
-    console.warn(`warning: exchange rate unavailable (${err.message}), using fallback ${fallback}`);
-    return fallback;
-  }
-}
-
 // pokemontcg.io intermittently returns 5xx, so retry a few times with a growing delay.
 async function fetchWithRetry(url, options, attempts = 4) {
   for (let i = 1; ; i++) {
@@ -43,7 +30,11 @@ async function fetchCards(ids) {
 
 const singles = await readJson('singles.json');
 const config = await readJson('config.json');
-const usdToCop = await getUsdToCop(config.fallbackUsdToCop);
+const usdToCop = config.usdToCop;
+if (!(typeof usdToCop === 'number' && usdToCop > 0)) {
+  console.error('error: config.json usdToCop must be a positive number, e.g. 3200');
+  process.exit(1);
+}
 
 let cards;
 try {

@@ -1,1 +1,1 @@
-{ "minPriceCop": 2000, "margin": 1.0, "roundToCop": 500, "fallbackUsdToCop": 4000 }
+{ "usdToCop": 3200, "minPriceCop": 2000, "margin": 1.0, "roundToCop": 500 }

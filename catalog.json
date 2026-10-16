@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-10-16T13:58:24.541Z",
-  "usdToCop": 3184.574607,
+  "generatedAt": "2026-10-16T14:04:17.654Z",
+  "usdToCop": 3200,
   "items": [
     {
       "id": "sv1-25",
@@ -65,7 +65,7 @@
       "condition": "NM",
       "qty": 1,
       "usd": 39.57,
-      "priceCop": 126500,
+      "priceCop": 127000,
       "manual": false,
       "tcgplayerUrl": "https://prices.pokemontcg.io/tcgplayer/swsh12pt5-160",
       "priceUpdatedAt": "2026/10/15"
@@ -82,7 +82,7 @@
       "condition": "NM",
       "qty": 1,
       "usd": 863.75,
-      "priceCop": 2751000,
+      "priceCop": 2764000,
       "manual": false,
       "tcgplayerUrl": "https://prices.pokemontcg.io/tcgplayer/sv4pt5-232",
       "priceUpdatedAt": "2026/10/15"
