@@ -22,6 +22,7 @@ All free. No backend, no DB, no auth. Node 22 stdlib only, zero npm dependencies
 - [x] T3 — GitHub Actions workflow + README (same writer)
 - [x] T3b — Fixed editable USD→COP rate (inline)
 - [x] T4 — Harden update script: fail on missing cards, reject invalid manual price, variant price fallback, validate config, no-op commit when unchanged (route: delegated writer; trigger: 2+ non-trivial files)
+- [x] T5 — Keep owned variant, add priceVariant + Spanish variant labels (inline)
 
 ## Acceptance criteria
 - `node --test` passes.
@@ -55,6 +56,8 @@ Deviations / rationale:
 
 - T4 commit a98eb4b. Native review: high, 4 lenses, granted, APPROVED + acknowledged (lineage review-f83f0a6e8c0509ba). Parent spot check: 12/12 tests; changed-rate run rewrote catalog.json (restored).
 - Advisory follow-ups: corrupt catalog.json crashes unformatted; variant substitution shows fallback variant instead of owned one; one unpriced card blocks the whole publish (by design).
+
+- T5 commit cbe7aae. RED 12/1 → GREEN 13/0. Headless screenshot desktop+mobile OK. Review assess: medium, under_budget (pending in slice since a98eb4b).
 
 ## Next step
 Publish on GitHub Pages (user decision).
