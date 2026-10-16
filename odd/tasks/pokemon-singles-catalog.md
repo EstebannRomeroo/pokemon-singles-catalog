@@ -59,5 +59,7 @@ Deviations / rationale:
 
 - T5 commit cbe7aae. RED 12/1 → GREEN 13/0. Headless screenshot desktop+mobile OK. Review assess: medium, under_budget (pending in slice since a98eb4b).
 
+- Published 2026-10-16: public repo EstebannRomeroo/pokemon-singles-catalog, `main` created from `feat/catalog` (no prior main) and set as default; Pages from main `/`. Observed: Pages status `built`, site HTTP 200, `/catalog.json` served (usdToCop 3200).
+
 ## Next step
-Publish on GitHub Pages (user decision).
+Optional: run "Update prices" workflow manually once; follow-ups listed above.
