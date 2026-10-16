@@ -26,7 +26,7 @@ npm test         # pruebas de la regla de precios
 
 Opcional: exporta `POKEMONTCG_API_KEY` para tener más cuota en la API.
 
-La tasa USD→COP es fija y la editas tú en `config.json` (`usdToCop`, hoy 3200). Después de cambiarla, corre `npm run prices`.
+La tasa USD→COP es fija y la editas tú en `config.json` (`usdToCop`). Después de cambiarla, corre `npm run prices`.
 
 GitHub Actions corre esto cada lunes (12:00 UTC) y hace commit de `catalog.json` si cambió. También se puede lanzar a mano desde la pestaña Actions. La clave de API va en Settings → Secrets → `POKEMONTCG_API_KEY` (opcional).
 

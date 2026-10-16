@@ -8,7 +8,7 @@ Owner needs a shareable price list that is easy to update. Collectr has no publi
 
 ## Scope
 - Inventory in `singles.json` (card id, qty, optional variant/condition/manual price).
-- `scripts/update-prices.mjs` builds `catalog.json` from pokemontcg.io + free USD→COP rate.
+- `scripts/update-prices.mjs` builds `catalog.json` from pokemontcg.io prices + fixed, owner-edited `usdToCop` in config.json.
 - Price rule: `max(minPrice, ceil(usd * rate * margin / roundTo) * roundTo)`; manual price overrides. minPrice = 2000 COP.
 - `index.html` (no build step) renders catalog with search and sort.
 - GitHub Actions weekly job refreshes prices; GitHub Pages hosts it.
@@ -40,7 +40,9 @@ Deviations / rationale:
 - pokemontcg.io returned HTTP 502 on first run; update script retries up to 4 attempts with growing delay before failing (catalog.json untouched on failure, temp file + rename).
 
 - Commit dba954a (T1–T3). Native review: high risk, 4 lenses, consent granted, APPROVED and acknowledged (lineage review-589366349c081d52).
-- Advisory follow-ups (non-blocking): FX fallback 4000 silently reprices ~25% high; missing cards silently dropped and auto-published; manual price ignored if not integer; requested variant with no price falls to min instead of other variants; NaN on bad config; generatedAt forces weekly commit; README variant order wording.
+- Advisory follow-ups (non-blocking): missing cards silently dropped and auto-published; manual price ignored if not integer; requested variant with no price falls to min instead of other variants; NaN on bad config; generatedAt forces weekly commit; README variant order wording.
+
+- T3b — Fixed editable rate (user request): `usdToCop: 3200` in config.json, live FX fetch removed, script exits 1 on invalid rate. Commit e78964c. Route inline (one mechanical file). Native review: high, 4 lenses, granted, APPROVED + acknowledged (lineage review-34349cc5ae466fc2). `npm run prices`: 6 items, 1 USD = 3200 COP.
 
 ## Next step
 T4 (proposed, needs user OK): harden update script against the advisory findings. Then publish on GitHub Pages.
