@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Cartas Pokémon en venta</title>
+<title>Cartas TCG en venta</title>
 <link rel="icon" href="assets/favicon.png">
 <style>
   /* Strict palette, light catalog. Dark band carries the brand;
@@ -27,7 +27,14 @@
   h1 { margin: 0; font-size: 1.75rem; line-height: 1.2; letter-spacing: -.01em; }
   .meta { margin: 4px 0 0; color: var(--mint); font-size: .9rem; }
   main.wrap { padding-bottom: 48px; }
-  .controls { display: flex; flex-wrap: wrap; gap: 12px; padding: 24px 0 20px; border-bottom: 1px solid var(--line); }
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; padding-top: 24px; }
+  .tabs:empty { display: none; }
+  .tab { flex: none; display: inline-flex; align-items: center; gap: 8px; padding: 0 16px; border-radius: 999px; }
+  .tab:hover { border-color: var(--lime); }
+  .tab[aria-selected="true"] { background: var(--green); border-color: var(--green); color: var(--ink); }
+  .tab .count { font-size: .8rem; font-weight: 600; color: var(--deep); font-variant-numeric: tabular-nums; }
+  .tab[aria-selected="true"] .count { color: var(--ink); }
+  .controls { display: flex; flex-wrap: wrap; gap: 12px; padding: 20px 0; border-bottom: 1px solid var(--line); }
   .controls label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 600; color: var(--deep); flex: 1 1 160px; min-width: 0; }
   .controls label:first-child { flex: 2 1 240px; }
   input, select, button { font: inherit; min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); transition: border-color .2s var(--ease), background-color .2s var(--ease); }
@@ -40,12 +47,16 @@
   .status { margin: 20px 0 16px; color: var(--deep); font-size: .9rem; }
   .status button { margin-left: 8px; }
   .status button:hover { border-color: var(--lime); }
+  .game + .game { margin-top: 36px; }
+  .game-head { display: flex; align-items: baseline; gap: 10px; margin: 0 0 14px; font-size: 1.3rem; line-height: 1.2; letter-spacing: -.01em; }
+  .game-head .count { font-size: .9rem; font-weight: 600; color: var(--deep); }
   .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgb(14 42 35 / .06); transition: border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease); }
   .card:hover { border-color: var(--lime); transform: translateY(-3px); box-shadow: 0 10px 24px -12px rgb(14 42 35 / .35); }
   .art { display: block; border-radius: 9px; }
-  .art img { display: block; width: 100%; height: auto; aspect-ratio: 245 / 342; border-radius: 9px; background: var(--pale); }
-  .card h2 { font-size: 1.05rem; line-height: 1.3; margin: 14px 0 0; }
+  .art .no-img { display: grid; place-items: center; padding: 8px; text-align: center; aspect-ratio: 245 / 342; border-radius: 9px; background: var(--pale); color: var(--deep); font-size: .85rem; }
+  .art img { display: block; width: 100%; height: auto; aspect-ratio: 245 / 342; object-fit: contain; border-radius: 9px; background: var(--pale); }
+  .card h3 { font-size: 1.05rem; line-height: 1.3; margin: 14px 0 0; }
   .set { margin: 2px 0 0; font-size: .85rem; color: var(--deep); }
   .tags { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; padding: 0; margin: 10px 0 0; }
   .tags li { font-size: .75rem; line-height: 1; padding: 5px 8px; border-radius: 999px; background: color-mix(in srgb, #1ABC9C 14%, #FFF); color: var(--deep); }
@@ -66,11 +77,14 @@
     .header-row { padding-top: 16px; padding-bottom: 16px; }
     h1 { font-size: 1.3rem; }
     .logo { width: 56px; }
-    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding-top: 16px; }
+    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
     .controls label:first-child { grid-column: 1 / -1; }
     .grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
     .card { padding: 8px; }
-    .card h2 { font-size: .95rem; margin-top: 10px; }
+    .tabs { padding-top: 16px; gap: 6px; }
+    .tab { padding: 0 12px; gap: 6px; }
+    .controls { padding-top: 14px; }
+    .card h3 { font-size: .95rem; margin-top: 10px; }
     .price { font-size: 1.1rem; }
     .buy { flex-direction: column; align-items: flex-start; gap: 2px; }
   }
@@ -79,12 +93,14 @@
     html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     .wrap { max-width: none; padding: 0 10mm; }
     .header-row { padding-top: 8mm; padding-bottom: 6mm; }
-    .controls, .pdf, .status, .note, .want, .toast { display: none; }
+    .tabs, .controls, .pdf, .status, .note, .want, .toast { display: none; }
     .logo { width: 60px; }
     main.wrap { padding-top: 6mm; padding-bottom: 0; }
     .grid { grid-template-columns: repeat(4, 1fr); gap: 4mm; }
     .card { break-inside: avoid; transform: none !important; box-shadow: none; padding: 2.5mm; }
-    .card h2 { font-size: .85rem; margin-top: 2mm; }
+    .game + .game { margin-top: 8mm; }
+    .game-head { font-size: 1.1rem; margin-bottom: 3mm; break-after: avoid; page-break-after: avoid; }
+    .card h3 { font-size: .85rem; margin-top: 2mm; }
     .set, .stock { font-size: .7rem; }
     .tags li { font-size: .6rem; padding: 3px 6px; }
     .price { font-size: 1rem; }
@@ -101,7 +117,7 @@
     <div class="brand">
       <img class="logo" src="assets/logo.webp" alt="Logo de la tienda" width="320" height="320">
       <div>
-        <h1>Cartas Pokémon en venta</h1>
+        <h1>Cartas en venta</h1>
         <p class="meta" id="updated">Precios en pesos colombianos</p>
       </div>
     </div>
@@ -109,6 +125,7 @@
   </div>
 </header>
 <main class="wrap">
+  <div class="tabs" id="tabs" role="tablist" aria-label="Juego"></div>
   <div class="controls">
     <label>Buscar
       <input id="search" type="search" placeholder="Nombre o expansión" autocomplete="off">
@@ -125,7 +142,7 @@
     </label>
   </div>
   <p class="status" id="status" role="status">Cargando catálogo…</p>
-  <ul class="grid" id="grid"></ul>
+  <div id="results" role="tabpanel"></div>
 </main>
 <footer class="wrap">Precios de referencia basados en el mercado (TCGPlayer), convertidos a COP.<span class="print-only" id="site"></span></footer>
 <p class="toast" id="toast" role="status"></p>
@@ -136,10 +153,17 @@
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
   const $ = (id) => document.getElementById(id);
   let items = [];
-  const VARIANTS = { normal: 'Normal', holofoil: 'Holo', reverseHolofoil: 'Reverse Holo', '1stEditionHolofoil': '1ra edición Holo', '1stEditionNormal': '1ra edición' };
+  const GAMES = [['pokemon', 'Pokémon'], ['magic', 'Magic'], ['onepiece', 'One Piece']];
+  const gameName = (game) => GAMES.find(([g]) => g === game)?.[1] ?? game;
+  let game = ''; // selected tab; '' = Todos
+  // TCGPlayer subTypeName -> label.
+  const VARIANTS = { Normal: 'Normal', Holofoil: 'Holo', 'Reverse Holofoil': 'Reverse Holo', Foil: 'Foil', '1st Edition Holofoil': '1ra edición Holo', '1st Edition Normal': '1ra edición' };
   const variantLabel = (v) => VARIANTS[v] ?? v;
   const CONDITIONS = { NM: 'Near Mint', LP: 'Lightly Played', MP: 'Moderately Played', HP: 'Heavily Played', DMG: 'Damaged' };
   const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+  // Numbers come as "149/147" or "OP18-021"; show them once with a leading #.
+  const numberLabel = (n) => (n ? `#${String(n).replace(/^#/, '')}` : '');
+  const setLine = (item) => [item.set, numberLabel(item.number)].filter(Boolean).join(' · ');
 
   function el(tag, props = {}, text) {
     const node = Object.assign(document.createElement(tag), props);
@@ -148,9 +172,16 @@
   }
 
   function renderCard(item) {
-    const art = el('a', { className: 'art', href: item.imageLarge || item.image, target: '_blank', rel: 'noopener' });
-    art.setAttribute('aria-label', `Ver ${item.name} en tamaño grande`);
-    art.append(el('img', { src: item.image, alt: `Carta ${item.name}`, loading: 'lazy', width: 245, height: 342 }));
+    const art = el(item.image ? 'a' : 'div', { className: 'art' });
+    if (item.image) {
+      Object.assign(art, { href: item.imageLarge || item.image, target: '_blank', rel: 'noopener' });
+      art.setAttribute('aria-label', `Ver ${item.name} en tamaño grande`);
+    }
+    // Presale products may have no image yet; show a placeholder instead of a broken image.
+    const noImage = () => el('span', { className: 'no-img' }, 'Imagen no disponible');
+    const img = el('img', { src: item.image ?? '', alt: `Carta ${item.name}`, loading: 'lazy', width: 245, height: 342 });
+    img.addEventListener('error', () => img.replaceWith(noImage()));
+    art.append(item.image ? img : noImage());
     const tags = el('ul', { className: 'tags' });
     const condition = el('li', { title: CONDITIONS[item.condition] ?? '' }, item.condition);
     tags.append(...[item.rarity, item.variant && variantLabel(item.variant)].filter(Boolean).map((t) => el('li', {}, t)), condition);
@@ -159,8 +190,8 @@
     const li = el('li', { className: 'card' });
     li.append(
       art,
-      el('h2', {}, item.name),
-      el('p', { className: 'set' }, `${item.set} · #${item.number}`),
+      el('h3', {}, item.name),
+      el('p', { className: 'set' }, setLine(item)),
       tags,
       buy,
       WHATSAPP_LINK ? wantButton(item) : '',
@@ -173,7 +204,7 @@
 
   // Short links can't carry a per-card message, so copy it and let the buyer paste it.
   function wantButton(item) {
-    const msg = `Hola, me interesa ${item.name} (${item.set} #${item.number}) a ${cop.format(item.priceCop)}`;
+    const msg = `Hola, me interesa ${item.name} (${[item.set, numberLabel(item.number)].filter(Boolean).join(' ')}) a ${cop.format(item.priceCop)}`;
     const a = el('a', { className: 'want', href: WHATSAPP_LINK, target: '_blank', rel: 'noopener' }, 'Lo quiero');
     a.addEventListener('click', () => {
       navigator.clipboard?.writeText(msg).then(() => toast('Mensaje copiado. Pégalo en el chat de WhatsApp.'), () => {});
@@ -189,16 +220,67 @@
     toastTimer = setTimeout(() => $('toast').classList.remove('show'), 4000);
   }
 
+  const inScope = () => items.filter((i) => !game || i.game === game);
+  const gamesWithItems = () => GAMES.map(([g]) => g).filter((g) => items.some((i) => i.game === g));
+
+  function renderTabs() {
+    const tabs = [['', 'Todos', items.length], ...gamesWithItems().map((g) => [g, gameName(g), items.filter((i) => i.game === g).length])];
+    $('tabs').replaceChildren(...tabs.map(([g, name, n]) => {
+      const tab = el('button', { type: 'button', role: 'tab', className: 'tab', id: `tab-${g || 'all'}` }, name);
+      tab.dataset.game = g;
+      tab.setAttribute('aria-controls', 'results');
+      tab.append(el('span', { className: 'count' }, String(n)));
+      tab.addEventListener('click', () => selectGame(g));
+      return tab;
+    }));
+  }
+
+  function syncTabs() {
+    for (const tab of $('tabs').children) {
+      const selected = tab.dataset.game === game;
+      tab.setAttribute('aria-selected', String(selected));
+      tab.tabIndex = selected ? 0 : -1;
+    }
+    $('results').setAttribute('aria-labelledby', `tab-${game || 'all'}`);
+  }
+
+  // Rarity options follow the selected game; keep the current choice when it still exists.
+  function renderRarities() {
+    const current = $('rarity').value;
+    const rarities = [...new Set(inScope().map((i) => i.rarity).filter(Boolean))].sort();
+    $('rarity').replaceChildren(el('option', { value: '' }, 'Todas'), ...rarities.map((r) => el('option', { value: r }, r)));
+    $('rarity').value = rarities.includes(current) ? current : '';
+  }
+
+  function grid(list) {
+    const ul = el('ul', { className: 'grid' });
+    ul.append(...list.map(renderCard));
+    return ul;
+  }
+
   function render() {
     const q = $('search').value.trim().toLowerCase();
     const rarity = $('rarity').value;
     const sort = $('sort').value;
-    const list = items
+    const list = inScope()
       .filter((i) => !q || i.name.toLowerCase().includes(q) || i.set.toLowerCase().includes(q))
       .filter((i) => !rarity || i.rarity === rarity)
       .sort((a, b) => sort === 'name' ? a.name.localeCompare(b.name, 'es')
         : sort === 'price-asc' ? a.priceCop - b.priceCop : b.priceCop - a.priceCop);
-    $('grid').replaceChildren(...list.map(renderCard));
+    if (game) {
+      $('results').replaceChildren(list.length ? grid(list) : '');
+    } else {
+      $('results').replaceChildren(...GAMES.map(([g, name]) => {
+        const own = list.filter((i) => i.game === g);
+        if (!own.length) return '';
+        const section = el('section', { className: 'game' });
+        section.setAttribute('aria-labelledby', `head-${g}`);
+        const head = el('h2', { className: 'game-head', id: `head-${g}` }, name);
+        head.append(el('span', { className: 'count' }, plural(own.length, 'carta', 'cartas')));
+        section.append(head, grid(own));
+        return section;
+      }));
+    }
     const status = $('status');
     if (list.length) { status.textContent = plural(list.length, 'carta', 'cartas'); return; }
     const clear = el('button', { type: 'button' }, 'Limpiar filtros');
@@ -206,7 +288,33 @@
     status.replaceChildren('Ninguna carta coincide con tu búsqueda.', clear);
   }
 
-  // ponytail: browser "Save as PDF" via print CSS; the PDF shows the current filters and order.
+  // The URL hash (#pokemon, #magic, #onepiece) selects the tab so a section can be shared by link.
+  function applyHash() {
+    const g = decodeURIComponent(location.hash.slice(1));
+    game = gamesWithItems().includes(g) ? g : '';
+    syncTabs();
+    renderRarities();
+    render();
+  }
+
+  function selectGame(g) {
+    if (g !== game) history.pushState(null, '', g ? `#${g}` : location.pathname + location.search);
+    applyHash();
+  }
+
+  // Arrow keys, Home and End move between tabs (WAI-ARIA tabs, automatic activation).
+  $('tabs').addEventListener('keydown', (e) => {
+    const tabs = [...$('tabs').children];
+    const i = tabs.indexOf(document.activeElement);
+    const next = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+    if (i < 0 || next == null) return;
+    e.preventDefault();
+    const tab = tabs[(next + tabs.length) % tabs.length];
+    tab.focus();
+    selectGame(tab.dataset.game);
+  });
+
+  // ponytail: browser "Save as PDF" via print CSS; the PDF shows the selected tab, filters and order.
   $('site').textContent = `Catálogo actualizado: ${location.origin}${location.pathname}`;
   $('pdf').addEventListener('click', async () => {
     $('pdf').disabled = true;
@@ -223,10 +331,11 @@
       items = catalog.items;
       const date = new Date(catalog.generatedAt).toLocaleDateString('es-CO', { dateStyle: 'long' });
       $('updated').textContent = `Precios en pesos colombianos · actualizados el ${date}`;
-      const rarities = [...new Set(items.map((i) => i.rarity).filter(Boolean))].sort();
-      $('rarity').append(...rarities.map((r) => el('option', { value: r }, r)));
+      renderTabs();
       for (const id of ['search', 'rarity', 'sort']) $(id).addEventListener('input', render);
-      render();
+      addEventListener('hashchange', applyHash);
+      addEventListener('popstate', applyHash);
+      applyHash();
     })
     .catch(() => { $('status').textContent = 'No se pudo cargar el catálogo. Recarga la página en unos minutos.'; });
 </script>
