@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-16T21:03:10.637Z",
+  "generatedAt": "2026-10-16T21:10:28.018Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -1105,56 +1105,6 @@
       ]
     },
     {
-      "id": "pokemon-716468",
-      "game": "pokemon",
-      "name": "Unown",
-      "set": "ME: 30th Celebration",
-      "number": "072/128",
-      "rarity": "Common",
-      "image": "https://tcgplayer-cdn.tcgplayer.com/product/716468_400w.jpg",
-      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/716468_in_1000x1000.jpg",
-      "variant": "Normal",
-      "priceVariant": "Holofoil",
-      "condition": "NM",
-      "language": "EN",
-      "qty": 1,
-      "usd": 0.3,
-      "priceCop": 2000,
-      "manual": false,
-      "tcgplayerUrl": "https://www.tcgplayer.com/product/716468/pokemon-me-30th-celebration-unown",
-      "priceUpdatedAt": "2026-10-16T20:05:27+0000",
-      "details": [
-        {
-          "label": "Card Type",
-          "value": "Psychic"
-        },
-        {
-          "label": "HP",
-          "value": "80"
-        },
-        {
-          "label": "Stage",
-          "value": "Basic"
-        },
-        {
-          "label": "Attack 1",
-          "value": "[PP] Mysterious Signal (40)\n If your opponent's Pokémon is Knocked Out by damage from this attack, take 1 more Prize card."
-        },
-        {
-          "label": "Weakness",
-          "value": "Dx2"
-        },
-        {
-          "label": "Resistance",
-          "value": "F-30"
-        },
-        {
-          "label": "Retreat Cost",
-          "value": "1"
-        }
-      ]
-    },
-    {
       "id": "pokemon-716476",
       "game": "pokemon",
       "name": "Lunala",
@@ -1243,6 +1193,52 @@
         {
           "label": "Retreat Cost",
           "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-716473",
+      "game": "pokemon",
+      "name": "Comfey",
+      "set": "ME: 30th Celebration",
+      "number": "077/128",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/716473_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/716473_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/716473/pokemon-me-30th-celebration-comfey",
+      "priceUpdatedAt": "2026-10-16T20:05:27+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Psychic"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Comforting Aroma\n Heal 80 damage from 1 of your Benched Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Mx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
         }
       ]
     }

@@ -149,13 +149,6 @@
   {
     "game": "pokemon",
     "group": 24722,
-    "product": 716468,
-    "qty": 1,
-    "variant": "Normal"
-  },
-  {
-    "game": "pokemon",
-    "group": 24722,
     "product": 716476,
     "qty": 1,
     "variant": "Normal"
@@ -164,6 +157,13 @@
     "game": "pokemon",
     "group": 24722,
     "product": 716479,
+    "qty": 1,
+    "variant": "Normal"
+  },
+  {
+    "game": "pokemon",
+    "group": 24722,
+    "product": 716473,
     "qty": 1,
     "variant": "Normal"
   }
