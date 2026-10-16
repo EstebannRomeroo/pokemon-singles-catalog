@@ -9,7 +9,7 @@ Owner needs a shareable price list that is easy to update. Collectr has no publi
 ## Scope
 - Inventory in `singles.json` (card id, qty, optional variant/condition/manual price).
 - `scripts/update-prices.mjs` builds `catalog.json` from pokemontcg.io + free USD→COP rate.
-- Price rule: `max(minPrice, round(usd * rate * margin))`; manual price overrides. minPrice = 2000 COP.
+- Price rule: `max(minPrice, ceil(usd * rate * margin / roundTo) * roundTo)`; manual price overrides. minPrice = 2000 COP.
 - `index.html` (no build step) renders catalog with search and sort.
 - GitHub Actions weekly job refreshes prices; GitHub Pages hosts it.
 
@@ -39,5 +39,8 @@ Deviations / rationale:
 - Node 22 `node --test scripts/` fails (directory treated as module path); `npm test` and the workflow use `node --test "scripts/*.test.mjs"`.
 - pokemontcg.io returned HTTP 502 on first run; update script retries up to 4 attempts with growing delay before failing (catalog.json untouched on failure, temp file + rename).
 
+- Commit dba954a (T1–T3). Native review: high risk, 4 lenses, consent granted, APPROVED and acknowledged (lineage review-589366349c081d52).
+- Advisory follow-ups (non-blocking): FX fallback 4000 silently reprices ~25% high; missing cards silently dropped and auto-published; manual price ignored if not integer; requested variant with no price falls to min instead of other variants; NaN on bad config; generatedAt forces weekly commit; README variant order wording.
+
 ## Next step
-Parent commits T1–T3; then publish on GitHub Pages.
+T4 (proposed, needs user OK): harden update script against the advisory findings. Then publish on GitHub Pages.
