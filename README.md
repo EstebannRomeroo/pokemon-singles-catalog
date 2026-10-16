@@ -24,11 +24,11 @@ npm run prices   # genera catalog.json
 npm test         # pruebas de la regla de precios
 ```
 
-Opcional: exporta `POKEMONTCG_API_KEY` para tener más cuota en la API.
+pokemontcg.io está deprecada: ya no emite claves nuevas y las existentes funcionan hasta el 1 de marzo de 2027. La API responde sin clave; si tienes una, expórtala como `POKEMONTCG_API_KEY`. Alternativa de pago si deja de funcionar: [Scrydex](https://scrydex.com/).
 
 La tasa USD→COP es fija y la editas tú en `config.json` (`usdToCop`). Después de cambiarla, corre `npm run prices`.
 
-GitHub Actions corre esto cada lunes (12:00 UTC) y hace commit de `catalog.json` si cambió (si los precios y la tasa son iguales, el archivo no se toca y se imprime `catalog.json unchanged`). También se puede lanzar a mano desde la pestaña Actions. La clave de API va en Settings → Secrets → `POKEMONTCG_API_KEY` (opcional).
+GitHub Actions corre esto cada lunes (12:00 UTC) y hace commit de `catalog.json` si cambió (si los precios y la tasa son iguales, el archivo no se toca y se imprime `catalog.json unchanged`). También se puede lanzar a mano desde la pestaña Actions.
 
 ### Errores (no se publica nada)
 
