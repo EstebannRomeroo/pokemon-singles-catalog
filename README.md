@@ -67,6 +67,31 @@ python3 -m http.server 8000
 
 Abre <http://localhost:8000>.
 
+## Panel de inventario (local)
+
+`admin.html` es una página local para manejar `singles.json` sin editar JSON a mano: ver el inventario, agregar una carta, quitar una y marcar vendida. **No está publicada y no se enlaza desde el catálogo** (`noindex`); solo existe cuando sirves la carpeta localmente.
+
+```sh
+python3 -m http.server 8000
+```
+
+Abre <http://localhost:8000/admin.html>.
+
+El flujo es:
+
+1. Haz tus cambios en el panel (agregar, quitar, vender).
+2. Pulsa **Exportar singles.json**: el navegador descarga el archivo actualizado.
+3. Reemplaza `singles.json` en el repositorio con el descargado.
+4. Corre `npm run prices` y publica.
+
+Detalles:
+
+- **Vender** baja `qty` en uno; cuando llega a cero, la entrada se elimina del inventario.
+- **Quitar** borra la entrada completa (pide confirmación).
+- El panel valida con las mismas reglas que `singles.json`: juego válido, enteros positivos, idioma permitido y sin repetir `game` + `product` + `variant`. Si algo está mal, no deja exportar y muestra el error.
+- El panel **no escribe nada por su cuenta**: no toca el repositorio, no usa la API de GitHub y no necesita token. La única escritura es el archivo que tú descargas y colocas a mano.
+- Debe abrirse por HTTP (no `file://`): el navegador bloquea los módulos ES y `fetch` en `file://`. Si lo abres mal, la página te lo indica.
+
 ## Publicar gratis en GitHub Pages
 
 Settings → Pages → Deploy from a branch → `main` / `(root)`.

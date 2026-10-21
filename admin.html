@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Inventario (local)</title>
+<link rel="icon" href="assets/favicon.png">
+<style>
+  /* Same palette as index.html; the admin panel stays unpublished and unlinked. */
+  :root {
+    --ink: #0E2A23; --deep: #1B4D3E; --green: #2ECC71; --mint: #1ABC9C; --pale: #D5F4E6; --lime: #7CB342; --red: #A32E2E;
+    --page: color-mix(in srgb, #D5F4E6 45%, #FFF); --card: color-mix(in srgb, #D5F4E6 12%, #FFF);
+    --line: color-mix(in srgb, #1ABC9C 30%, #FFF);
+    --radius: 14px; --ease: cubic-bezier(.25, 1, .5, 1);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: var(--page); color: var(--ink); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .band { background: var(--ink); color: var(--pale); }
+  .header-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; padding-top: 20px; padding-bottom: 20px; }
+  h1 { margin: 0; font-size: 1.6rem; line-height: 1.2; letter-spacing: -.01em; }
+  .meta { margin: 4px 0 0; color: var(--mint); font-size: .9rem; flex: 1 1 auto; }
+  main.wrap { padding-bottom: 64px; }
+  h2 { font-size: 1.15rem; line-height: 1.2; letter-spacing: -.01em; margin: 32px 0 12px; }
+  input, select, button { font: inherit; min-height: 44px; padding: 0 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--ink); transition: border-color .2s var(--ease), background-color .2s var(--ease); }
+  input, select { font-weight: 400; width: 100%; min-width: 0; }
+  input::placeholder { color: var(--deep); opacity: .7; }
+  input:hover, select:hover { border-color: var(--lime); }
+  :focus-visible { outline: 2px solid var(--deep); outline-offset: 2px; }
+  .band :focus-visible { outline-color: var(--lime); }
+  button { cursor: pointer; font-weight: 600; }
+  .primary { background: var(--green); border-color: var(--green); color: var(--ink); padding: 0 18px; }
+  .primary:hover { background: var(--lime); border-color: var(--lime); }
+  .primary:disabled { opacity: .6; cursor: not-allowed; }
+  .help { margin: 20px 0; padding: 12px 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); color: var(--deep); font-size: .9rem; }
+  .help code { font-size: .85rem; }
+  .status { margin: 16px 0; color: var(--deep); font-size: .9rem; }
+  .status:empty { display: none; }
+  .bad { margin: 16px 0; padding: 12px 16px; border: 1px solid var(--red); border-radius: var(--radius); background: color-mix(in srgb, #A32E2E 8%, #FFF); color: var(--red); font-size: .9rem; }
+  .bad:empty { display: none; }
+  .bad ul { margin: 6px 0 0; padding-left: 20px; }
+  form { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); align-items: end; }
+  form label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 600; color: var(--deep); min-width: 0; }
+  form .submit { display: flex; align-items: end; }
+  .table-wrap { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow-x: auto; }
+  table { width: 100%; border-collapse: collapse; min-width: 720px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-size: .75rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; color: var(--deep); white-space: nowrap; }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.qty, td.price { font-variant-numeric: tabular-nums; white-space: nowrap; }
+  td.name { font-weight: 600; }
+  td.set { color: var(--deep); font-size: .9rem; }
+  td.actions { white-space: nowrap; }
+  td.actions button { min-height: 36px; padding: 0 12px; font-size: .85rem; margin-right: 6px; }
+  .danger { color: var(--red); }
+  @media (max-width: 480px) {
+    h1 { font-size: 1.3rem; }
+    .wrap { padding: 0 14px; }
+  }
+</style>
+</head>
+<body>
+<header class="band">
+  <div class="header-row wrap">
+    <div>
+      <h1>Inventario</h1>
+      <p class="meta" id="updated">Página local, no publicada</p>
+    </div>
+    <button class="primary" id="export" type="button">Exportar singles.json</button>
+  </div>
+</header>
+<main class="wrap">
+  <p class="help" id="help">
+    Flujo: descarga <code>singles.json</code>, reemplaza el archivo en el repositorio y corre <code>npm run prices</code> para regenerar <code>catalog.json</code>. Abre esta página con <code>python3 -m http.server 8000</code>: con <code>file://</code> el navegador bloquea <code>fetch</code> y los módulos.
+  </p>
+  <p class="status" id="status" role="status">Cargando inventario…</p>
+  <p class="bad" id="errors" role="alert"></p>
+
+  <h2>Agregar carta</h2>
+  <form id="add-form" novalidate>
+    <label>Juego
+      <select id="f-game" required></select>
+    </label>
+    <label>Grupo (expansión)
+      <input id="f-group" type="number" min="1" step="1" inputmode="numeric" placeholder="24722" required>
+    </label>
+    <label>Producto
+      <input id="f-product" type="number" min="1" step="1" inputmode="numeric" placeholder="716513" required>
+    </label>
+    <label>Cantidad
+      <input id="f-qty" type="number" min="1" step="1" inputmode="numeric" value="1" required>
+    </label>
+    <label>Variante (opcional)
+      <input id="f-variant" type="text" placeholder="Holofoil" autocomplete="off">
+    </label>
+    <label>Condición
+      <select id="f-condition"></select>
+    </label>
+    <label>Idioma
+      <select id="f-language"></select>
+    </label>
+    <label>Precio manual en COP (opcional)
+      <input id="f-price" type="number" min="1" step="1" inputmode="numeric" placeholder="50000">
+    </label>
+    <div class="submit">
+      <button class="primary" type="submit">Agregar</button>
+    </div>
+  </form>
+
+  <h2>Cartas en inventario</h2>
+  <p class="status" id="counts"></p>
+  <div class="table-wrap">
+    <table>
+      <thead></thead>
+      <tbody id="rows"></tbody>
+    </table>
+  </div>
+</main>
+<script type="module">
+  // The helper is a plain ES module; grants the browser fetch needs a real http(s) server, not file://.
+  import { addCard, removeCard, sellCard, serializeInventory } from './scripts/inventory.mjs';
+
+  const $ = (id) => document.getElementById(id);
+  const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
+  // Same display names and codes as index.html.
+  const GAMES = [['pokemon', 'Pokémon'], ['magic', 'Magic'], ['onepiece', 'One Piece']];
+  const LANGUAGES = { EN: 'Inglés', ES: 'Español', JP: 'Japonés', PT: 'Portugués', FR: 'Francés', DE: 'Alemán', IT: 'Italiano' };
+  const CONDITIONS = { NM: 'Near Mint', LP: 'Lightly Played', MP: 'Moderately Played', HP: 'Heavily Played', DMG: 'Damaged' };
+  const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+  const numberLabel = (n) => (n ? `#${String(n).replace(/^#/, '')}` : '');
+  const gameName = (game) => GAMES.find(([g]) => g === game)?.[1] ?? game;
+  const safe = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;');
+  const el = (tag, props = {}, text) => {
+    const node = Object.assign(document.createElement(tag), props);
+    if (text != null) node.textContent = text;
+    return node;
+  };
+
+  let inventory = [];
+  const catalogItems = new Map(); // id ("pokemon-716513") -> catalog item
+
+  // Each inventory entry joins its catalog item by id; the catalog may lag behind.
+  const itemFor = (entry) => catalogItems.get(`${entry.game}-${entry.product}`);
+  const nameFor = (entry) => itemFor(entry)?.name ?? `${gameName(entry.game)} · producto ${entry.product}`;
+  const priceFor = (entry) => itemFor(entry)?.priceCop ?? (entry.price ?? null);
+
+  function showErrors(errors) {
+    const box = $('errors');
+    box.replaceChildren();
+    if (!errors?.length) return;
+    box.append(el('strong', {}, errors.length === 1 ? 'No se pudo aplicar el cambio:' : `No se pudo aplicar el cambio (${errors.length} problemas):`));
+    box.append(el('ul', {}, ''));
+    const list = box.querySelector('ul');
+    list.append(...errors.map((e) => el('li', {}, e)));
+  }
+
+  function setStatus(text) {
+    $('status').textContent = text;
+  }
+
+  // One click handler per row; the entry is captured, so no index juggling on re-render.
+  function rowActions(entry) {
+    const cell = el('td', { className: 'actions' });
+    const sell = el('button', { type: 'button' }, 'Vender');
+    sell.setAttribute('aria-label', `Vender una unidad de ${nameFor(entry)}`);
+    sell.addEventListener('click', () => apply(sellCard(inventory, entry), `Vendida: ${nameFor(entry)}`));
+    const remove = el('button', { type: 'button', className: 'danger' }, 'Quitar');
+    remove.setAttribute('aria-label', `Quitar ${nameFor(entry)} del inventario`);
+    remove.addEventListener('click', () => {
+      if (confirm(`¿Quitar ${nameFor(entry)} del inventario?`)) apply(removeCard(inventory, entry), `Quitada: ${nameFor(entry)}`);
+    });
+    cell.append(sell, remove);
+    return cell;
+  }
+
+  const TABLE_HEADERS = ['Carta', 'Set', 'Número', 'Idioma', 'Cant.', 'Precio', 'Acciones'];
+
+  function renderRows() {
+    const body = $('rows');
+    if (!inventory.length) {
+      const row = el('tr');
+      const cell = el('td', { colSpan: TABLE_HEADERS.length, className: 'set' }, 'El inventario está vacío. Agrega una carta arriba.');
+      row.append(cell);
+      body.replaceChildren(row);
+      renderCounts();
+      return;
+    }
+    body.replaceChildren(...inventory.map((entry) => {
+      const item = itemFor(entry);
+      const price = priceFor(entry);
+      const row = el('tr');
+      const name = el('td', { className: 'name' });
+      name.append(document.createTextNode(nameFor(entry)));
+      if (entry.variant) name.append(el('span', { className: 'set' }, ` · ${entry.variant}`));
+      if (entry.condition && entry.condition !== 'NM') name.append(el('span', { className: 'set' }, ` · ${entry.condition}`));
+      if (!item) name.append(el('span', { className: 'set' }, ' (no está en catalog.json)'));
+      row.append(
+        name,
+        el('td', { className: 'set' }, item?.set ?? '—'),
+        el('td', { className: 'set' }, numberLabel(item?.number) || '—'),
+        el('td', {}, LANGUAGES[entry.language ?? item?.language ?? 'EN'] ?? (entry.language ?? '—')),
+        el('td', { className: 'qty' }, String(entry.qty)),
+        el('td', { className: 'price' }, price == null ? '—' : cop.format(price) + (entry.price != null ? ' (manual)' : '')),
+        rowActions(entry),
+      );
+      return row;
+    }));
+    renderCounts();
+  }
+
+  function renderCounts() {
+    const total = inventory.reduce((sum, entry) => sum + entry.qty, 0);
+    $('counts').textContent = `${plural(inventory.length, 'entrada', 'entradas')} en el inventario · ${plural(total, 'carta', 'cartas')} en total`;
+  }
+
+  // Applies a helper result: on success the list re-renders, on failure the errors show.
+  function apply(result, message) {
+    if (!result.ok) { showErrors(result.errors); setStatus(''); return; }
+    inventory = result.inventory;
+    showErrors([]);
+    setStatus(message ? `${message}.` : '');
+    renderRows();
+  }
+
+  const intOrNull = (value) => (value === '' ? null : Number(value));
+
+  $('add-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const card = {
+      game: $('f-game').value,
+      group: intOrNull($('f-group').value),
+      product: intOrNull($('f-product').value),
+      qty: intOrNull($('f-qty').value) ?? 1,
+      condition: $('f-condition').value,
+    };
+    const variant = $('f-variant').value.trim();
+    if (variant) card.variant = variant;
+    const price = intOrNull($('f-price').value);
+    if (price != null) card.price = price;
+    card.language = $('f-language').value;
+    const result = addCard(inventory, card);
+    if (!result.ok) { showErrors(result.errors); setStatus(''); return; }
+    inventory = result.inventory;
+    showErrors([]);
+    setStatus(`Agregada: ${nameFor(card)}.`);
+    $('f-group').value = '';
+    $('f-product').value = '';
+    $('f-qty').value = '1';
+    $('f-variant').value = '';
+    $('f-price').value = '';
+    renderRows();
+    $('f-group').focus();
+  });
+
+  function exportInventory() {
+    const text = serializeInventory(inventory);
+    const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
+    const a = el('a', { href: url, download: 'singles.json' });
+    document.body.append(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+    setStatus('singles.json descargado. Reemplaza el archivo del repositorio y corre npm run prices.');
+  }
+
+  $('export').addEventListener('click', exportInventory);
+
+  // Fill the selects and the table header from the same constants index.html uses.
+  const head = el('tr');
+  head.append(...TABLE_HEADERS.map((label) => el('th', { scope: 'col' }, label)));
+  $('rows').closest('table').querySelector('thead').append(head);
+  $('f-game').append(...GAMES.map(([g, name]) => el('option', { value: g }, name)));
+  $('f-condition').append(...Object.entries(CONDITIONS).map(([code, name]) => el('option', { value: code }, `${code} — ${name}`)));
+  $('f-language').append(...Object.entries(LANGUAGES).map(([code, name]) => el('option', { value: code }, `${code} — ${name}`)));
+  $('f-language').value = 'EN';
+
+  Promise.all([
+    fetch('singles.json').then((res) => { if (!res.ok) throw new Error(`singles.json ${res.status}`); return res.json(); }),
+    fetch('catalog.json').then((res) => { if (!res.ok) throw new Error(`catalog.json ${res.status}`); return res.json(); }),
+  ])
+    .then(([singles, catalog]) => {
+      inventory = singles;
+      for (const item of catalog.items ?? []) catalogItems.set(item.id, item);
+      const date = new Date(catalog.generatedAt).toLocaleDateString('es-CO', { dateStyle: 'long' });
+      $('updated').textContent = `Página local, no publicada · catálogo del ${date}`;
+      renderRows();
+      setStatus(singles.length ? '' : 'El inventario está vacío.');
+    })
+    .catch((err) => {
+      // file:// or a missing file lands here; the URL note above explains the fix.
+      setStatus('');
+      showErrors([`No se pudo cargar el inventario o el catálogo (${safe(err.message)}). Sirve la carpeta con python3 -m http.server 8000 y abre http://localhost:8000/admin.html`]);
+    });
+</script>
+</body>
+</html>
