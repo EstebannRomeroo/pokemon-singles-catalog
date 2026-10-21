@@ -138,9 +138,6 @@
         <label>Carta
           <input id="f-number" type="text" inputmode="text" placeholder="083/088 o Cloud, Ex-SOLDIER" autocomplete="off" required>
         </label>
-        <div class="submit">
-          <button class="primary" id="resolve" type="button">Buscar</button>
-        </div>
       </div>
       <p class="resolve-note" id="resolve-note" role="status"></p>
       <ul class="picker" id="set-hits" role="listbox" aria-label="Sets que coinciden"></ul>
@@ -204,7 +201,7 @@
   // The review tray logic, kept pure so the test runner can exercise it.
   import { stageKey, toEntry, stageCard, unstageCard, overlapWithInventory, mergeIntoTray, commitTray } from './scripts/tray.mjs';
   // Inventory search rules, kept pure for the same reason.
-  import { fold, filterInventory, hitsLabel, filterGroups, filterProductsByName, resolveQueryKind, numberQuery } from './scripts/search.mjs';
+  import { fold, filterInventory, hitsLabel, filterGroups, filterProductsByName, resolveQueryKind, numberQuery, debounce, limitMatches, matchesNote } from './scripts/search.mjs';
 
   const $ = (id) => document.getElementById(id);
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
@@ -240,6 +237,7 @@
   let groupsGame = null;           // game the loaded groups belong to
   const groupCache = new Map();    // groupId -> { products, prices }
   let resolvedCard = null;         // { groupId, productId, name, set, number }
+  let resolveGeneration = 0;       // newest live search wins, stale ones drop
   // Cards staged for review. Nothing here is in the inventory yet: that only
   // happens when the user confirms the whole tray at once.
   let tray = [];
@@ -425,6 +423,9 @@
   async function resolveCard() {
     const groupId = $('f-set').value;
     const typed = $('f-number').value.trim();
+    // Two keystrokes can overlap across the awaits below; only the newest search
+    // may paint, or a slow earlier answer overwrites a faster later one.
+    const generation = ++resolveGeneration;
     resetResolution();
     if (!groupsGame) { $('resolve-note').textContent = proxyMessage(new Error('los sets no están cargados')); return; }
     if (!validGroupId(groupId)) {
@@ -434,12 +435,12 @@
     }
     if (!typed) { $('resolve-note').textContent = 'Escribe el número o el nombre de la carta.'; return; }
     const group = groups.find((g) => String(g.groupId) === groupId);
-    $('resolve').disabled = true;
     $('resolve-note').textContent = 'Buscando…';
     try {
       // Wait for config.json so the shown price uses the real conversion.
       await configReady;
       const { products, prices } = await groupData(groupId);
+      if (generation !== resolveGeneration) return;
       const kind = resolveQueryKind(typed);
       const matches = kind === 'number'
         ? filterProductByNumber(products, numberQuery(typed))
@@ -449,19 +450,25 @@
         $('resolve-note').textContent = `${what} no está en ${group ? setLabel(group) : 'ese set'}.`;
         return;
       }
-      if (matches.length === 1) {
-        const product = matches[0];
+      // A single keystroke can match over a thousand cards, so the list is
+      // capped and the note says how many were left out.
+      const { shown, hidden, total } = limitMatches(matches);
+      $('resolve-note').textContent = matchesNote(kind, total, hidden);
+      if (shown.length === 1) {
+        const product = shown[0];
         showResolved({ groupId: Number(groupId), productId: product.productId, name: product.name, set: group?.name ?? null, number: extendedValue(product, 'Number'), imageUrl: product.imageUrl ?? null }, priceOf(prices, product.productId));
         return;
       }
-      showChoices(matches, group, prices);
+      showChoices(shown, group, prices);
     } catch (err) {
       $('resolve-note').textContent = proxyMessage(err);
       showErrors([proxyMessage(err)]);
-    } finally {
-      $('resolve').disabled = false;
     }
   }
+
+  // Resolving as you type: the search waits for a pause instead of running on
+  // every keystroke, and one call is reused so the timer is shared.
+  const resolveCardSoon = debounce(resolveCard);
 
   // Each inventory entry joins its catalog item by id; the catalog may lag behind.
   const itemFor = (entry) => catalogItems.get(`${entry.game}-${entry.product}`);
@@ -766,11 +773,17 @@
   });
   $('f-game').addEventListener('change', () => { groupCache.clear(); loadGroups(); });
   $('f-set-filter').addEventListener('input', renderSetOptions);
-  $('f-set').addEventListener('change', resetResolution);
-  $('f-number').addEventListener('input', resetResolution);
-  $('resolve').addEventListener('click', resolveCard);
+  $('f-set').addEventListener('change', () => { resolveGeneration += 1; resetResolution(); });
+  // The card resolves as you type: clearing on every keystroke would flash, so
+  // the input drives the search instead of wiping the previous answer first.
+  $('f-number').addEventListener('input', resolveCardSoon);
+  // Enter no longer searches. It confirms the only remaining single match, so
+  // the keyboard path stays one key shorter than the tray button.
   $('f-number').addEventListener('keydown', (e) => {
-    if (e.key === 'Enter') { e.preventDefault(); resolveCard(); }
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    const only = $('resolve-choices').querySelector('button');
+    if (only && $('resolve-choices').children.length === 1) only.click();
   });
   loadGroups();
 
