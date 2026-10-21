@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { idsOf, syncReport, deployMessage, parseChangedPaths } from './deploy.mjs';
+import { idsOf, syncReport, deployMessage, parseChangedPaths, parsePendingCommits, decideAction } from './deploy.mjs';
 
 // The whole point of the script is to tell the user what is about to be published,
 // so the sync report is the piece that must never lie.
@@ -73,3 +73,47 @@ test('parseChangedPaths ignores blank lines and handles an empty tree', () => {
   assert.deepEqual(parseChangedPaths(''), []);
   assert.deepEqual(parseChangedPaths('\n\n'), []);
 });
+
+// git status only sees the working tree, so a committed-but-unpushed change looks
+// identical to "nothing to do". That blindness is the exact failure this script
+// exists to prevent: a commit made, a push forgotten, and a public site frozen
+// with no signal. Pending commits are therefore a separate, first-class input.
+test('parsePendingCommits reads short-hash and subject from git log', () => {
+  const log = '5dd90a4 feat: add npm run deploy\n1c5f9ea docs: record the outcome\n';
+  assert.deepEqual(parsePendingCommits(log), [
+    { short: '5dd90a4', subject: 'feat: add npm run deploy' },
+    { short: '1c5f9ea', subject: 'docs: record the outcome' },
+  ]);
+});
+
+test('parsePendingCommits ignores blank lines and handles an empty log', () => {
+  assert.deepEqual(parsePendingCommits(''), []);
+  assert.deepEqual(parsePendingCommits('\n\n'), []);
+});
+
+test('parsePendingCommits tolerates a subject containing no space', () => {
+  assert.deepEqual(parsePendingCommits('abc1234'), [{ short: 'abc1234', subject: '' }]);
+});
+
+// The decision has to cover both halves of "not published yet": uncommitted work
+// in the tree, and commits already made but not pushed. Reporting only the first
+// is what made the previous version silently say "nothing to publish" while a
+// finished card sat in an unpushed commit.
+test('decideAction publishes tree changes', () => {
+  assert.deepEqual(decideAction(['catalog.json'], []), { publish: true, commit: true });
+});
+
+test('decideAction publishes pending commits without making an empty commit', () => {
+  // Nothing to commit, but something to push. Committing here would create an
+  // empty commit, so the commit step is skipped while the publish still happens.
+  assert.deepEqual(decideAction([], ['5dd90a4 feat: x']), { publish: true, commit: false });
+});
+
+test('decideAction does nothing when the tree is clean and nothing is pending', () => {
+  assert.deepEqual(decideAction([], []), { publish: false, commit: false });
+});
+
+test('decideAction both commits and publishes when work exists on both sides', () => {
+  assert.deepEqual(decideAction(['singles.json'], ['5dd90a4 feat: x']), { publish: true, commit: true });
+});
+

@@ -52,6 +52,31 @@ export function parseChangedPaths(porcelain) {
     .filter(Boolean);
 }
 
+// `git log --oneline` yields "<short-hash> <subject>". The subject is kept whole
+// because it is shown to the user verbatim in the confirmation prompt.
+export function parsePendingCommits(oneline) {
+  return oneline
+    .split('\n')
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const boundary = line.indexOf(' ');
+      if (boundary === -1) return { short: line, subject: '' };
+      return { short: line.slice(0, boundary), subject: line.slice(boundary + 1).trim() };
+    });
+}
+
+// Two independent reasons to publish: uncommitted work in the tree, and commits
+// already made but not pushed. A pending commit alone must not create a commit —
+// the tree is clean, so that would only produce an empty commit.
+export function decideAction(changedPaths, pendingCommits) {
+  const hasPending = pendingCommits.length > 0;
+  return {
+    publish: changedPaths.length > 0 || hasPending,
+    commit: changedPaths.length > 0,
+  };
+}
+
 const git = (...args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' });
 const readJson = async (file) => JSON.parse(await readFile(new URL(`../${file}`, import.meta.url), 'utf8'));
 
@@ -64,8 +89,14 @@ async function main() {
     process.exit(1);
   }
 
-  const dirty = parseChangedPaths(git('status', '--porcelain'));
-  if (!dirty.length) {
+  // Two independent signals. `git status` sees only the working tree; a commit
+  // that was made but never pushed leaves the tree clean, so status alone would
+  // report "nothing to publish" for exactly the failure this script exists to
+  // prevent. Both are read before deciding anything.
+  const pending = parsePendingCommits(git('log', `origin/${branch}..HEAD`, '--oneline'));
+
+  const initial = decideAction(parseChangedPaths(git('status', '--porcelain')), pending);
+  if (!initial.publish) {
     console.log('No hay cambios que publicar.');
     return;
   }
@@ -93,9 +124,18 @@ async function main() {
   }
 
   const paths = parseChangedPaths(git('status', '--porcelain'));
+  const action = decideAction(paths, pending);
+
   console.log('');
-  console.log('  Cambios a publicar:');
-  for (const path of paths) console.log(`    M ${path}`);
+  if (paths.length) {
+    console.log('  Archivos modificados sin commitear:');
+    for (const path of paths) console.log(`    M ${path}`);
+  }
+  if (pending.length) {
+    // This is the case the previous version missed entirely.
+    console.log(`  ${plural(pending.length, 'commit local sin publicar', 'commits locales sin publicar')}:`);
+    for (const commit of pending) console.log(`    ${commit.short} ${commit.subject}`);
+  }
   console.log('');
 
   const rl = createInterface({ input: stdin, output: stdout });
@@ -110,9 +150,12 @@ async function main() {
     return;
   }
 
-  const message = deployMessage(paths);
-  git('add', '-A');
-  git('commit', '-m', message);
+  // A pending commit means the tree is clean, so there is nothing to commit.
+  // Skipping it avoids an empty commit while still pushing the work.
+  if (action.commit) {
+    git('add', '-A');
+    git('commit', '-m', deployMessage(paths));
+  }
   git('push', 'origin', branch);
 
   const head = git('rev-parse', '--short', 'HEAD').trim();
