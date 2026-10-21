@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T21:12:43.939Z",
+  "generatedAt": "2026-10-21T21:20:29.124Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -6565,6 +6565,748 @@
         {
           "label": "Rules Text Contains",
           "value": "Whenever equipped creature attacks, look at the top card of your library. If it's a land card, you may put it onto the battlefield tapped.\nEquip 1 (1: Attach to target creature you control. Equip only as a sorcery.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-633394",
+      "game": "magic",
+      "name": "Weapons Vendor",
+      "set": "FINAL FANTASY",
+      "number": "40",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/633394_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/633394_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.23,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/633394/magic-final-fantasy-weapons-vendor",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Artificer"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, draw a card.\nAt the beginning of combat on your turn, if you control an Equipment, you may pay 1. When you do, attach target Equipment you control to target creature you control."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Man in your line of work needs weapons, no? Why not try that one on for size?\""
+        }
+      ]
+    },
+    {
+      "id": "magic-634037",
+      "game": "magic",
+      "name": "Gaelicat",
+      "set": "FINAL FANTASY",
+      "number": "22",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634037_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634037_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.12,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634037/magic-final-fantasy-gaelicat",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Cat"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying, vigilance\nAs long as you control two or more artifacts, this creature gets +2/+0."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"That's the ticket! Now, let's get moving to North Mountain!\"\n—Galuf Baldesion"
+        }
+      ]
+    },
+    {
+      "id": "magic-630909",
+      "game": "magic",
+      "name": "Ice Magic",
+      "set": "FINAL FANTASY",
+      "number": "56",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/630909_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/630909_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/630909/magic-final-fantasy-ice-magic",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Tiered (Choose one additional cost.)\n• Blizzard — 0 — Return target creature to its owner's hand.\n• Blizzara — 2 — Target creature's owner puts it on their choice of the top or bottom of their library.\n• Blizzaga — 5U —Target creature's owner shuffles it into their library."
+        }
+      ]
+    },
+    {
+      "id": "magic-634184",
+      "game": "magic",
+      "name": "Il Mheg Pixie",
+      "set": "FINAL FANTASY",
+      "number": "57",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634184_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634184_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634184/magic-final-fantasy-il-mheg-pixie",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Faerie"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying\nWhenever this creature attacks, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Well now, aren't you just brimming with life? I'd love to suck up all that aether like nectar from a flower!\""
+        }
+      ]
+    },
+    {
+      "id": "magic-631595",
+      "game": "magic",
+      "name": "Sage's Nouliths",
+      "set": "FINAL FANTASY",
+      "number": "70",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631595_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631595_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.16,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631595/magic-final-fantasy-sages-nouliths",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact — Equipment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Job select (When this Equipment enters, create a 1/1 colorless Hero creature token, then attach this to it.)\nEquipped creature gets +1/+0, has \"Whenever this creature attacks, untap target attacking creature,\" and is a Cleric in addition to its other types.\nHagneia — Equip 3"
+        }
+      ]
+    },
+    {
+      "id": "magic-631806",
+      "game": "magic",
+      "name": "Sahagin",
+      "set": "FINAL FANTASY",
+      "number": "71",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631806_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631806_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631806/magic-final-fantasy-sahagin",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Warrior"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever you cast a noncreature spell, if at least four mana was spent to cast it, put a +1/+1 counter on this creature and it can't be blocked this turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Pshhh . . . Shhhilence, shhhorewalker! Try to eshhhcape, and I'll shhhlice gills into your neck!\""
+        }
+      ]
+    },
+    {
+      "id": "magic-618852",
+      "game": "magic",
+      "name": "Summon: Shiva",
+      "set": "FINAL FANTASY",
+      "number": "78",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/618852_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/618852_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.32,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/618852/magic-final-fantasy-summon-shiva",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment Creature — Saga Elemental"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "5"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\n[I] [II] Heavenly Strike — Tap target creature an opponent controls. Put a stun counter on it. (If a permanent with a stun counter would become untapped, remove one from it instead.)\n[III] Diamond Dust — Draw a card for each tapped creature your opponents control."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Let us summon a sea in a new dream world.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-634041",
+      "game": "magic",
+      "name": "Ahriman",
+      "set": "FINAL FANTASY",
+      "number": "87",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634041_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634041_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634041/magic-final-fantasy-ahriman",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment — Aura"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying, deathtouch\n3, Sacrifice another creature or artifact: Draw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"The Wrath of Dark has nearly reached its zenith! No one can stop it! Least of all you!\""
+        }
+      ]
+    },
+    {
+      "id": "magic-631833",
+      "game": "magic",
+      "name": "Namazu Trader",
+      "set": "FINAL FANTASY",
+      "number": "107",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631833_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631833_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.06,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631833/magic-final-fantasy-namazu-trader",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Fish Citizen"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, you lose 1 life and create a Treasure token.\nWhenever this creature attacks, you may sacrifice another creature or artifact. If you do, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-631840",
+      "game": "magic",
+      "name": "Undercity Dire Rat",
+      "set": "FINAL FANTASY",
+      "number": "123",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631840_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631840_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631840/magic-final-fantasy-undercity-dire-rat",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Rat"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Rat Tail — When this creature dies, create a Treasure token. (It's an artifact with \"T, Sacrifice this token: Add one mana of any color.\")"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"I finally worked out how to get the door on the left side open! I hope there's somethin' in there besides rats . . .\"\n—Kytes, street urchin"
+        }
+      ]
+    },
+    {
+      "id": "magic-633407",
+      "game": "magic",
+      "name": "Vayne's Treachery",
+      "set": "FINAL FANTASY",
+      "number": "124",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/633407_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/633407_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.1,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/633407/magic-final-fantasy-vaynes-treachery",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Kicker—Sacrifice an artifact or creature. (You may sacrifice an artifact or creature in addition to any other costs as you cast this spell.)\nTarget creature gets -2/-2 until end of turn. If this spell was kicked, that creature gets -6/-6 until end of turn instead."
+        }
+      ]
+    },
+    {
+      "id": "magic-634384",
+      "game": "magic",
+      "name": "Summon: Choco/Mog",
+      "set": "FINAL FANTASY",
+      "number": "35",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634384_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634384_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.2,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634384/magic-final-fantasy-summon-choco-mog",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment Creature — Saga Bird Moogle"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after IV)\n[I] [II] [III] [IV] Stampede! — Other creatures you control get +1/+0 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Wark? Kupo!\""
+        }
+      ]
+    },
+    {
+      "id": "magic-632747",
+      "game": "magic",
+      "name": "Haste Magic",
+      "set": "FINAL FANTASY",
+      "number": "140",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632747_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632747_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.27,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632747/magic-final-fantasy-haste-magic",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Target creature gets +3/+1 and gains haste until end of turn. Exile the top card of your library. You may play it until your next end step."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Double time.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-634051",
+      "game": "magic",
+      "name": "Hill Gigas",
+      "set": "FINAL FANTASY",
+      "number": "141",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634051_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634051_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634051/magic-final-fantasy-hill-gigas",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Giant"
+        },
+        {
+          "label": "P",
+          "value": "5"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Trample, haste\nMountaincycling 2 (2, Discard this card: Search your library for a Mountain card, reveal it, put it into your hand, then shuffle.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"This place is dangerous! Be careful!\"\n—Zozo resident"
+        }
+      ]
+    },
+    {
+      "id": "magic-634130",
+      "game": "magic",
+      "name": "Sabotender",
+      "set": "FINAL FANTASY",
+      "number": "153",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634130_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634130_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.26,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634130/magic-final-fantasy-sabotender",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Plant"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Reach\nLandfall — Whenever a land you control enters, this creature deals 1 damage to each opponent."
+        },
+        {
+          "label": "Flavor",
+          "value": "These strange, ambulatory cacti are commonly found in the Altepa Desert of the Kuzotz Region, and little regarding their way of life is known to science."
+        }
+      ]
+    },
+    {
+      "id": "magic-632004",
+      "game": "magic",
+      "name": "Summon: Esper Ramuh",
+      "set": "FINAL FANTASY",
+      "number": "161",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632004_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632004_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.25,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632004/magic-final-fantasy-summon-esper-ramuh",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment Creature — Saga Wizard"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "(As this Saga enters and after your draw step, add a lore counter. Sacrifice after III.)\n[I] Judgment Bolt — This creature deals damage equal to the number of noncreature, nonland cards in your graveyard to target creature an opponent controls.\n[II] [III] Wizards you control get +1/+0 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"I am Ramuh—the esper.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-633068",
+      "game": "magic",
+      "name": "Blitzball Shot",
+      "set": "FINAL FANTASY",
+      "number": "176",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/633068_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/633068_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/633068/magic-final-fantasy-blitzball-shot",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Target creature gets +3/+3 and gains trample until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Everyone seems to be calling for Wakka, folks!\"\n—Blitzball announcer"
+        }
+      ]
+    },
+    {
+      "id": "magic-634143",
+      "game": "magic",
+      "name": "Gigantoad",
+      "set": "FINAL FANTASY",
+      "number": "187",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634143_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634143_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634143/magic-final-fantasy-gigantoad",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Frog"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "As long as you control seven or more lands, this creature gets +2/+2."
+        },
+        {
+          "label": "Flavor",
+          "value": "The gigantoad is known to venture outside of its comfort zone during downpours—much to the surprise of unsuspecting hikers."
+        }
+      ]
+    },
+    {
+      "id": "magic-634159",
+      "game": "magic",
+      "name": "Giott, King of the Dwarves",
+      "set": "FINAL FANTASY",
+      "number": "223",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634159_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634159_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.16,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634159/magic-final-fantasy-giott-king-of-the-dwarves",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Dwarf Noble"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Double strike\nWhenever Giott or another Dwarf you control enters and whenever an Equipment you control enters, you may discard a card. If you do, draw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"We will fight along with you for the planet, our home!\""
         }
       ]
     }
