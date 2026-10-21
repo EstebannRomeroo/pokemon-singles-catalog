@@ -26,7 +26,7 @@ Supabase was considered and rejected: the problem is finding a card in an extern
 - [x] T2 — `admin.html`: set picker + number search wired to the proxy (route: delegated writer; trigger: prepare-and-write)
 - [x] T3 — instant price for a card not yet in `catalog.json` (same writer as T2)
 - [x] T4 — README: document `npm run serve` and the new flow (route: inline)
-- [ ] T5 — native review of the candidate
+- [x] T5 — native review of the candidate
 
 ## Acceptance criteria
 - `npm test` passes, including the new server tests.
@@ -86,4 +86,21 @@ A false alarm worth recording: an early probe reported that an empty field kept 
 - `admin.html:535`: the load-failure message still told the user to run `python3 -m http.server 8000`. Now it says `npm run serve`. Three such messages in the panel are consistent again.
 
 Historical documents (`odd/tasks/inventory-panel.md`, `odd/tasks/pokemon-singles-catalog.md`) still mention `python3` and are intentionally left alone: they record what was true when they were written.
+
+### T5 — native review (2026-10-21)
+
+Lineage `review-3a4e56768dfd802e`, risk medium (reason: `executable_change` in `admin.html`), one lens `review-reliability`, frozen target `sha256:6d43a6b4…`, 6 changed paths, 603 changed lines. Consent relayed and granted by the user. Outcome **approved**; acknowledgement burned (`authority: burned`, `consumed_revision: sha256:4676885b…`).
+
+The reviewer inspected the frozen candidate only, through `review inspect-candidate` (name-status, numstat, patch), never the live worktree.
+
+Four non-blocking advisories. None opened a correction; none reopens this review. They are separate later work, not a reason to re-run review on this candidate.
+
+- **R3-201** (WARNING, `admin.html:245-256`, deterministic, introduced) — `loadGroups()` writes `groups` and `groupsGame` after an `await` with no sequencing guard (no request id, no `AbortController`, no post-await game comparison). Two overlapping game changes can leave the rendered `<select>` out of step with `groupsGame`; `groupData()` then builds its request from the newly selected game's category with a `groupId` belonging to the previously rendered game, and the call fails against the wrong category.
+- **R3-202** (WARNING, `scripts/serve.mjs:125`, deterministic, introduced) — `server.listen(port, ...)` omits the host, so the process binds every interface (`ss` shows `*:8000`) while the startup log claims `localhost`. Anything on the network can reach the panel, the catalog and the proxy. The proxy destination is allowlisted and the server never writes to disk, so this is unintended exposure, not remote execution — but the misleading log line hides it.
+- **R3-203** (WARNING, `scripts/serve.mjs:104`, deterministic, introduced) — the handler dispatches on path only and never inspects `req.method`; `POST`, `PUT` and `DELETE` answer 200 with content instead of 405. No handler mutates state, which caps the impact, but a read-only server should refuse methods it does not implement.
+- **R3-204** (SUGGESTION, `scripts/serve.mjs:132`, deterministic, introduced) — no trailing newline. Nothing enforces one; cosmetic.
+
+### Next step
+No review work remains on this candidate. The four advisories above are independent, non-blocking follow-up work; R3-201 and R3-202 are the two worth doing first.
+
 
