@@ -178,21 +178,5 @@
     "qty": 1,
     "condition": "NM",
     "language": "EN"
-  },
-  {
-    "game": "magic",
-    "group": 67,
-    "product": 15679,
-    "qty": 1,
-    "condition": "NM",
-    "language": "ES"
-  },
-  {
-    "game": "magic",
-    "group": 67,
-    "product": 15621,
-    "qty": 1,
-    "condition": "NM",
-    "language": "ES"
   }
 ]
