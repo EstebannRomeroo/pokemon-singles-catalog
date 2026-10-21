@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T16:07:39.639Z",
+  "generatedAt": "2026-10-21T16:43:30.569Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -1127,6 +1127,204 @@
         {
           "label": "Flavor",
           "value": "\"Bow to mother, get in bed | Rest your flawless hornèd head | Dream of wetting blades with red | And wake to fill our foes with dread\"\n—Lullaby for perfect or better children"
+        }
+      ]
+    },
+    {
+      "id": "magic-671657",
+      "game": "magic",
+      "name": "Scarblade Scout",
+      "set": "Lorwyn Eclipsed",
+      "number": "118",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671657_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671657_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671657/magic-lorwyn-eclipsed-scarblade-scout",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elf Scout"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Lifelink\nWhen this creature enters, mill two cards. (Put the top two cards of your library into your graveyard.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Areas of the Gilt-Leaf that carry scars of the Invasion are too unsightly for travel. They are to be marked and avoided.\"\n—High Perfect's decree"
+        }
+      ]
+    },
+    {
+      "id": "magic-671516",
+      "game": "magic",
+      "name": "Doran, Besieged by Time",
+      "set": "Lorwyn Eclipsed",
+      "number": "215",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671516_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671516_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.56,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671516/magic-lorwyn-eclipsed-doran-besieged-by-time",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Treefolk Druid"
+        },
+        {
+          "label": "P",
+          "value": "0"
+        },
+        {
+          "label": "T",
+          "value": "5"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Each creature spell you cast with toughness greater than its power costs 1 less to cast.\nWhenever a creature you control attacks or blocks, it gets +X/+X until end of turn, where X is the difference between its power and toughness."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Each year that passes rots you with scars. Shelter your heart, for the world is cruel.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-634385",
+      "game": "magic",
+      "name": "Summon: Choco/Mog (Borderless)",
+      "set": "FINAL FANTASY",
+      "number": "358",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/634385_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/634385_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.35,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/634385/magic-final-fantasy-summon-choco-mog-borderless",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment Creature — Saga Bird Moogle"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "[I] [II] [III] [IV] Stampede! — Other creatures you control get +1/+0 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Wark? Kupo!\""
+        }
+      ]
+    },
+    {
+      "id": "magic-15679",
+      "game": "magic",
+      "name": "Whirlpool Whelm",
+      "set": "Lorwyn",
+      "number": "96",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/15679_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/15679_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/15679/magic-lorwyn-whirlpool-whelm",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Clash with an opponent, then return target creature to its owner's hand. If you win, you may put that creature on top of its owner's library instead. (Each clashing player reveals the top card of his or her library, then puts that card on the top or bottom. A player wins if his or her card had a higher converted mana cost.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-15621",
+      "game": "magic",
+      "name": "Shapesharer",
+      "set": "Lorwyn",
+      "number": "85",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/15621_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/15621_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 5.71,
+      "priceCop": 18500,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/15621/magic-lorwyn-shapesharer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Shapeshifter"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Changeling (This card is every creature type at all times.)\n2U: Target Shapeshifter becomes a copy of target creature until your next turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "One good mimic deserves another."
         }
       ]
     }
