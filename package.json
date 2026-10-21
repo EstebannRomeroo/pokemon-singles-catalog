@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "prices": "node scripts/update-prices.mjs",
+    "serve": "node scripts/serve.mjs",
     "test": "node --test \"scripts/*.test.mjs\""
   }
 }
