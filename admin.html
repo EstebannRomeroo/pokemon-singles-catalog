@@ -43,6 +43,18 @@
   form { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; padding: 16px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); align-items: end; }
   form label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 600; color: var(--deep); min-width: 0; }
   form .submit { display: flex; align-items: end; }
+  fieldset { grid-column: 1 / -1; margin: 0; padding: 12px 14px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+  fieldset legend { padding: 0 6px; font-size: .8rem; font-weight: 600; color: var(--deep); }
+  .resolve-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; align-items: end; }
+  .resolve-grid label { display: flex; flex-direction: column; gap: 6px; font-size: .8rem; font-weight: 600; color: var(--deep); min-width: 0; }
+  .resolve-grid .submit { display: flex; align-items: end; }
+  .resolve-note { margin: 10px 0 0; font-size: .85rem; color: var(--deep); }
+  .resolve-note:empty { display: none; }
+  .card-choices { list-style: none; margin: 10px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+  .card-choices:empty { display: none; }
+  .card-choices button { width: 100%; text-align: left; font-weight: 400; min-height: 40px; }
+  .card-choices button strong { font-weight: 650; }
+  .card-choices button span { color: var(--deep); font-size: .85rem; }
   .table-wrap { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; min-width: 720px; }
   th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -72,22 +84,35 @@
 </header>
 <main class="wrap">
   <p class="help" id="help">
-    Flujo: descarga <code>singles.json</code>, reemplaza el archivo en el repositorio y corre <code>npm run prices</code> para regenerar <code>catalog.json</code>. Abre esta página con <code>python3 -m http.server 8000</code>: con <code>file://</code> el navegador bloquea <code>fetch</code> y los módulos.
+    Flujo: descarga <code>singles.json</code>, reemplaza el archivo en el repositorio y corre <code>npm run prices</code> para regenerar <code>catalog.json</code>. Abre esta página con <code>npm run serve</code>: además de servir los archivos, ese servidor hace de proxy hacia tcgcsv.com (que no envía cabeceras CORS) para que la búsqueda de cartas funcione.
   </p>
   <p class="status" id="status" role="status">Cargando inventario…</p>
   <p class="bad" id="errors" role="alert"></p>
 
   <h2>Agregar carta</h2>
   <form id="add-form" novalidate>
-    <label>Juego
-      <select id="f-game" required></select>
-    </label>
-    <label>Grupo (expansión)
-      <input id="f-group" type="number" min="1" step="1" inputmode="numeric" placeholder="24722" required>
-    </label>
-    <label>Producto
-      <input id="f-product" type="number" min="1" step="1" inputmode="numeric" placeholder="716513" required>
-    </label>
+    <fieldset>
+      <legend>Buscar carta</legend>
+      <div class="resolve-grid">
+        <label>Juego
+          <select id="f-game" required></select>
+        </label>
+        <label>Filtrar sets
+          <input id="f-set-filter" type="text" placeholder="Perfect Order, POR…" autocomplete="off">
+        </label>
+        <label>Grupo (expansión)
+          <select id="f-set" required></select>
+        </label>
+        <label>Número de carta
+          <input id="f-number" type="text" inputmode="text" placeholder="083 o 083/088" autocomplete="off" required>
+        </label>
+        <div class="submit">
+          <button class="primary" id="resolve" type="button">Buscar</button>
+        </div>
+      </div>
+      <p class="resolve-note" id="resolve-note" role="status"></p>
+      <ul class="card-choices" id="resolve-choices"></ul>
+    </fieldset>
     <label>Cantidad
       <input id="f-qty" type="number" min="1" step="1" inputmode="numeric" value="1" required>
     </label>
@@ -104,7 +129,7 @@
       <input id="f-price" type="number" min="1" step="1" inputmode="numeric" placeholder="50000">
     </label>
     <div class="submit">
-      <button class="primary" type="submit">Agregar</button>
+      <button class="primary" type="submit" id="f-add" disabled>Agregar</button>
     </div>
   </form>
 
@@ -122,6 +147,8 @@
   import { addCard, removeCard, sellCard, serializeInventory } from './scripts/inventory.mjs';
   // Same validation rules the price script applies, so an invalid file never leaves this page.
   import { validateSingles } from './scripts/catalog.mjs';
+  // Reuse the exact price conversion the catalog uses instead of inventing a second one.
+  import { pickPrice, toCop } from './scripts/price.mjs';
 
   const $ = (id) => document.getElementById(id);
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
@@ -143,6 +170,181 @@
   // False until the fetch succeeds: an unloaded inventory must never be exported.
   let loaded = false;
   const catalogItems = new Map(); // id ("pokemon-716513") -> catalog item
+
+  // --- Card resolution through the local proxy ---------------------------------
+  // tcgcsv.com sends no CORS headers, so the browser talks only to this origin;
+  // scripts/serve.mjs forwards /tcgplayer/<cat>/... to tcgcsv.com.
+  const CATEGORY_IDS = { pokemon: 3, magic: 1, onepiece: 68 };
+
+  let priceConfig = null;          // config.json, for the same conversion as the catalog
+  let groups = [];                 // groups of the selected game, as loaded from the proxy
+  let groupsGame = null;           // game the loaded groups belong to
+  const groupCache = new Map();    // groupId -> { products, prices }
+  let resolvedCard = null;         // { groupId, productId, name, set, number }
+
+  // Mirrors filterProductByNumber in scripts/serve.mjs: match the part before the
+  // slash, ignoring leading zeros, so "83", "083" and "083/088" all agree.
+  const normalizeNumber = (value) => String(value ?? '').trim().toLowerCase().replace(/^0+(?=\d)/, '');
+  const extendedValue = (product, name) => product.extendedData?.find((d) => d.name === name)?.value ?? null;
+
+  function filterProductByNumber(products, number) {
+    const wanted = normalizeNumber(number);
+    if (!wanted) return [];
+    return products.filter((product) => {
+      const printed = extendedValue(product, 'Number');
+      if (!printed) return false;
+      const beforeSlash = String(printed).split('/')[0];
+      return normalizeNumber(beforeSlash) === wanted || normalizeNumber(printed) === wanted;
+    });
+  }
+
+  // The proxy returns tcgcsv's envelope ({ results: [...] }); anything else is a failure.
+  async function proxyResults(path) {
+    let res;
+    try {
+      res = await fetch(path);
+    } catch {
+      throw new Error('no se pudo contactar el proxy local');
+    }
+    if (!res.ok) throw new Error(`el proxy respondió ${res.status}`);
+    return (await res.json()).results ?? [];
+  }
+
+  const validGroupId = (value) => /^\d+$/.test(String(value ?? '').trim());
+
+  // One fetch of products + prices per group; cached so repeated searches are free.
+  async function groupData(groupId) {
+    if (!groupCache.has(groupId)) {
+      const cat = CATEGORY_IDS[$('f-game').value];
+      const [products, prices] = await Promise.all([
+        proxyResults(`/tcgplayer/${cat}/${groupId}/products`),
+        proxyResults(`/tcgplayer/${cat}/${groupId}/prices`),
+      ]);
+      groupCache.set(groupId, { products, prices });
+    }
+    return groupCache.get(groupId);
+  }
+
+  const setLabel = (group) => (group.abbreviation ? `${group.name} (${group.abbreviation})` : group.name);
+
+  // Rebuilds the set <select> from the already-loaded groups, honoring the filter box.
+  function renderSetOptions() {
+    const needle = $('f-set-filter').value.trim().toLowerCase();
+    const matching = needle
+      ? groups.filter((g) => `${g.name} ${g.abbreviation ?? ''}`.toLowerCase().includes(needle))
+      : groups;
+    const select = $('f-set');
+    const previous = select.value;
+    select.replaceChildren(...matching.map((g) => el('option', { value: String(g.groupId) }, setLabel(g))));
+    if (!matching.length) select.replaceChildren(el('option', { value: '' }, 'Sin sets que coincidan'));
+    else if (matching.some((g) => String(g.groupId) === previous)) select.value = previous;
+    // A changed set invalidates the resolved card.
+    resetResolution();
+  }
+
+  async function loadGroups() {
+    const game = $('f-game').value;
+    const cat = CATEGORY_IDS[game];
+    $('f-set').replaceChildren(el('option', { value: '' }, 'Cargando sets…'));
+    try {
+      groups = await proxyResults(`/tcgplayer/${cat}/groups`);
+      groupsGame = game;
+      renderSetOptions();
+    } catch (err) {
+      groups = [];
+      groupsGame = null;
+      $('f-set').replaceChildren(el('option', { value: '' }, 'No se pudieron cargar los sets'));
+      $('resolve-note').textContent = proxyMessage(err);
+      showErrors([proxyMessage(err)]);
+    }
+  }
+
+  // A missing proxy is the one failure the user can actually fix, so say how.
+  const proxyMessage = (err) => `${safe(err.message)}. Corre npm run serve y abre http://localhost:8000/admin.html`;
+
+  function resetResolution() {
+    resolvedCard = null;
+    $('f-add').disabled = true;
+    $('resolve-choices').replaceChildren();
+    $('resolve-note').textContent = '';
+  }
+
+  // Price of one product, converted with the catalog's own rule (minPriceCop floors it).
+  // Returns null when there is no price row or config.json has not loaded yet.
+  const priceOf = (prices, productId) => {
+    if (!priceConfig) return null;
+    const picked = pickPrice(prices.filter((p) => p.productId === productId), null);
+    return picked ? toCop(picked.usd, priceConfig.usdToCop, priceConfig) : null;
+  };
+
+  function showResolved(card, copPrice) {
+    resolvedCard = card;
+    const price = copPrice == null ? 'sin precio' : cop.format(copPrice);
+    $('resolve-note').replaceChildren(
+      el('strong', {}, card.name),
+      document.createTextNode(` · ${card.set ?? 'set desconocido'} · ${numberLabel(card.number) || 'sin número'} · Precio TCGCSV: ${price}`),
+    );
+    $('resolve-choices').replaceChildren();
+    $('f-add').disabled = false;
+  }
+
+  // Several printings can share a number within one set; the user picks which one.
+  function showChoices(matches, group, prices) {
+    resolvedCard = null;
+    $('f-add').disabled = true;
+    $('resolve-note').textContent = `${plural(matches.length, 'carta coincide', 'cartas coinciden')} con ese número. Elige una:`;
+    const list = $('resolve-choices');
+    list.replaceChildren(...matches.map((product) => {
+      const number = extendedValue(product, 'Number');
+      const copPrice = priceOf(prices, product.productId);
+      const price = copPrice == null ? 'sin precio' : cop.format(copPrice);
+      const button = el('button', { type: 'button' });
+      button.append(
+        el('strong', {}, product.name),
+        el('span', {}, ` · ${numberLabel(number) || 'sin número'} · id ${product.productId} · Precio TCGCSV: ${price}`),
+      );
+      button.addEventListener('click', () => {
+        showResolved({ groupId: group.groupId, productId: product.productId, name: product.name, set: group.name, number }, copPrice);
+      });
+      const item = el('li');
+      item.append(button);
+      return item;
+    }));
+  }
+
+  // Resolves the typed number inside the selected set and fills the hidden ids.
+  async function resolveCard() {
+    const groupId = $('f-set').value;
+    const number = $('f-number').value.trim();
+    resetResolution();
+    if (!groupsGame) { $('resolve-note').textContent = proxyMessage(new Error('los sets no están cargados')); return; }
+    if (!validGroupId(groupId)) { $('resolve-note').textContent = 'Elige un set.'; return; }
+    if (!number) { $('resolve-note').textContent = 'Escribe el número de la carta.'; return; }
+    const group = groups.find((g) => String(g.groupId) === groupId);
+    $('resolve').disabled = true;
+    $('resolve-note').textContent = 'Buscando…';
+    try {
+      // Wait for config.json so the shown price uses the real conversion.
+      await configReady;
+      const { products, prices } = await groupData(groupId);
+      const matches = filterProductByNumber(products, number);
+      if (!matches.length) {
+        $('resolve-note').textContent = `El número ${number} no está en ${group ? setLabel(group) : 'ese set'}.`;
+        return;
+      }
+      if (matches.length === 1) {
+        const product = matches[0];
+        showResolved({ groupId: Number(groupId), productId: product.productId, name: product.name, set: group?.name ?? null, number: extendedValue(product, 'Number') }, priceOf(prices, product.productId));
+        return;
+      }
+      showChoices(matches, group, prices);
+    } catch (err) {
+      $('resolve-note').textContent = proxyMessage(err);
+      showErrors([proxyMessage(err)]);
+    } finally {
+      $('resolve').disabled = false;
+    }
+  }
 
   // Each inventory entry joins its catalog item by id; the catalog may lag behind.
   const itemFor = (entry) => catalogItems.get(`${entry.game}-${entry.product}`);
@@ -231,10 +433,11 @@
 
   $('add-form').addEventListener('submit', (e) => {
     e.preventDefault();
+    if (!resolvedCard) { showErrors(['Busca y elige una carta antes de agregar.']); setStatus(''); return; }
     const card = {
       game: $('f-game').value,
-      group: intOrNull($('f-group').value),
-      product: intOrNull($('f-product').value),
+      group: resolvedCard.groupId,
+      product: resolvedCard.productId,
       qty: intOrNull($('f-qty').value) ?? 1,
       condition: $('f-condition').value,
     };
@@ -248,13 +451,13 @@
     inventory = result.inventory;
     showErrors([]);
     setStatus(`Agregada: ${nameFor(card)}.`);
-    $('f-group').value = '';
-    $('f-product').value = '';
+    $('f-number').value = '';
     $('f-qty').value = '1';
     $('f-variant').value = '';
     $('f-price').value = '';
+    resetResolution();
     renderRows();
-    $('f-group').focus();
+    $('f-number').focus();
   });
 
   function exportInventory() {
@@ -282,6 +485,28 @@
   $('f-condition').append(...Object.entries(CONDITIONS).map(([code, name]) => el('option', { value: code }, `${code} — ${name}`)));
   $('f-language').append(...Object.entries(LANGUAGES).map(([code, name]) => el('option', { value: code }, `${code} — ${name}`)));
   $('f-language').value = 'EN';
+
+  // --- Resolution event wiring ------------------------------------------------
+  // config.json drives the COP conversion; without it the price cannot be computed.
+  // Resolution awaits this promise so a fast click never degrades into "sin precio".
+  const configReady = fetch('config.json')
+    .then((res) => { if (!res.ok) throw new Error(`config.json ${res.status}`); return res.json(); })
+    .then((config) => { priceConfig = config; return config; })
+    .catch(() => {
+      // The panel still resolves cards; only the price is unavailable.
+      showErrors(['No se pudo cargar config.json; el precio TCGCSV no se mostrará.']);
+      return null;
+    });
+
+  $('f-game').addEventListener('change', () => { groupCache.clear(); loadGroups(); });
+  $('f-set-filter').addEventListener('input', renderSetOptions);
+  $('f-set').addEventListener('change', resetResolution);
+  $('f-number').addEventListener('input', resetResolution);
+  $('resolve').addEventListener('click', resolveCard);
+  $('f-number').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') { e.preventDefault(); resolveCard(); }
+  });
+  loadGroups();
 
   Promise.all([
     fetch('singles.json').then((res) => { if (!res.ok) throw new Error(`singles.json ${res.status}`); return res.json(); }),
