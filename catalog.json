@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T16:51:04.560Z",
+  "generatedAt": "2026-10-21T17:53:49.074Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -1397,6 +1397,1022 @@
         {
           "label": "Flavor",
           "value": "The scratch became a sore, the sore became a wound, the wound became an infection, and the infection became a funeral."
+        }
+      ]
+    },
+    {
+      "id": "magic-671652",
+      "game": "magic",
+      "name": "Gnarlbark Elm",
+      "set": "Lorwyn Eclipsed",
+      "number": "103",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671652_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671652_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671652/magic-lorwyn-eclipsed-gnarlbark-elm",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Treefolk Warlock"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "This creature enters with two -1/-1 counters on it.\n2B, Remove two counters from this creature: Target creature gets -2/-2 until end of turn. Activate only as a sorcery."
+        },
+        {
+          "label": "Flavor",
+          "value": "It greedily drinks boggart curses and returns their pain in kind."
+        }
+      ]
+    },
+    {
+      "id": "magic-670974",
+      "game": "magic",
+      "name": "Dream Seizer",
+      "set": "Lorwyn Eclipsed",
+      "number": "101",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/670974_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/670974_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/670974/magic-lorwyn-eclipsed-dream-seizer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Faerie Rogue"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying\nWhen this creature enters, you may blight 1. If you do, each opponent discards a card. (To blight 1, put a -1/-1 counter on a creature you control.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Every fae has their preference. Mine are the dreams most bitter and pungent.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671488",
+      "game": "magic",
+      "name": "Heirloom Auntie",
+      "set": "Lorwyn Eclipsed",
+      "number": "107",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671488_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671488_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671488/magic-lorwyn-eclipsed-heirloom-auntie",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Goblin Warlock"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "This creature enters with two -1/-1 counters on it.\nWhenever another creature you control dies, surveil 1, then remove a -1/-1 counter from this creature. (To surveil 1, look at the top card of your library. You may put it into your graveyard.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-671570",
+      "game": "magic",
+      "name": "Bristlebane Outrider",
+      "set": "Lorwyn Eclipsed",
+      "number": "169",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671570_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671570_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671570/magic-lorwyn-eclipsed-bristlebane-outrider",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Kithkin Knight"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "5"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "This creature can't be blocked by creatures with power 2 or less.\nAs long as another creature entered the battlefield under your control this turn, this creature gets +2/+0."
+        },
+        {
+          "label": "Flavor",
+          "value": "Memories of oil and blood haunt her rides. She patrols kithkin lands driven by the fear of losing another doun."
+        }
+      ]
+    },
+    {
+      "id": "magic-672002",
+      "game": "magic",
+      "name": "Safewright Cavalry",
+      "set": "Lorwyn Eclipsed",
+      "number": "191",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/672002_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/672002_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.13,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/672002/magic-lorwyn-eclipsed-safewright-cavalry",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elf Warrior"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "This creature can't be blocked by more than one creature.\n5: Target Elf you control gets +2/+2 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "They had survived battles and foes together. For the elf, there was no greater beauty than her cervin steed."
+        }
+      ]
+    },
+    {
+      "id": "magic-671686",
+      "game": "magic",
+      "name": "Unforgiving Aim",
+      "set": "Lorwyn Eclipsed",
+      "number": "200",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671686_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671686_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.22,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671686/magic-lorwyn-eclipsed-unforgiving-aim",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Choose one —\n• Destroy target creature with flying.\n• Destroy target enchantment.\n• Create a 2/2 black and green Elf creature token."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"I tend to my field of view like a garden. Occasionally, it needs weeding.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-672032",
+      "game": "magic",
+      "name": "Stalactite Dagger",
+      "set": "Lorwyn Eclipsed",
+      "number": "261",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/672032_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/672032_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 2,
+      "usd": 0.2,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/672032/magic-lorwyn-eclipsed-stalactite-dagger",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact — Equipment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this Equipment enters, create a 1/1 colorless Shapeshifter creature token with changeling. (It's every creature type.)\nEquipped creature gets +1/+1 and is all creature types.\nEquip 2 (2: Attach to target creature you control. Equip only as a sorcery.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-671535",
+      "game": "magic",
+      "name": "Rooftop Percher",
+      "set": "Lorwyn Eclipsed",
+      "number": "2",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671535_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671535_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671535/magic-lorwyn-eclipsed-rooftop-percher",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Shapeshifter"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Changeling (This card is every creature type.)\nFlying\nWhen this creature enters, exile up to two target cards from graveyards. You gain 3 life."
+        }
+      ]
+    },
+    {
+      "id": "magic-671515",
+      "game": "magic",
+      "name": "Chaos Spewer",
+      "set": "Lorwyn Eclipsed",
+      "number": "210",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671515_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671515_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671515/magic-lorwyn-eclipsed-chaos-spewer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Goblin Warlock"
+        },
+        {
+          "label": "P",
+          "value": "5"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, you may pay 2. If you don't, blight 2. (To blight 2, put two -1/-1 counters on a creature you control.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "Only the most powerful boggart cursecrafters seek out veins of wild magic to fuel their vile hexes."
+        }
+      ]
+    },
+    {
+      "id": "magic-671714",
+      "game": "magic",
+      "name": "Noggle Robber",
+      "set": "Lorwyn Eclipsed",
+      "number": "237",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671714_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671714_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.16,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671714/magic-lorwyn-eclipsed-noggle-robber",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Noggle Rogue"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters or dies, create a Treasure token. (It's an artifact with \"T, Sacrifice this token: Add one mana of any color.\")"
+        },
+        {
+          "label": "Flavor",
+          "value": "Noggles have no concept of money, but they do have a high affinity for \"shiny.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671505",
+      "game": "magic",
+      "name": "Assert Perfection",
+      "set": "Lorwyn Eclipsed",
+      "number": "164",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671505_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671505_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.12,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671505/magic-lorwyn-eclipsed-assert-perfection",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Target creature you control gets +1/+0 until end of turn. It deals damage equal to its power to up to one target creature an opponent controls."
+        },
+        {
+          "label": "Flavor",
+          "value": "Some elves still cling to the old ways of treating outsiders."
+        }
+      ]
+    },
+    {
+      "id": "magic-656685",
+      "game": "magic",
+      "name": "Figure of Fable",
+      "set": "Lorwyn Eclipsed",
+      "number": "224",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/656685_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/656685_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.25,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/656685/magic-lorwyn-eclipsed-figure-of-fable",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Kithkin"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "(G/W): This creature becomes a Kithkin Scout with base power and toughness 2/3.\n1(G/W)(G/W): If this creature is a Scout, it becomes a Kithkin Soldier with base power and toughness 4/5.\n3(G/W)(G/W)(G/W): If this creature is a Soldier, it becomes a Kithkin Avatar with base power and toughness 7/8 and protection from each of your opponents."
+        }
+      ]
+    },
+    {
+      "id": "magic-671630",
+      "game": "magic",
+      "name": "Clachan Festival",
+      "set": "Lorwyn Eclipsed",
+      "number": "10",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671630_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671630_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671630/magic-lorwyn-eclipsed-clachan-festival",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Kindred Enchantment — Kithkin"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this enchantment enters, create two 1/1 green and white Kithkin creature tokens.\n4W: Create a 1/1 green and white Kithkin creature token."
+        },
+        {
+          "label": "Flavor",
+          "value": "Unmatched in their harmony, the troupe took home the festival's trophy with a stirring rendition of \"Dundoolin Downs.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671571",
+      "game": "magic",
+      "name": "Glister Bairn",
+      "set": "Lorwyn Eclipsed",
+      "number": "227",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671571_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671571_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.13,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671571/magic-lorwyn-eclipsed-glister-bairn",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Ouphe"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Vivid — At the beginning of combat on your turn, another target creature you control gets +X/+X until end of turn, where X is the number of colors among permanents you control."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"We'll leave this one here and that one there. Then wait and see who comes to share.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671955",
+      "game": "magic",
+      "name": "Sting-Slinger",
+      "set": "Lorwyn Eclipsed",
+      "number": "161",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671955_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671955_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671955/magic-lorwyn-eclipsed-sting-slinger",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Goblin Warrior"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "1R, T, Blight 1: This creature deals 2 damage to each opponent. (To blight 1, put a -1/-1 counter on a creature you control.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"The first step is to wuzzle the buzzers.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-670992",
+      "game": "magic",
+      "name": "Elder Auntie",
+      "set": "Lorwyn Eclipsed",
+      "number": "133",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/670992_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/670992_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/670992/magic-lorwyn-eclipsed-elder-auntie",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Goblin Warlock"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, create a 1/1 black and red Goblin creature token."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Did nephew spit up again? Oh, good! Auntie needed to make a new batch of potions for the merrow market.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671638",
+      "game": "magic",
+      "name": "Tributary Vaulter",
+      "set": "Lorwyn Eclipsed",
+      "number": "40",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671638_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671638_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671638/magic-lorwyn-eclipsed-tributary-vaulter",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Warrior"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying\nWhenever this creature becomes tapped, another target Merfolk you control gets +2/+0 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Other species may spread across the land all they like, but the riverways and the skies above them will always be ours.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671463",
+      "game": "magic",
+      "name": "Pyrrhic Strike",
+      "set": "Lorwyn Eclipsed",
+      "number": "30",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671463_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671463_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.26,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671463/magic-lorwyn-eclipsed-pyrrhic-strike",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "As an additional cost to cast this spell, you may blight 2. (You may put two -1/-1 counters on a creature you control.)\nChoose one. If this spell's additional cost was paid, choose both instead.\n• Destroy target artifact or enchantment.\n• Destroy target creature with mana value 3 or greater."
+        }
+      ]
+    },
+    {
+      "id": "magic-671898",
+      "game": "magic",
+      "name": "Glamermite",
+      "set": "Lorwyn Eclipsed",
+      "number": "50",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671898_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671898_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671898/magic-lorwyn-eclipsed-glamermite",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Faerie Rogue"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flash\nFlying\nWhen this creature enters, choose one —\n• Tap target creature.\n• Untap target creature."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"And watch, my queen, he'll do as I please!\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671472",
+      "game": "magic",
+      "name": "Silvergill Peddler",
+      "set": "Lorwyn Eclipsed",
+      "number": "70",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671472_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671472_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.12,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671472/magic-lorwyn-eclipsed-silvergill-peddler",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Citizen"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever this creature becomes tapped, draw a card, then discard a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"I should let you know, Longlake Clachan was very interested in that one, but I'm willing to entertain a better offer.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671469",
+      "game": "magic",
+      "name": "Kulrath Mystic",
+      "set": "Lorwyn Eclipsed",
+      "number": "56",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671469_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671469_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.06,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671469/magic-lorwyn-eclipsed-kulrath-mystic",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental Wizard"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever you cast a spell with mana value 4 or greater, this creature gets +2/+0 and gains vigilance until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"The difference between passion and anger is nothing more than who is in control.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671753",
+      "game": "magic",
+      "name": "Glen Elendra Guardian",
+      "set": "Lorwyn Eclipsed",
+      "number": "51",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671753_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671753_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.35,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671753/magic-lorwyn-eclipsed-glen-elendra-guardian",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Faerie Wizard"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flash\nFlying\nThis creature enters with a -1/-1 counter on it.\n1U, Remove a counter from this creature: Counter target noncreature spell. Its controller draws a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"The home of the fae must be protected.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671905",
+      "game": "magic",
+      "name": "Rimekin Recluse",
+      "set": "Lorwyn Eclipsed",
+      "number": "66",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671905_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671905_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671905/magic-lorwyn-eclipsed-rimekin-recluse",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental Wizard"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, return up to one other target creature to its owner's hand."
+        },
+        {
+          "label": "Flavor",
+          "value": "Rimekin were once flamekin who turned their heat inward following the horrors of the Invasion. They burn cold, choosing isolation as the path to preserve their flames."
+        }
+      ]
+    },
+    {
+      "id": "magic-671574",
+      "game": "magic",
+      "name": "Flaring Cinder",
+      "set": "Lorwyn Eclipsed",
+      "number": "225",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671574_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671574_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671574/magic-lorwyn-eclipsed-flaring-cinder",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental Sorcerer"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters and whenever you cast a spell with mana value 4 or greater, you may discard a card. If you do, draw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Am I losing myself or realizing my true nature?\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671174",
+      "game": "magic",
+      "name": "Burning Curiosity",
+      "set": "Lorwyn Eclipsed",
+      "number": "129",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671174_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671174_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671174/magic-lorwyn-eclipsed-burning-curiosity",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "As an additional cost to cast this spell, you may blight 1. (You may put a -1/-1 counter on a creature you control.)\nExile the top two cards of your library. If this spell's additional cost was paid, exile the top three cards instead. Until the end of your next turn, you may play those cards."
+        },
+        {
+          "label": "Flavor",
+          "value": "Cinders are drawn to any heat, at any cost."
+        }
+      ]
+    },
+    {
+      "id": "magic-671010",
+      "game": "magic",
+      "name": "Meek Attack",
+      "set": "Lorwyn Eclipsed",
+      "number": "151",
+      "rarity": "M",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671010_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671010_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.38,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671010/magic-lorwyn-eclipsed-meek-attack",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "1R: You may put a creature card with total power and toughness 5 or less from your hand onto the battlefield. That creature gains haste. At the beginning of the next end step, sacrifice that creature."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Charge! Aim for the cuticles!\""
         }
       ]
     }
