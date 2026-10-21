@@ -99,6 +99,17 @@ El flujo de publicación es:
 
 1. Haz tus cambios en el panel (agregar, quitar, vender).
 2. Pulsa **Exportar singles.json**: el navegador descarga el archivo actualizado.
+La **bandeja de revisión** aparece debajo del formulario cuando añades cartas con "Añadir a la bandeja". Sirve para verificar antes de agregar:
+
+1. Buscas la carta (set + número) y pulsas **Añadir a la bandeja**.
+2. La carta aparece en la bandeja **con su imagen**, para confirmar que es la correcta.
+3. Quitas las que no eran con la **✕**, o vacías la bandeja completa.
+4. Cuando terminaste de revisar, pulsas **Agregar al inventario** y entran todas juntas.
+
+Nada se agrega hasta el paso 4: la bandeja es una zona de espera, no parte del inventario. El botón **Agregar** directo sigue funcionando si ya estás seguro y no quieres revisar.
+
+Si una carta que pones en la bandeja **ya está en tu inventario**, el panel te avisa y al confirmar le suma una copia en vez de duplicar la fila.
+
 3. Reemplaza `singles.json` en el repositorio con el descargado.
 4. Corre **`npm run deploy`**: regenera `catalog.json`, te muestra qué va a publicar, pide confirmación y hace commit + push.
 

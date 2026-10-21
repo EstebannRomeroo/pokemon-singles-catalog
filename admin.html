@@ -55,6 +55,23 @@
   .card-choices button { width: 100%; text-align: left; font-weight: 400; min-height: 40px; }
   .card-choices button strong { font-weight: 650; }
   .card-choices button span { color: var(--deep); font-size: .85rem; }
+  /* The review tray: staged cards wait here, with their image, until confirmed.
+     It is visually separate from the inventory table so it never reads as "added". */
+  .tray { margin: 20px 0; padding: 16px; border: 2px dashed var(--mint); border-radius: var(--radius); background: var(--card); }
+  .tray[hidden] { display: none; }
+  .tray-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .tray-head h2 { margin: 0; font-size: 1.05rem; }
+  .tray-count { color: var(--deep); font-weight: 600; }
+  .tray-note { flex: 1 1 100%; margin: 4px 0 0; color: var(--deep); font-size: .85rem; }
+  .tray-list { list-style: none; margin: 14px 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 12px; }
+  .tray-item { display: flex; gap: 10px; align-items: flex-start; padding: 10px; border: 1px solid var(--line); border-radius: 10px; background: #FFF; position: relative; }
+  .tray-thumb { flex: 0 0 64px; width: 64px; height: 89px; border-radius: 6px; object-fit: cover; background: var(--pale); }
+  .tray-thumb.missing { display: grid; place-items: center; font-size: .65rem; color: var(--deep); text-align: center; padding: 4px; }
+  .tray-text { min-width: 0; flex: 1 1 auto; }
+  .tray-text strong { display: block; font-weight: 650; line-height: 1.3; word-break: break-word; }
+  .tray-text span { display: block; color: var(--deep); font-size: .8rem; }
+  .tray-drop { position: absolute; top: 4px; right: 4px; min-height: 28px; padding: 0 8px; font-size: .8rem; border-radius: 8px; }
+  .tray-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
   .table-wrap { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; min-width: 720px; }
   th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -131,7 +148,22 @@
     <div class="submit">
       <button class="primary" type="submit" id="f-add" disabled>Agregar</button>
     </div>
+    <div class="submit">
+      <button type="button" id="f-stage" disabled>Añadir a la bandeja</button>
+    </div>
   </form>
+
+  <section class="tray" id="tray" hidden aria-labelledby="tray-title">
+    <div class="tray-head">
+      <h2 id="tray-title">Por revisar <span class="tray-count" id="tray-count"></span></h2>
+      <p class="tray-note" id="tray-note">Revisa la imagen de cada carta antes de agregarlas. Nada se agrega hasta que lo confirmes.</p>
+    </div>
+    <ul class="tray-list" id="tray-list"></ul>
+    <div class="tray-actions">
+      <button type="button" id="tray-clear" class="danger">Vaciar bandeja</button>
+      <button type="button" id="tray-commit" class="primary">Agregar al inventario</button>
+    </div>
+  </section>
 
   <h2>Cartas en inventario</h2>
   <p class="status" id="counts"></p>
@@ -149,6 +181,8 @@
   import { validateSingles } from './scripts/catalog.mjs';
   // Reuse the exact price conversion the catalog uses instead of inventing a second one.
   import { pickPrice, toCop } from './scripts/price.mjs';
+  // The review tray logic, kept pure so the test runner can exercise it.
+  import { stageKey, toEntry, stageCard, unstageCard, overlapWithInventory, mergeIntoTray, commitTray } from './scripts/tray.mjs';
 
   const $ = (id) => document.getElementById(id);
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
@@ -181,6 +215,9 @@
   let groupsGame = null;           // game the loaded groups belong to
   const groupCache = new Map();    // groupId -> { products, prices }
   let resolvedCard = null;         // { groupId, productId, name, set, number }
+  // Cards staged for review. Nothing here is in the inventory yet: that only
+  // happens when the user confirms the whole tray at once.
+  let tray = [];
 
   // Mirrors filterProductByNumber in scripts/serve.mjs: match the part before the
   // slash, ignoring leading zeros, so "83", "083" and "083/088" all agree.
@@ -265,6 +302,7 @@
   function resetResolution() {
     resolvedCard = null;
     $('f-add').disabled = true;
+    $('f-stage').disabled = true;
     $('resolve-choices').replaceChildren();
     $('resolve-note').textContent = '';
   }
@@ -278,7 +316,7 @@
   };
 
   function showResolved(card, copPrice) {
-    resolvedCard = card;
+    resolvedCard = { ...card, copPrice: copPrice ?? null };
     const price = copPrice == null ? 'sin precio' : cop.format(copPrice);
     $('resolve-note').replaceChildren(
       el('strong', {}, card.name),
@@ -286,6 +324,7 @@
     );
     $('resolve-choices').replaceChildren();
     $('f-add').disabled = false;
+    $('f-stage').disabled = false;
   }
 
   // Several printings can share a number within one set; the user picks which one.
@@ -304,7 +343,7 @@
         el('span', {}, ` · ${numberLabel(number) || 'sin número'} · id ${product.productId} · Precio TCGCSV: ${price}`),
       );
       button.addEventListener('click', () => {
-        showResolved({ groupId: group.groupId, productId: product.productId, name: product.name, set: group.name, number }, copPrice);
+        showResolved({ groupId: group.groupId, productId: product.productId, name: product.name, set: group.name, number, imageUrl: product.imageUrl ?? null }, copPrice);
       });
       const item = el('li');
       item.append(button);
@@ -334,7 +373,7 @@
       }
       if (matches.length === 1) {
         const product = matches[0];
-        showResolved({ groupId: Number(groupId), productId: product.productId, name: product.name, set: group?.name ?? null, number: extendedValue(product, 'Number') }, priceOf(prices, product.productId));
+        showResolved({ groupId: Number(groupId), productId: product.productId, name: product.name, set: group?.name ?? null, number: extendedValue(product, 'Number'), imageUrl: product.imageUrl ?? null }, priceOf(prices, product.productId));
         return;
       }
       showChoices(matches, group, prices);
@@ -427,6 +466,7 @@
     showErrors([]);
     setStatus(message ? `${message}.` : '');
     renderRows();
+    renderTray();
   }
 
   const intOrNull = (value) => (value === '' ? null : Number(value));
@@ -434,30 +474,152 @@
   $('add-form').addEventListener('submit', (e) => {
     e.preventDefault();
     if (!resolvedCard) { showErrors(['Busca y elige una carta antes de agregar.']); setStatus(''); return; }
-    const card = {
-      game: $('f-game').value,
-      group: resolvedCard.groupId,
-      product: resolvedCard.productId,
-      qty: intOrNull($('f-qty').value) ?? 1,
-      condition: $('f-condition').value,
-    };
-    const variant = $('f-variant').value.trim();
-    if (variant) card.variant = variant;
-    const price = intOrNull($('f-price').value);
-    if (price != null) card.price = price;
-    card.language = $('f-language').value;
-    const result = addCard(inventory, card);
-    if (!result.ok) { showErrors(result.errors); setStatus(''); return; }
-    inventory = result.inventory;
-    showErrors([]);
-    setStatus(`Agregada: ${nameFor(card)}.`);
+    // The same commit path the tray uses, so a card already owned raises its qty
+    // here too instead of failing with the validator's duplicate-entry error.
+    const { inventory: next, added, merged, errors } = commitTray([stagedFromForm()], inventory, addCard, validateSingles);
+    if (!added.length && !merged.length) { showErrors(errors); setStatus(''); return; }
+    const name = resolvedCard.name;
+    inventory = next;
+    showErrors(errors);
+    setStatus(merged.length ? `Otra copia de ${name}.` : `Agregada: ${name}.`);
     $('f-number').value = '';
     $('f-qty').value = '1';
     $('f-variant').value = '';
     $('f-price').value = '';
     resetResolution();
     renderRows();
+    renderTray();
     $('f-number').focus();
+  });
+
+  // --- Review tray -------------------------------------------------------------
+  // Staged cards are shown with their image so the user can confirm the card is
+  // the one they meant, which is the failure the tray exists to catch.
+
+  function trayThumb(card) {
+    if (!card.imageUrl) {
+      return el('div', { className: 'tray-thumb missing' }, 'sin imagen');
+    }
+    const img = el('img', { className: 'tray-thumb', src: card.imageUrl, alt: card.name, loading: 'lazy' });
+    // A blocked or broken image must not hide the card: the row stays usable.
+    img.addEventListener('error', () => {
+      img.replaceWith(el('div', { className: 'tray-thumb missing' }, 'no cargó'));
+    });
+    return img;
+  }
+
+  function renderTray() {
+    const box = $('tray');
+    box.hidden = tray.length === 0;
+    $('tray-count').textContent = tray.length ? `(${tray.length})` : '';
+    $('tray-list').replaceChildren(...tray.map((card) => {
+      const item = el('li', { className: 'tray-item' });
+      const text = el('div', { className: 'tray-text' });
+      text.append(
+        el('strong', {}, card.name),
+        el('span', {}, `${card.set ?? 'set desconocido'} · ${numberLabel(card.number) || 'sin número'}`),
+        el('span', {}, `${gameName(card.game)} · ${card.condition} · ${LANGUAGES[card.language] ?? card.language} · ${plural(card.qty, 'copia', 'copias')}`),
+        el('span', {}, card.copPrice == null ? 'sin precio' : cop.format(card.copPrice) + (card.price != null ? ' (manual)' : '')),
+      );
+      const drop = el('button', { type: 'button', className: 'danger tray-drop' }, '✕');
+      drop.setAttribute('aria-label', `Quitar ${card.name} de la bandeja`);
+      drop.addEventListener('click', () => { tray = unstageCard(tray, stageKey(card)); renderTray(); });
+      item.append(trayThumb(card), text, drop);
+      return item;
+    }));
+
+    // Cards already owned are allowed, but flagged: adding a second copy is valid
+    // and the user should not have to guess which ones overlap.
+    const overlaps = overlapWithInventory(tray, inventory);
+    const total = tray.reduce((sum, card) => sum + (card.qty ?? 1), 0);
+    $('tray-commit').textContent = tray.length ? `Agregar ${plural(total, 'carta', 'cartas')} al inventario` : 'Agregar al inventario';
+    $('tray-commit').disabled = tray.length === 0;
+    $('tray-note').textContent = overlaps.length
+      ? `Ya tienes ${overlaps.length === 1 ? 'esta carta' : 'estas cartas'} en el inventario: ${overlaps.join(', ')}. Se agregará una copia más.`
+      : 'Revisa la imagen de cada carta antes de agregarlas. Nada se agrega hasta que lo confirmes.';
+  }
+
+  // Reads the current form values into a staged card. The form is the same one the
+  // direct add uses, so quantity, condition, language and variant stay consistent.
+  function stagedFromForm() {
+    const card = {
+      game: $('f-game').value,
+      group: resolvedCard.groupId,
+      product: resolvedCard.productId,
+      name: resolvedCard.name,
+      set: resolvedCard.set,
+      number: resolvedCard.number,
+      imageUrl: resolvedCard.imageUrl ?? null,
+      copPrice: resolvedCard.copPrice ?? null,
+      qty: intOrNull($('f-qty').value) ?? 1,
+      condition: $('f-condition').value,
+      language: $('f-language').value,
+    };
+    const variant = $('f-variant').value.trim();
+    if (variant) card.variant = variant;
+    const price = intOrNull($('f-price').value);
+    if (price != null) card.price = price;
+    return card;
+  }
+
+  function afterStaging() {
+    $('f-number').value = '';
+    $('f-qty').value = '1';
+    $('f-variant').value = '';
+    $('f-price').value = '';
+    resetResolution();
+    renderTray();
+    $('f-number').focus();
+  }
+
+  $('f-stage').addEventListener('click', () => {
+    if (!resolvedCard) { showErrors(['Busca y elige una carta antes de añadirla a la bandeja.']); setStatus(''); return; }
+    const staged = stagedFromForm();
+    // A card already staged becomes another copy rather than a repeated row; the
+    // inventory expresses multiplicity with qty, not with duplicate entries.
+    const mergedTray = mergeIntoTray(tray, staged);
+    if (mergedTray !== tray) {
+      tray = mergedTray;
+      showErrors([]);
+      setStatus(`Otra copia de ${staged.name} en la bandeja.`);
+      afterStaging();
+      return;
+    }
+    const result = stageCard(tray, staged);
+    if (!result.added) { showErrors([result.reason]); setStatus(''); return; }
+    tray = result.tray;
+    showErrors([]);
+    setStatus(`En la bandeja: ${staged.name}.`);
+    afterStaging();
+  });
+
+  $('tray-clear').addEventListener('click', () => {
+    if (!tray.length) return;
+    if (!confirm(`¿Vaciar la bandeja? Se perderán las ${plural(tray.length, 'carta', 'cartas')} sin agregar.`)) return;
+    tray = [];
+    showErrors([]);
+    setStatus('Bandeja vaciada.');
+    renderTray();
+  });
+
+  $('tray-commit').addEventListener('click', () => {
+    if (!loaded) { showErrors(['El inventario no se cargó; recarga la página antes de agregar.']); return; }
+    if (!tray.length) return;
+    // commitTray validates against the same rules the export applies, and raises qty
+    // for cards already owned instead of creating the duplicate the validator rejects.
+    const { inventory: next, added, merged, errors } = commitTray(tray, inventory, addCard, validateSingles);
+    if (!added.length && !merged.length) { showErrors(errors); setStatus(''); return; }
+    inventory = next;
+    const parts = [];
+    if (added.length) parts.push(`${plural(added.length, 'carta nueva', 'cartas nuevas')}`);
+    if (merged.length) parts.push(`${plural(merged.length, 'copia sumada', 'copias sumadas')}`);
+    showErrors(errors);
+    setStatus(`Agregadas al inventario: ${parts.join(' y ')}.`);
+    // Committed cards leave the tray; a failed one stays, so it can be fixed.
+    const committed = new Set([...added, ...merged]);
+    tray = tray.filter((card) => !committed.has(card.name));
+    renderTray();
+    renderRows();
   });
 
   function exportInventory() {
@@ -519,6 +681,7 @@
       const date = new Date(catalog.generatedAt).toLocaleDateString('es-CO', { dateStyle: 'long' });
       $('updated').textContent = `Página local, no publicada · catálogo del ${date}`;
       renderRows();
+      renderTray();
       setStatus(singles.length ? '' : 'El inventario está vacío.');
       // Surface a file that is already invalid, so it is fixed before it is exported.
       const loadedErrors = validateSingles(singles);
