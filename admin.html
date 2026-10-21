@@ -162,10 +162,7 @@
       <input id="f-price" type="number" min="1" step="1" inputmode="numeric" placeholder="50000">
     </label>
     <div class="submit">
-      <button class="primary" type="submit" id="f-add" disabled>Agregar</button>
-    </div>
-    <div class="submit">
-      <button type="button" id="f-stage" disabled>Añadir a la bandeja</button>
+      <button class="primary" type="button" id="f-stage" disabled>Añadir a la bandeja</button>
     </div>
   </form>
 
@@ -375,7 +372,6 @@
 
   function resetResolution() {
     resolvedCard = null;
-    $('f-add').disabled = true;
     $('f-stage').disabled = true;
     $('resolve-choices').replaceChildren();
     $('resolve-note').textContent = '';
@@ -397,14 +393,13 @@
       document.createTextNode(` · ${card.set ?? 'set desconocido'} · ${numberLabel(card.number) || 'sin número'} · Precio TCGCSV: ${price}`),
     );
     $('resolve-choices').replaceChildren();
-    $('f-add').disabled = false;
     $('f-stage').disabled = false;
   }
 
   // Several printings can share a number within one set; the user picks which one.
   function showChoices(matches, group, prices) {
     resolvedCard = null;
-    $('f-add').disabled = true;
+    $('f-stage').disabled = true;
     $('resolve-note').textContent = `${plural(matches.length, 'carta coincide', 'cartas coinciden')} con ese número. Elige una:`;
     const list = $('resolve-choices');
     list.replaceChildren(...matches.map((product) => {
@@ -577,25 +572,13 @@
 
   const intOrNull = (value) => (value === '' ? null : Number(value));
 
+  // The form has no submit button: adding happens through the tray only, so a
+  // card is always seen before it enters the inventory. Enter in a text field
+  // would otherwise still submit natively, so the submit is refused outright.
   $('add-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    if (!resolvedCard) { showErrors(['Busca y elige una carta antes de agregar.']); setStatus(''); return; }
-    // The same commit path the tray uses, so a card already owned raises its qty
-    // here too instead of failing with the validator's duplicate-entry error.
-    const { inventory: next, added, merged, errors } = commitTray([stagedFromForm()], inventory, addCard, validateSingles);
-    if (!added.length && !merged.length) { showErrors(errors); setStatus(''); return; }
-    const name = resolvedCard.name;
-    inventory = next;
-    showErrors(errors);
-    setStatus(merged.length ? `Otra copia de ${name}.` : `Agregada: ${name}.`);
-    $('f-number').value = '';
-    $('f-qty').value = '1';
-    $('f-variant').value = '';
-    $('f-price').value = '';
-    resetResolution();
-    renderRows();
-    renderTray();
-    $('f-number').focus();
+    if (!resolvedCard) return;
+    setStatus('Usa "Añadir a la bandeja" para revisar la carta antes de agregarla.');
   });
 
   // --- Review tray -------------------------------------------------------------
