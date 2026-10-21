@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T21:05:08.963Z",
+  "generatedAt": "2026-10-21T21:12:43.939Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -6433,6 +6433,138 @@
         {
           "label": "Rules Text Contains",
           "value": "When this Vehicle enters, you may pay G. If you do, search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-631146",
+      "game": "magic",
+      "name": "Cloud's Limit Break",
+      "set": "Commander: FINAL FANTASY",
+      "number": "14",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631146_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631146_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.27,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631146/magic-commander-final-fantasy-clouds-limit-break",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Tiered (Choose one additional cost.)\n• Cross-Slash — 0 — Destroy target tapped creature.\n• Blade Beam — 1 — Destroy any number of target tapped creatures with different controllers.\n• Omnislash — 3W — Destroy all tapped creatures."
+        }
+      ]
+    },
+    {
+      "id": "magic-631113",
+      "game": "magic",
+      "name": "Bugenhagen, Wise Elder",
+      "set": "Commander: FINAL FANTASY",
+      "number": "66",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631113_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631113_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.37,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631113/magic-commander-final-fantasy-bugenhagen-wise-elder",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Human Shaman"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Reach\nAt the beginning of your upkeep, if you control a creature with power 7 or greater, draw a card.\nT: Add one mana of any color."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"I've been thinking if there was anything we could do to help a planet already in misery . . .\""
+        }
+      ]
+    },
+    {
+      "id": "magic-631204",
+      "game": "magic",
+      "name": "Conformer Shuriken",
+      "set": "Commander: FINAL FANTASY",
+      "number": "98",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631204_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631204_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.32,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631204/magic-commander-final-fantasy-conformer-shuriken",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Artifact — Equipment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Equipped creature has \"Whenever this creature attacks, tap target creature defending player controls. If that creature has greater power than this creature, put a number of +1/+1 counters on this creature equal to the difference.\"\nEquip 2"
+        }
+      ]
+    },
+    {
+      "id": "magic-631229",
+      "game": "magic",
+      "name": "Explorer's Scope",
+      "set": "Commander: FINAL FANTASY",
+      "number": "344",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/631229_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/631229_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.3,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/631229/magic-commander-final-fantasy-explorers-scope",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact — Equipment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever equipped creature attacks, look at the top card of your library. If it's a land card, you may put it onto the battlefield tapped.\nEquip 1 (1: Attach to target creature you control. Equip only as a sorcery.)"
         }
       ]
     }

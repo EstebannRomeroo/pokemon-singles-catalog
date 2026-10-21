@@ -1266,5 +1266,37 @@
     "qty": 1,
     "condition": "NM",
     "language": "EN"
+  },
+  {
+    "game": "magic",
+    "group": 24220,
+    "product": 631146,
+    "qty": 1,
+    "condition": "NM",
+    "language": "EN"
+  },
+  {
+    "game": "magic",
+    "group": 24220,
+    "product": 631113,
+    "qty": 1,
+    "condition": "NM",
+    "language": "EN"
+  },
+  {
+    "game": "magic",
+    "group": 24220,
+    "product": 631204,
+    "qty": 1,
+    "condition": "NM",
+    "language": "EN"
+  },
+  {
+    "game": "magic",
+    "group": 24220,
+    "product": 631229,
+    "qty": 1,
+    "condition": "NM",
+    "language": "EN"
   }
 ]
