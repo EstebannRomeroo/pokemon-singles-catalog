@@ -72,6 +72,14 @@
   .tray-text span { display: block; color: var(--deep); font-size: .8rem; }
   .tray-drop { position: absolute; top: 4px; right: 4px; min-height: 28px; padding: 0 8px; font-size: .8rem; border-radius: 8px; }
   .tray-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+  /* Inventory filter: filters the already-rendered rows, so it never fetches.
+     Sits above the table so it reads as a view control, not part of the add form. */
+  .inv-filter { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin: 0 0 12px; }
+  .inv-filter label { flex: 1 1 260px; display: flex; align-items: center; gap: 8px; margin: 0; }
+  .inv-filter input { flex: 1 1 auto; min-height: 40px; }
+  .inv-filter .clear { min-height: 40px; padding: 0 14px; font-size: .85rem; }
+  .inv-filter .clear[hidden] { display: none; }
+  .inv-filter .hits { color: var(--deep); font-size: .85rem; font-weight: 600; white-space: nowrap; }
   .table-wrap { border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); overflow-x: auto; }
   table { width: 100%; border-collapse: collapse; min-width: 720px; }
   th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -167,6 +175,13 @@
 
   <h2>Cartas en inventario</h2>
   <p class="status" id="counts"></p>
+  <div class="inv-filter">
+    <label>Buscar
+      <input id="inv-search" type="search" placeholder="Nombre, set, número…" autocomplete="off" aria-controls="rows">
+    </label>
+    <button type="button" class="clear" id="inv-search-clear" hidden>Limpiar</button>
+    <span class="hits" id="inv-hits" role="status"></span>
+  </div>
   <div class="table-wrap">
     <table>
       <thead></thead>
@@ -183,6 +198,8 @@
   import { pickPrice, toCop } from './scripts/price.mjs';
   // The review tray logic, kept pure so the test runner can exercise it.
   import { stageKey, toEntry, stageCard, unstageCard, overlapWithInventory, mergeIntoTray, commitTray } from './scripts/tray.mjs';
+  // Inventory search rules, kept pure for the same reason.
+  import { fold, filterInventory, hitsLabel } from './scripts/search.mjs';
 
   const $ = (id) => document.getElementById(id);
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
@@ -204,6 +221,9 @@
   // False until the fetch succeeds: an unloaded inventory must never be exported.
   let loaded = false;
   const catalogItems = new Map(); // id ("pokemon-716513") -> catalog item
+  // The live inventory filter. Module-level so every renderRows() caller keeps
+  // whatever the user typed: selling a card must not reset the search.
+  let invSearch = '';
 
   // --- Card resolution through the local proxy ---------------------------------
   // tcgcsv.com sends no CORS headers, so the browser talks only to this origin;
@@ -423,6 +443,12 @@
 
   function renderRows() {
     const body = $('rows');
+    const query = fold(invSearch);
+    // Filter the entries once, then render only survivors. Filtering here (not
+    // with display:none) keeps the DOM equal to what is visible, so a sell or
+    // a remove never targets a row that the user cannot see.
+    const visible = filterInventory(inventory, itemFor, query, (e) => gameName(e.game));
+    renderHits(visible.length, query);
     if (!inventory.length) {
       const row = el('tr');
       const cell = el('td', { colSpan: TABLE_HEADERS.length, className: 'set' }, 'El inventario está vacío. Agrega una carta arriba.');
@@ -431,7 +457,15 @@
       renderCounts();
       return;
     }
-    body.replaceChildren(...inventory.map((entry) => {
+    if (!visible.length) {
+      const row = el('tr');
+      const cell = el('td', { colSpan: TABLE_HEADERS.length, className: 'set' }, `Ninguna carta coincide con «${invSearch.trim()}».`);
+      row.append(cell);
+      body.replaceChildren(row);
+      renderCounts();
+      return;
+    }
+    body.replaceChildren(...visible.map((entry) => {
       const item = itemFor(entry);
       const price = priceFor(entry);
       const row = el('tr');
@@ -457,6 +491,15 @@
   function renderCounts() {
     const total = inventory.reduce((sum, entry) => sum + entry.qty, 0);
     $('counts').textContent = `${plural(inventory.length, 'entrada', 'entradas')} en el inventario · ${plural(total, 'carta', 'cartas')} en total`;
+  }
+
+  // Says how many rows the filter is showing, and clears itself when unfiltered.
+  function renderHits(visibleCount, foldedQuery) {
+    const hits = $('inv-hits');
+    const clear = $('inv-search-clear');
+    const active = foldedQuery !== '';
+    clear.hidden = !active;
+    hits.textContent = active ? hitsLabel(visibleCount, inventory.length) : '';
   }
 
   // Applies a helper result: on success the list re-renders, on failure the errors show.
@@ -660,6 +703,21 @@
       return null;
     });
 
+  $('inv-search').addEventListener('input', (e) => {
+    invSearch = e.target.value;
+    renderRows();
+  });
+  // 'search' fires on the native X and on Escape, which 'input' alone can miss.
+  $('inv-search').addEventListener('search', (e) => {
+    invSearch = e.target.value;
+    renderRows();
+  });
+  $('inv-search-clear').addEventListener('click', () => {
+    $('inv-search').value = '';
+    invSearch = '';
+    renderRows();
+    $('inv-search').focus();
+  });
   $('f-game').addEventListener('change', () => { groupCache.clear(); loadGroups(); });
   $('f-set-filter').addEventListener('input', renderSetOptions);
   $('f-set').addEventListener('change', resetResolution);

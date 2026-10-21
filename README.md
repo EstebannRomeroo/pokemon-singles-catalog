@@ -81,6 +81,14 @@ npm run serve
 
 Abre <http://localhost:8000/admin.html>.
 
+### Buscar en el inventario
+
+Encima de la tabla hay un buscador. Filtra lo que ya tienes, sin tocar internet ni `singles.json`: escribe y la tabla se reduce a las cartas que coinciden.
+
+Busca en **nombre, set, número, rareza, variante, condición, idioma y juego** al mismo tiempo, ignorando mayúsculas y acentos. Así `lorwyn` saca las 73 cartas de Lorwyn Eclipsed, `magic` las de Magic, y `angel` encuentra una carta llamada `Ángel`.
+
+El contador de al lado dice cuántas quedan (`3 de 97 entradas`) y aparece un botón **Limpiar** para volver a ver todo. El filtro se mantiene si vendes o quitas una carta mientras buscas.
+
 ### Agregar una carta
 
 No necesitas averiguar ids de TCGCSV. Solo:
