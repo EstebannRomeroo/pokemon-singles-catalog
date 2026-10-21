@@ -327,7 +327,7 @@
     "game": "magic",
     "group": 24463,
     "product": 671955,
-    "qty": 1,
+    "qty": 2,
     "condition": "NM",
     "language": "ES"
   },
@@ -335,7 +335,7 @@
     "game": "magic",
     "group": 24463,
     "product": 670992,
-    "qty": 1,
+    "qty": 2,
     "condition": "NM",
     "language": "ES"
   },
@@ -415,6 +415,326 @@
     "game": "magic",
     "group": 24463,
     "product": 671010,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671768,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671921,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671924,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 670985,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671654,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671489,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671934,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671655,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671462,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671464,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 670954,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671632,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671465,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671935,
+    "qty": 2,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671922,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671579,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671501,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671662,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671942,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671034,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671057,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671502,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671908,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671764,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671471,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671644,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671773,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671647,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671062,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 668581,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671520,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671061,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671672,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671045,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671524,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 672015,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 672013,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671712,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 670964,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671722,
     "qty": 1,
     "condition": "NM",
     "language": "ES"

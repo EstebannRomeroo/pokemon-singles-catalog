@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T17:53:49.074Z",
+  "generatedAt": "2026-10-21T19:04:35.049Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -1953,7 +1953,7 @@
       "priceVariant": "Normal",
       "condition": "NM",
       "language": "ES",
-      "qty": 1,
+      "qty": 2,
       "usd": 0.18,
       "priceCop": 2000,
       "manual": false,
@@ -1995,7 +1995,7 @@
       "priceVariant": "Normal",
       "condition": "NM",
       "language": "ES",
-      "qty": 1,
+      "qty": 2,
       "usd": 0.19,
       "priceCop": 2000,
       "manual": false,
@@ -2413,6 +2413,1522 @@
         {
           "label": "Flavor",
           "value": "\"Charge! Aim for the cuticles!\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671768",
+      "game": "magic",
+      "name": "Twilight Diviner",
+      "set": "Lorwyn Eclipsed",
+      "number": "122",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671768_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671768_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 2.2,
+      "priceCop": 7500,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671768/magic-lorwyn-eclipsed-twilight-diviner",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elf Cleric"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, surveil 2. (Look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)\nWhenever one or more other creatures you control enter, if they entered or were cast from a graveyard, create a token that's a copy of one of them. This ability triggers only once each turn."
+        }
+      ]
+    },
+    {
+      "id": "magic-671921",
+      "game": "magic",
+      "name": "Boggart Prankster",
+      "set": "Lorwyn Eclipsed",
+      "number": "93",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671921_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671921_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.1,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671921/magic-lorwyn-eclipsed-boggart-prankster",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Goblin Warrior"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever you attack, target attacking Goblin you control gets +1/+0 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Fetch my bow! And an umbrella!\"\n—Edren, kithkin farmer"
+        }
+      ]
+    },
+    {
+      "id": "magic-671924",
+      "game": "magic",
+      "name": "Bogslither's Embrace",
+      "set": "Lorwyn Eclipsed",
+      "number": "94",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671924_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671924_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.25,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671924/magic-lorwyn-eclipsed-bogslithers-embrace",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "As an additional cost to cast this spell, blight 1 or pay 3. (To blight 1, put a\n-1/-1 counter on a creature you control.)\nExile target creature."
+        },
+        {
+          "label": "Flavor",
+          "value": "Shadow creatures are untamable forces of nature—chaotic and hungry."
+        }
+      ]
+    },
+    {
+      "id": "magic-670985",
+      "game": "magic",
+      "name": "Moonglove Extractor",
+      "set": "Lorwyn Eclipsed",
+      "number": "109",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/670985_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/670985_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/670985/magic-lorwyn-eclipsed-moonglove-extractor",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elf Warlock"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever this creature attacks, you draw a card and lose 1 life."
+        },
+        {
+          "label": "Flavor",
+          "value": "Concentrating moonglove flowers into deadly moonglow poison is a revered but fleeting position for Lorwyn elves."
+        }
+      ]
+    },
+    {
+      "id": "magic-671654",
+      "game": "magic",
+      "name": "Mudbutton Cursetosser",
+      "set": "Lorwyn Eclipsed",
+      "number": "112",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671654_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671654_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671654/magic-lorwyn-eclipsed-mudbutton-cursetosser",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Goblin Warlock"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "As an additional cost to cast this spell, behold a Goblin or pay 2. (To behold a Goblin, choose a Goblin you control or reveal a Goblin card from your hand.)\nThis creature can't block.\nWhen this creature dies, destroy target creature an opponent controls with power 2 or less."
+        }
+      ]
+    },
+    {
+      "id": "magic-671489",
+      "game": "magic",
+      "name": "Requiting Hex",
+      "set": "Lorwyn Eclipsed",
+      "number": "116",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671489_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671489_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.7,
+      "priceCop": 2500,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671489/magic-lorwyn-eclipsed-requiting-hex",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "As an additional cost to cast this spell, you may blight 1. (You may put a\n-1/-1 counter on a creature you control.)\nDestroy target creature with mana value 2 or less. If this spell's additional cost was paid, you gain 2 life."
+        }
+      ]
+    },
+    {
+      "id": "magic-671934",
+      "game": "magic",
+      "name": "Scarblade's Malice",
+      "set": "Lorwyn Eclipsed",
+      "number": "119",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671934_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671934_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.16,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671934/magic-lorwyn-eclipsed-scarblades-malice",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Target creature you control gains deathtouch and lifelink until end of turn. When that creature dies this turn, create a 2/2 black and green Elf creature token."
+        },
+        {
+          "label": "Flavor",
+          "value": "The poison on their blades is nothing compared to the poison in their hearts."
+        }
+      ]
+    },
+    {
+      "id": "magic-671655",
+      "game": "magic",
+      "name": "Nameless Inversion",
+      "set": "Lorwyn Eclipsed",
+      "number": "113",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671655_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671655_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.29,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671655/magic-lorwyn-eclipsed-nameless-inversion",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Kindred Instant — Shapeshifter"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Changeling (This card is every creature type.)\nTarget creature gets +3/-3 and loses all creature types until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "Eclipsed realms are the spaces between Lorwyn's stability and Shadowmoor's chaos—raw and undefined boundaries where the plane naturally corrects imbalances in power and influence."
+        }
+      ]
+    },
+    {
+      "id": "magic-671462",
+      "game": "magic",
+      "name": "Liminal Hold",
+      "set": "Lorwyn Eclipsed",
+      "number": "24",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671462_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671462_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.12,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671462/magic-lorwyn-eclipsed-liminal-hold",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this enchantment enters, exile up to one target nonland permanent an opponent controls until this enchantment leaves the battlefield. You gain 2 life."
+        },
+        {
+          "label": "Flavor",
+          "value": "A reliquary is needed to pass through the eclipse safely. Without it, two warring selves will calcify into one."
+        }
+      ]
+    },
+    {
+      "id": "magic-671464",
+      "game": "magic",
+      "name": "Shore Lurker",
+      "set": "Lorwyn Eclipsed",
+      "number": "34",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671464_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671464_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671464/magic-lorwyn-eclipsed-shore-lurker",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Scout"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying\nWhen this creature enters, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"The Dark Meanders contain nothing but refuse and the trinkets other merrow have left behind. I'm on the hunt for something new.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-670954",
+      "game": "magic",
+      "name": "Appeal to Eirdu",
+      "set": "Lorwyn Eclipsed",
+      "number": "5",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/670954_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/670954_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/670954/magic-lorwyn-eclipsed-appeal-to-eirdu",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature's color.)\nOne or two target creatures each get +2/+1 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "Adherents of the sun implore others to bask in Eirdu's light and expel darkness from the plane."
+        }
+      ]
+    },
+    {
+      "id": "magic-671632",
+      "game": "magic",
+      "name": "Goldmeadow Nomad",
+      "set": "Lorwyn Eclipsed",
+      "number": "18",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671632_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671632_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671632/magic-lorwyn-eclipsed-goldmeadow-nomad",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Kithkin Scout"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "W, Exile this card from your graveyard: Create a 1/1 green and white Kithkin creature token. Activate only as a sorcery."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"During my time on the road, the emptiness I felt after severing myself from the thoughtweft has faded with every story heard and every tale spread.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671465",
+      "game": "magic",
+      "name": "Wanderbrine Preacher",
+      "set": "Lorwyn Eclipsed",
+      "number": "41",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671465_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671465_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671465/magic-lorwyn-eclipsed-wanderbrine-preacher",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Cleric"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever this creature becomes tapped, you gain 2 life."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Truly, I am sustained by the faith of my congregation.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671935",
+      "game": "magic",
+      "name": "Timid Shieldbearer",
+      "set": "Lorwyn Eclipsed",
+      "number": "39",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671935_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671935_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 2,
+      "usd": 0.09,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671935/magic-lorwyn-eclipsed-timid-shieldbearer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Kithkin Soldier"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "4W: Creatures you control get +1/+1 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "Fear is especially potent through the thoughtweft. A lone kithkin's panic can motivate a doun."
+        }
+      ]
+    },
+    {
+      "id": "magic-671922",
+      "game": "magic",
+      "name": "Keep Out",
+      "set": "Lorwyn Eclipsed",
+      "number": "19",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671922_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671922_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671922/magic-lorwyn-eclipsed-keep-out",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Choose one —\n• Keep Out deals 4 damage to target tapped creature.\n• Destroy target enchantment."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"We don't want your kind round here.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671579",
+      "game": "magic",
+      "name": "Bark of Doran",
+      "set": "Lorwyn Eclipsed",
+      "number": "6",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671579_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671579_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.2,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671579/magic-lorwyn-eclipsed-bark-of-doran",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact — Equipment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Equipped creature gets +0/+1.\nAs long as equipped creature's toughness is greater than its power, it assigns combat damage equal to its toughness rather than its power.\nEquip 1 (1: Attach to target creature you control. Equip only as a sorcery.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "A shield that makes the world tremble."
+        }
+      ]
+    },
+    {
+      "id": "magic-671501",
+      "game": "magic",
+      "name": "Collective Inferno",
+      "set": "Lorwyn Eclipsed",
+      "number": "132",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671501_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671501_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 2.12,
+      "priceCop": 7000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671501/magic-lorwyn-eclipsed-collective-inferno",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature's color.)\nAs this enchantment enters, choose a creature type.\nDouble all damage that sources you control of the chosen type would deal."
+        }
+      ]
+    },
+    {
+      "id": "magic-671662",
+      "game": "magic",
+      "name": "Kulrath Zealot",
+      "set": "Lorwyn Eclipsed",
+      "number": "148",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671662_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671662_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.13,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671662/magic-lorwyn-eclipsed-kulrath-zealot",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental Warrior"
+        },
+        {
+          "label": "P",
+          "value": "6"
+        },
+        {
+          "label": "T",
+          "value": "5"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, exile the top card of your library. Until the end of your next turn, you may play that card.\nBasic landcycling 1R (1R, Discard this card: Search your library for a basic land card, reveal it, put it into your hand, then shuffle.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "The Path of Flame brought him power at the terrible cost of his own identity."
+        }
+      ]
+    },
+    {
+      "id": "magic-671942",
+      "game": "magic",
+      "name": "Feed the Flames",
+      "set": "Lorwyn Eclipsed",
+      "number": "137",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671942_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671942_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.07,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671942/magic-lorwyn-eclipsed-feed-the-flames",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Feed the Flames deals 5 damage to target creature. If that creature would die this turn, exile it instead."
+        },
+        {
+          "label": "Flavor",
+          "value": "Fire is always hungry and never picky."
+        }
+      ]
+    },
+    {
+      "id": "magic-671034",
+      "game": "magic",
+      "name": "Lavaleaper",
+      "set": "Lorwyn Eclipsed",
+      "number": "150",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671034_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671034_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.32,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671034/magic-lorwyn-eclipsed-lavaleaper",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "All creatures have haste.\nWhenever a player taps a basic land for mana, that player adds one mana of any type that land produced."
+        },
+        {
+          "label": "Flavor",
+          "value": "Flamekin believe it knows the slopes of Mount Kulrath even better than they do."
+        }
+      ]
+    },
+    {
+      "id": "magic-671057",
+      "game": "magic",
+      "name": "Explosive Prodigy",
+      "set": "Lorwyn Eclipsed",
+      "number": "136",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671057_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671057_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671057/magic-lorwyn-eclipsed-explosive-prodigy",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental Sorcerer"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Vivid — When this creature enters, it deals X damage to target creature an opponent controls, where X is the number of colors among permanents you control."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Intense flame, but malleable. The braiders can help you harness that heat.\"\n—Senbrand, soulstoke mentor"
+        }
+      ]
+    },
+    {
+      "id": "magic-671502",
+      "game": "magic",
+      "name": "Flame-Chain Mauler",
+      "set": "Lorwyn Eclipsed",
+      "number": "138",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671502_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671502_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671502/magic-lorwyn-eclipsed-flame-chain-mauler",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental Warrior"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "1R: This creature gets +1/+0 and gains menace until end of turn. (It can't be blocked except by two or more creatures.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "In the fires below Mount Kulrath, artisans shape weapons designed to draw heat and extinguish life."
+        }
+      ]
+    },
+    {
+      "id": "magic-671908",
+      "game": "magic",
+      "name": "Summit Sentinel",
+      "set": "Lorwyn Eclipsed",
+      "number": "73",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671908_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671908_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671908/magic-lorwyn-eclipsed-summit-sentinel",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental Soldier"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature dies, draw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "No visitors make the ascent of Mount Tanufel without catching the eye of its rimekin guardians."
+        }
+      ]
+    },
+    {
+      "id": "magic-671764",
+      "game": "magic",
+      "name": "Silvergill Mentor",
+      "set": "Lorwyn Eclipsed",
+      "number": "69",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671764_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671764_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.22,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671764/magic-lorwyn-eclipsed-silvergill-mentor",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Wizard"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "As an additional cost to cast this spell, behold a Merfolk or pay 2. (To behold a Merfolk, choose a Merfolk you control or reveal a Merfolk card from your hand.)\nWhen this creature enters, create a 1/1 white and blue Merfolk creature token."
+        }
+      ]
+    },
+    {
+      "id": "magic-671471",
+      "game": "magic",
+      "name": "Run Away Together",
+      "set": "Lorwyn Eclipsed",
+      "number": "67",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671471_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671471_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.2,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671471/magic-lorwyn-eclipsed-run-away-together",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Choose two target creatures controlled by different players. Return those creatures to their owners' hands."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"You don't need to steal my dreams, my love. They are already yours.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671644",
+      "game": "magic",
+      "name": "Gravelgill Scoundrel",
+      "set": "Lorwyn Eclipsed",
+      "number": "53",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671644_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671644_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671644/magic-lorwyn-eclipsed-gravelgill-scoundrel",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Rogue"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Vigilance\nWhenever this creature attacks, you may tap another untapped creature you control. If you do, this creature can't be blocked this turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Cut the line and take the catch. Then find a little kith to snatch.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671773",
+      "game": "magic",
+      "name": "Champions of the Shoal",
+      "set": "Lorwyn Eclipsed",
+      "number": "46",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671773_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671773_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671773/magic-lorwyn-eclipsed-champions-of-the-shoal",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Soldier"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "6"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "As an additional cost to cast this spell, behold a Merfolk and exile it. (Exile a Merfolk you control or a Merfolk card from your hand.)\nWhenever this creature enters or becomes tapped, tap up to one target creature and put a stun counter on it.\nWhen this creature leaves the battlefield, return the exiled card to its owner's hand."
+        }
+      ]
+    },
+    {
+      "id": "magic-671647",
+      "game": "magic",
+      "name": "Stratosoarer",
+      "set": "Lorwyn Eclipsed",
+      "number": "72",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671647_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671647_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.07,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671647/magic-lorwyn-eclipsed-stratosoarer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elemental"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "5"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying\nWhen this creature enters, target creature gains flying until end of turn.\nBasic landcycling 1U (1U, Discard this card: Search your horary for a basic land card, reveal it, put it into your hand, then shuffle.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "Wise travelers take advantage of the wind that always blows in its wake."
+        }
+      ]
+    },
+    {
+      "id": "magic-671062",
+      "game": "magic",
+      "name": "Wanderwine Farewell",
+      "set": "Lorwyn Eclipsed",
+      "number": "83",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671062_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671062_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671062/magic-lorwyn-eclipsed-wanderwine-farewell",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Kindred Sorcery — Merfolk"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature's color.)\nReturn one or two target nonland permanents to their owners' hands. Then if you control a Merfolk, create a 1/1 white and blue Merfolk creature token for each permanent returned to tis owner's hand this way."
+        }
+      ]
+    },
+    {
+      "id": "magic-668581",
+      "game": "magic",
+      "name": "Unexpected Assistance",
+      "set": "Lorwyn Eclipsed",
+      "number": "80",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/668581_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/668581_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.25,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/668581/magic-lorwyn-eclipsed-unexpected-assistance",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature's color.)\nDraw three cards, then discard a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "In one breath, Abigale's mind turned from panic to poetry."
+        }
+      ]
+    },
+    {
+      "id": "magic-671520",
+      "game": "magic",
+      "name": "Shimmerwilds Growth",
+      "set": "Lorwyn Eclipsed",
+      "number": "194",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671520_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671520_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.26,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671520/magic-lorwyn-eclipsed-shimmerwilds-growth",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Enchantment — Aura"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Enchant land\nAs this Aura enters, choose a color.\nEnchanted land is the chosen color.\nWhenever enchanted land is tapped for mana, its controller adds an additional one mana of the chosen color."
+        }
+      ]
+    },
+    {
+      "id": "magic-671061",
+      "game": "magic",
+      "name": "Tend the Sprigs",
+      "set": "Lorwyn Eclipsed",
+      "number": "197",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671061_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671061_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.16,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671061/magic-lorwyn-eclipsed-tend-the-sprigs",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Search your library for a basic land card, put it onto the battlefield tapped, then shuffle. Then if you control seven or more lands and/or Treefolk, create a 3/4 green Treefolk creature token with reach. (It can block creatures with flying.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "Newgrowns need love, attention, and fertilizer."
+        }
+      ]
+    },
+    {
+      "id": "magic-671672",
+      "game": "magic",
+      "name": "Dawn's Light Archer",
+      "set": "Lorwyn Eclipsed",
+      "number": "174",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671672_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671672_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671672/magic-lorwyn-eclipsed-dawns-light-archer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elf Archer"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flash\nReach"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Archery is beauty in action. Your stance, your draw, your aim, and your release. All must be a single harmonious motion.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671045",
+      "game": "magic",
+      "name": "Crossroads Watcher",
+      "set": "Lorwyn Eclipsed",
+      "number": "173",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671045_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671045_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.13,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671045/magic-lorwyn-eclipsed-crossroads-watcher",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Kithkin Ranger"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Trample\nWhenever another creature you control enters, this creature gets +1/+0 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Voices in the deep wood, and none of them familiar. Let's take a look, Squeakwing.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-671524",
+      "game": "magic",
+      "name": "Wary Farmer",
+      "set": "Lorwyn Eclipsed",
+      "number": "251",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671524_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671524_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.1,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671524/magic-lorwyn-eclipsed-wary-farmer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Kithkin Citizen"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "At the beginning of your end step, if another creature entered the battlefield under your control this turn, surveil 1. (Look at the top card of your library. You may put it into your graveyard.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"The only 'farmhands' I need are my own.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-672015",
+      "game": "magic",
+      "name": "Mischievous Sneakling",
+      "set": "Lorwyn Eclipsed",
+      "number": "235",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/672015_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/672015_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/672015/magic-lorwyn-eclipsed-mischievous-sneakling",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Shapeshifter"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Changeling (This card is every creature type.)\nFlash"
+        },
+        {
+          "label": "Flavor",
+          "value": "The changeling felt that the most important part of making new friends was the element of surprise."
+        }
+      ]
+    },
+    {
+      "id": "magic-672013",
+      "game": "magic",
+      "name": "Feisty Spikeling",
+      "set": "Lorwyn Eclipsed",
+      "number": "223",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/672013_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/672013_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/672013/magic-lorwyn-eclipsed-feisty-spikeling",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Shapeshifter"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Changeling (This card is every creature type.)\nDuring your turn, this creature has first strike."
+        },
+        {
+          "label": "Flavor",
+          "value": "As the changeling found its form, the innocent mischief in its gaze was replaced with daring ferocity."
+        }
+      ]
+    },
+    {
+      "id": "magic-671712",
+      "game": "magic",
+      "name": "Merrow Skyswimmer",
+      "set": "Lorwyn Eclipsed",
+      "number": "234",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671712_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671712_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.13,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671712/magic-lorwyn-eclipsed-merrow-skyswimmer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Soldier"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Convoke (Your creatures can help cast this spell. Each creature you tap while casting this spell pays for 1 or one mana of that creature's color.)\nFlying, vigilance\nWhen this creature enters, create a 1/1 white and blue Merfolk creature token."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Only fools believe us bound to water.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-670964",
+      "game": "magic",
+      "name": "Deepway Navigator",
+      "set": "Lorwyn Eclipsed",
+      "number": "214",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/670964_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/670964_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/670964/magic-lorwyn-eclipsed-deepway-navigator",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Merfolk Wizard"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flash\nWhen this creature enters, untap each other Merfolk you control.\nAs long as you attacked with three or more Merfolk this turn, Merfolk you control get +1/+0."
+        }
+      ]
+    },
+    {
+      "id": "magic-671722",
+      "game": "magic",
+      "name": "Puca's Eye",
+      "set": "Lorwyn Eclipsed",
+      "number": "259",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671722_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671722_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "ES",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/671722/magic-lorwyn-eclipsed-pucas-eye",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this artifact enters, draw a card, then choose a color. This artifact becomes the chosen color.\n3, T: Draw a card. Activate only if there are five colors among permanents you control."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"I swear it watches me as I walk by.\"\n—Toch, Ballynock sage"
         }
       ]
     }
