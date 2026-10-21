@@ -146,5 +146,13 @@
     "product": 716473,
     "qty": 1,
     "variant": "Normal"
+  },
+  {
+    "game": "magic",
+    "group": 24463,
+    "product": 671771,
+    "qty": 1,
+    "condition": "NM",
+    "language": "ES"
   }
 ]
