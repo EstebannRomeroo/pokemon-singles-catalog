@@ -77,7 +77,8 @@
   .tray-text { min-width: 0; flex: 1 1 auto; }
   .tray-text strong { display: block; font-weight: 650; line-height: 1.3; word-break: break-word; }
   .tray-text span { display: block; color: var(--deep); font-size: .8rem; }
-  .tray-drop { position: absolute; top: 4px; right: 4px; min-height: 28px; padding: 0 8px; font-size: .8rem; border-radius: 8px; }
+  .tray-drop { position: absolute; top: 4px; right: 4px; width: 36px; min-height: 36px; padding: 0; font-size: .85rem; border-radius: 8px; }
+  .tray-text { padding-right: 36px; }
   .tray-actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
   /* Inventory filter: filters the already-rendered rows, so it never fetches.
      Sits above the table so it reads as a view control, not part of the add form. */
@@ -98,9 +99,28 @@
   td.actions { white-space: nowrap; }
   td.actions button { min-height: 36px; padding: 0 12px; font-size: .85rem; margin-right: 6px; }
   .danger { color: var(--red); }
+  button:not(.primary):not(:disabled):hover { border-color: var(--lime); }
+  /* Phones: each inventory row becomes a card instead of a 720px horizontal scroll. */
+  @media (max-width: 640px) {
+    .table-wrap { border: 0; background: none; overflow: visible; }
+    table { min-width: 0; }
+    thead { display: none; }
+    tbody { display: grid; gap: 10px; }
+    tbody tr { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); }
+    tbody td { padding: 0; border: 0; }
+    tbody td[data-label]::before { content: attr(data-label); display: block; font-size: .7rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; color: var(--deep); }
+    td.name, td.actions, td[colspan] { grid-column: 1 / -1; }
+    td.name::before { display: none !important; }
+    td.actions::before { display: none !important; }
+    td.actions { display: flex; gap: 8px; padding-top: 6px; }
+    td.actions button { flex: 1; min-height: 44px; margin: 0; }
+    .picker button, .card-choices button { min-height: 44px; }
+  }
   @media (max-width: 480px) {
     h1 { font-size: 1.3rem; }
     .wrap { padding: 0 14px; }
+    .header-row .primary { width: 100%; }
+    .tray-actions button { flex: 1 1 100%; }
   }
 </style>
 </head>
@@ -304,11 +324,13 @@
     const select = $('f-set');
     select.replaceChildren(...(groups.length ? groups : []).map((g) => el('option', { value: String(g.groupId) }, setLabel(g))));
     if (!groups.length) select.replaceChildren(el('option', { value: '' }, 'Sin sets cargados'));
-    else if (matching.some((g) => String(g.groupId) === previous)) select.value = previous;
+    else if (groups.some((g) => String(g.groupId) === previous)) select.value = previous;
 
-    // The pill list is the fast path; it only appears while a filter is typed.
+    // The pill list is the fast path; it only appears while a filter is typed,
+    // and closes once the typed text is the label of the set already picked.
     const list = $('set-hits');
-    const active = needle.trim() !== '';
+    const picked = groups.find((g) => String(g.groupId) === select.value);
+    const active = needle.trim() !== '' && !(picked && needle === setLabel(picked));
     if (!active) { list.replaceChildren(); return; }
     if (!matching.length) {
       list.replaceChildren(el('li', {}, el('span', { className: 'set' }, `Ningún set coincide con «${needle.trim()}».`)));
@@ -322,17 +344,25 @@
         el('strong', {}, g.name),
         el('span', {}, ` · ${[g.abbreviation, yearOf(g.publishedOn)].filter(Boolean).join(' · ') || 'sin datos'}`),
       );
-      button.addEventListener('click', () => {
-        $('f-set').value = String(g.groupId);
-        loadGroupData(g.groupId);
-        renderSetOptions();
-      });
+      button.addEventListener('click', () => pickSet(g));
       item.append(button);
       return item;
     }));
     if (matching.length > 40) {
       list.append(el('li', {}, el('span', { className: 'set' }, `y ${matching.length - 40} sets más; afina la búsqueda.`)));
     }
+  }
+
+  // One path for every way of choosing a set (pill, Enter, dropdown): the filter
+  // shows the chosen set, the list closes, and the cursor moves on to the card.
+  function pickSet(group) {
+    $('f-set').value = String(group.groupId);
+    $('f-set-filter').value = setLabel(group);
+    resolveGeneration += 1;
+    resetResolution();
+    renderSetOptions();
+    loadGroupData(group.groupId).then(() => { if ($('f-number').value.trim()) resolveCard(); });
+    $('f-number').focus();
   }
 
   // Pre-loads the products of a set picked from the pill list, so the card
@@ -548,6 +578,8 @@
         el('td', { className: 'price' }, price == null ? '—' : cop.format(price) + (entry.price != null ? ' (manual)' : '')),
         rowActions(entry),
       );
+      // Labels for the stacked mobile layout, where the header row is hidden.
+      [...row.children].forEach((cell, i) => { cell.dataset.label = TABLE_HEADERS[i]; });
       return row;
     }));
     renderCounts();
@@ -771,9 +803,20 @@
     renderRows();
     $('inv-search').focus();
   });
-  $('f-game').addEventListener('change', () => { groupCache.clear(); loadGroups(); });
+  $('f-game').addEventListener('change', () => { groupCache.clear(); $('f-set-filter').value = ''; resetResolution(); loadGroups(); });
   $('f-set-filter').addEventListener('input', renderSetOptions);
-  $('f-set').addEventListener('change', () => { resolveGeneration += 1; resetResolution(); });
+  // Enter picks the first match; Escape closes the list without picking.
+  $('f-set-filter').addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') { $('set-hits').replaceChildren(); return; }
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    const first = filterGroups(groups, $('f-set-filter').value)[0];
+    if (first && $('set-hits').children.length) pickSet(first);
+  });
+  $('f-set').addEventListener('change', () => {
+    const group = groups.find((g) => String(g.groupId) === $('f-set').value);
+    if (group) pickSet(group);
+  });
   // The card resolves as you type: clearing on every keystroke would flash, so
   // the input drives the search instead of wiping the previous answer first.
   $('f-number').addEventListener('input', resolveCardSoon);
