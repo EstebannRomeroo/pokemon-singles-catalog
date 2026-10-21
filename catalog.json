@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T19:04:35.049Z",
+  "generatedAt": "2026-10-21T19:56:48.460Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -3929,6 +3929,460 @@
         {
           "label": "Flavor",
           "value": "\"I swear it watches me as I walk by.\"\n—Toch, Ballynock sage"
+        }
+      ]
+    },
+    {
+      "id": "magic-717596",
+      "game": "magic",
+      "name": "Fateshaper Aspirant",
+      "set": "Reality Fracture",
+      "number": "6",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/717596_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/717596_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.12,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/717596/magic-reality-fracture-fateshaper-aspirant",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Rhino Cleric"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, choose one —\n• Return target legendary card from your graveyard to your hand.\n• Put a +1/+1 counter on target creature. It gains vigilance and indestructible until end of turn. (Damage and effects that say \"destroy\" don't destroy it.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-717579",
+      "game": "magic",
+      "name": "Hunter's Axe",
+      "set": "Reality Fracture",
+      "number": "108",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/717579_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/717579_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.23,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/717579/magic-reality-fracture-hunters-axe",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact — Equipment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Equipped creature gets +2/+0 and has \"Whenever this creature attacks, it gains your choice of trample or deathtouch until end of turn.\"\nEquip 2 (2: Attach to target creature you control. Equip only as a sorcery.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "One wielder a fierce steward of the wilds, the other a cruel bringer of death."
+        }
+      ]
+    },
+    {
+      "id": "magic-715864",
+      "game": "magic",
+      "name": "Protege's Awakening",
+      "set": "Reality Fracture",
+      "number": "37",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/715864_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/715864_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/715864/magic-reality-fracture-proteges-awakening",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Empower Jace 6. (Put six loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[-1]: Surveil 1\" and \"[-3]: Draw a card.\")\nDraw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Am I a person?\" she asked.\nJace smiled. \"Yes. Your name is Tamira. But who you are is up to you.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-716958",
+      "game": "magic",
+      "name": "Surveillance Phantasm",
+      "set": "Reality Fracture",
+      "number": "42",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/716958_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/716958_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/716958/magic-reality-fracture-surveillance-phantasm",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Bird Illusion"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Defender, flying, vigilance\nAs long as you've scried or surveilled this turn, this creature can attack as though it didn't have defender.\n3U: Surveil 1. (Look at the top card of your library. You may put it into your graveyard.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-716638",
+      "game": "magic",
+      "name": "Rampart Hunter",
+      "set": "Reality Fracture",
+      "number": "60",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/716638_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/716638_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.13,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/716638/magic-reality-fracture-rampart-hunter",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Horror"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Deathtouch\nWhen this creature enters, target creature gets +2/+2 and gains deathtouch until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "The Eradia surrounding Hexhaven is rife with mage hunters drawn to the powerful magic emanating from the school’s tower."
+        }
+      ]
+    },
+    {
+      "id": "magic-717511",
+      "game": "magic",
+      "name": "Flourishing Grapple",
+      "set": "Reality Fracture",
+      "number": "102",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/717511_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/717511_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/717511/magic-reality-fracture-flourishing-grapple",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Target creature or planeswalker an opponent controls that's red or white loses all abilities until end of turn. Target creature you control deals damage equal to its power to that permanent."
+        },
+        {
+          "label": "Flavor",
+          "value": "Lorehold believed in learning from history. Hexhaven made sure that history was brief."
+        }
+      ]
+    },
+    {
+      "id": "magic-715915",
+      "game": "magic",
+      "name": "Inspired Tethermage",
+      "set": "Reality Fracture",
+      "number": "109",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/715915_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/715915_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.16,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/715915/magic-reality-fracture-inspired-tethermage",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Elf Warrior"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever you put one or more loyalty counters on a planeswalker, put a +1/+1 counter on this creature.\n6: Empower Jace 2. (Put two loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[-1]: Surveil 1\" and \"[-3]: Draw a card.\")"
+        }
+      ]
+    },
+    {
+      "id": "magic-715859",
+      "game": "magic",
+      "name": "Clash of Elements",
+      "set": "Reality Fracture",
+      "number": "126",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/715859_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/715859_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/715859/magic-reality-fracture-clash-of-elements",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Choose target nonland permanent. Its owner may put it on the top of their library. If they do, Clash of Elements deals 2 damage to them. If they didn't put the card on top of their library, they put it on the bottom."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"More fire? Is that your solution to everything?\" one Chandra asked. \"Works pretty well, doesn't it?\" the other replied."
+        }
+      ]
+    },
+    {
+      "id": "magic-717576",
+      "game": "magic",
+      "name": "Twinned Vision",
+      "set": "Reality Fracture",
+      "number": "157",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/717576_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/717576_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.27,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/717576/magic-reality-fracture-twinned-vision",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Draw a card. If this spell wasn't cast from your hand, draw two cards instead.\nFlashback—1(U/R)(U/R), Discard a card. (You may cast this card from your graveyard for its flashback cost. Then exile it.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"She will rage and burn until her fuel is expended. It's almost sad to see me like this.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-715936",
+      "game": "magic",
+      "name": "Keeper of the Quiet Hour",
+      "set": "Reality Fracture",
+      "number": "171",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/715936_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/715936_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/715936/magic-reality-fracture-keeper-of-the-quiet-hour",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact Creature — Chimera"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, empower Jace 2. (Put two loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[-1]: Surveil 1\" and \"[-3]: Draw a card.\")"
+        },
+        {
+          "label": "Flavor",
+          "value": "Late at night it searches for students congregating where they shouldn't be."
+        }
+      ]
+    },
+    {
+      "id": "magic-717679",
+      "game": "magic",
+      "name": "Loot, the Nexus",
+      "set": "Reality Fracture",
+      "number": "262",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/717679_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/717679_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.22,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/717679/magic-reality-fracture-loot-the-nexus",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Beast Noble"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "T: Choose a color. Add one mana of that color for each different power among creatures you control."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Within Loot's mind were the blueprints I needed to complete this new Multiverse. He gave me hope. Tell him that, Vraska.\"\n—Jace"
+        }
+      ]
+    },
+    {
+      "id": "magic-715904",
+      "game": "magic",
+      "name": "Way of the Cryomancer",
+      "set": "Reality Fracture",
+      "number": "223",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/715904_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/715904_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/715904/magic-reality-fracture-way-of-the-cryomancer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Enchantment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When Way of the Cryomancer enters, empower Jace 5. (Put five loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[-1]: Surveil 1\" and \"[-3]: Draw a card.\")\nPlaneswalkers you control have \"[-3]: When you next cast an instant or sorcery spell this turn, copy that spell. You may choose new targets for the copy.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-715913",
+      "game": "magic",
+      "name": "Way of the Pyromancer",
+      "set": "Reality Fracture",
+      "number": "254",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/715913_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/715913_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.28,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/715913/magic-reality-fracture-way-of-the-pyromancer",
+      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Enchantment"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When Way of the Pyromancer enters, empower Jace 2. (Put two loyalty counters on a Jace token you control. If you don't control one, first create a blue Jace planeswalker token with \"[-1]: Surveil 1\" and \"[-3]: Draw a card.\")\nPlaneswalkers you control have \"[+1]: Add R.\""
         }
       ]
     }
