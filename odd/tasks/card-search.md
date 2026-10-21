@@ -23,9 +23,9 @@ Supabase was considered and rejected: the problem is finding a card in an extern
 
 ## Tasks
 - [x] T1 — `scripts/serve.mjs` + tests: static serving, TCGCSV proxy, number matcher (route: inline, TDD)
-- [ ] T2 — `admin.html`: set picker + number search wired to the proxy (route: delegated writer; trigger: prepare-and-write)
-- [ ] T3 — instant price for a card not yet in `catalog.json` (same writer as T2)
-- [ ] T4 — README: document `npm run serve` and the new flow (route: inline)
+- [x] T2 — `admin.html`: set picker + number search wired to the proxy (route: delegated writer; trigger: prepare-and-write)
+- [x] T3 — instant price for a card not yet in `catalog.json` (same writer as T2)
+- [x] T4 — README: document `npm run serve` and the new flow (route: inline)
 - [ ] T5 — native review of the candidate
 
 ## Acceptance criteria
@@ -64,4 +64,26 @@ Two real defects the tests and the probes caught (both fixed, both now covered b
 3. The query-string guard was dead code: it checked `URL.pathname`, which never contains `?`, so `/tcgplayer/3/groups?x=1` still proxied. The unit test passed because it fed the guard a string the runtime never produces. Fixed with `isAllowedProxyRequest`, which checks the raw request URL; the test now covers the real shape.
 
 ## Next step
-T2: wire the set picker and number search into `admin.html` on top of this proxy.
+T5: run the native review on this candidate.
+
+### T2 + T3 — set picker, number search, instant price (2026-10-21, delegated writer)
+
+Files:
+- `admin.html` — the `Grupo` and `Producto` numeric inputs are gone. In their place: a `<select id="f-set">` populated on demand from the proxy (labelled `NAME (ABBREVIATION)`, with `#f-set-filter` narrowing the 220 options client-side), and `#f-number` where the printed number is typed. `resolveCard()` fetches the group's products and prices in one place, filters by number mirroring the server's `filterProductByNumber` rule (part before `/`, leading zeros dropped), and either fills the hidden `groupId`/`productId` or lists the printings as choices.
+- The price shown at add time reuses `pickPrice` and `toCop` imported from `scripts/price.mjs` with `config.json`, so it cannot drift from the published number. A missing price reads `sin precio` instead of a bare dash.
+
+Verification (observed):
+- `npm test` → 45 pass, 0 fail.
+- `node --check` on the extracted inline script → valid ESM.
+- The three imports the panel makes (`scripts/inventory.mjs`, `scripts/catalog.mjs`, `scripts/price.mjs`) and `config.json` all answer 200 through the server.
+- End-to-end, driving the shipped `admin.html` inline script under a DOM shim against the live proxy: `083` in `24587` (ME03: Perfect Order) resolves to `Potion · ME03: Perfect Order · #083/088 · Precio TCGCSV: $ 2.000`, and `Agregar` becomes enabled. `83` and `083/088` resolve to the same card. `99999` reports `El número 99999 no está en ME03: Perfect Order (POR).` and keeps `Agregar` disabled.
+
+A false alarm worth recording: an early probe reported that an empty field kept showing the previous resolution. That was a defect in the probe, not the panel — the shim set `textContent` without clearing the node's children, so the reader picked up stale child nodes. Re-run with real DOM semantics, an empty field yields `Escribe el número de la carta.` with `Agregar` disabled. Same class of mistake as the dead query-string guard in T1: a test that passes or fails for the wrong reason proves nothing.
+
+### T4 — README and stale instructions (2026-10-21, inline)
+
+- `README.md`: `python3 -m http.server 8000` is replaced by `npm run serve` in both sections, with the proxy's reason and its allowlist documented, plus a step-by-step for adding a card by set and number.
+- `admin.html:535`: the load-failure message still told the user to run `python3 -m http.server 8000`. Now it says `npm run serve`. Three such messages in the panel are consistent again.
+
+Historical documents (`odd/tasks/inventory-panel.md`, `odd/tasks/pokemon-singles-catalog.md`) still mention `python3` and are intentionally left alone: they record what was true when they were written.
+

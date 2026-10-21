@@ -62,22 +62,40 @@ Otros mensajes: `config.json margin must be a positive number (got ...)`, `singl
 ## Ver la página localmente
 
 ```sh
-python3 -m http.server 8000
+npm run serve
 ```
 
 Abre <http://localhost:8000>.
+
+Es un servidor Node sin dependencias (`scripts/serve.mjs`). Además de servir los archivos, hace de **proxy hacia tcgcsv.com** en `/tcgplayer/...`, porque tcgcsv.com no manda cabeceras CORS y el navegador no puede llamarlo directo. El panel solo habla con `localhost`, así que nunca hay CORS de por medio.
+
+El proxy acepta únicamente las rutas que el proyecto usa (`/tcgplayer/{cat}/groups`, `/tcgplayer/{cat}/{group}/products`, `/tcgplayer/{cat}/{group}/prices`, `/last-updated.txt`) y rechaza cualquier ruta con query string. No es un proxy abierto.
 
 ## Panel de inventario (local)
 
 `admin.html` es una página local para manejar `singles.json` sin editar JSON a mano: ver el inventario, agregar una carta, quitar una y marcar vendida. **No está publicada y no se enlaza desde el catálogo** (`noindex`); solo existe cuando sirves la carpeta localmente.
 
 ```sh
-python3 -m http.server 8000
+npm run serve
 ```
 
 Abre <http://localhost:8000/admin.html>.
 
-El flujo es:
+### Agregar una carta
+
+No necesitas averiguar ids de TCGCSV. Solo:
+
+1. Elige el **juego**.
+2. Elige el **set** en el selector (escríbelo en el filtro por nombre o abreviatura, por ejemplo `Perfect Order` o `POR`).
+3. Escribe el **número impreso** en la carta: `083`, `83` o `083/088` dan el mismo resultado.
+4. Pulsa **Buscar**. El panel muestra el nombre real, el set, el número y el **precio de TCGCSV en COP**.
+   - Si varios productos comparten el número (impresiones distintas), aparecen como opciones para elegir.
+   - Si el número no está en ese set, lo dice.
+5. Pulsa **Agregar**.
+
+El precio que ves al agregar usa la misma conversión que `npm run prices` (`pickPrice` y `toCop`), así que coincide con el publicado.
+
+El flujo de publicación es:
 
 1. Haz tus cambios en el panel (agregar, quitar, vender).
 2. Pulsa **Exportar singles.json**: el navegador descarga el archivo actualizado.
@@ -91,6 +109,7 @@ Detalles:
 - El panel valida con las mismas reglas que `singles.json`: juego válido, enteros positivos, idioma permitido y sin repetir `game` + `product` + `variant`. Si algo está mal, no deja exportar y muestra el error.
 - El panel **no escribe nada por su cuenta**: no toca el repositorio, no usa la API de GitHub y no necesita token. La única escritura es el archivo que tú descargas y colocas a mano.
 - Debe abrirse por HTTP (no `file://`): el navegador bloquea los módulos ES y `fetch` en `file://`. Si lo abres mal, la página te lo indica.
+- Si el proxy no responde, el panel lo dice y sugiere `npm run serve` en vez de quedarse en silencio.
 
 ## Publicar gratis en GitHub Pages
 

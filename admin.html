@@ -532,7 +532,7 @@
       $('add-form').querySelectorAll('input, select, button').forEach((node) => { node.disabled = true; });
       $('rows').replaceChildren(el('tr', {}, ''));
       $('rows').querySelector('tr').append(el('td', { colSpan: TABLE_HEADERS.length, className: 'set' }, 'No se cargó el inventario. Corrige el servidor y recarga la página.'));
-      showErrors([`No se pudo cargar el inventario o el catálogo (${safe(err.message)}). Sirve la carpeta con python3 -m http.server 8000 y abre http://localhost:8000/admin.html`]);
+      showErrors([`No se pudo cargar el inventario o el catálogo (${safe(err.message)}). Sirve la carpeta con npm run serve y abre http://localhost:8000/admin.html`]);
     });
 </script>
 </body>
