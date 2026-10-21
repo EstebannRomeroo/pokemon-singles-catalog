@@ -102,7 +102,33 @@ Findings and disposition:
 Evidence: `npm test` → 35 tests, 35 pass, 0 fail (21 pre-existing + 14 inventory). Syntax checked
 with `node --check` for the module and for the extracted inline script of `admin.html`.
 
-Commit `217690a`... see the correction commit below.
+Two correction commits: the functional fix in `bfdb699` (see below).
+
+### Correction retry (2026-10-21, lineage review-bba8fd5275bb32fa)
+
+The first lineage (`review-27ab345166818149`) could not close: the correction commit `bfdb699` also carried
+27 lines of task-doc changes for a path in the frozen manifest, so the candidate identity no longer matched
+what the review froze and the provider returned `manual_intervention_required`. `review repair --preflight`
+reported `eligible_candidates: 0`, so the lineage was abandoned via `review abandon` with a
+maintainer-authorization envelope (`reason: operator_disposition`) and a fresh review was started on the
+full candidate `4477d49..bfdb699` (601 lines).
+
+Second lineage `review-bba8fd5275bb32fa`: risk medium, 1 lens (`review-reliability`), consent granted.
+Result: **approved**, authority burned (`gentle-ai.review-acknowledged/v1`, `action: acknowledged`).
+The reviewer confirmed both CRITICAL fixes actually hold (stubbed-DOM probes: export downloads nothing
+with an invalid loaded file, and Export plus the add form are disabled after a failed load), plus the
+`variant: null` and malformed-`qty` fixes and a green `npm test` (35/35). Four non-blocking advisory
+findings remain for later work, none of which reopened the review:
+- R3-101 (WARNING) — the two CRITICAL fixes live in `admin.html` inline code with no committed test;
+  the stubbed-DOM harness was never committed.
+- R3-102 (SUGGESTION) — a non-array `singles.json` leaves `loaded` true with a non-array inventory;
+  unexploitable because Export stays disabled, but state is not reset in the catch branch.
+- R3-103 (SUGGESTION) — `removeCard` still deletes only the first duplicate.
+- R3-104 (SUGGESTION) — one pre-existing invalid entry blocks every later `addCard` until removed.
+
+Lesson recorded: a bounded correction must touch only the paths the severe findings name. A doc edit in
+the correction commit broke the frozen candidate identity.
 
 ## Next step
-Commit the correction (a frozen candidate is required by the review), then finish the review.
+Push `535ea5b` + `bfdb699` to `main` (regenerate `catalog.json` if the cron commit conflicts), then build the
+card-name search feature so the add flow no longer requires finding the numeric `group` by hand.
