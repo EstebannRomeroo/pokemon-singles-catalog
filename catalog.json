@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T20:49:11.264Z",
+  "generatedAt": "2026-10-21T20:55:21.167Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -5523,6 +5523,322 @@
         {
           "label": "Flavor",
           "value": "“I support your right to bear arms, Grizzly, but this is getting ridiculous.”"
+        }
+      ]
+    },
+    {
+      "id": "magic-646162",
+      "game": "magic",
+      "name": "Grow Extra Arms",
+      "set": "Marvel's Spider-Man",
+      "number": "101",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646162_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646162_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.12,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646162/magic-marvels-spider-man-grow-extra-arms",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "This spell costs 1 less to cast if it targets a Spider.\nTarget creature gets +4/+4 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "“I created that potion to rob me of my spider-powers. I wanted it to change me forever. But not like this! NOT LIKE THIS!”"
+        }
+      ]
+    },
+    {
+      "id": "magic-646152",
+      "game": "magic",
+      "name": "Lurking Lizards",
+      "set": "Marvel's Spider-Man",
+      "number": "107",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646152_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646152_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646152/magic-marvels-spider-man-lurking-lizards",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Lizard Villain"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Trample\nWhenever you cast a spell with mana value 4 or greater, put a +1/+1 counter on this creature."
+        },
+        {
+          "label": "Flavor",
+          "value": "“The ssserum . . . Connorsss . . . have you done to usss?!”"
+        }
+      ]
+    },
+    {
+      "id": "magic-651379",
+      "game": "magic",
+      "name": "Pictures of Spider-Man",
+      "set": "Marvel's Spider-Man",
+      "number": "109",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651379_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651379_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651379/magic-marvels-spider-man-pictures-of-spider-man",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this artifact enters, look at the top five cards of your library. You may reveal up to two creature cards from among them and put them into your hand. Put the rest on the bottom of your library in a random order.\n1, T, Sacrifice this artifact: Create a Treasure token. (It's an artifact with \"T, Sacrifice this token: Add one mana of any color.\")"
+        }
+      ]
+    },
+    {
+      "id": "magic-651924",
+      "game": "magic",
+      "name": "Professional Wrestler",
+      "set": "Marvel's Spider-Man",
+      "number": "110",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651924_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651924_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.07,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651924/magic-marvels-spider-man-professional-wrestler",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Warrior Performer"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, create a Treasure token. (It's an artifact with \"T, sacrifice this token: Add one mana of any color.\")\nThis creature can't be blocked by more than one creature."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Any of you! One-on-one! No one can stay in the ring for three minutes with me!\"\n—Crusher Hogan"
+        }
+      ]
+    },
+    {
+      "id": "magic-646161",
+      "game": "magic",
+      "name": "Spider-Man, Brooklyn Visionary",
+      "set": "Marvel's Spider-Man",
+      "number": "115",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646161_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646161_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 3,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646161/magic-marvels-spider-man-spider-man-brooklyn-visionary",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Spider Human Hero"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Web-slinging 2G (You may cast this spell for 2G if you also return a tapped creature you control to its owner’s hand.)\nWhen Spider-Man enters, search your library for a basic land card, put it onto the battlefield tapped, then shuffle."
+        },
+        {
+          "label": "Flavor",
+          "value": "“Nothing like a little crimefighting after class.”"
+        }
+      ]
+    },
+    {
+      "id": "magic-646158",
+      "game": "magic",
+      "name": "Spider-Rex, Daring Dino",
+      "set": "Marvel's Spider-Man",
+      "number": "116",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646158_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646158_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.24,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646158/magic-marvels-spider-man-spider-rex-daring-dino",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Spider Dinosaur Hero"
+        },
+        {
+          "label": "P",
+          "value": "6"
+        },
+        {
+          "label": "T",
+          "value": "6"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Reach, trample\nWard 2 (Whenever this creature becomes the target of a spell or ability an opponent controls, counter it unless that player pays 2.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "On Earth-66, Pter Ptarker learned that with GRRRR power comes GRRAHHHsibility."
+        }
+      ]
+    },
+    {
+      "id": "magic-651921",
+      "game": "magic",
+      "name": "Supportive Parents",
+      "set": "Marvel's Spider-Man",
+      "number": "119",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651921_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651921_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.24,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651921/magic-marvels-spider-man-supportive-parents",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Citizen"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Tap two untapped creature you control: Add one mana of any color."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Te amamos, mijo.\"\n—Rio Morales"
+        }
+      ]
+    },
+    {
+      "id": "magic-651938",
+      "game": "magic",
+      "name": "Gallant Citizen",
+      "set": "Marvel's Spider-Man",
+      "number": "129",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651938_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651938_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.06,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651938/magic-marvels-spider-man-gallant-citizen",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Citizen"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, draw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"People cheer for that webbed menace. They should be cheering for my son.\"\n—J. Jonah Jameson"
         }
       ]
     }
