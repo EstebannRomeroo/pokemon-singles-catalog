@@ -55,6 +55,13 @@
   .card-choices button { width: 100%; text-align: left; font-weight: 400; min-height: 40px; }
   .card-choices button strong { font-weight: 650; }
   .card-choices button span { color: var(--deep); font-size: .85rem; }
+  /* Clickable set matches: typing a set name is a search, not a dropdown hunt. */
+  .picker { list-style: none; margin: 8px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 8px; }
+  .picker:empty { display: none; }
+  .picker button { width: 100%; text-align: left; font-weight: 400; min-height: 40px; }
+  .picker button strong { font-weight: 650; }
+  .picker button span { color: var(--deep); font-size: .85rem; }
+  .picker button[aria-selected="true"] { outline: 2px solid var(--green); outline-offset: 1px; }
   /* The review tray: staged cards wait here, with their image, until confirmed.
      It is visually separate from the inventory table so it never reads as "added". */
   .tray { margin: 20px 0; padding: 16px; border: 2px dashed var(--mint); border-radius: var(--radius); background: var(--card); }
@@ -122,20 +129,21 @@
         <label>Juego
           <select id="f-game" required></select>
         </label>
-        <label>Filtrar sets
-          <input id="f-set-filter" type="text" placeholder="Perfect Order, POR…" autocomplete="off">
+        <label>Buscar set
+          <input id="f-set-filter" type="text" placeholder="Darkhold, MDC, Lorwyn…" autocomplete="off" aria-describedby="set-hits">
         </label>
         <label>Grupo (expansión)
           <select id="f-set" required></select>
         </label>
-        <label>Número de carta
-          <input id="f-number" type="text" inputmode="text" placeholder="083 o 083/088" autocomplete="off" required>
+        <label>Carta
+          <input id="f-number" type="text" inputmode="text" placeholder="083/088 o Cloud, Ex-SOLDIER" autocomplete="off" required>
         </label>
         <div class="submit">
           <button class="primary" id="resolve" type="button">Buscar</button>
         </div>
       </div>
       <p class="resolve-note" id="resolve-note" role="status"></p>
+      <ul class="picker" id="set-hits" role="listbox" aria-label="Sets que coinciden"></ul>
       <ul class="card-choices" id="resolve-choices"></ul>
     </fieldset>
     <label>Cantidad
@@ -199,7 +207,7 @@
   // The review tray logic, kept pure so the test runner can exercise it.
   import { stageKey, toEntry, stageCard, unstageCard, overlapWithInventory, mergeIntoTray, commitTray } from './scripts/tray.mjs';
   // Inventory search rules, kept pure for the same reason.
-  import { fold, filterInventory, hitsLabel } from './scripts/search.mjs';
+  import { fold, filterInventory, hitsLabel, filterGroups, filterProductsByName, resolveQueryKind, numberQuery } from './scripts/search.mjs';
 
   const $ = (id) => document.getElementById(id);
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
@@ -283,20 +291,66 @@
   }
 
   const setLabel = (group) => (group.abbreviation ? `${group.name} (${group.abbreviation})` : group.name);
+  // Sets with near-identical names are told apart by year, which TCGCSV always
+  // supplies. There is no card count on a group, so never invent one.
+  const yearOf = (publishedOn) => {
+    const year = String(publishedOn ?? '').slice(0, 4);
+    return /^\d{4}$/.test(year) ? year : '';
+  };
 
-  // Rebuilds the set <select> from the already-loaded groups, honoring the filter box.
+  // Clickable set matches, so finding a set is typing its name and clicking it
+  // rather than filtering a dropdown and then opening it.
   function renderSetOptions() {
-    const needle = $('f-set-filter').value.trim().toLowerCase();
-    const matching = needle
-      ? groups.filter((g) => `${g.name} ${g.abbreviation ?? ''}`.toLowerCase().includes(needle))
-      : groups;
+    const needle = $('f-set-filter').value;
+    const matching = filterGroups(groups, needle);
+    const previous = $('f-set').value;
+
+    // The dropdown keeps every set, so a user who prefers it never loses access.
     const select = $('f-set');
-    const previous = select.value;
-    select.replaceChildren(...matching.map((g) => el('option', { value: String(g.groupId) }, setLabel(g))));
-    if (!matching.length) select.replaceChildren(el('option', { value: '' }, 'Sin sets que coincidan'));
+    select.replaceChildren(...(groups.length ? groups : []).map((g) => el('option', { value: String(g.groupId) }, setLabel(g))));
+    if (!groups.length) select.replaceChildren(el('option', { value: '' }, 'Sin sets cargados'));
     else if (matching.some((g) => String(g.groupId) === previous)) select.value = previous;
-    // A changed set invalidates the resolved card.
-    resetResolution();
+
+    // The pill list is the fast path; it only appears while a filter is typed.
+    const list = $('set-hits');
+    const active = needle.trim() !== '';
+    if (!active) { list.replaceChildren(); return; }
+    if (!matching.length) {
+      list.replaceChildren(el('li', {}, el('span', { className: 'set' }, `Ningún set coincide con «${needle.trim()}».`)));
+      return;
+    }
+    list.replaceChildren(...matching.slice(0, 40).map((g) => {
+      const item = el('li');
+      const button = el('button', { type: 'button', role: 'option' });
+      button.setAttribute('aria-selected', String(String(g.groupId) === previous));
+      button.append(
+        el('strong', {}, g.name),
+        el('span', {}, ` · ${[g.abbreviation, yearOf(g.publishedOn)].filter(Boolean).join(' · ') || 'sin datos'}`),
+      );
+      button.addEventListener('click', () => {
+        $('f-set').value = String(g.groupId);
+        loadGroupData(g.groupId);
+        renderSetOptions();
+      });
+      item.append(button);
+      return item;
+    }));
+    if (matching.length > 40) {
+      list.append(el('li', {}, el('span', { className: 'set' }, `y ${matching.length - 40} sets más; afina la búsqueda.`)));
+    }
+  }
+
+  // Pre-loads the products of a set picked from the pill list, so the card
+  // search that follows has data and does not stall on the first keystroke.
+  async function loadGroupData(groupId) {
+    if (!validGroupId(groupId) || !groupsGame) return;
+    $('resolve-note').textContent = 'Cargando las cartas del set…';
+    try {
+      await groupData(groupId);
+      $('resolve-note').textContent = '';
+    } catch (err) {
+      $('resolve-note').textContent = proxyMessage(err);
+    }
   }
 
   async function loadGroups() {
@@ -371,14 +425,19 @@
     }));
   }
 
-  // Resolves the typed number inside the selected set and fills the hidden ids.
+  // Resolves what the user typed inside the selected set: digits are a card
+  // number, anything else is a name search. Both end in the same click-to-pick.
   async function resolveCard() {
     const groupId = $('f-set').value;
-    const number = $('f-number').value.trim();
+    const typed = $('f-number').value.trim();
     resetResolution();
     if (!groupsGame) { $('resolve-note').textContent = proxyMessage(new Error('los sets no están cargados')); return; }
-    if (!validGroupId(groupId)) { $('resolve-note').textContent = 'Elige un set.'; return; }
-    if (!number) { $('resolve-note').textContent = 'Escribe el número de la carta.'; return; }
+    if (!validGroupId(groupId)) {
+      // Say why a set is required: there is no name search across a whole game.
+      $('resolve-note').textContent = 'Elige un set primero. TCGCSV no permite buscar por nombre en todo el juego: habría que descargar cientos de sets.';
+      return;
+    }
+    if (!typed) { $('resolve-note').textContent = 'Escribe el número o el nombre de la carta.'; return; }
     const group = groups.find((g) => String(g.groupId) === groupId);
     $('resolve').disabled = true;
     $('resolve-note').textContent = 'Buscando…';
@@ -386,9 +445,13 @@
       // Wait for config.json so the shown price uses the real conversion.
       await configReady;
       const { products, prices } = await groupData(groupId);
-      const matches = filterProductByNumber(products, number);
+      const kind = resolveQueryKind(typed);
+      const matches = kind === 'number'
+        ? filterProductByNumber(products, numberQuery(typed))
+        : filterProductsByName(products, typed);
       if (!matches.length) {
-        $('resolve-note').textContent = `El número ${number} no está en ${group ? setLabel(group) : 'ese set'}.`;
+        const what = kind === 'number' ? `El número ${numberQuery(typed)}` : `«${typed}»`;
+        $('resolve-note').textContent = `${what} no está en ${group ? setLabel(group) : 'ese set'}.`;
         return;
       }
       if (matches.length === 1) {

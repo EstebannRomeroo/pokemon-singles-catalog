@@ -94,12 +94,17 @@ El contador de al lado dice cuántas quedan (`3 de 97 entradas`) y aparece un bo
 No necesitas averiguar ids de TCGCSV. Solo:
 
 1. Elige el **juego**.
-2. Elige el **set** en el selector (escríbelo en el filtro por nombre o abreviatura, por ejemplo `Perfect Order` o `POR`).
-3. Escribe el **número impreso** en la carta: `083`, `83` o `083/088` dan el mismo resultado.
+2. Escribe en **Buscar set** el nombre o la abreviatura (`darkhold`, `MDC`, `Lorwyn`). Debajo aparecen las coincidencias **cliqueables** con su abreviatura y su año. Un clic elige el set y carga sus cartas.
+   - También puedes usar el desplegable **Grupo (expansión)** si lo prefieres, y filtrar ahí mismo.
+3. Escribe en **Carta** **el número o el nombre**:
+   - `083`, `83` o `083/088` buscan por número.
+   - `Cloud`, `ex soldier` o `Ex-SOLDIER` buscan por nombre dentro del set.
 4. Pulsa **Buscar**. El panel muestra el nombre real, el set, el número y el **precio de TCGCSV en COP**.
-   - Si varios productos comparten el número (impresiones distintas), aparecen como opciones para elegir.
-   - Si el número no está en ese set, lo dice.
+   - Si varias cartas coinciden, aparecen como opciones para elegir.
+   - Si no hay coincidencias en ese set, lo dice.
 5. Pulsa **Agregar**.
+
+**Por qué hay que elegir un set primero:** TCGCSV no tiene búsqueda por nombre ni lista de productos por juego (ambas devuelven 404). Buscar un nombre en todo Magic serían unas 200 peticiones y ~180 MB. Dentro de un set ya cargado la búsqueda por nombre es instantánea.
 
 El precio que ves al agregar usa la misma conversión que `npm run prices` (`pickPrice` y `toCop`), así que coincide con el publicado.
 
