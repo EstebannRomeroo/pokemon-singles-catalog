@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T20:55:21.167Z",
+  "generatedAt": "2026-10-21T21:05:08.963Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -5839,6 +5839,600 @@
         {
           "label": "Flavor",
           "value": "\"People cheer for that webbed menace. They should be cheering for my son.\"\n—J. Jonah Jameson"
+        }
+      ]
+    },
+    {
+      "id": "magic-652030",
+      "game": "magic",
+      "name": "Cheering Crowd",
+      "set": "Marvel's Spider-Man",
+      "number": "126",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652030_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652030_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.26,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652030/magic-marvels-spider-man-cheering-crowd",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Citizen"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "At the beginning of each player’s first main phase, that player may put a +1/+1 counter on this creature. If they do, they add C for each counter on it."
+        },
+        {
+          "label": "Flavor",
+          "value": "“We love you, Spider-Man!”"
+        }
+      ]
+    },
+    {
+      "id": "magic-652049",
+      "game": "magic",
+      "name": "Mob Lookout",
+      "set": "Marvel's Spider-Man",
+      "number": "136",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652049_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652049_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652049/magic-marvels-spider-man-mob-lookout",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Rogue Villain"
+        },
+        {
+          "label": "P",
+          "value": "0"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, target creature you control connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on that creature.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "“Hurry up before the bug gets here!”\n—Hammerhead"
+        }
+      ]
+    },
+    {
+      "id": "magic-651342",
+      "game": "magic",
+      "name": "Prowler, Clawed Thief",
+      "set": "Marvel's Spider-Man",
+      "number": "138",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651342_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651342_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.22,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651342/magic-marvels-spider-man-prowler-clawed-thief",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Human Rogue Villain"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Menace (This creature can't be blocked except by two or more creatures.)\nWhenever another Villain you control enters, Prowler connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on this creature.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"It's nothing personal, kid. It's just money.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-651974",
+      "game": "magic",
+      "name": "Scarlet Spider, Kaine",
+      "set": "Marvel's Spider-Man",
+      "number": "143",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651974_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651974_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651974/magic-marvels-spider-man-scarlet-spider-kaine",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Spider Human Hero"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Menace (This creature can't be blocked except by two or more creatures.)\nWhen Scarlet Spider enters, you may discard a card. If you do, put a +1/+1 counter on him.\nMayhem (B/R) (You may cast this card from your graveyard for (B/R) if you discarded it this turn. Timing rules still apply.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "Those who cross Kaine are forever marked."
+        }
+      ]
+    },
+    {
+      "id": "magic-652016",
+      "game": "magic",
+      "name": "Spider Manifestation",
+      "set": "Marvel's Spider-Man",
+      "number": "148",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652016_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652016_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.26,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652016/magic-marvels-spider-man-spider-manifestation",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Spider Avatar"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Reach\nT: Add R or G.\nWhenever you cast a spell with mana value 4 or greater, untap this creature."
+        },
+        {
+          "label": "Flavor",
+          "value": "Some spiders feed on other spiders."
+        }
+      ]
+    },
+    {
+      "id": "magic-651951",
+      "game": "magic",
+      "name": "Bagel and Schmear",
+      "set": "Marvel's Spider-Man",
+      "number": "161",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651951_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651951_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.14,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651951/magic-marvels-spider-man-bagel-and-schmear",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact — Food"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Share — W, T, Sacrifice this artifact: Put a +1/+1 counter on up to one target creature. Draw a card. Activate only as a sorcery.\nNosh — 2, T, Sacrifice this artifact: You gain 3 life and draw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "No fight in New York City was more vicious than the battle over who made the best bagels."
+        }
+      ]
+    },
+    {
+      "id": "magic-646129",
+      "game": "magic",
+      "name": "Eerie Gravestone",
+      "set": "Marvel's Spider-Man",
+      "number": "163",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646129_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646129_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646129/magic-marvels-spider-man-eerie-gravestone",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this artifact enters, draw a card.\n1B, Sacrifice this artifact: Mill four cards. You may put a creature card from among them into your hand. (To mill four cards, put the top four cards of your library into your graveyard.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "“You’ve murdered a mask, but you haven’t murdered a man.”\n—Peter Parker"
+        }
+      ]
+    },
+    {
+      "id": "magic-651940",
+      "game": "magic",
+      "name": "Hot Dog Cart",
+      "set": "Marvel's Spider-Man",
+      "number": "164",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651940_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651940_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651940/magic-marvels-spider-man-hot-dog-cart",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this artifact enters, create a Food Token. (It's an artifact with \"2, T, Sacrifice this token: You gain 3 life.\")\nT: Add one mana of any color."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"One with everything, please.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-646635",
+      "game": "magic",
+      "name": "Iron Spider, Stark Upgrade",
+      "set": "Marvel's Spider-Man",
+      "number": "166",
+      "rarity": "R",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646635_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646635_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 1.67,
+      "priceCop": 5500,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646635/magic-marvels-spider-man-iron-spider-stark-upgrade",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Artifact Creature — Spider Hero"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Vigilance\nT: Put a +1/+1 counter on each artifact creature and/or Vehicle you control.\n2, Remove two +1/+1 counters from among artifacts you control: Draw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "Peter appreciated the powerful new suit sent by Tony Stark, but he soon found it came with some strings attached."
+        }
+      ]
+    },
+    {
+      "id": "magic-646047",
+      "game": "magic",
+      "name": "Mechanical Mobster",
+      "set": "Marvel's Spider-Man",
+      "number": "168",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646047_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646047_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646047/magic-marvels-spider-man-mechanical-mobster",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact Creature — Human Robot Villain"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature enters, exile up to one target card from a graveyard. Target creature you control connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on that creature.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "“A man-made made man? You always knew how to get ahead, Silvermane.”\n—Spider-Man"
+        }
+      ]
+    },
+    {
+      "id": "magic-651952",
+      "game": "magic",
+      "name": "News Helicopter",
+      "set": "Marvel's Spider-Man",
+      "number": "169",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651952_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651952_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651952/magic-marvels-spider-man-news-helicopter",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact Creature — Construct"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Flying\nWhen this creature enters, create a 1/1 green and white Human Citizen creature token."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"C'mon, we can't let Parker get all the shots of Spider-Man.\""
+        }
+      ]
+    },
+    {
+      "id": "magic-652008",
+      "game": "magic",
+      "name": "Passenger Ferry",
+      "set": "Marvel's Spider-Man",
+      "number": "170",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652008_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652008_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.1,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652008/magic-marvels-spider-man-passenger-ferry",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact — Vehicle"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Whenever this Vehicle attacks, you may pay U. When you do, another target attacking creature can't be blocked this turn.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Staten Island in peril? Uh, give me an hour?\"\n—Ghost-Spider, Gwen Stacy"
+        }
+      ]
+    },
+    {
+      "id": "magic-646012",
+      "game": "magic",
+      "name": "Spider-Bot",
+      "set": "Marvel's Spider-Man",
+      "number": "173",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646012_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646012_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.22,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646012/magic-marvels-spider-man-spider-bot",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact Creature — Spider Robot Scout"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Reach\nWhen this creature enters, you may search your library for a basic land card, reveal it, then shuffle and put that card on top."
+        },
+        {
+          "label": "Flavor",
+          "value": "“Parker was a fool to waste his time on patrol. I’ll have my spider-bots do it for me.”\n—Superior Spider-Man, Otto Octavius"
+        }
+      ]
+    },
+    {
+      "id": "magic-651876",
+      "game": "magic",
+      "name": "Steel Wrecking Ball",
+      "set": "Marvel's Spider-Man",
+      "number": "177",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651876_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651876_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.07,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651876/magic-marvels-spider-man-steel-wrecking-ball",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this artifact enters, it deals 5 damage to target creature.\n1R, Discard this card: Destroy target artifact."
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Heads up! It's time for a fast game of catch!\""
+        }
+      ]
+    },
+    {
+      "id": "magic-652009",
+      "game": "magic",
+      "name": "Subway Train",
+      "set": "Marvel's Spider-Man",
+      "number": "178",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652009_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652009_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652009/magic-marvels-spider-man-subway-train",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Artifact — Vehicle"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this Vehicle enters, you may pay G. If you do, search your library for a basic land card, reveal it, put it into your hand, then shuffle.\nCrew 2 (Tap any number of creatures you control with total power 2 or more: This Vehicle becomes an artifact creature until end of turn.)"
         }
       ]
     }
