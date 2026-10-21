@@ -400,7 +400,7 @@
       name.append(document.createTextNode(nameFor(entry)));
       if (entry.variant) name.append(el('span', { className: 'set' }, ` · ${entry.variant}`));
       if (entry.condition && entry.condition !== 'NM') name.append(el('span', { className: 'set' }, ` · ${entry.condition}`));
-      if (!item) name.append(el('span', { className: 'set' }, ' (no está en catalog.json)'));
+      if (!item) name.append(el('span', { className: 'set' }, ' (pendiente: corre npm run deploy)'));
       row.append(
         name,
         el('td', { className: 'set' }, item?.set ?? '—'),

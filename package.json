@@ -5,6 +5,7 @@
   "scripts": {
     "prices": "node scripts/update-prices.mjs",
     "serve": "node scripts/serve.mjs",
+    "deploy": "node scripts/deploy.mjs",
     "test": "node --test \"scripts/*.test.mjs\""
   }
 }

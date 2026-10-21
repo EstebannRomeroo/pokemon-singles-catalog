@@ -100,7 +100,28 @@ El flujo de publicación es:
 1. Haz tus cambios en el panel (agregar, quitar, vender).
 2. Pulsa **Exportar singles.json**: el navegador descarga el archivo actualizado.
 3. Reemplaza `singles.json` en el repositorio con el descargado.
-4. Corre `npm run prices` y publica.
+4. Corre **`npm run deploy`**: regenera `catalog.json`, te muestra qué va a publicar, pide confirmación y hace commit + push.
+
+### Publicar con `npm run deploy`
+
+Ese comando junta los últimos tres pasos (regenerar, commitear, subir) y **no publica nada sin tu confirmación**:
+
+```
+$ npm run deploy
+
+  singles.json : 24 entradas
+  catalog.json : 24 items
+
+  Cambios a publicar:
+    M catalog.json
+    M singles.json
+
+  ¿Publicar en main? (s/n)
+```
+
+Escribes `s` y publica; escribes `n` y no toca nada. Si falla al regenerar el catálogo, se detiene sin publicar. Nunca hace `push --force` y solo funciona en `main`.
+
+Ojo con el paso que se olvida: `npm run prices` regenera el catálogo **en tu máquina**, pero GitHub Pages sirve lo que está **en GitHub**. Sin el push, el sitio público nunca se entera. `npm run deploy` hace las dos cosas.
 
 Detalles:
 
