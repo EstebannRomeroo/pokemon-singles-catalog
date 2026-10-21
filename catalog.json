@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T13:54:16.337Z",
+  "generatedAt": "2026-10-21T14:01:18.899Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -183,56 +183,6 @@
         {
           "label": "Weakness",
           "value": "Fx2"
-        },
-        {
-          "label": "Retreat Cost",
-          "value": "1"
-        }
-      ]
-    },
-    {
-      "id": "pokemon-713264",
-      "game": "pokemon",
-      "name": "Moltres (30th Celebration)",
-      "set": "ME: Mega Evolution Promo",
-      "number": "096",
-      "rarity": "Promo",
-      "image": "https://tcgplayer-cdn.tcgplayer.com/product/713264_400w.jpg",
-      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/713264_in_1000x1000.jpg",
-      "variant": "Holofoil",
-      "priceVariant": "Holofoil",
-      "condition": "NM",
-      "language": "ES",
-      "qty": 1,
-      "usd": 0.42,
-      "priceCop": 2000,
-      "manual": false,
-      "tcgplayerUrl": "https://www.tcgplayer.com/product/713264/pokemon-me-mega-evolution-promo-moltres-096-30th-celebration",
-      "priceUpdatedAt": "2026-10-20T20:05:18+0000",
-      "details": [
-        {
-          "label": "Card Type",
-          "value": "Fire"
-        },
-        {
-          "label": "HP",
-          "value": "120"
-        },
-        {
-          "label": "Stage",
-          "value": "Basic"
-        },
-        {
-          "label": "Card Text",
-          "value": "Ability: Fiery Flapping\nOnce during your turn, if you have Articuno and Zapdos in play, you may use this Ability. Attach a Basic R Energy card from your hand to this Pokémon."
-        },
-        {
-          "label": "Attack 1",
-          "value": "[RRC] Fire Spin (130)\nDiscard 2 Energy from this Pokémon."
-        },
-        {
-          "label": "Weakness",
-          "value": "Wx2"
         },
         {
           "label": "Retreat Cost",
