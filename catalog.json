@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T20:18:23.854Z",
+  "generatedAt": "2026-10-21T20:29:55.329Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -4885,6 +4885,268 @@
         {
           "label": "Rules Text Contains",
           "value": "Choose one —\n• Conceal — Until end of turn, target creature you control becomes a Citizen with base power and toughness 1/1 and gains hexproof.\n• Reveal — Until end of turn, target creature you control becomes a Hero with base power and toughness 3/4 and gains flying and vigilance."
+        }
+      ]
+    },
+    {
+      "id": "magic-651992",
+      "game": "magic",
+      "name": "Common Crook",
+      "set": "Marvel's Spider-Man",
+      "number": "53",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651992_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651992_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.91,
+      "priceCop": 3000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651992/magic-marvels-spider-man-common-crook",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Rogue Villain"
+        },
+        {
+          "label": "P",
+          "value": "2"
+        },
+        {
+          "label": "T",
+          "value": "2"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "When this creature dies, create a Treasure token. (It's an artifact with \"T, Sacrifice this token: Add one mana of any color.\")"
+        },
+        {
+          "label": "Flavor",
+          "value": "\"Just taking that money out for a walk?\"\n—Spider-Man"
+        }
+      ]
+    },
+    {
+      "id": "magic-652047",
+      "game": "magic",
+      "name": "Inner Demons Gangsters",
+      "set": "Marvel's Spider-Man",
+      "number": "57",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652047_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652047_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 3,
+      "usd": 0.1,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652047/magic-marvels-spider-man-inner-demons-gangsters",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Rogue Villain"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Discard a card: This creature gets +1/+0 and gains menace until end of turn. Activate only as a sorcery. (It can’t be blocked except by two or more creatures.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "“Inner Demons? Even for a guy named Mister Negative, that’s a bit on the nose.”\n—Spider-Man"
+        }
+      ]
+    },
+    {
+      "id": "magic-646133",
+      "game": "magic",
+      "name": "Risky Research",
+      "set": "Marvel's Spider-Man",
+      "number": "62",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646133_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646133_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 3,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646133/magic-marvels-spider-man-risky-research",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Surveil 2, then draw two cards. You lose 2 life. (To surveil 2, look at the top two cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "“Though others fear radiation, I alone am able to make it my servant!”"
+        }
+      ]
+    },
+    {
+      "id": "magic-652063",
+      "game": "magic",
+      "name": "Sandman's Quicksand",
+      "set": "Marvel's Spider-Man",
+      "number": "63",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652063_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652063_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.24,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652063/magic-marvels-spider-man-sandmans-quicksand",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Mayhem 3B (You may cast this card from your graveyard for 3B if you discarded it this turn. Timing rules still apply.)\nAll creatures get -2/-2 until end of turn. If this spell’s mayhem cost was paid, creatures your opponents control get -2/-2 until end of turn instead."
+        }
+      ]
+    },
+    {
+      "id": "magic-646048",
+      "game": "magic",
+      "name": "Scorpion, Seething Striker",
+      "set": "Marvel's Spider-Man",
+      "number": "64",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646048_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646048_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.2,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646048/magic-marvels-spider-man-scorpion-seething-striker",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Scorpion Human Villain"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Deathtouch\nAt the beginning of your end step, if a creature died this turn, target creature you control connives. (Draw a card, then discard a card. If you discarded a nonland card, put a +1/+1 counter on that creature.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "The scorpion is the natural predator of the spider, and so Mac Gargan hunts."
+        }
+      ]
+    },
+    {
+      "id": "magic-646167",
+      "game": "magic",
+      "name": "Spider-Man Noir",
+      "set": "Marvel's Spider-Man",
+      "number": "67",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646167_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646167_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.25,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646167/magic-marvels-spider-man-spider-man-noir",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Spider Human Hero"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "4"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Menace\nWhenever a creature you control attacks alone, put a +1/+1 counter on it. Then surveil X, where X is the number of counters on it. (Look at the top X cards of your library, then put any number of them into your graveyard and the rest on top of your library in any order.)"
+        }
+      ]
+    },
+    {
+      "id": "magic-646134",
+      "game": "magic",
+      "name": "Scorpion's Sting",
+      "set": "Marvel's Spider-Man",
+      "number": "65",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646134_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646134_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646134/magic-marvels-spider-man-scorpions-sting",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Target creature gets -3/-3 until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "“I’m going to kill you, bug.”"
         }
       ]
     }
