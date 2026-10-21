@@ -53,7 +53,10 @@
   .game-head .count { font-size: .9rem; font-weight: 600; color: var(--deep); }
   .grid { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); }
   .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px; display: flex; flex-direction: column; box-shadow: 0 1px 2px rgb(14 42 35 / .06); transition: border-color .2s var(--ease), transform .2s var(--ease), box-shadow .2s var(--ease); }
-  .card:hover { border-color: var(--lime); transform: translateY(-3px); box-shadow: 0 10px 24px -12px rgb(14 42 35 / .35); }
+  /* Hover only where a pointer hovers; on touch the lift would stick after a tap. */
+  @media (hover: hover) {
+    .card:hover { border-color: var(--lime); transform: translateY(-3px); box-shadow: 0 10px 24px -12px rgb(14 42 35 / .35); }
+  }
   /* The art is the viewer trigger: a bare button around the thumbnail. */
   .art { display: block; width: 100%; min-height: 0; padding: 0; border: 0; border-radius: 9px; background: none; cursor: zoom-in; }
   .art .no-img { display: grid; place-items: center; padding: 8px; text-align: center; aspect-ratio: 245 / 342; border-radius: 9px; background: var(--pale); color: var(--deep); font-size: .85rem; }
@@ -180,7 +183,7 @@
   <div class="tabs" id="tabs" role="tablist" aria-label="Juego"></div>
   <div class="controls">
     <label>Buscar
-      <input id="search" type="search" placeholder="Nombre o expansión" autocomplete="off">
+      <input id="search" type="search" placeholder="Nombre, expansión o número" autocomplete="off" enterkeyhint="search">
     </label>
     <label>Rareza
       <select id="rarity"><option value="">Todas</option></select>
@@ -224,6 +227,8 @@
   const LANGUAGES = { EN: 'Inglés', ES: 'Español', JP: 'Japonés', PT: 'Portugués', FR: 'Francés', DE: 'Alemán', IT: 'Italiano' };
   const CONDITIONS = { NM: 'Near Mint', LP: 'Lightly Played', MP: 'Moderately Played', HP: 'Heavily Played', DMG: 'Damaged' };
   const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+  // Same folding as scripts/search.mjs: "pokemon" finds "Pokémon".
+  const fold = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
   // Numbers come as "149/147" or "OP18-021"; show them once with a leading #.
   const numberLabel = (n) => (n ? `#${String(n).replace(/^#/, '')}` : '');
   const setLine = (item) => [item.set, numberLabel(item.number)].filter(Boolean).join(' · ');
@@ -459,11 +464,11 @@
   }
 
   function render() {
-    const q = $('search').value.trim().toLowerCase();
+    const q = fold($('search').value.trim());
     const rarity = $('rarity').value;
     const sort = $('sort').value;
     const list = inScope()
-      .filter((i) => !q || i.name.toLowerCase().includes(q) || i.set.toLowerCase().includes(q))
+      .filter((i) => !q || fold(`${i.name} ${i.set} ${i.number ?? ''}`).includes(q))
       .filter((i) => !rarity || i.rarity === rarity)
       .sort((a, b) => sort === 'number' ? (a.set ?? '').localeCompare(b.set ?? '', 'es') || (parseInt(a.number, 10) || 0) - (parseInt(b.number, 10) || 0)
         : sort === 'name' ? a.name.localeCompare(b.name, 'es')
