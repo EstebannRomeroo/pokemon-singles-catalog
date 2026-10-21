@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { addCard, removeCard, sellCard, serializeInventory } from './inventory.mjs';
+import { validateSingles } from './catalog.mjs';
 
 const s = (game, group, product, extra = {}) => ({ game, group, product, qty: 1, ...extra });
 
@@ -71,4 +72,32 @@ test('serializeInventory round-trips through JSON.parse', () => {
   assert.equal(text, JSON.stringify(inventory, null, 2) + '\n');
   assert.ok(text.endsWith('\n'));
   assert.deepEqual(JSON.parse(text), inventory);
+});
+
+// The export path must never hand the price script a file it will reject.
+test('serializeInventory of a valid inventory passes validateSingles', () => {
+  const inventory = [s('pokemon', 10, 1, { qty: 2, variant: 'Holofoil', language: 'ES' })];
+  assert.deepEqual(validateSingles(JSON.parse(serializeInventory(inventory))), []);
+});
+
+test('serializeInventory preserves an inventory that validateSingles rejects', () => {
+  const invalid = [s('pokemon', 10, 1, { qty: 1, language: 'XX' })];
+  assert.notDeepEqual(validateSingles(invalid), []);
+  assert.deepEqual(JSON.parse(serializeInventory(invalid)), invalid);
+});
+
+// A `"variant": null` row is permitted by validateSingles, so sell/remove must match it.
+test('sellCard and removeCard match an entry whose variant is null', () => {
+  const entry = s('pokemon', 10, 1, { qty: 2, variant: null });
+  const sold = sellCard([entry], entry);
+  assert.equal(sold.ok, true);
+  assert.equal(sold.inventory[0].qty, 1);
+  assert.deepEqual(removeCard([entry], entry), { ok: true, inventory: [] });
+});
+
+test('sellCard rejects a malformed qty instead of corrupting it', () => {
+  for (const qty of [undefined, null, 0, -1, 1.5]) {
+    const result = sellCard([s('pokemon', 10, 1, { qty })], { game: 'pokemon', product: 1 });
+    assert.equal(result.ok, false, `qty ${qty} must be rejected`);
+  }
 });

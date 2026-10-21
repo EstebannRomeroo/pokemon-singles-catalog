@@ -120,6 +120,8 @@
 <script type="module">
   // The helper is a plain ES module; grants the browser fetch needs a real http(s) server, not file://.
   import { addCard, removeCard, sellCard, serializeInventory } from './scripts/inventory.mjs';
+  // Same validation rules the price script applies, so an invalid file never leaves this page.
+  import { validateSingles } from './scripts/catalog.mjs';
 
   const $ = (id) => document.getElementById(id);
   const cop = new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 });
@@ -138,6 +140,8 @@
   };
 
   let inventory = [];
+  // False until the fetch succeeds: an unloaded inventory must never be exported.
+  let loaded = false;
   const catalogItems = new Map(); // id ("pokemon-716513") -> catalog item
 
   // Each inventory entry joins its catalog item by id; the catalog may lag behind.
@@ -254,6 +258,10 @@
   });
 
   function exportInventory() {
+    if (!loaded) { showErrors(['El inventario no se cargó; recarga la página antes de exportar.']); return; }
+    // Export must never write a file the price script will reject.
+    const errors = validateSingles(inventory);
+    if (errors.length) { showErrors(errors); setStatus(''); return; }
     const text = serializeInventory(inventory);
     const url = URL.createObjectURL(new Blob([text], { type: 'application/json' }));
     const a = el('a', { href: url, download: 'singles.json' });
@@ -281,15 +289,24 @@
   ])
     .then(([singles, catalog]) => {
       inventory = singles;
+      loaded = true;
       for (const item of catalog.items ?? []) catalogItems.set(item.id, item);
       const date = new Date(catalog.generatedAt).toLocaleDateString('es-CO', { dateStyle: 'long' });
       $('updated').textContent = `Página local, no publicada · catálogo del ${date}`;
       renderRows();
       setStatus(singles.length ? '' : 'El inventario está vacío.');
+      // Surface a file that is already invalid, so it is fixed before it is exported.
+      const loadedErrors = validateSingles(singles);
+      if (loadedErrors.length) showErrors(loadedErrors);
     })
     .catch((err) => {
       // file:// or a missing file lands here; the URL note above explains the fix.
+      // Nothing was loaded, so every write path stays disabled: exporting here would download [].
       setStatus('');
+      $('export').disabled = true;
+      $('add-form').querySelectorAll('input, select, button').forEach((node) => { node.disabled = true; });
+      $('rows').replaceChildren(el('tr', {}, ''));
+      $('rows').querySelector('tr').append(el('td', { colSpan: TABLE_HEADERS.length, className: 'set' }, 'No se cargó el inventario. Corrige el servidor y recarga la página.'));
       showErrors([`No se pudo cargar el inventario o el catálogo (${safe(err.message)}). Sirve la carpeta con python3 -m http.server 8000 y abre http://localhost:8000/admin.html`]);
     });
 </script>

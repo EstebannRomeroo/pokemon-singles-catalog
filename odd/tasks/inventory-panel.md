@@ -79,5 +79,30 @@ validation rules, the no-token/no-write guarantee, and the HTTP-not-file:// requ
 - `serializeInventory` output round-trips and passes `validateSingles` with zero errors.
 - `git status` shows only the 4 new files plus `README.md`; no protected file touched.
 
+### Native review (2026-10-21, lineage review-27ab345166818149)
+
+Risk medium, 1 lens (`review-reliability`), consent granted. The reviewer returned 7 findings; the
+provider admitted two CRITICALs as candidate-caused and opened one bounded correction (budget 200
+lines; 59 used).
+
+Findings and disposition:
+- R3-001 (CRITICAL) — export never validated the inventory. FIXED: `admin.html` now imports
+  `validateSingles` and validates the full in-memory inventory before building the Blob; it also
+  surfaces load-time errors so a bad file is visible before export.
+- R3-002 (CRITICAL) — a failed load left Export armed and downloaded `[]`. FIXED: a `loaded` flag
+  guards `exportInventory()`; the catch branch disables the export button and the whole add form and
+  renders an explicit error row. Verified with a stubbed DOM: `export.disabled === true` after a
+  failed fetch.
+- variant `null` unmatched (WARNING) — FIXED: `matches` now normalizes both sides with `?? null`.
+- malformed `qty` silently became `null` (WARNING) — FIXED: `sellCard` rejects a non-positive-integer
+  `qty`; `qty === 1` (not `<= 1`) is the removal case.
+- duplicate removeCard, unproven export tests (SUGGESTION/INFO) — tests added for the export
+  validation guarantee, the `variant: null` branch, and the malformed-qty rejection.
+
+Evidence: `npm test` → 35 tests, 35 pass, 0 fail (21 pre-existing + 14 inventory). Syntax checked
+with `node --check` for the module and for the extracted inline script of `admin.html`.
+
+Commit `217690a`... see the correction commit below.
+
 ## Next step
-Commit the feature, then the owner can use http://localhost:8000/admin.html.
+Commit the correction (a frozen candidate is required by the review), then finish the review.
