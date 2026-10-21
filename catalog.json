@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T20:29:55.329Z",
+  "generatedAt": "2026-10-21T20:49:11.264Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -5147,6 +5147,382 @@
         {
           "label": "Flavor",
           "value": "“I’m going to kill you, bug.”"
+        }
+      ]
+    },
+    {
+      "id": "magic-646149",
+      "game": "magic",
+      "name": "Electro's Bolt",
+      "set": "Marvel's Spider-Man",
+      "number": "77",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646149_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646149_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.2,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646149/magic-marvels-spider-man-electros-bolt",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Electro’s Bolt deals 4 damage to target creature.\nMayhem 1R (You may cast this card from your graveyard for 1R if you discarded it this turn. Timing rules still apply.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "“Hey Max, while you’re at it, do you mind charging my phone?”\n—Spider-Man"
+        }
+      ]
+    },
+    {
+      "id": "magic-651991",
+      "game": "magic",
+      "name": "Heroes' Hangout",
+      "set": "Marvel's Spider-Man",
+      "number": "79",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651991_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651991_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 3,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/651991/magic-marvels-spider-man-heroes-hangout",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Choose one —\n• Date Night — Exile the top two cards of your library. Choose one of them. Until the end of your next turn, you may play that card.\n• Patrol Night — One or two target creatures each get +1/+0 and gain first strike until end of turn."
+        }
+      ]
+    },
+    {
+      "id": "magic-646145",
+      "game": "magic",
+      "name": "Masked Meower",
+      "set": "Marvel's Spider-Man",
+      "number": "82",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646145_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646145_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646145/magic-marvels-spider-man-masked-meower",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Spider Cat Hero"
+        },
+        {
+          "label": "P",
+          "value": "1"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Haste\nDiscard a card, Sacrifice this creature: Draw a card."
+        },
+        {
+          "label": "Flavor",
+          "value": "Neither criminals nor veterinarians had much luck pinning down the uncatchable Spider-Cat."
+        }
+      ]
+    },
+    {
+      "id": "magic-646150",
+      "game": "magic",
+      "name": "Romantic Rendezvous",
+      "set": "Marvel's Spider-Man",
+      "number": "86",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646150_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646150_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.2,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646150/magic-marvels-spider-man-romantic-rendezvous",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Sorcery"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Discard a card, then draw two cards."
+        },
+        {
+          "label": "Flavor",
+          "value": "“Face it, tiger. You just hit the jackpot!”\n—Mary Jane Watson"
+        }
+      ]
+    },
+    {
+      "id": "magic-646148",
+      "game": "magic",
+      "name": "Shock",
+      "set": "Marvel's Spider-Man",
+      "number": "88",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646148_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646148_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 4,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646148/magic-marvels-spider-man-shock",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Shock deals 2 damage to any target."
+        },
+        {
+          "label": "Flavor",
+          "value": "If you’re going to have a gimmick, embrace it."
+        }
+      ]
+    },
+    {
+      "id": "magic-646140",
+      "game": "magic",
+      "name": "Shocker, Unshakable",
+      "set": "Marvel's Spider-Man",
+      "number": "89",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646140_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646140_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646140/magic-marvels-spider-man-shocker-unshakable",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Legendary Creature — Human Rogue Villain"
+        },
+        {
+          "label": "P",
+          "value": "5"
+        },
+        {
+          "label": "T",
+          "value": "5"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "During your turn, Shocker has first strike.\nVibro-Shock Gauntlets — When Shocker enters, he deals 2 damage to target creature and 2 damage to that creature’s controller."
+        },
+        {
+          "label": "Flavor",
+          "value": "Mock him at your peril."
+        }
+      ]
+    },
+    {
+      "id": "magic-646138",
+      "game": "magic",
+      "name": "Spider-Islanders",
+      "set": "Marvel's Spider-Man",
+      "number": "91",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646138_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646138_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.1,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646138/magic-marvels-spider-man-spider-islanders",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Spider Horror Citizen"
+        },
+        {
+          "label": "P",
+          "value": "4"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Mayhem 1R (You may cast this card from your graveyard for 1R if you discarded it this turn. Timing rules still apply.)"
+        },
+        {
+          "label": "Flavor",
+          "value": "“We’ve done it, Professor Warren. The glorious metamorphosis of Manhattan has begun!”\n—Spider-Queen, Adriana Soria"
+        }
+      ]
+    },
+    {
+      "id": "magic-652178",
+      "game": "magic",
+      "name": "Superior Foes of Spider-Man",
+      "set": "Marvel's Spider-Man",
+      "number": "96",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652178_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652178_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652178/magic-marvels-spider-man-superior-foes-of-spider-man",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Rogue Villain"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "3"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Trample\nWhenever you cast a spell with mana value 4 or greater, you may exile the top card of your library. If you do, you may play that card until you exile another card with this creature."
+        },
+        {
+          "label": "Flavor",
+          "value": "Boomerang managed to assemble a squad that really wasn't all that sinister and certainly wasn't all that six."
+        }
+      ]
+    },
+    {
+      "id": "magic-646139",
+      "game": "magic",
+      "name": "Taxi Driver",
+      "set": "Marvel's Spider-Man",
+      "number": "97",
+      "rarity": "C",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/646139_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/646139_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.13,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/646139/magic-marvels-spider-man-taxi-driver",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Creature — Human Pilot"
+        },
+        {
+          "label": "P",
+          "value": "3"
+        },
+        {
+          "label": "T",
+          "value": "1"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "1, T: Target creature gains haste until end of turn."
+        },
+        {
+          "label": "Flavor",
+          "value": "“I got two speeds, buddy: fast and off duty.”"
+        }
+      ]
+    },
+    {
+      "id": "magic-652301",
+      "game": "magic",
+      "name": "Wisecrack",
+      "set": "Marvel's Spider-Man",
+      "number": "98",
+      "rarity": "U",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/652301_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/652301_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/652301/magic-marvels-spider-man-wisecrack",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Creature Type or Sub Type",
+          "value": "Instant"
+        },
+        {
+          "label": "Rules Text Contains",
+          "value": "Target creature deals damage equal to its power to itself. If that creature is attacking, Wisecrack deals 2 damage to that creature’s controller."
+        },
+        {
+          "label": "Flavor",
+          "value": "“I support your right to bear arms, Grizzly, but this is getting ridiculous.”"
         }
       ]
     }
