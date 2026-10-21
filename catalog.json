@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-21T21:20:29.124Z",
+  "generatedAt": "2026-10-21T22:00:13.458Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -7307,6 +7307,2172 @@
         {
           "label": "Flavor",
           "value": "\"We will fight along with you for the planet, our home!\""
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632835",
+      "game": "pokemon",
+      "name": "Mow Rotom",
+      "set": "SV10: Destined Rivals",
+      "number": "009/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632835_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632835_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632835/pokemon-sv10-destined-rivals-mow-rotom",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Grass"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[G] Trimming Mower (20)\n Discard a Stadium in play."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CC] Gadget Show (30x)\n This attack does 30 damage for each Pokémon Tool attached to all of your Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632837",
+      "game": "pokemon",
+      "name": "Dwebble",
+      "set": "SV10: Destined Rivals",
+      "number": "011/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632837_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632837_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.25,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632837/pokemon-sv10-destined-rivals-dwebble",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Grass"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Ascension\n Search your deck for a card that evolves from this Pokémon and put it onto this Pokémon to evolve it. Then, shuffle your deck."
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632839",
+      "game": "pokemon",
+      "name": "Fomantis",
+      "set": "SV10: Destined Rivals",
+      "number": "013/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632839_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632839_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632839/pokemon-sv10-destined-rivals-fomantis",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Grass"
+        },
+        {
+          "label": "HP",
+          "value": "60"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[G] Cut Up (20)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632846",
+      "game": "pokemon",
+      "name": "Team Rocket's Spidops",
+      "set": "SV10: Destined Rivals",
+      "number": "020/182",
+      "rarity": "Rare",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632846_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632846_in_1000x1000.jpg",
+      "variant": "Holofoil",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632846/pokemon-sv10-destined-rivals-team-rockets-spidops-020-182",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Grass"
+        },
+        {
+          "label": "HP",
+          "value": "130"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Charging Up Once during your turn, you may attach a Basic Energy card from your discard pile to this Pokémon."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[GC] Rocket Rush (30x)\n This attack does 30 damage for each of your Team Rocket's Pokémon in play."
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-630806",
+      "game": "pokemon",
+      "name": "Dolliv",
+      "set": "SV10: Destined Rivals",
+      "number": "022/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/630806_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/630806_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.24,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/630806/pokemon-sv10-destined-rivals-dolliv",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Grass"
+        },
+        {
+          "label": "HP",
+          "value": "90"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[G] Nutrients\n Heal 40 damage from 1 of your Pokémon."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CC] Tackle (40)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632853",
+      "game": "pokemon",
+      "name": "Rapidash",
+      "set": "SV10: Destined Rivals",
+      "number": "030/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632853_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632853_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632853/pokemon-sv10-destined-rivals-rapidash-030-182",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "110"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Hurried Gait Once during your turn, you may draw a card."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[RC] Fire Mane (60)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632854",
+      "game": "pokemon",
+      "name": "Ethan's Cyndaquil",
+      "set": "SV10: Destined Rivals",
+      "number": "032/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632854_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632854_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.24,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632854/pokemon-sv10-destined-rivals-ethans-cyndaquil",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[R] Ember (30)\n Discard an Energy from this Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632855",
+      "game": "pokemon",
+      "name": "Ethan's Quilava",
+      "set": "SV10: Destined Rivals",
+      "number": "033/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632855_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632855_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.28,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632855/pokemon-sv10-destined-rivals-ethans-quilava",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "100"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Bonded by the Journey Once during your turn, you may search your deck for an Ethan's Adventure card, reveal it, and put it into your hand. Then, shuffle your deck."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[R] Combustion (40)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-630810",
+      "game": "pokemon",
+      "name": "Ethan's Slugma",
+      "set": "SV10: Destined Rivals",
+      "number": "035/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/630810_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/630810_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.09,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/630810/pokemon-sv10-destined-rivals-ethans-slugma",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[R] Steady Firebreathing (20)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-630811",
+      "game": "pokemon",
+      "name": "Ethan's Magcargo",
+      "set": "SV10: Destined Rivals",
+      "number": "036/182",
+      "rarity": "Rare",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/630811_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/630811_in_1000x1000.jpg",
+      "variant": "Holofoil",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.23,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/630811/pokemon-sv10-destined-rivals-ethans-magcargo",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fire"
+        },
+        {
+          "label": "HP",
+          "value": "130"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Melt Away If this Pokémon has no Energy attached, it has no Retreat Cost."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[RRR] Lava Burst (70x)\n Discard up to 5 Fire Energy from this Pokémon. This attack does 70 damage for each card you discarded in this way."
+        },
+        {
+          "label": "Weakness",
+          "value": "Wx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632873",
+      "game": "pokemon",
+      "name": "Abomasnow",
+      "set": "SV10: Destined Rivals",
+      "number": "060/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632873_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632873_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632873/pokemon-sv10-destined-rivals-abomasnow",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Water"
+        },
+        {
+          "label": "HP",
+          "value": "150"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[CCC] Lunge Out (90)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[WWWC] Frozen Wood (120+)\n If this Pokémon has 2 or more Grass Energy attached, this attack does 120 more damage."
+        },
+        {
+          "label": "Weakness",
+          "value": "Mx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632874",
+      "game": "pokemon",
+      "name": "Wash Rotom",
+      "set": "SV10: Destined Rivals",
+      "number": "061/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632874_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632874_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632874/pokemon-sv10-destined-rivals-wash-rotom",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Water"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[W] Manual Wash (20)\n Heal 10 damage from each of your Pokémon."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CC] Gadget Show (30x)\n This attack does 30 damage for each Pokémon Tool attached to all of your Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632875",
+      "game": "pokemon",
+      "name": "Arrokuda",
+      "set": "SV10: Destined Rivals",
+      "number": "062/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632875_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632875_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.16,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632875/pokemon-sv10-destined-rivals-arrokuda",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Water"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[W] Reckless Charge (30)\n This Pokémon also does 10 damage to itself."
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632876",
+      "game": "pokemon",
+      "name": "Barraskewda",
+      "set": "SV10: Destined Rivals",
+      "number": "063/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632876_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632876_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632876/pokemon-sv10-destined-rivals-barraskewda",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Water"
+        },
+        {
+          "label": "HP",
+          "value": "130"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[W] Sharp Fin (40)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[WW] Dive (60)\n Flip a coin. If heads, during your opponent's next turn, prevent all damage from and effects of attacks done to this Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632883",
+      "game": "pokemon",
+      "name": "Team Rocket's Flaaffy",
+      "set": "SV10: Destined Rivals",
+      "number": "073/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632883_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632883_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632883/pokemon-sv10-destined-rivals-team-rockets-flaaffy",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Lightning"
+        },
+        {
+          "label": "HP",
+          "value": "90"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[LC] Thunder Shock (50)\n Flip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632889",
+      "game": "pokemon",
+      "name": "Team Rocket's Drowzee",
+      "set": "SV10: Destined Rivals",
+      "number": "079/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632889_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632889_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632889/pokemon-sv10-destined-rivals-team-rockets-drowzee",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Psychic"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[P] Hypnotic Ray (10)\n Your opponent's Active Pokémon is now Asleep."
+        },
+        {
+          "label": "Weakness",
+          "value": "Dx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "F-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632893",
+      "game": "pokemon",
+      "name": "Steven's Baltoy",
+      "set": "SV10: Destined Rivals",
+      "number": "083/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632893_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632893_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632893/pokemon-sv10-destined-rivals-stevens-baltoy",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Psychic"
+        },
+        {
+          "label": "HP",
+          "value": "60"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Summoning Sign\n Search your deck for up to 2 Basic Steven's Pokémon and put them onto your Bench. Then, shuffle your deck."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[P] Psychic Sphere (20)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Dx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "F-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632895",
+      "game": "pokemon",
+      "name": "Team Rocket's Chingling",
+      "set": "SV10: Destined Rivals",
+      "number": "085/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632895_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632895_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632895/pokemon-sv10-destined-rivals-team-rockets-chingling",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Psychic"
+        },
+        {
+          "label": "HP",
+          "value": "30"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "Chiming Commotion\n Discard a random card from your opponent's hand."
+        },
+        {
+          "label": "Weakness",
+          "value": "Dx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "F-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632897",
+      "game": "pokemon",
+      "name": "Team Rocket's Dottler",
+      "set": "SV10: Destined Rivals",
+      "number": "088/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632897_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632897_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632897/pokemon-sv10-destined-rivals-team-rockets-dottler",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Psychic"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Disruptive Radar\n Look at the top 5 cards of your opponent's deck and put them back in any order."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[PC] Super Psy Bolt (30)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Dx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "F-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632896",
+      "game": "pokemon",
+      "name": "Steven's Carbink",
+      "set": "SV10: Destined Rivals",
+      "number": "086/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632896_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632896_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632896/pokemon-sv10-destined-rivals-stevens-carbink",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Psychic"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Stone Palace As long as this Pokémon is on your Bench, all of your Steven's Pokémon take 30 less damage from attacks from your opponent's Pokémon (after applying Weakness and Resistance). The effect of Stone Palace doesn't stack."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[PCC] Magical Shot (80)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Mx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632905",
+      "game": "pokemon",
+      "name": "Nosepass",
+      "set": "SV10: Destined Rivals",
+      "number": "097/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632905_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632905_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632905/pokemon-sv10-destined-rivals-nosepass",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fighting"
+        },
+        {
+          "label": "HP",
+          "value": "80"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[F] Headbutt (20)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CCC] Rock Throw (40)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632906",
+      "game": "pokemon",
+      "name": "Probopass",
+      "set": "SV10: Destined Rivals",
+      "number": "098/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632906_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632906_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.12,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632906/pokemon-sv10-destined-rivals-probopass",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fighting"
+        },
+        {
+          "label": "HP",
+          "value": "140"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[F] Power Gem (40)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CCC] Mountain Drop (70+)\n If a Stadium is in play, this attack does 70 more damage."
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632902",
+      "game": "pokemon",
+      "name": "Ethan's Sudowoodo",
+      "set": "SV10: Destined Rivals",
+      "number": "093/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632902_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632902_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.18,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632902/pokemon-sv10-destined-rivals-ethans-sudowoodo",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fighting"
+        },
+        {
+          "label": "HP",
+          "value": "110"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[F] Impound (20)\n During your opponent's next turn, the Defending Pokémon can't retreat."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CC] Try to Imitate\n Flip a coin. If heads, choose 1 of your opponent's Active Pokémon's attacks and use it as this attack."
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-630822",
+      "game": "pokemon",
+      "name": "Team Rocket's Tyranitar",
+      "set": "SV10: Destined Rivals",
+      "number": "096/182",
+      "rarity": "Rare",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/630822_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/630822_in_1000x1000.jpg",
+      "variant": "Holofoil",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.24,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/630822/pokemon-sv10-destined-rivals-team-rockets-tyranitar",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fighting"
+        },
+        {
+          "label": "HP",
+          "value": "180"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 2"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Sand Stream During Pokémon Checkup, if this Pokémon is in the Active Spot, put 2 damage counters on each of your opponent's Basic Pokémon."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[FCCC] Demolition Tackle (180)\n Discard an Energy from your opponent's Active Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "3"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632907",
+      "game": "pokemon",
+      "name": "Meditite",
+      "set": "SV10: Destined Rivals",
+      "number": "099/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632907_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632907_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.2,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632907/pokemon-sv10-destined-rivals-meditite",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fighting"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[F] Steady Punch (10+)\n Flip a coin. If heads, this attack does 20 more damage."
+        },
+        {
+          "label": "Weakness",
+          "value": "Px2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632911",
+      "game": "pokemon",
+      "name": "Cynthia's Gabite",
+      "set": "SV10: Destined Rivals",
+      "number": "103/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632911_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632911_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.23,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632911/pokemon-sv10-destined-rivals-cynthias-gabite",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fighting"
+        },
+        {
+          "label": "HP",
+          "value": "100"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Champion's Call Once during your turn, you may search your deck for a Cynthia's Pokémon, reveal it, and put it into your hand. Then, shuffle your deck."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[F] Dragonslice (40)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632914",
+      "game": "pokemon",
+      "name": "Hippowdon",
+      "set": "SV10: Destined Rivals",
+      "number": "106/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632914_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632914_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.05,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632914/pokemon-sv10-destined-rivals-hippowdon",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Fighting"
+        },
+        {
+          "label": "HP",
+          "value": "160"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[FF] Ram (60)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[FFC] Super Sandstorm (150)\n This attack also does 40 damage to each Benched Pokémon that has any damage counters on it (both yours and your opponent's). (Don't apply Weakness and Resistance for Benched Pokémon.)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "4"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632922",
+      "game": "pokemon",
+      "name": "Team Rocket's Nidoran F",
+      "set": "SV10: Destined Rivals",
+      "number": "114/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632922_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632922_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632922/pokemon-sv10-destined-rivals-team-rockets-nidoran-f",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Darkness"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[D] Surprise Attack (30)\n Flip a coin. If tails, this attack does nothing."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632925",
+      "game": "pokemon",
+      "name": "Team Rocket's Nidoran M",
+      "set": "SV10: Destined Rivals",
+      "number": "117/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632925_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632925_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.19,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632925/pokemon-sv10-destined-rivals-team-rockets-nidoran-m",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Darkness"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[D] Pierce (10)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[DC] Hammer In (30)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632928",
+      "game": "pokemon",
+      "name": "Team Rocket's Zubat",
+      "set": "SV10: Destined Rivals",
+      "number": "120/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632928_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632928_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632928/pokemon-sv10-destined-rivals-team-rockets-zubat",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Darkness"
+        },
+        {
+          "label": "HP",
+          "value": "50"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[D] Poison Spray\n Your opponent's Active Pokémon is now Poisoned."
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "F-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632934",
+      "game": "pokemon",
+      "name": "Team Rocket's Weezing",
+      "set": "SV10: Destined Rivals",
+      "number": "126/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632934_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632934_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632934/pokemon-sv10-destined-rivals-team-rockets-weezing-126-182",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Darkness"
+        },
+        {
+          "label": "HP",
+          "value": "130"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[DC] Explode Together Now (40x)\n This attack does 40 damage for each Pokémon in play that has \"Koffing\" or \"Weezing\" in its name (both yours and your opponent's)."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632941",
+      "game": "pokemon",
+      "name": "Marnie's Scrafty",
+      "set": "SV10: Destined Rivals",
+      "number": "133/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632941_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632941_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.05,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632941/pokemon-sv10-destined-rivals-marnies-scrafty",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Darkness"
+        },
+        {
+          "label": "HP",
+          "value": "120"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[D] Rear Kick (40)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[DDC] Wild Tackle (160)\n This Pokémon also does 30 damage to itself."
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632942",
+      "game": "pokemon",
+      "name": "Marnie's Impidimp",
+      "set": "SV10: Destined Rivals",
+      "number": "134/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632942_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632942_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632942/pokemon-sv10-destined-rivals-marnies-impidimp",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Darkness"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Filch\n Draw a card."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[D] Corkscrew Punch (10)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632943",
+      "game": "pokemon",
+      "name": "Marnie's Morgrem",
+      "set": "SV10: Destined Rivals",
+      "number": "135/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632943_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632943_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.24,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632943/pokemon-sv10-destined-rivals-marnies-morgrem",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Darkness"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[DD] Corkscrew Punch (60)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632945",
+      "game": "pokemon",
+      "name": "Arven's Maschiff",
+      "set": "SV10: Destined Rivals",
+      "number": "138/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632945_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632945_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.1,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632945/pokemon-sv10-destined-rivals-arvens-maschiff",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Darkness"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Stampede (10)"
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CCC] Confront (50)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Gx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632947",
+      "game": "pokemon",
+      "name": "Forretress",
+      "set": "SV10: Destined Rivals",
+      "number": "140/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632947_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632947_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.05,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632947/pokemon-sv10-destined-rivals-forretress",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Metal"
+        },
+        {
+          "label": "HP",
+          "value": "130"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Iron Shake-Up (20)\n You may move any amount of Metal Energy from your Pokémon to your other Pokémon in any way you like."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[MCCC] Hurricane of Needles (80x)\n Flip 4 coins. This attack does 80 damage for each heads."
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "G-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632948",
+      "game": "pokemon",
+      "name": "Skarmory",
+      "set": "SV10: Destined Rivals",
+      "number": "141/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632948_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632948_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.16,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632948/pokemon-sv10-destined-rivals-skarmory",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Metal"
+        },
+        {
+          "label": "HP",
+          "value": "110"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Roost\n Heal 50 damage from this Pokémon. During your next turn, this Pokémon can't retreat."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[MC] Metal Claw (60)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "F-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632951",
+      "game": "pokemon",
+      "name": "Steven's Metang",
+      "set": "SV10: Destined Rivals",
+      "number": "144/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632951_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632951_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.22,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632951/pokemon-sv10-destined-rivals-stevens-metang",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Metal"
+        },
+        {
+          "label": "HP",
+          "value": "100"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[MC] Metal Slash (70)\n During your next turn, this Pokémon can't attack."
+        },
+        {
+          "label": "Weakness",
+          "value": "Rx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "G-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-630825",
+      "game": "pokemon",
+      "name": "Team Rocket's Meowth",
+      "set": "SV10: Destined Rivals",
+      "number": "149/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/630825_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/630825_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.15,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/630825/pokemon-sv10-destined-rivals-team-rockets-meowth",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Colorless"
+        },
+        {
+          "label": "HP",
+          "value": "70"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Paw-cket Pilfer\n Choose a random card from your opponent's hand. Your opponent reveals that card and shuffles it into their deck."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CC] Fury Swipes (20x)\n Flip 3 coins. This attack does 20 damage for each heads."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632961",
+      "game": "pokemon",
+      "name": "Arven's Greedent",
+      "set": "SV10: Destined Rivals",
+      "number": "159/182",
+      "rarity": "Rare",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632961_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632961_in_1000x1000.jpg",
+      "variant": "Holofoil",
+      "priceVariant": "Holofoil",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632961/pokemon-sv10-destined-rivals-arvens-greedent-159-182",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Colorless"
+        },
+        {
+          "label": "HP",
+          "value": "120"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Card Text",
+          "value": "Ability: Greedy Order When you play this Pokémon from your hand to evolve 1 of your Pokémon during your turn, you may put up to 2 161 cards from your discard pile into your hand."
+        },
+        {
+          "label": "Attack 1",
+          "value": "[CC] Rolling Tackle (50)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "2"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632959",
+      "game": "pokemon",
+      "name": "Swellow",
+      "set": "SV10: Destined Rivals",
+      "number": "157/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632959_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632959_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.11,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632959/pokemon-sv10-destined-rivals-swellow",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Colorless"
+        },
+        {
+          "label": "HP",
+          "value": "100"
+        },
+        {
+          "label": "Stage",
+          "value": "Stage 1"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Add On\n Draw 3 cards."
+        },
+        {
+          "label": "Attack 2",
+          "value": "[CC] Speed Wing (70)"
+        },
+        {
+          "label": "Weakness",
+          "value": "Lx2"
+        },
+        {
+          "label": "Resistance",
+          "value": "F-30"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "0"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632960",
+      "game": "pokemon",
+      "name": "Arven's Skwovet",
+      "set": "SV10: Destined Rivals",
+      "number": "158/182",
+      "rarity": "Common",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632960_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632960_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 2,
+      "usd": 0.08,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632960/pokemon-sv10-destined-rivals-arvens-skwovet",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Colorless"
+        },
+        {
+          "label": "HP",
+          "value": "60"
+        },
+        {
+          "label": "Stage",
+          "value": "Basic"
+        },
+        {
+          "label": "Attack 1",
+          "value": "[C] Gnaw Through (10)\n Before doing damage, discard all Pokémon Tools from your opponent's Active Pokémon."
+        },
+        {
+          "label": "Weakness",
+          "value": "Fx2"
+        },
+        {
+          "label": "Retreat Cost",
+          "value": "1"
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632963",
+      "game": "pokemon",
+      "name": "Arven's Sandwich",
+      "set": "SV10: Destined Rivals",
+      "number": "161/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632963_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632963_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632963/pokemon-sv10-destined-rivals-arvens-sandwich",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Trainer - Item"
+        },
+        {
+          "label": "Card Text",
+          "value": "Heal 30 damage from your Active Pokémon. If that Pokémon is an Arven's Pokémon, heal 100 damage from it instead."
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632967",
+      "game": "pokemon",
+      "name": "Ethan's Adventure",
+      "set": "SV10: Destined Rivals",
+      "number": "165/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632967_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632967_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.17,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632967/pokemon-sv10-destined-rivals-ethans-adventure-165-182",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Trainer - Supporter"
+        },
+        {
+          "label": "Card Text",
+          "value": "Search your deck for up to 3 in any combination of Ethan's Pokémon and Basic Fire Energy cards, reveal them, and put them into your hand. Then, shuffle your deck."
+        }
+      ]
+    },
+    {
+      "id": "pokemon-632981",
+      "game": "pokemon",
+      "name": "TM Machine",
+      "set": "SV10: Destined Rivals",
+      "number": "181/182",
+      "rarity": "Uncommon",
+      "image": "https://tcgplayer-cdn.tcgplayer.com/product/632981_400w.jpg",
+      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/632981_in_1000x1000.jpg",
+      "variant": "Normal",
+      "priceVariant": "Normal",
+      "condition": "NM",
+      "language": "EN",
+      "qty": 1,
+      "usd": 0.21,
+      "priceCop": 2000,
+      "manual": false,
+      "tcgplayerUrl": "https://www.tcgplayer.com/product/632981/pokemon-sv10-destined-rivals-tm-machine",
+      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
+      "details": [
+        {
+          "label": "Card Type",
+          "value": "Trainer - Item"
+        },
+        {
+          "label": "Card Text",
+          "value": "Search your deck for up to 3 Pokémon Tool cards that have \"Technical Machine\" in their name, reveal them, and put them into your hand. Then, shuffle your deck."
         }
       ]
     }
