@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { addCard, removeCard, sellCard, serializeInventory } from './inventory.mjs';
+import { addCard, removeCard, sellCard, setQty, serializeInventory } from './inventory.mjs';
 import { validateSingles } from './catalog.mjs';
 
 const s = (game, group, product, extra = {}) => ({ game, group, product, qty: 1, ...extra });
@@ -100,4 +100,23 @@ test('sellCard rejects a malformed qty instead of corrupting it', () => {
     const result = sellCard([s('pokemon', 10, 1, { qty })], { game: 'pokemon', product: 1 });
     assert.equal(result.ok, false, `qty ${qty} must be rejected`);
   }
+});
+
+test('setQty sets an exact quantity on the matching entry only', () => {
+  const inventory = [s('pokemon', 10, 1, { qty: 2 }), s('pokemon', 10, 1, { variant: 'Holofoil', qty: 1 })];
+  const next = setQty(inventory, { game: 'pokemon', product: 1, variant: 'Holofoil' }, 4);
+  assert.equal(next.ok, true);
+  assert.deepEqual(next.inventory.map((e) => e.qty), [2, 4]);
+  assert.equal(inventory[1].qty, 1);
+});
+
+test('setQty rejects a quantity that is not a positive integer', () => {
+  const inventory = [s('pokemon', 10, 1)];
+  for (const bad of [0, -1, 1.5, NaN, '3']) {
+    assert.equal(setQty(inventory, { game: 'pokemon', product: 1 }, bad).ok, false, String(bad));
+  }
+});
+
+test('setQty reports an entry that does not exist', () => {
+  assert.equal(setQty([], { game: 'pokemon', product: 1 }, 2).ok, false);
 });

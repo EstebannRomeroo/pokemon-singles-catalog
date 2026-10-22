@@ -99,6 +99,27 @@
   td.actions { white-space: nowrap; }
   td.actions button { min-height: 36px; padding: 0 12px; font-size: .85rem; margin-right: 6px; }
   .danger { color: var(--red); }
+  /* Card previews: names are easy to confuse, the art is not. */
+  .thumb-btn { flex: none; min-height: 0; padding: 0; border: 0; border-radius: 5px; background: none; cursor: zoom-in; line-height: 0; }
+  .thumb, .thumb-missing { width: 40px; height: 56px; border-radius: 5px; object-fit: cover; background: var(--pale); }
+  .thumb-missing { display: grid; place-items: center; font-size: .55rem; line-height: 1.1; color: var(--deep); text-align: center; }
+  .name-cell { display: flex; align-items: center; gap: 10px; }
+  .card-choices button { display: flex; align-items: center; gap: 10px; padding: 6px 10px; }
+  .card-choices .thumb { width: 44px; height: 61px; }
+  .resolved { display: flex; align-items: center; gap: 12px; }
+  .resolved .thumb, .resolved .thumb-missing { width: 72px; height: 100px; }
+  td.qty input { width: 76px; min-height: 36px; padding: 0 8px; font-variant-numeric: tabular-nums; }
+  .header-row > div { flex: 1 1 auto; }
+  .save-state { font-size: .85rem; font-weight: 600; color: var(--mint); }
+  .save-state[data-state="error"] { color: #FFB4A8; }
+  .ghost-light { background: transparent; border-color: var(--mint); color: var(--pale); }
+  .ghost-light:hover { border-color: var(--lime); }
+  .preview { padding: 0; border: 0; background: transparent; max-width: none; max-height: none; }
+  .preview::backdrop { background: rgb(14 42 35 / .8); }
+  .preview[open] { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+  .preview img { display: block; height: min(80vh, 640px); width: auto; aspect-ratio: 245 / 342; object-fit: contain; border-radius: 14px; background: var(--pale); }
+  .preview p { margin: 0; padding: 6px 12px; border-radius: 10px; background: var(--ink); color: var(--pale); font-size: .9rem; text-align: center; }
+  .preview .close { position: fixed; top: 12px; right: 12px; width: 44px; height: 44px; padding: 0; border-radius: 999px; }
   button:not(.primary):not(:disabled):hover { border-color: var(--lime); }
   /* Phones: each inventory row becomes a card instead of a 720px horizontal scroll. */
   @media (max-width: 640px) {
@@ -131,12 +152,13 @@
       <h1>Inventario</h1>
       <p class="meta" id="updated">Página local, no publicada</p>
     </div>
-    <button class="primary" id="export" type="button">Exportar singles.json</button>
+    <span class="save-state" id="save-state" role="status"></span>
+    <button class="ghost-light" id="export" type="button">Descargar copia</button>
   </div>
 </header>
 <main class="wrap">
   <p class="help" id="help">
-    Flujo: descarga <code>singles.json</code>, reemplaza el archivo en el repositorio y corre <code>npm run prices</code> para regenerar <code>catalog.json</code>. Abre esta página con <code>npm run serve</code>: además de servir los archivos, ese servidor hace de proxy hacia tcgcsv.com (que no envía cabeceras CORS) para que la búsqueda de cartas funcione.
+    Cada cambio se guarda solo en <code>singles.json</code>. Para publicarlo, corre <code>npm run deploy</code>. Abre esta página con <code>npm run serve</code>: ese servidor guarda el inventario y hace de proxy hacia tcgcsv.com para que la búsqueda de cartas funcione.
   </p>
   <p class="status" id="status" role="status">Cargando inventario…</p>
   <p class="bad" id="errors" role="alert"></p>
@@ -211,9 +233,14 @@
     </table>
   </div>
 </main>
+<dialog class="preview" id="preview" aria-labelledby="preview-title">
+  <button class="close" id="preview-close" type="button" aria-label="Cerrar">✕</button>
+  <img id="preview-img" alt="">
+  <p id="preview-title"></p>
+</dialog>
 <script type="module">
   // The helper is a plain ES module; grants the browser fetch needs a real http(s) server, not file://.
-  import { addCard, removeCard, sellCard, serializeInventory } from './scripts/inventory.mjs';
+  import { addCard, removeCard, sellCard, setQty, serializeInventory } from './scripts/inventory.mjs';
   // Same validation rules the price script applies, so an invalid file never leaves this page.
   import { validateSingles } from './scripts/catalog.mjs';
   // Reuse the exact price conversion the catalog uses instead of inventing a second one.
@@ -416,10 +443,14 @@
   function showResolved(card, copPrice) {
     resolvedCard = { ...card, copPrice: copPrice ?? null };
     const price = copPrice == null ? 'sin precio' : cop.format(copPrice);
-    $('resolve-note').replaceChildren(
+    const text = el('span');
+    text.append(
       el('strong', {}, card.name),
       document.createTextNode(` · ${card.set ?? 'set desconocido'} · ${numberLabel(card.number) || 'sin número'} · Precio TCGCSV: ${price}`),
     );
+    const block = el('span', { className: 'resolved' });
+    block.append(card.imageUrl ? thumbButton(card.imageUrl, largeOf(card.imageUrl), card.name) : thumbImage(null), text);
+    $('resolve-note').replaceChildren(block);
     $('resolve-choices').replaceChildren();
     $('f-stage').disabled = false;
   }
@@ -428,17 +459,20 @@
   function showChoices(matches, group, prices) {
     resolvedCard = null;
     $('f-stage').disabled = true;
-    $('resolve-note').textContent = `${plural(matches.length, 'carta coincide', 'cartas coinciden')} con ese número. Elige una:`;
+    $('resolve-note').textContent = `${plural(matches.length, 'carta coincide', 'cartas coinciden')}. Elige una:`;
     const list = $('resolve-choices');
     list.replaceChildren(...matches.map((product) => {
       const number = extendedValue(product, 'Number');
       const copPrice = priceOf(prices, product.productId);
       const price = copPrice == null ? 'sin precio' : cop.format(copPrice);
       const button = el('button', { type: 'button' });
-      button.append(
+      // The picture sits inside the choice: telling printings apart is the point.
+      const label = el('span');
+      label.append(
         el('strong', {}, product.name),
         el('span', {}, ` · ${numberLabel(number) || 'sin número'} · id ${product.productId} · Precio TCGCSV: ${price}`),
       );
+      button.append(thumbImage(product.imageUrl), label);
       button.addEventListener('click', () => {
         showResolved({ groupId: group.groupId, productId: product.productId, name: product.name, set: group.name, number, imageUrl: product.imageUrl ?? null }, copPrice);
       });
@@ -505,6 +539,40 @@
   const nameFor = (entry) => itemFor(entry)?.name ?? `${gameName(entry.game)} · producto ${entry.product}`;
   const priceFor = (entry) => itemFor(entry)?.priceCop ?? (entry.price ?? null);
 
+  // --- Card previews ------------------------------------------------------------
+  // Every catalog image is TCGplayer's CDN keyed by product id (checked on all 230
+  // items), so an entry not yet in catalog.json still gets its picture.
+  const cdnImage = (productId, size) => `https://tcgplayer-cdn.tcgplayer.com/product/${productId}_${size}.jpg`;
+  // TCGCSV hands out the 200w size; the viewer wants the large one.
+  const largeOf = (url) => String(url).replace(/_\d+w\.jpg$/, '_in_1000x1000.jpg');
+  const imageFor = (entry) => itemFor(entry)?.image ?? cdnImage(entry.product, '400w');
+  const largeFor = (entry) => itemFor(entry)?.imageLarge ?? cdnImage(entry.product, 'in_1000x1000');
+
+  function thumbImage(src) {
+    if (!src) return el('span', { className: 'thumb-missing' }, 'sin imagen');
+    const img = el('img', { className: 'thumb', src, alt: '', loading: 'lazy', width: 40, height: 56 });
+    img.addEventListener('error', () => img.replaceWith(el('span', { className: 'thumb-missing' }, 'sin imagen')), { once: true });
+    return img;
+  }
+
+  // A thumbnail that opens the large image: "ver carta".
+  function thumbButton(src, large, title) {
+    const button = el('button', { type: 'button', className: 'thumb-btn' });
+    button.setAttribute('aria-label', `Ver carta: ${title}`);
+    button.append(thumbImage(src));
+    button.addEventListener('click', () => openPreview(large ?? src, title));
+    return button;
+  }
+
+  function openPreview(src, title) {
+    $('preview-img').src = src;
+    $('preview-img').alt = title;
+    $('preview-title').textContent = title;
+    $('preview').showModal();
+  }
+  $('preview-close').addEventListener('click', () => $('preview').close());
+  $('preview').addEventListener('click', (e) => { if (e.target === $('preview')) $('preview').close(); });
+
   function showErrors(errors) {
     const box = $('errors');
     box.replaceChildren();
@@ -531,6 +599,27 @@
       if (confirm(`¿Quitar ${nameFor(entry)} del inventario?`)) apply(removeCard(inventory, entry), `Quitada: ${nameFor(entry)}`);
     });
     cell.append(sell, remove);
+    return cell;
+  }
+
+  // Exact quantity, edited in place. An invalid value (empty, 0, decimals) is
+  // refused by setQty and the field goes back to the stored quantity.
+  function qtyCell(entry) {
+    const cell = el('td', { className: 'qty' });
+    const input = el('input', { type: 'number', min: 1, step: 1, inputMode: 'numeric', value: String(entry.qty) });
+    input.setAttribute('aria-label', `Cantidad de ${nameFor(entry)}`);
+    input.addEventListener('change', () => {
+      const qty = Number(input.value);
+      if (qty === entry.qty) return;
+      const result = setQty(inventory, entry, qty);
+      if (!result.ok) {
+        input.value = String(entry.qty);
+        showErrors(['La cantidad debe ser un número entero mayor que 0. Para sacar la carta del inventario usa "Quitar".']);
+        return;
+      }
+      apply(result, `Cantidad de ${nameFor(entry)}: ${qty}`);
+    });
+    cell.append(input);
     return cell;
   }
 
@@ -565,16 +654,21 @@
       const price = priceFor(entry);
       const row = el('tr');
       const name = el('td', { className: 'name' });
-      name.append(document.createTextNode(nameFor(entry)));
-      if (entry.variant) name.append(el('span', { className: 'set' }, ` · ${entry.variant}`));
-      if (entry.condition && entry.condition !== 'NM') name.append(el('span', { className: 'set' }, ` · ${entry.condition}`));
-      if (!item) name.append(el('span', { className: 'set' }, ' (pendiente: corre npm run deploy)'));
+      const label = el('span');
+      label.append(document.createTextNode(nameFor(entry)));
+      if (entry.variant) label.append(el('span', { className: 'set' }, ` · ${entry.variant}`));
+      if (entry.condition && entry.condition !== 'NM') label.append(el('span', { className: 'set' }, ` · ${entry.condition}`));
+      if (!item) label.append(el('span', { className: 'set' }, ' (pendiente: corre npm run deploy)'));
+      const title = [nameFor(entry), item?.set, numberLabel(item?.number)].filter(Boolean).join(' · ');
+      const nameCell = el('div', { className: 'name-cell' });
+      nameCell.append(thumbButton(imageFor(entry), largeFor(entry), title), label);
+      name.append(nameCell);
       row.append(
         name,
         el('td', { className: 'set' }, item?.set ?? '—'),
         el('td', { className: 'set' }, numberLabel(item?.number) || '—'),
         el('td', {}, LANGUAGES[entry.language ?? item?.language ?? 'EN'] ?? (entry.language ?? '—')),
-        el('td', { className: 'qty' }, String(entry.qty)),
+        qtyCell(entry),
         el('td', { className: 'price' }, price == null ? '—' : cop.format(price) + (entry.price != null ? ' (manual)' : '')),
         rowActions(entry),
       );
@@ -607,7 +701,51 @@
     setStatus(message ? `${message}.` : '');
     renderRows();
     renderTray();
+    saveSoon();
   }
+
+  // --- Autosave ---------------------------------------------------------------
+  // Every change is written to singles.json through scripts/serve.mjs, so the
+  // download-and-replace step is gone. Saves run one at a time and always send
+  // the latest inventory; a burst of edits ends in one final write.
+  let saveTimer;
+  let saveChain = Promise.resolve();
+  let unsaved = false;
+
+  function setSaveState(state, text) {
+    $('save-state').dataset.state = state;
+    $('save-state').textContent = text;
+  }
+
+  function saveSoon() {
+    unsaved = true;
+    setSaveState('pending', 'Cambios sin guardar…');
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => { saveChain = saveChain.then(saveNow); }, 400);
+  }
+
+  async function saveNow() {
+    setSaveState('saving', 'Guardando…');
+    try {
+      const res = await fetch('singles.json', {
+        method: 'PUT',
+        headers: { 'content-type': 'application/json' },
+        body: serializeInventory(inventory),
+      });
+      const body = await res.json().catch(() => ({}));
+      // Only an explicit { ok: true } counts: an older npm run serve answers this
+      // PUT with the file itself and a 200, without writing anything.
+      if (!res.ok || body.ok !== true) throw new Error(body.errors?.join(' ') || 'el servidor no confirmó el guardado; reinicia npm run serve');
+      unsaved = false;
+      setSaveState('saved', 'Guardado en singles.json');
+    } catch (err) {
+      // Nothing is lost: the inventory stays in the page and "Descargar copia" still works.
+      setSaveState('error', 'No se pudo guardar');
+      showErrors([`No se guardó singles.json (${err.message}). Revisa que npm run serve siga abierto, o usa "Descargar copia".`]);
+    }
+  }
+
+  addEventListener('beforeunload', (e) => { if (unsaved) e.preventDefault(); });
 
   const intOrNull = (value) => (value === '' ? null : Number(value));
 
@@ -748,6 +886,7 @@
     tray = tray.filter((card) => !committed.has(card.name));
     renderTray();
     renderRows();
+    saveSoon();
   });
 
   function exportInventory() {
@@ -762,7 +901,7 @@
     a.click();
     a.remove();
     URL.revokeObjectURL(url);
-    setStatus('singles.json descargado. Reemplaza el archivo del repositorio y corre npm run prices.');
+    setStatus('Copia de singles.json descargada.');
   }
 
   $('export').addEventListener('click', exportInventory);
