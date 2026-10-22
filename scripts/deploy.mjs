@@ -95,12 +95,9 @@ async function main() {
   // prevent. Both are read before deciding anything.
   const pending = parsePendingCommits(git('log', `origin/${branch}..HEAD`, '--oneline'));
 
-  const initial = decideAction(parseChangedPaths(git('status', '--porcelain')), pending);
-  if (!initial.publish) {
-    console.log('No hay cambios que publicar.');
-    return;
-  }
-
+  // Always regenerate first: a singles.json already committed and pushed leaves
+  // a clean tree, yet catalog.json can still be stale. Deciding before this step
+  // reported "nothing to publish" while the site showed the old inventory.
   console.log('Regenerando catalog.json…');
   try {
     execFileSync('npm', ['run', 'prices'], { cwd: ROOT, stdio: 'inherit' });
@@ -125,6 +122,11 @@ async function main() {
 
   const paths = parseChangedPaths(git('status', '--porcelain'));
   const action = decideAction(paths, pending);
+  if (!action.publish) {
+    console.log('');
+    console.log('No hay cambios que publicar.');
+    return;
+  }
 
   console.log('');
   if (paths.length) {

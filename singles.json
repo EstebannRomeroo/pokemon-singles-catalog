@@ -1286,14 +1286,6 @@
   {
     "game": "magic",
     "group": 24220,
-    "product": 631204,
-    "qty": 1,
-    "condition": "NM",
-    "language": "EN"
-  },
-  {
-    "game": "magic",
-    "group": 24220,
     "product": 631229,
     "qty": 1,
     "condition": "NM",
@@ -1327,14 +1319,6 @@
     "game": "magic",
     "group": 24219,
     "product": 634184,
-    "qty": 1,
-    "condition": "NM",
-    "language": "EN"
-  },
-  {
-    "game": "magic",
-    "group": 24219,
-    "product": 631595,
     "qty": 1,
     "condition": "NM",
     "language": "EN"
@@ -1807,6 +1791,14 @@
     "game": "pokemon",
     "group": 24269,
     "product": 632981,
+    "qty": 1,
+    "condition": "NM",
+    "language": "EN"
+  },
+  {
+    "game": "magic",
+    "group": 24220,
+    "product": 635443,
     "qty": 1,
     "condition": "NM",
     "language": "EN"
