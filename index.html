@@ -75,8 +75,8 @@
   .pdf:disabled { opacity: .6; cursor: progress; }
   .want { margin-top: 12px; width: 100%; display: flex; align-items: center; justify-content: center; text-decoration: none; min-height: 44px; border-radius: 10px; transition: background-color .2s var(--ease); }
   .add-cart { margin-top: 12px; width: 100%; border-color: var(--green); color: var(--ink); background: color-mix(in srgb, #2ECC71 12%, #FFF); }
-  .add-cart:not(:disabled):hover { background: var(--green); }
-  .add-cart:disabled { cursor: default; border-color: var(--line); background: var(--card); color: var(--deep); }
+  .add-cart:not([aria-disabled="true"]):hover { background: var(--green); }
+  .add-cart[aria-disabled="true"] { cursor: default; border-color: var(--line); background: var(--card); color: var(--deep); }
   .lb-info .add-cart { margin-top: -6px; }
   /* Floating cart button: only shown once something is in the cart. */
   .cart-open { position: fixed; right: 16px; bottom: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--ink); color: var(--pale); box-shadow: 0 10px 30px -10px rgb(14 42 35 / .6); }
@@ -526,9 +526,14 @@
     const item = itemById(button.dataset.id);
     if (!item) return;
     const n = cart[item.id] ?? 0;
-    button.disabled = n >= item.qty;
-    button.textContent = n === 0 ? 'Agregar al carrito' : n >= item.qty ? `En el carrito · ${n}` : `Agregar otra · ${n}`;
-    button.setAttribute('aria-label', n === 0 ? `Agregar ${item.name} al carrito` : `${item.name}: ${plural(n, 'copia', 'copias')} en el carrito`);
+    const full = n >= item.qty;
+    // aria-disabled, not disabled: a disabled button drops keyboard focus the moment
+    // the last copy is added. addToCart already ignores clicks past the stock.
+    button.setAttribute('aria-disabled', String(full));
+    button.textContent = n === 0 ? 'Agregar al carrito' : full ? `En el carrito · ${n}` : `Agregar otra · ${n}`;
+    button.setAttribute('aria-label', n === 0 ? `Agregar ${item.name} al carrito`
+      : full ? `${item.name}: ${plural(n, 'copia', 'copias')} en el carrito, no hay más disponibles`
+      : `Agregar otra copia de ${item.name}, ${n} en el carrito`);
   }
 
   function cartButton(item) {
