@@ -710,7 +710,11 @@
   // the latest inventory; a burst of edits ends in one final write.
   let saveTimer;
   let saveChain = Promise.resolve();
-  let unsaved = false;
+  // Every change bumps the revision. A save only clears "unsaved" if no newer
+  // change arrived while it was in flight, so closing the tab still warns then.
+  let revision = 0;
+  let savedRevision = 0;
+  const unsaved = () => revision !== savedRevision;
 
   function setSaveState(state, text) {
     $('save-state').dataset.state = state;
@@ -718,7 +722,7 @@
   }
 
   function saveSoon() {
-    unsaved = true;
+    revision += 1;
     setSaveState('pending', 'Cambios sin guardar…');
     clearTimeout(saveTimer);
     saveTimer = setTimeout(() => { saveChain = saveChain.then(saveNow); }, 400);
@@ -726,6 +730,7 @@
 
   async function saveNow() {
     setSaveState('saving', 'Guardando…');
+    const sending = revision;
     try {
       const res = await fetch('singles.json', {
         method: 'PUT',
@@ -736,8 +741,10 @@
       // Only an explicit { ok: true } counts: an older npm run serve answers this
       // PUT with the file itself and a 200, without writing anything.
       if (!res.ok || body.ok !== true) throw new Error(body.errors?.join(' ') || 'el servidor no confirmó el guardado; reinicia npm run serve');
-      unsaved = false;
-      setSaveState('saved', 'Guardado en singles.json');
+      savedRevision = sending;
+      // A newer change is waiting for its own save; do not claim it is stored.
+      if (unsaved()) setSaveState('pending', 'Cambios sin guardar…');
+      else setSaveState('saved', 'Guardado en singles.json');
     } catch (err) {
       // Nothing is lost: the inventory stays in the page and "Descargar copia" still works.
       setSaveState('error', 'No se pudo guardar');
@@ -745,7 +752,7 @@
     }
   }
 
-  addEventListener('beforeunload', (e) => { if (unsaved) e.preventDefault(); });
+  addEventListener('beforeunload', (e) => { if (unsaved()) e.preventDefault(); });
 
   const intOrNull = (value) => (value === '' ? null : Number(value));
 

@@ -33,3 +33,7 @@ Make inventory updates in `admin.html` faster and less error-prone: see each car
 - Chromium at 1280px and 390px: row thumbnails load, "ver carta" opens the large image, quantity edit autosaves to disk, 0 is refused with a Spanish message and the field reverts, search choices show 10/10 images. Restoring the quantity left the copy byte-identical to the real singles.json.
 - Found while verifying: an older `npm run serve` answers PUT /singles.json with the file and 200 without writing, so the panel now requires `{ ok: true }` before showing "Guardado". Simulated old server shows "No se pudo guardar".
 - `npm test`: 210 pass, 3 fail (logo/favicon tests, already failing on main).
+- Native review approved 6bf12dc with follow-ups; fixed two of them:
+  - Request body decoded per chunk could corrupt a multi-byte character split across chunks. `readBody` joins bytes before decoding (RED/GREEN unit test); an ~80 KB accented body saved intact end to end.
+  - Autosave could report "Guardado" while a newer edit was still pending, so closing the tab would not warn. Saves now track a revision; a slowed-down save race showed the warning while pending and both edits on disk afterwards.
+- `npm test`: 212 pass, 3 fail (same logo/favicon tests).

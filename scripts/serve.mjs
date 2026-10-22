@@ -120,6 +120,19 @@ export function parseInventoryBody(text) {
   return errors.length ? { ok: false, errors } : { ok: true, inventory };
 }
 
+// Joins the raw byte chunks first and decodes once: decoding chunk by chunk
+// corrupts any multi-byte character (é, ñ) that straddles two chunks.
+export async function readBody(stream, limit) {
+  const chunks = [];
+  let size = 0;
+  for await (const chunk of stream) {
+    size += chunk.length;
+    if (size > limit) return { ok: false };
+    chunks.push(chunk);
+  }
+  return { ok: true, text: Buffer.concat(chunks).toString('utf8') };
+}
+
 const sendJson = (res, status, body) =>
   res.writeHead(status, { 'content-type': 'application/json; charset=utf-8' }).end(JSON.stringify(body));
 
@@ -131,12 +144,9 @@ async function saveInventory(req, res) {
     contentType: req.headers['content-type'],
   });
   if (!allowed) return sendJson(res, 403, { ok: false, errors: ['solo el panel local puede guardar el inventario'] });
-  let text = '';
-  for await (const chunk of req) {
-    text += chunk;
-    if (text.length > MAX_BODY) return sendJson(res, 413, { ok: false, errors: ['el inventario es demasiado grande'] });
-  }
-  const parsed = parseInventoryBody(text);
+  const body = await readBody(req, MAX_BODY);
+  if (!body.ok) return sendJson(res, 413, { ok: false, errors: ['el inventario es demasiado grande'] });
+  const parsed = parseInventoryBody(body.text);
   if (!parsed.ok) return sendJson(res, 400, parsed);
   // Write a temp file and rename it over the real one, so a crash mid-write
   // never leaves a truncated singles.json behind.

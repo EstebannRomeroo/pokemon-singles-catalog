@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { isAllowedProxyPath, proxyTargetUrl, staticContentType, filterProductByNumber, isPublicPath, isAllowedProxyRequest, canWriteInventory, parseInventoryBody } from './serve.mjs';
+import { isAllowedProxyPath, proxyTargetUrl, staticContentType, filterProductByNumber, isPublicPath, isAllowedProxyRequest, canWriteInventory, parseInventoryBody, readBody } from './serve.mjs';
 
 // The proxy must only forward TCGCSV paths, never arbitrary URLs.
 // Without this guard the local server becomes an open proxy for any origin.
@@ -123,4 +123,18 @@ test('parseInventoryBody returns a valid inventory and rejects anything else', (
   assert.equal(parseInventoryBody('not json').ok, false);
   assert.equal(parseInventoryBody('{}').ok, false);
   assert.equal(parseInventoryBody(JSON.stringify([{ game: 'pokemon', group: 1, product: 2, qty: 0 }])).ok, false);
+});
+
+// A request body arrives in chunks of bytes. A multi-byte character such as "é"
+// can be split across two chunks, so the bytes must be joined before decoding.
+test('readBody decodes a character split across chunks', async () => {
+  const bytes = Buffer.from('[{"variant":"Café"}]', 'utf8');
+  const cut = bytes.indexOf(0xc3) + 1; // between the two bytes of "é"
+  async function* chunks() { yield bytes.subarray(0, cut); yield bytes.subarray(cut); }
+  assert.deepEqual(await readBody(chunks(), 1024), { ok: true, text: '[{"variant":"Café"}]' });
+});
+
+test('readBody stops at the byte limit', async () => {
+  async function* chunks() { yield Buffer.alloc(600); yield Buffer.alloc(600); }
+  assert.deepEqual(await readBody(chunks(), 1000), { ok: false });
 });
