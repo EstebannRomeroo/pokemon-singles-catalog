@@ -1,7 +1,9 @@
 import { createServer } from 'node:http';
-import { readFile, stat } from 'node:fs/promises';
+import { readFile, rename, stat, writeFile } from 'node:fs/promises';
 import { extname, join, normalize } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { validateSingles } from './catalog.mjs';
+import { serializeInventory } from './inventory.mjs';
 
 // The local companion server for admin.html.
 //
@@ -87,6 +89,78 @@ export const isPublicPath = (pathname) =>
   PUBLIC_PREFIXES.some((p) => pathname.startsWith(p)) ||
   (/^\/scripts\/[A-Za-z0-9._-]+\.(mjs|js|css)$/.test(pathname) && !pathname.endsWith('.test.mjs'));
 
+// --- Saving the inventory from the panel ------------------------------------
+// PUT /singles.json writes the file on disk, so the panel no longer needs the
+// download-and-replace step. Writing is a privilege, so three checks gate it:
+// - the client is this machine (the server listens on every interface);
+// - Host is this server by name, so a DNS-rebinding page cannot pose as it;
+// - Origin is this server, so no other website can post to localhost from the
+//   user's browser. A JSON content type also forces a CORS preflight, which
+//   this server never answers.
+const LOOPBACK = new Set(['127.0.0.1', '::1', '::ffff:127.0.0.1']);
+const MAX_BODY = 2 * 1024 * 1024;
+
+export function canWriteInventory({ remoteAddress, origin, host, contentType }) {
+  const hosts = [`localhost:${port}`, `127.0.0.1:${port}`, `[::1]:${port}`];
+  return LOOPBACK.has(remoteAddress)
+    && hosts.includes(host)
+    && origin === `http://${host}`
+    && String(contentType ?? '').toLowerCase().startsWith('application/json');
+}
+
+// Same rules as npm run prices, so the panel can never write a file it rejects.
+export function parseInventoryBody(text) {
+  let inventory;
+  try {
+    inventory = JSON.parse(text);
+  } catch {
+    return { ok: false, errors: ['el cuerpo no es JSON válido'] };
+  }
+  const errors = validateSingles(inventory);
+  return errors.length ? { ok: false, errors } : { ok: true, inventory };
+}
+
+// Joins the raw byte chunks first and decodes once: decoding chunk by chunk
+// corrupts any multi-byte character (é, ñ) that straddles two chunks.
+export async function readBody(stream, limit) {
+  const chunks = [];
+  let size = 0;
+  for await (const chunk of stream) {
+    size += chunk.length;
+    if (size > limit) return { ok: false };
+    chunks.push(chunk);
+  }
+  return { ok: true, text: Buffer.concat(chunks).toString('utf8') };
+}
+
+const sendJson = (res, status, body) =>
+  res.writeHead(status, { 'content-type': 'application/json; charset=utf-8' }).end(JSON.stringify(body));
+
+async function saveInventory(req, res) {
+  const allowed = canWriteInventory({
+    remoteAddress: req.socket.remoteAddress,
+    origin: req.headers.origin,
+    host: req.headers.host,
+    contentType: req.headers['content-type'],
+  });
+  if (!allowed) return sendJson(res, 403, { ok: false, errors: ['solo el panel local puede guardar el inventario'] });
+  const body = await readBody(req, MAX_BODY);
+  if (!body.ok) return sendJson(res, 413, { ok: false, errors: ['el inventario es demasiado grande'] });
+  const parsed = parseInventoryBody(body.text);
+  if (!parsed.ok) return sendJson(res, 400, parsed);
+  // Write a temp file and rename it over the real one, so a crash mid-write
+  // never leaves a truncated singles.json behind.
+  const target = join(ROOT, 'singles.json');
+  const temp = `${target}.tmp`;
+  try {
+    await writeFile(temp, serializeInventory(parsed.inventory));
+    await rename(temp, target);
+  } catch (err) {
+    return sendJson(res, 500, { ok: false, errors: [`no se pudo escribir singles.json: ${err.message}`] });
+  }
+  return sendJson(res, 200, { ok: true, entries: parsed.inventory.length });
+}
+
 async function proxy(res, pathname) {
   const url = proxyTargetUrl(pathname);
   let upstream;
@@ -106,6 +180,10 @@ async function proxy(res, pathname) {
 
 const server = createServer(async (req, res) => {
   const { pathname } = new URL(req.url, 'http://localhost');
+  if (req.method === 'PUT' && pathname === '/singles.json') {
+    await saveInventory(req, res);
+    return;
+  }
   if (isAllowedProxyRequest(req.url)) {
     await proxy(res, pathname);
     return;

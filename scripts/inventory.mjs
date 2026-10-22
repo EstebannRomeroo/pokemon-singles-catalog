@@ -45,6 +45,16 @@ export function sellCard(inventory, { game, product, variant }) {
   };
 }
 
+// Sets an exact quantity. Zero is refused on purpose: removing a card is "Quitar",
+// so a mistyped 0 never deletes an entry by accident.
+export function setQty(inventory, { game, product, variant }, qty) {
+  const keys = { game, product, variant };
+  if (!isPositiveInteger(qty)) return { ok: false, errors: [`${label(keys)}: qty must be a positive integer (got ${JSON.stringify(qty)})`] };
+  const index = inventory.findIndex((entry) => matches(entry, keys));
+  if (index < 0) return { ok: false, errors: [`no inventory entry for ${label(keys)}`] };
+  return { ok: true, inventory: inventory.map((entry, i) => (i === index ? { ...entry, qty } : entry)) };
+}
+
 // Exact text of the singles.json file to download: 2-space indent plus a trailing newline.
 export function serializeInventory(inventory) {
   return JSON.stringify(inventory, null, 2) + '\n';

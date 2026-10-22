@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { isAllowedProxyPath, proxyTargetUrl, staticContentType, filterProductByNumber, isPublicPath, isAllowedProxyRequest } from './serve.mjs';
+import { isAllowedProxyPath, proxyTargetUrl, staticContentType, filterProductByNumber, isPublicPath, isAllowedProxyRequest, canWriteInventory, parseInventoryBody, readBody } from './serve.mjs';
 
 // The proxy must only forward TCGCSV paths, never arbitrary URLs.
 // Without this guard the local server becomes an open proxy for any origin.
@@ -94,4 +94,47 @@ test('isPublicPath refuses private repository files', () => {
   assert.equal(isPublicPath('/scripts/inventory.test.mjs'), false);
   assert.equal(isPublicPath('/.env'), false);
   assert.equal(isPublicPath('/odd/tasks/inventory-panel.md'), false);
+});
+
+// The write endpoint changes a file on disk, so it must accept only the panel
+// itself: a request from this machine, sent by a page served from this server.
+// A checked Origin is what stops any other website from posting to localhost.
+test('canWriteInventory accepts only same-origin requests from this machine', () => {
+  const ok = { remoteAddress: '127.0.0.1', origin: 'http://localhost:8000', host: 'localhost:8000', contentType: 'application/json' };
+  assert.equal(canWriteInventory(ok), true);
+  assert.equal(canWriteInventory({ ...ok, remoteAddress: '::1' }), true);
+  assert.equal(canWriteInventory({ ...ok, remoteAddress: '::ffff:127.0.0.1' }), true);
+  assert.equal(canWriteInventory({ ...ok, origin: 'http://127.0.0.1:8000', host: '127.0.0.1:8000' }), true);
+});
+
+test('canWriteInventory rejects other devices, other sites and missing headers', () => {
+  const ok = { remoteAddress: '127.0.0.1', origin: 'http://localhost:8000', host: 'localhost:8000', contentType: 'application/json' };
+  assert.equal(canWriteInventory({ ...ok, remoteAddress: '192.168.1.20' }), false);
+  assert.equal(canWriteInventory({ ...ok, origin: 'https://evil.example' }), false);
+  assert.equal(canWriteInventory({ ...ok, origin: 'http://localhost:9999' }), false);
+  assert.equal(canWriteInventory({ ...ok, origin: undefined }), false);
+  assert.equal(canWriteInventory({ ...ok, host: 'evil.example:8000', origin: 'http://evil.example:8000' }), false);
+  assert.equal(canWriteInventory({ ...ok, contentType: 'text/plain' }), false);
+});
+
+test('parseInventoryBody returns a valid inventory and rejects anything else', () => {
+  const good = JSON.stringify([{ game: 'pokemon', group: 1, product: 2, qty: 1 }]);
+  assert.deepEqual(parseInventoryBody(good), { ok: true, inventory: [{ game: 'pokemon', group: 1, product: 2, qty: 1 }] });
+  assert.equal(parseInventoryBody('not json').ok, false);
+  assert.equal(parseInventoryBody('{}').ok, false);
+  assert.equal(parseInventoryBody(JSON.stringify([{ game: 'pokemon', group: 1, product: 2, qty: 0 }])).ok, false);
+});
+
+// A request body arrives in chunks of bytes. A multi-byte character such as "é"
+// can be split across two chunks, so the bytes must be joined before decoding.
+test('readBody decodes a character split across chunks', async () => {
+  const bytes = Buffer.from('[{"variant":"Café"}]', 'utf8');
+  const cut = bytes.indexOf(0xc3) + 1; // between the two bytes of "é"
+  async function* chunks() { yield bytes.subarray(0, cut); yield bytes.subarray(cut); }
+  assert.deepEqual(await readBody(chunks(), 1024), { ok: true, text: '[{"variant":"Café"}]' });
+});
+
+test('readBody stops at the byte limit', async () => {
+  async function* chunks() { yield Buffer.alloc(600); yield Buffer.alloc(600); }
+  assert.deepEqual(await readBody(chunks(), 1000), { ok: false });
 });
