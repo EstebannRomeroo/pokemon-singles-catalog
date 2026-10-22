@@ -97,7 +97,12 @@ async function main() {
   // Bring in what GitHub already has (a pull request merged on the web, the daily
   // price Action) before committing anything. Without this the final push is
   // rejected as non-fast-forward after the user already confirmed the publish.
-  git('fetch', 'origin', branch);
+  try {
+    git('fetch', 'origin', branch);
+  } catch {
+    console.error('\nNo se pudo conectar con GitHub (¿sin internet?). No se publicó nada.');
+    process.exit(1);
+  }
   const behind = Number(git('rev-list', '--count', `HEAD..origin/${branch}`).trim());
   if (behind > 0) {
     console.log(`Trayendo ${plural(behind, 'cambio', 'cambios')} de GitHub…`);
@@ -114,14 +119,17 @@ async function main() {
     const conflicts = git('diff', '--name-only', '--diff-filter=U').trim();
     if (!pulled || conflicts) {
       console.error('\nNo se pudieron traer los cambios de GitHub sin conflictos. No se publicó nada.');
-      if (conflicts) {
+      if (pulled) {
         // The pull succeeded; re-applying the user's own edits is what clashed.
         // Those edits are still in the stash, so nothing is lost.
         console.error(`  Tú y GitHub cambiaron lo mismo en: ${conflicts.split('\n').join(', ')}`);
         console.error('  Tus cambios siguen guardados (git stash list). Abre el archivo, deja los valores correctos,');
         console.error('  borra las marcas <<<<<<< ======= >>>>>>>, corre git stash drop y vuelve a correr npm run deploy.');
       } else {
-        console.error('  Revisa con git status. Si quedó un rebase a medias, git rebase --abort lo deshace.');
+        // A failed rebase keeps the autostash inside the rebase, not in git stash list;
+        // aborting restores both the commits and the uncommitted edits.
+        console.error('  Revisa con git status. Si quedó un rebase a medias, git rebase --abort lo deshace');
+        console.error('  y te devuelve tus cambios tal como estaban.');
       }
       process.exit(1);
     }
