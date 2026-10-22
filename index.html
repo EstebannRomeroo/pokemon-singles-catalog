@@ -74,7 +74,55 @@
   .pdf:hover, .want:hover { background: var(--lime); border-color: var(--lime); }
   .pdf:disabled { opacity: .6; cursor: progress; }
   .want { margin-top: 12px; width: 100%; display: flex; align-items: center; justify-content: center; text-decoration: none; min-height: 44px; border-radius: 10px; transition: background-color .2s var(--ease); }
-  .toast { position: fixed; left: 50%; bottom: 24px; translate: -50% 0; max-width: calc(100% - 32px); padding: 12px 16px; border-radius: 10px; background: var(--ink); color: var(--pale); font-size: .9rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .2s var(--ease); }
+  .add-cart { margin-top: 12px; width: 100%; border-color: var(--green); color: var(--ink); background: color-mix(in srgb, #2ECC71 12%, #FFF); }
+  .add-cart:not(:disabled):hover { background: var(--green); }
+  .add-cart:disabled { cursor: default; border-color: var(--line); background: var(--card); color: var(--deep); }
+  .lb-info .add-cart { margin-top: -6px; }
+  /* Floating cart button: only shown once something is in the cart. */
+  .cart-open { position: fixed; right: 16px; bottom: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--ink); color: var(--pale); box-shadow: 0 10px 30px -10px rgb(14 42 35 / .6); }
+  .cart-open[hidden] { display: none; }
+  .cart-open svg { width: 22px; height: 22px; }
+  .cart-open:focus-visible { outline-color: var(--lime); }
+  .cart-badge { min-width: 24px; padding: 2px 6px; border-radius: 999px; background: var(--green); color: var(--ink); font-size: .85rem; text-align: center; font-variant-numeric: tabular-nums; }
+  main.wrap { padding-bottom: 96px; }
+  html:has(.cart[open]) { overflow: hidden; }
+  /* Side panel on desktop, bottom sheet on phones. */
+  .cart { margin: 0 0 0 auto; padding: 0; border: 0; width: min(440px, 100%); height: 100%; max-width: none; max-height: none; background: var(--page); color: var(--ink); box-shadow: -20px 0 50px -20px rgb(0 0 0 / .4); }
+  .cart[open] { display: flex; flex-direction: column; }
+  .cart::backdrop { background: rgb(14 42 35 / .55); }
+  .cart-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 16px 12px 20px; border-bottom: 1px solid var(--line); }
+  .cart-head h2 { margin: 0; font-size: 1.25rem; }
+  .cart .close-x { position: static; }
+  .cart-empty { margin: 0; padding: 32px 20px; color: var(--deep); }
+  .cart-empty[hidden], .cart-foot[hidden], .cart-fallback[hidden] { display: none; }
+  .cart-list { flex: 1 1 auto; overflow-y: auto; overscroll-behavior: contain; list-style: none; margin: 0; padding: 8px 20px; }
+  .cart-line { display: flex; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .cart-line:last-child { border-bottom: 0; }
+  .cart-thumb { flex: none; width: 48px; height: 67px; border-radius: 5px; object-fit: contain; background: var(--pale); }
+  .cart-text { flex: 1 1 auto; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .cart-text strong { line-height: 1.3; overflow-wrap: anywhere; }
+  .cart-text span { font-size: .8rem; color: var(--deep); }
+  .cart-side { flex: none; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+  .cart-sub { font-weight: 700; color: var(--deep); font-variant-numeric: tabular-nums; }
+  .stepper { display: flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; background: var(--card); }
+  .stepper button { width: 40px; min-height: 40px; padding: 0; border: 0; background: none; font-size: 1.1rem; }
+  .stepper button:disabled { opacity: .35; cursor: default; }
+  .stepper output { min-width: 24px; text-align: center; font-weight: 600; font-variant-numeric: tabular-nums; }
+  .cart-remove { min-height: 32px; padding: 0 4px; border: 0; background: none; font-size: .8rem; font-weight: 600; color: var(--deep); text-decoration: underline; text-underline-offset: 2px; }
+  .cart-foot { flex: none; display: flex; flex-direction: column; gap: 8px; padding: 16px 20px calc(16px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--card); }
+  .cart-sum { margin: 0; display: flex; justify-content: space-between; align-items: baseline; font-weight: 600; }
+  .cart-sum strong { font-size: 1.4rem; color: var(--deep); font-variant-numeric: tabular-nums; }
+  .cart-help, .cart-status { margin: 0; font-size: .8rem; color: var(--deep); }
+  .cart-status { font-weight: 600; }
+  .cart-status:empty { display: none; }
+  .cart-fallback { width: 100%; padding: 8px 10px; border: 1px solid var(--line); border-radius: 10px; font: .8rem/1.4 ui-monospace, monospace; resize: vertical; }
+  .cart-actions { display: flex; gap: 10px; }
+  .cart-actions .pdf { flex: 1; }
+  .ghost:hover { border-color: var(--lime); }
+  @media (max-width: 600px) {
+    .cart { margin: auto 0 0; width: 100%; height: auto; max-height: 88dvh; border-radius: 18px 18px 0 0; box-shadow: 0 -20px 50px -20px rgb(0 0 0 / .4); }
+  }
+  .toast { position: fixed; left: 50%; bottom: 84px; translate: -50% 0; max-width: calc(100% - 32px); padding: 12px 16px; border-radius: 10px; background: var(--ink); color: var(--pale); font-size: .9rem; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity .2s var(--ease); }
   .toast.show { opacity: 1; }
   footer.wrap { padding-bottom: 40px; font-size: .8rem; color: var(--deep); }
   .print-only { display: none; }
@@ -137,13 +185,14 @@
     .card h3 { font-size: .95rem; margin-top: 10px; }
     .price { font-size: 1.1rem; }
     .buy { flex-direction: column; align-items: flex-start; gap: 2px; }
+    .add-cart { padding: 0 6px; font-size: .85rem; }
   }
   @media print {
     @page { size: A4; margin: 0; }
     html, body { print-color-adjust: exact; -webkit-print-color-adjust: exact; }
     .wrap { max-width: none; padding: 0 10mm; }
     .header-row { padding-top: 8mm; padding-bottom: 6mm; }
-    .tabs, .controls, .pdf, .status, .note, .want, .toast, .viewer { display: none !important; }
+    .tabs, .controls, .pdf, .status, .note, .want, .toast, .viewer, .add-cart, .cart-open, .cart { display: none !important; }
     html { overflow: visible !important; }
     .logo { width: 60px; }
     main.wrap { padding-top: 6mm; padding-bottom: 0; }
@@ -210,8 +259,34 @@
     <div class="lb-info" id="viewer-info"></div>
   </div>
 </dialog>
+<button class="cart-open" id="cart-open" type="button" hidden>
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 6h15l-1.5 9h-12z"/><path d="M6 6 5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="18" cy="20" r="1.5"/></svg>
+  Carrito <span class="cart-badge" id="cart-count">0</span>
+</button>
+<dialog class="cart" id="cart" aria-labelledby="cart-title">
+  <div class="cart-head">
+    <h2 id="cart-title">Tu pedido</h2>
+    <button class="close-x" id="cart-close" type="button" aria-label="Cerrar carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <p class="cart-empty" id="cart-empty">Tu carrito está vacío. Agrega cartas desde el catálogo.</p>
+  <ul class="cart-list" id="cart-list"></ul>
+  <div class="cart-foot" id="cart-foot">
+    <p class="cart-sum">Total <strong id="cart-total"></strong></p>
+    <p class="cart-help">Copia el pedido y envíalo por el chat donde hablas con la tienda. La disponibilidad se confirma al responderte.</p>
+    <textarea class="cart-fallback" id="cart-fallback" rows="6" readonly hidden aria-label="Texto del pedido"></textarea>
+    <p class="cart-status" id="cart-status" role="status"></p>
+    <div class="cart-actions">
+      <button type="button" id="cart-clear" class="ghost">Vaciar</button>
+      <button type="button" id="cart-copy" class="pdf">Copiar pedido</button>
+    </div>
+  </div>
+</dialog>
 <p class="toast" id="toast" role="status"></p>
-<script>
+<script type="module">
+  // Cart rules live in a pure module so the test runner covers them.
+  import { addToCart, setCartQty, reconcileCart, cartLines, cartCount, orderMessage } from './scripts/cart.mjs';
   // WhatsApp Business short link (Settings → Business tools → Short link). It hides the number from the page;
   // buyers still see it once they write. Empty = no "Lo quiero" button.
   const WHATSAPP_LINK = '';
@@ -270,6 +345,7 @@
       el('p', { className: 'set' }, setLine(item)),
       tagList(item, true),
       buyRow(item),
+      cartButton(item),
       WHATSAPP_LINK ? wantButton(item) : '',
       priceNote(item),
     );
@@ -321,6 +397,7 @@
       stats.children.length ? stats : '',
       ...blocks,
       buyRow(item),
+      cartButton(item),
       WHATSAPP_LINK ? wantButton(item) : '',
       priceNote(item),
       link,
@@ -424,6 +501,108 @@
     clearTimeout(toastTimer);
     toastTimer = setTimeout(() => $('toast').classList.remove('show'), 4000);
   }
+
+  /* Order cart. It only builds the order text: the buyer copies it and sends it
+     through whatever chat they already use with the store. Browser storage keeps
+     it across visits on this device; without storage it still works for the visit. */
+  const CART_KEY = 'cart-v1';
+  let cart = {};
+  const itemById = (id) => items.find((i) => i.id === id);
+
+  function readStoredCart() {
+    try { return JSON.parse(localStorage.getItem(CART_KEY) ?? '{}'); } catch { return {}; }
+  }
+
+  function saveCart(next) {
+    cart = next;
+    try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch { /* private mode: keep it in memory */ }
+    renderCart();
+    for (const button of document.querySelectorAll('.add-cart')) syncCartButton(button);
+  }
+
+  function syncCartButton(button) {
+    const item = itemById(button.dataset.id);
+    if (!item) return;
+    const n = cart[item.id] ?? 0;
+    button.disabled = n >= item.qty;
+    button.textContent = n === 0 ? 'Agregar al carrito' : n >= item.qty ? `En el carrito · ${n}` : `Agregar otra · ${n}`;
+    button.setAttribute('aria-label', n === 0 ? `Agregar ${item.name} al carrito` : `${item.name}: ${plural(n, 'copia', 'copias')} en el carrito`);
+  }
+
+  function cartButton(item) {
+    const button = el('button', { type: 'button', className: 'add-cart' });
+    button.dataset.id = item.id;
+    button.addEventListener('click', () => {
+      const result = addToCart(cart, item);
+      if (result.added) saveCart(result.cart);
+    });
+    syncCartButton(button);
+    return button;
+  }
+
+  function cartLine({ item, qty, subtotal }) {
+    const li = el('li', { className: 'cart-line' });
+    const thumb = item.image ? el('img', { className: 'cart-thumb', src: item.image, alt: '', loading: 'lazy', width: 48, height: 67 }) : el('span', { className: 'cart-thumb' });
+    const text = el('div', { className: 'cart-text' });
+    text.append(
+      el('strong', {}, item.name),
+      el('span', {}, [setLine(item), item.variant && variantLabel(item.variant), item.condition].filter(Boolean).join(' · ')),
+      el('span', {}, `${cop.format(item.priceCop)} c/u`),
+    );
+    const step = el('div', { className: 'stepper' });
+    const less = el('button', { type: 'button' }, '−');
+    less.setAttribute('aria-label', `Una copia menos de ${item.name}`);
+    less.addEventListener('click', () => saveCart(setCartQty(cart, item, qty - 1)));
+    const more = el('button', { type: 'button', disabled: qty >= item.qty }, '+');
+    more.setAttribute('aria-label', `Una copia más de ${item.name}`);
+    more.addEventListener('click', () => saveCart(setCartQty(cart, item, qty + 1)));
+    step.append(less, el('output', {}, String(qty)), more);
+    const remove = el('button', { type: 'button', className: 'cart-remove' }, 'Quitar');
+    remove.setAttribute('aria-label', `Quitar ${item.name} del carrito`);
+    remove.addEventListener('click', () => saveCart(setCartQty(cart, item, 0)));
+    const side = el('div', { className: 'cart-side' });
+    side.append(el('span', { className: 'cart-sub' }, cop.format(subtotal)), step, remove);
+    li.append(thumb, text, side);
+    return li;
+  }
+
+  function renderCart() {
+    const lines = cartLines(cart, items);
+    const count = cartCount(cart);
+    $('cart-open').hidden = count === 0;
+    $('cart-count').textContent = String(count);
+    $('cart-open').setAttribute('aria-label', `Ver carrito: ${plural(count, 'carta', 'cartas')}`);
+    $('cart-list').replaceChildren(...lines.map(cartLine));
+    $('cart-empty').hidden = lines.length > 0;
+    $('cart-foot').hidden = lines.length === 0;
+    $('cart-total').textContent = cop.format(lines.reduce((sum, line) => sum + line.subtotal, 0));
+    $('cart-fallback').hidden = true;
+    $('cart-status').textContent = '';
+  }
+
+  const cartDialog = $('cart');
+  $('cart-open').addEventListener('click', () => { renderCart(); cartDialog.showModal(); });
+  $('cart-close').addEventListener('click', () => cartDialog.close());
+  // A click on the dimmed area outside the panel closes it.
+  cartDialog.addEventListener('click', (e) => { if (e.target === cartDialog) cartDialog.close(); });
+  $('cart-clear').addEventListener('click', () => {
+    if (confirm('¿Vaciar el carrito?')) saveCart({});
+  });
+  $('cart-copy').addEventListener('click', async () => {
+    const text = orderMessage(cartLines(cart, items), cop.format);
+    try {
+      await navigator.clipboard.writeText(text);
+      $('cart-fallback').hidden = true;
+      $('cart-status').textContent = 'Pedido copiado. Pégalo en el chat de la tienda para enviarlo.';
+    } catch {
+      // No clipboard (old browser, http): show the text selected so it can be copied by hand.
+      const box = $('cart-fallback');
+      box.value = text;
+      box.hidden = false;
+      box.select();
+      $('cart-status').textContent = 'No se pudo copiar automáticamente. Copia el texto seleccionado.';
+    }
+  });
 
   const inScope = () => items.filter((i) => !game || i.game === game);
   const gamesWithItems = () => GAMES.map(([g]) => g).filter((g) => items.some((i) => i.game === g));
@@ -535,6 +714,8 @@
     .then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); })
     .then((catalog) => {
       items = catalog.items;
+      // Before the first render, so every card button already shows its cart state.
+      saveCart(reconcileCart(readStoredCart(), items));
       const date = new Date(catalog.generatedAt).toLocaleDateString('es-CO', { dateStyle: 'long' });
       $('updated').textContent = `Precios en pesos colombianos · actualizados el ${date}`;
       renderTabs();
