@@ -77,7 +77,7 @@
   .add-cart { margin-top: 12px; width: 100%; border-color: var(--green); color: var(--ink); background: color-mix(in srgb, #2ECC71 12%, #FFF); }
   .add-cart:not([aria-disabled="true"]):hover { background: var(--green); }
   .add-cart[aria-disabled="true"] { cursor: default; border-color: var(--line); background: var(--card); color: var(--deep); }
-  .lb-info .add-cart { margin-top: -6px; }
+  .lb-info .add-cart { margin-top: -2px; }
   /* Floating cart button: only shown once something is in the cart. */
   .cart-open { position: fixed; right: 16px; bottom: 16px; z-index: 2; display: inline-flex; align-items: center; gap: 8px; min-height: 52px; padding: 0 18px; border: 0; border-radius: 999px; background: var(--ink); color: var(--pale); box-shadow: 0 10px 30px -10px rgb(14 42 35 / .6); }
   .cart-open[hidden] { display: none; }
@@ -133,7 +133,7 @@
   .viewer::backdrop { background: transparent; }
   .viewer[data-state="open"] { opacity: 1; }
   .viewer[data-state="closing"] { opacity: 0; transition-duration: .15s; }
-  .lb-wrap { display: flex; align-items: flex-start; gap: 24px; max-width: 960px; transform: scale(.96); transition: transform .2s ease-out; }
+  .lb-wrap { display: flex; align-items: center; gap: 24px; max-width: 1100px; transform: scale(.96); transition: transform .2s ease-out; }
   .viewer[data-state="open"] .lb-wrap { transform: none; }
   .viewer[data-state="closing"] .lb-wrap { transform: scale(.97); transition-duration: .15s; }
   /* With View Transitions the image morphs on its own; scaling the wrap too would double the motion. */
@@ -141,18 +141,20 @@
   .lb-media { flex: none; }
   .lb-img, .lb-media .no-img { display: block; height: min(80vh, 640px); width: auto; aspect-ratio: 245 / 342; object-fit: contain; border-radius: 16px; background: var(--pale); box-shadow: 0 30px 70px -24px rgb(0 0 0 / .6); }
   .lb-media .no-img { display: grid; place-items: center; color: var(--deep); font-size: .9rem; }
-  .lb-info { width: 360px; max-height: min(80vh, 640px); overflow-y: auto; display: flex; flex-direction: column; gap: 14px; padding: 20px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 20px 50px -24px rgb(0 0 0 / .5); }
+  /* The panel sizes to the viewport, not to the image: long rules text and attacks
+     get the full height and a wider column instead of an inner scroll. */
+  .lb-info { flex: 0 1 440px; min-width: 320px; max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); overflow-y: auto; display: flex; flex-direction: column; gap: 10px; padding: 18px 20px; background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: 0 20px 50px -24px rgb(0 0 0 / .5); }
   .lb-eyebrow { margin: 0; font-size: .8rem; color: var(--deep); }
-  .lb-name { margin: -8px 0 0; font-size: 1.5rem; line-height: 1.2; letter-spacing: -.01em; }
+  .lb-name { margin: -4px 0 0; font-size: 1.5rem; line-height: 1.2; letter-spacing: -.01em; }
   .lb-info .tags { margin: 0; }
-  .lb-stats { margin: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; }
+  .lb-stats { margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 8px 16px; }
   .lb-stats div { min-width: 0; }
   .lb-stats dt, .lb-block h3 { margin: 0; font-size: .7rem; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; color: var(--deep); }
   .lb-stats dd { margin: 0; font-weight: 600; overflow-wrap: anywhere; }
-  .lb-block p { margin: 4px 0 0; padding: 10px 12px; white-space: pre-line; overflow-wrap: anywhere; font-size: .9rem; line-height: 1.55; background: color-mix(in srgb, #D5F4E6 35%, #FFF); border: 1px solid var(--line); border-radius: 10px; }
+  .lb-block p { margin: 4px 0 0; padding: 8px 10px; white-space: pre-line; overflow-wrap: anywhere; font-size: .875rem; line-height: 1.45; background: color-mix(in srgb, #D5F4E6 35%, #FFF); border: 1px solid var(--line); border-radius: 10px; }
   .lb-info .buy { margin-top: 0; padding-top: 4px; }
   .lb-info .price { font-size: 1.7rem; }
-  .lb-info .want, .lb-info .note { margin-top: -6px; }
+  .lb-info .want, .lb-info .note { margin-top: -2px; }
   .lb-link { font-size: .85rem; color: var(--deep); text-underline-offset: 2px; }
   .close-x { position: fixed; top: 12px; right: 12px; z-index: 1; display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border-radius: 999px; }
   .close-x:hover { border-color: var(--lime); }
@@ -162,7 +164,7 @@
     .viewer[open] { place-items: start center; padding: 68px 16px 24px; }
     .lb-wrap { flex-direction: column; align-items: center; gap: 16px; width: 100%; }
     .lb-img, .lb-media .no-img { height: min(52vh, calc((100vw - 32px) * 342 / 245)); }
-    .lb-info { width: 100%; max-height: none; overflow: visible; }
+    .lb-info { flex: none; width: 100%; min-width: 0; max-height: none; overflow: visible; }
   }
   /* Zoom from the thumbnail (View Transitions): only the named card animates, the page does not crossfade. */
   @media not (prefers-reduced-motion: reduce) {
