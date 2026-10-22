@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-22T13:28:15.116Z",
+  "generatedAt": "2026-10-22T15:48:21.462Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -579,98 +579,6 @@
       ]
     },
     {
-      "id": "pokemon-712934",
-      "game": "pokemon",
-      "name": "Pikachu",
-      "set": "ME: 30th Celebration",
-      "number": "023/128",
-      "rarity": "Pikachu Rare",
-      "image": "https://tcgplayer-cdn.tcgplayer.com/product/712934_400w.jpg",
-      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/712934_in_1000x1000.jpg",
-      "variant": "Holofoil",
-      "priceVariant": "Holofoil",
-      "condition": "NM",
-      "language": "EN",
-      "qty": 1,
-      "usd": 0.86,
-      "priceCop": 3000,
-      "manual": false,
-      "tcgplayerUrl": "https://www.tcgplayer.com/product/712934/pokemon-me-30th-celebration-pikachu-023-128",
-      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
-      "details": [
-        {
-          "label": "Card Type",
-          "value": "Lightning"
-        },
-        {
-          "label": "HP",
-          "value": "70"
-        },
-        {
-          "label": "Stage",
-          "value": "Basic"
-        },
-        {
-          "label": "Attack 1",
-          "value": "[LC] Thundershock (20)\nFlip a coin. If heads, your opponent's Active Pokémon is now Paralyzed."
-        },
-        {
-          "label": "Weakness",
-          "value": "Fx2"
-        },
-        {
-          "label": "Retreat Cost",
-          "value": "1"
-        }
-      ]
-    },
-    {
-      "id": "pokemon-712942",
-      "game": "pokemon",
-      "name": "Pikachu",
-      "set": "ME: 30th Celebration",
-      "number": "038/128",
-      "rarity": "Pikachu Rare",
-      "image": "https://tcgplayer-cdn.tcgplayer.com/product/712942_400w.jpg",
-      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/712942_in_1000x1000.jpg",
-      "variant": "Holofoil",
-      "priceVariant": "Holofoil",
-      "condition": "NM",
-      "language": "EN",
-      "qty": 1,
-      "usd": 0.71,
-      "priceCop": 2500,
-      "manual": false,
-      "tcgplayerUrl": "https://www.tcgplayer.com/product/712942/pokemon-me-30th-celebration-pikachu-038-128",
-      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
-      "details": [
-        {
-          "label": "Card Type",
-          "value": "Lightning"
-        },
-        {
-          "label": "HP",
-          "value": "60"
-        },
-        {
-          "label": "Stage",
-          "value": "Basic"
-        },
-        {
-          "label": "Attack 1",
-          "value": "[L] Targeted Spark\nThis attack does 20 damage to 1 of your opponent's Pokémon. (Don't apply Weakness and Resistance for Benched Pokémon.)"
-        },
-        {
-          "label": "Weakness",
-          "value": "Fx2"
-        },
-        {
-          "label": "Retreat Cost",
-          "value": "1"
-        }
-      ]
-    },
-    {
       "id": "pokemon-712949",
       "game": "pokemon",
       "name": "Pikachu",
@@ -683,7 +591,7 @@
       "priceVariant": "Holofoil",
       "condition": "NM",
       "language": "EN",
-      "qty": 2,
+      "qty": 1,
       "usd": 0.63,
       "priceCop": 2500,
       "manual": false,
@@ -759,52 +667,6 @@
         {
           "label": "Retreat Cost",
           "value": "2"
-        }
-      ]
-    },
-    {
-      "id": "pokemon-716318",
-      "game": "pokemon",
-      "name": "Pikachu",
-      "set": "ME: 30th Celebration",
-      "number": "052/128",
-      "rarity": "Pikachu Rare",
-      "image": "https://tcgplayer-cdn.tcgplayer.com/product/716318_400w.jpg",
-      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/716318_in_1000x1000.jpg",
-      "variant": "Holofoil",
-      "priceVariant": "Holofoil",
-      "condition": "NM",
-      "language": "EN",
-      "qty": 1,
-      "usd": 0.69,
-      "priceCop": 2500,
-      "manual": false,
-      "tcgplayerUrl": "https://www.tcgplayer.com/product/716318/pokemon-me-30th-celebration-pikachu-052-128",
-      "priceUpdatedAt": "2026-10-21T20:05:22+0000",
-      "details": [
-        {
-          "label": "Card Type",
-          "value": "Lightning"
-        },
-        {
-          "label": "HP",
-          "value": "70"
-        },
-        {
-          "label": "Stage",
-          "value": "Basic"
-        },
-        {
-          "label": "Attack 1",
-          "value": "[L] Angry Bolt (10+)\nThis attack does 10 more damage for each damage counter on this Pokémon."
-        },
-        {
-          "label": "Weakness",
-          "value": "Fx2"
-        },
-        {
-          "label": "Retreat Cost",
-          "value": "1"
         }
       ]
     },
