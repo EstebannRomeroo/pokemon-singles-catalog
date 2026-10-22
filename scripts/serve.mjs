@@ -12,7 +12,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const BASE = 'https://tcgcsv.com';
 // tcgcsv.com answers 401 to the default Node fetch User-Agent.
-const HEADERS = { 'User-Agent': 'pokemon-singles-catalog' };
+const HEADERS = { 'User-Agent': 'singles' };
 const ROOT = fileURLToPath(new URL('../', import.meta.url));
 
 // Only these shapes are forwarded. Without this the server would be an open proxy.

@@ -3,7 +3,7 @@ import { GAMES, cardKey, validateConfig, validateSingles, buildItems, catalogCha
 
 const BASE = 'https://tcgcsv.com';
 // tcgcsv.com answers 401 to the default Node fetch User-Agent.
-const HEADERS = { 'User-Agent': 'pokemon-singles-catalog' };
+const HEADERS = { 'User-Agent': 'singles' };
 const root = new URL('../', import.meta.url);
 const readJson = async (name) => JSON.parse(await readFile(new URL(name, root), 'utf8'));
 
