@@ -40,6 +40,11 @@ test('setCartQty clamps to stock and removes the line at zero', () => {
   assert.deepEqual(setCartQty(cart, item(), -3), {});
 });
 
+test('setCartQty keeps the line in place so it does not jump while editing', () => {
+  const cart = { 'pokemon-716513': 1, 'magic-1': 1 };
+  assert.deepEqual(Object.keys(setCartQty(cart, item(), 2)), ['pokemon-716513', 'magic-1']);
+});
+
 test('reconcileCart drops sold-out or unknown cards and clamps to current stock', () => {
   const items = [item({ qty: 1 }), item({ id: 'magic-1', qty: 4 })];
   const cart = { 'pokemon-716513': 3, 'magic-1': 2, 'gone-9': 1, 'magic-bad': 'x' };

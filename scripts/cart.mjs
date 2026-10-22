@@ -11,11 +11,13 @@ export function addToCart(cart, item) {
   return { cart: { ...cart, [item.id]: current + 1 }, added: true };
 }
 
-// Sets a line to an exact quantity; zero or less removes it.
+// Sets a line to an exact quantity; zero or less removes it. Spreading the whole
+// cart keeps the line where it was, so it does not jump to the end while edited.
 export function setCartQty(cart, item, qty) {
-  const { [item.id]: _, ...rest } = cart;
   const clamped = Math.min(Math.trunc(qty), item.qty);
-  return clamped > 0 ? { ...rest, [item.id]: clamped } : rest;
+  if (clamped > 0) return { ...cart, [item.id]: clamped };
+  const { [item.id]: _, ...rest } = cart;
+  return rest;
 }
 
 // A stored cart can outlive the catalog it was built from: cards sell out, stock

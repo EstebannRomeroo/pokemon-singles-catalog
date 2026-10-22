@@ -284,9 +284,7 @@
   </div>
 </dialog>
 <p class="toast" id="toast" role="status"></p>
-<script type="module">
-  // Cart rules live in a pure module so the test runner covers them.
-  import { addToCart, setCartQty, reconcileCart, cartLines, cartCount, orderMessage } from './scripts/cart.mjs';
+<script>
   // WhatsApp Business short link (Settings → Business tools → Short link). It hides the number from the page;
   // buyers still see it once they write. Empty = no "Lo quiero" button.
   const WHATSAPP_LINK = '';
@@ -507,6 +505,10 @@
      it across visits on this device; without storage it still works for the visit. */
   const CART_KEY = 'cart-v1';
   let cart = {};
+  // Cart rules live in a pure module so the test runner covers them. It loads on its
+  // own: if it fails, the catalog still renders, only without cart buttons.
+  let cartLib = null;
+  const cartReady = import('./scripts/cart.mjs').then((lib) => { cartLib = lib; }, () => {});
   const itemById = (id) => items.find((i) => i.id === id);
 
   function readStoredCart() {
@@ -530,18 +532,35 @@
   }
 
   function cartButton(item) {
+    if (!cartLib) return '';
     const button = el('button', { type: 'button', className: 'add-cart' });
     button.dataset.id = item.id;
     button.addEventListener('click', () => {
-      const result = addToCart(cart, item);
+      const result = cartLib.addToCart(cart, item);
       if (result.added) saveCart(result.cart);
     });
     syncCartButton(button);
     return button;
   }
 
+  // Every change redraws the list, which drops the focused button. Put focus back on
+  // the same control of the same line, or on the line that took its place when it
+  // was removed, so keyboard and screen reader users keep their position.
+  function changeLine(item, qty, action) {
+    const index = Object.keys(cart).indexOf(item.id);
+    saveCart(cartLib.setCartQty(cart, item, qty));
+    const lines = [...$('cart-list').children];
+    const same = lines.find((li) => li.dataset.id === item.id);
+    const target = same?.querySelector(`[data-action="${action}"]:not(:disabled)`)
+      ?? same?.querySelector('button:not(:disabled)')
+      ?? lines[Math.min(index, lines.length - 1)]?.querySelector('button:not(:disabled)')
+      ?? $('cart-close');
+    target.focus();
+  }
+
   function cartLine({ item, qty, subtotal }) {
     const li = el('li', { className: 'cart-line' });
+    li.dataset.id = item.id;
     const thumb = item.image ? el('img', { className: 'cart-thumb', src: item.image, alt: '', loading: 'lazy', width: 48, height: 67 }) : el('span', { className: 'cart-thumb' });
     const text = el('div', { className: 'cart-text' });
     text.append(
@@ -551,15 +570,17 @@
     );
     const step = el('div', { className: 'stepper' });
     const less = el('button', { type: 'button' }, '−');
+    less.dataset.action = 'less';
     less.setAttribute('aria-label', `Una copia menos de ${item.name}`);
-    less.addEventListener('click', () => saveCart(setCartQty(cart, item, qty - 1)));
+    less.addEventListener('click', () => changeLine(item, qty - 1, 'less'));
     const more = el('button', { type: 'button', disabled: qty >= item.qty }, '+');
+    more.dataset.action = 'more';
     more.setAttribute('aria-label', `Una copia más de ${item.name}`);
-    more.addEventListener('click', () => saveCart(setCartQty(cart, item, qty + 1)));
+    more.addEventListener('click', () => changeLine(item, qty + 1, 'more'));
     step.append(less, el('output', {}, String(qty)), more);
     const remove = el('button', { type: 'button', className: 'cart-remove' }, 'Quitar');
     remove.setAttribute('aria-label', `Quitar ${item.name} del carrito`);
-    remove.addEventListener('click', () => saveCart(setCartQty(cart, item, 0)));
+    remove.addEventListener('click', () => changeLine(item, 0, 'remove'));
     const side = el('div', { className: 'cart-side' });
     side.append(el('span', { className: 'cart-sub' }, cop.format(subtotal)), step, remove);
     li.append(thumb, text, side);
@@ -567,8 +588,9 @@
   }
 
   function renderCart() {
-    const lines = cartLines(cart, items);
-    const count = cartCount(cart);
+    if (!cartLib) return;
+    const lines = cartLib.cartLines(cart, items);
+    const count = cartLib.cartCount(cart);
     $('cart-open').hidden = count === 0;
     $('cart-count').textContent = String(count);
     $('cart-open').setAttribute('aria-label', `Ver carrito: ${plural(count, 'carta', 'cartas')}`);
@@ -586,10 +608,12 @@
   // A click on the dimmed area outside the panel closes it.
   cartDialog.addEventListener('click', (e) => { if (e.target === cartDialog) cartDialog.close(); });
   $('cart-clear').addEventListener('click', () => {
-    if (confirm('¿Vaciar el carrito?')) saveCart({});
+    if (!confirm('¿Vaciar el carrito?')) return;
+    saveCart({});
+    $('cart-close').focus();
   });
   $('cart-copy').addEventListener('click', async () => {
-    const text = orderMessage(cartLines(cart, items), cop.format);
+    const text = cartLib.orderMessage(cartLib.cartLines(cart, items), cop.format);
     try {
       await navigator.clipboard.writeText(text);
       $('cart-fallback').hidden = true;
@@ -712,10 +736,11 @@
 
   fetch('catalog.json')
     .then((res) => { if (!res.ok) throw new Error(res.status); return res.json(); })
-    .then((catalog) => {
+    .then(async (catalog) => {
       items = catalog.items;
       // Before the first render, so every card button already shows its cart state.
-      saveCart(reconcileCart(readStoredCart(), items));
+      await cartReady;
+      if (cartLib) saveCart(cartLib.reconcileCart(readStoredCart(), items));
       const date = new Date(catalog.generatedAt).toLocaleDateString('es-CO', { dateStyle: 'long' });
       $('updated').textContent = `Precios en pesos colombianos · actualizados el ${date}`;
       renderTabs();

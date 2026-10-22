@@ -12,8 +12,10 @@ Order channel: copy only (user choice, 2026-10-22). The cart builds the text and
 
 ## Tasks
 - [x] T1 — cart rules with tests, RED observed (module missing) then GREEN 9/9 (route: inline)
-- [x] T2 — cart UI in index.html (route: inline; parent already held index.html)
+- [x] T2 — cart UI in index.html (route: inline; parent already held index.html) — commit bb608da, native review approved
+- [x] T3 — review follow-ups: keep keyboard focus after cart edits; load cart.mjs separately so a failure only hides the cart; keep a line in place when its quantity changes (bug found while verifying, RED then GREEN) (route: inline)
 
 ## Checks
-- `npm test`: cart 9/9; the 3 logo/favicon failures predate this work.
+- `npm test`: cart 10/10; the 3 logo/favicon failures predate this work.
 - Headless Chromium at 390px and 1280px: stock cap disables the button, badge counts copies, total and copied text correct, minus button updates, cart survives reload, no page errors.
+- T3: focus stays on the same line's control, moves to the next line after a removal, and to the close button when the cart empties; with cart.mjs blocked the catalog renders all 230 cards without cart buttons.
