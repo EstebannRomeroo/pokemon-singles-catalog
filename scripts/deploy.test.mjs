@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { idsOf, syncReport, deployMessage, parseChangedPaths, parsePendingCommits, decideAction } from './deploy.mjs';
+import { idsOf, syncReport, deployMessage, parseChangedPaths, parsePendingCommits, decideAction, generatedChanges } from './deploy.mjs';
 
 // The whole point of the script is to tell the user what is about to be published,
 // so the sync report is the piece that must never lie.
@@ -117,3 +117,11 @@ test('decideAction both commits and publishes when work exists on both sides', (
   assert.deepEqual(decideAction(['singles.json'], ['5dd90a4 feat: x']), { publish: true, commit: true });
 });
 
+
+// Before pulling, only regenerated output may be dropped: catalog.json is rebuilt
+// right after, while singles.json holds the user's edits and must survive.
+test('generatedChanges picks only catalog.json among changed paths', () => {
+  assert.deepEqual(generatedChanges(['singles.json', 'catalog.json', 'admin.html']), ['catalog.json']);
+  assert.deepEqual(generatedChanges(['singles.json']), []);
+  assert.deepEqual(generatedChanges([]), []);
+});

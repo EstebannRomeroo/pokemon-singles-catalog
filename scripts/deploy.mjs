@@ -77,6 +77,11 @@ export function decideAction(changedPaths, pendingCommits) {
   };
 }
 
+// Files this script regenerates itself. They are safe to drop before a pull,
+// which avoids a pointless conflict with the daily price Action's catalog.json.
+const GENERATED = ['catalog.json'];
+export const generatedChanges = (paths) => paths.filter((path) => GENERATED.includes(path));
+
 const git = (...args) => execFileSync('git', args, { cwd: ROOT, encoding: 'utf8' });
 const readJson = async (file) => JSON.parse(await readFile(new URL(`../${file}`, import.meta.url), 'utf8'));
 
@@ -87,6 +92,39 @@ async function main() {
   if (branch !== 'main') {
     console.error(`Estás en la rama "${branch}", no en main. Publicar solo desde main.`);
     process.exit(1);
+  }
+
+  // Bring in what GitHub already has (a pull request merged on the web, the daily
+  // price Action) before committing anything. Without this the final push is
+  // rejected as non-fast-forward after the user already confirmed the publish.
+  git('fetch', 'origin', branch);
+  const behind = Number(git('rev-list', '--count', `HEAD..origin/${branch}`).trim());
+  if (behind > 0) {
+    console.log(`Trayendo ${plural(behind, 'cambio', 'cambios')} de GitHub…`);
+    const generated = generatedChanges(parseChangedPaths(git('status', '--porcelain')));
+    if (generated.length) git('checkout', '--', ...generated);
+    let pulled = true;
+    try {
+      // --autostash keeps uncommitted singles.json edits aside and re-applies them.
+      git('pull', '--rebase', '--autostash', 'origin', branch);
+    } catch {
+      pulled = false;
+    }
+    // A re-applied stash can conflict without failing the pull, so check both.
+    const conflicts = git('diff', '--name-only', '--diff-filter=U').trim();
+    if (!pulled || conflicts) {
+      console.error('\nNo se pudieron traer los cambios de GitHub sin conflictos. No se publicó nada.');
+      if (conflicts) {
+        // The pull succeeded; re-applying the user's own edits is what clashed.
+        // Those edits are still in the stash, so nothing is lost.
+        console.error(`  Tú y GitHub cambiaron lo mismo en: ${conflicts.split('\n').join(', ')}`);
+        console.error('  Tus cambios siguen guardados (git stash list). Abre el archivo, deja los valores correctos,');
+        console.error('  borra las marcas <<<<<<< ======= >>>>>>>, corre git stash drop y vuelve a correr npm run deploy.');
+      } else {
+        console.error('  Revisa con git status. Si quedó un rebase a medias, git rebase --abort lo deshace.');
+      }
+      process.exit(1);
+    }
   }
 
   // Two independent signals. `git status` sees only the working tree; a commit
