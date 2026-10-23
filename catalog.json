@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T13:44:00.254Z",
+  "generatedAt": "2026-10-23T14:09:06.055Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -4355,48 +4355,6 @@
         {
           "label": "Rules Text Contains",
           "value": "When this creature enters, choose one —\n• Puff Piece — Put a +1/+1 counter on each of up to two target creatures.\n• Investigative Journalism — Return target creature card with mana value 2 or less from your graveyard to your hand."
-        }
-      ]
-    },
-    {
-      "id": "magic-651385",
-      "game": "magic",
-      "name": "Flash Thompson, Spider-Fan",
-      "set": "Marvel's Spider-Man",
-      "number": "7",
-      "rarity": "U",
-      "image": "https://tcgplayer-cdn.tcgplayer.com/product/651385_400w.jpg",
-      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/651385_in_1000x1000.jpg",
-      "variant": "Normal",
-      "priceVariant": "Normal",
-      "condition": "NM",
-      "language": "EN",
-      "qty": 1,
-      "usd": 0.19,
-      "priceCop": 2000,
-      "manual": false,
-      "tcgplayerUrl": "https://www.tcgplayer.com/product/651385/magic-marvels-spider-man-flash-thompson-spider-fan",
-      "priceUpdatedAt": "2026-10-22T20:06:32+0000",
-      "details": [
-        {
-          "label": "Creature Type or Sub Type",
-          "value": "Legendary Creature — Human Citizen"
-        },
-        {
-          "label": "P",
-          "value": "2"
-        },
-        {
-          "label": "T",
-          "value": "2"
-        },
-        {
-          "label": "Rules Text Contains",
-          "value": "Flash\nWhen Flash Thompson enters, choose one or both —\n• Heckle — Tap target creature.\n• Hero Worship — Untap target creature."
-        },
-        {
-          "label": "Flavor",
-          "value": "\"No one cares about your Spider-Man obsession, Flash.\"\n—Liz Allan"
         }
       ]
     },
