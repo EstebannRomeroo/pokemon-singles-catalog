@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-23T14:09:06.055Z",
+  "generatedAt": "2026-10-23T14:12:16.579Z",
   "usdToCop": 3200,
   "items": [
     {
@@ -2241,40 +2241,6 @@
         {
           "label": "Flavor",
           "value": "Cinders are drawn to any heat, at any cost."
-        }
-      ]
-    },
-    {
-      "id": "magic-671010",
-      "game": "magic",
-      "name": "Meek Attack",
-      "set": "Lorwyn Eclipsed",
-      "number": "151",
-      "rarity": "M",
-      "image": "https://tcgplayer-cdn.tcgplayer.com/product/671010_400w.jpg",
-      "imageLarge": "https://tcgplayer-cdn.tcgplayer.com/product/671010_in_1000x1000.jpg",
-      "variant": "Normal",
-      "priceVariant": "Normal",
-      "condition": "NM",
-      "language": "ES",
-      "qty": 1,
-      "usd": 0.39,
-      "priceCop": 2000,
-      "manual": false,
-      "tcgplayerUrl": "https://www.tcgplayer.com/product/671010/magic-lorwyn-eclipsed-meek-attack",
-      "priceUpdatedAt": "2026-10-22T20:06:32+0000",
-      "details": [
-        {
-          "label": "Creature Type or Sub Type",
-          "value": "Enchantment"
-        },
-        {
-          "label": "Rules Text Contains",
-          "value": "1R: You may put a creature card with total power and toughness 5 or less from your hand onto the battlefield. That creature gains haste. At the beginning of the next end step, sacrifice that creature."
-        },
-        {
-          "label": "Flavor",
-          "value": "\"Charge! Aim for the cuticles!\""
         }
       ]
     },
